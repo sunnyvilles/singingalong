@@ -1,7 +1,15 @@
 TheOtherSongClinic::Application.routes.draw do
-  resources :articles
+  #get "users/edit"
 
-  get "home/index"
+  #get "users/new"
+
+  root :to => 'access#login'
+
+  #get "access/menu"
+
+  resources :articles
+match ':controller(/:action(/:id(.:format)))'
+  #get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
