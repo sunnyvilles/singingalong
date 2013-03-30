@@ -3,12 +3,12 @@ TheOtherSongClinic::Application.routes.draw do
 
   #get "users/new"
 
-  root :to => 'access#login'
+  root :to => 'users#index'
 
   #get "access/menu"
 
   resources :articles
-match ':controller(/:action(/:id(.:format)))'
+	match ':controller(/:action(/:id(.:format)))'
   #get "home/index"
 
   # The priority is based upon order of creation:
@@ -21,6 +21,11 @@ match ':controller(/:action(/:id(.:format)))'
 
 	match '/register' => 'home#register', :via => 'get'
 	match '/register' => 'home#register_user', :via => 'post'
+
+
+	# Static pages
+	match '/contact-us' => 'static#contact_us'
+	# Static pages end
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

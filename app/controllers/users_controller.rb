@@ -5,7 +5,8 @@ layout 'user'
   before_filter :confirm_logged_in, :except => [:index,:new, :create]
   
   def index
-    render(:controller=>'access', :action => 'menu')
+		@page_title = "Home"
+    render(:template=>'home/index')
   end
   
 

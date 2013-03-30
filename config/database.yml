@@ -25,7 +25,7 @@ test:
   pool: 5
   username: root
   password:
-  
+
 
 production:
   adapter: mysql2
@@ -35,4 +35,3 @@ production:
   pool: 5
   username: tos_production
   password: kjdhfkjhd
-
