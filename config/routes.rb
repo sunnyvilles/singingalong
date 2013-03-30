@@ -8,7 +8,6 @@ TheOtherSongClinic::Application.routes.draw do
   #get "access/menu"
 	namespace :admin do
 		resources :articles
-		#match ':controller(/:action(/:id(.:format)))'
 	end
 
   #get "home/index"
@@ -19,7 +18,7 @@ TheOtherSongClinic::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-	match 'article/:id' => 'web/articles#show'
+	match 'articles/:id' => 'web/articles#show'
 
 
 	# Static pages
