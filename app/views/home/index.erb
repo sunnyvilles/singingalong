@@ -1,0 +1,16 @@
+Welcome to home page.
+<div>
+	<h2>Recent Activity</h2>
+	<ul>
+<%@recent_activity.each{|activity|%>
+		<li>
+			<div><%=activity[:title]%></div>
+			<div><%=activity[:content]%></div>
+			
+		</li>
+<%}%>
+	</ul>
+</div>
+
+		
+	
