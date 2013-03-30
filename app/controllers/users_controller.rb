@@ -6,6 +6,7 @@ layout 'user'
   
   def index
 		@page_title = "Home"
+		@recent_activity = Article.get_recent_activity
     render(:template=>'home/index')
   end
   
