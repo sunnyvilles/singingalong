@@ -6,9 +6,11 @@ TheOtherSongClinic::Application.routes.draw do
   root :to => 'users#index'
 
   #get "access/menu"
+	namespace :admin do
+		resources :articles
+		#match ':controller(/:action(/:id(.:format)))'
+	end
 
-  resources :articles
-	match ':controller(/:action(/:id(.:format)))'
   #get "home/index"
 
   # The priority is based upon order of creation:
@@ -17,10 +19,7 @@ TheOtherSongClinic::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-	match 'article/:id' => 'articles#show'
-
-	match '/register' => 'home#register', :via => 'get'
-	match '/register' => 'home#register_user', :via => 'post'
+	match 'article/:id' => 'web/articles#show'
 
 
 	# Static pages
