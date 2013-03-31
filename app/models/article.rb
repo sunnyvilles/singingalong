@@ -1,5 +1,14 @@
 class Article < ActiveRecord::Base
   attr_accessible :content, :name, :title
+  
+	#to search articles using name , title , content
+
+	scope :search_by_name, lambda {|query| where( ["name LIKE ?", "%#{query}%"] )}
+	scope :search_by_title, lambda {|query| where( ["title LIKE ?", "%#{query}%"] )}
+	scope :search_by_content, lambda {|query| where( ["content LIKE ?", "%#{query}%"] )}
+
+
+
 	def self.get_recent_activity
 		activity = [{
 				:title => "Feed 1",
