@@ -1,6 +1,10 @@
 class Article < ActiveRecord::Base
-  attr_accessible :content, :name, :title
   
+has_and_belongs_to_many :doctors
+  attr_accessible :content, :name, :title
+
+	
+
 	#to search articles using name , title , content
 
 	scope :search_by_name, lambda {|query| where( ["name LIKE ?", "%#{query}%"] )}
