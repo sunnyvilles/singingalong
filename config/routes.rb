@@ -1,4 +1,6 @@
 TheOtherSongClinic::Application.routes.draw do
+  resources :doctors
+
   #get "users/edit"
 
   #get "users/new"
