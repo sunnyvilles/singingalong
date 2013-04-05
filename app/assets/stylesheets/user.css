@@ -1,0 +1,153 @@
+/* 
+    Document   : user
+    Created on : Apr 6, 2013, 12:16:11 AM
+    Author     : abhimanyusaxena
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/* Start RESET CSS */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video { margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display:block; }
+
+ul, ol { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {}
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; outline:none; }
+/* END RESET CSS */
+
+
+/*TYPOGRAPHY CSS*/
+/*
+ * minimal base styles
+ */
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+you'll want to define those yourself. */
+h1,h2,h3,h4,h5,h6 { font-weight: bold;text-align: left;padding:0 0 8px;color:#CCCCCC; line-height:1em }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a{color: #fff;text-decoration: none}
+
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { outline: none }
+a:hover { color:#fff; }
+
+ol { list-style-type: decimal; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+
+pre {
+  padding: 15px;
+
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: top; }
+
+/* hand cursor on clickable input elements */
+input[type=button], input[type=submit], button { cursor: pointer; }
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+/* make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+/**/
+/*COMMON CSS START*/
+.clearBoth{
+	clear: both;
+}
+/*COMMON CSS END*/
+
+
+/* NAVIGATION CSS START*/
+.nav-top-el > a{
+	color: #000;
+	cursor: pointer;
+}
+.nav-top-el{
+	display: inline-block;
+	padding: 10px;
+	position: relative;
+}
+.nav-top-el:hover .nav-list{
+	display: block;
+}
+.nav-list{
+	display: none;
+	position: absolute;
+	background: #000;
+	color: #ffd;
+	width: 200px;
+}
+
+.nav-list > a{
+	padding: 10px;
+}
+/* NAVIGATION CSS END*/
+
+

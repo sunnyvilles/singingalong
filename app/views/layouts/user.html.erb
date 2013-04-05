@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>The Other Song | <%= @page_title || 'User Area' %></title>
     <meta name="author" content="get _ going">
-    <%#= stylesheet_link_tag('public', 'user', :media => 'all') %>
+    <%= stylesheet_link_tag('public', 'user', :media => 'all') %>
     <%= javascript_include_tag('application') %>
 
 		<%if request.env['HTTP_USER_AGENT'].downcase.match(/android|iphone|ipad|ipod/)%>
