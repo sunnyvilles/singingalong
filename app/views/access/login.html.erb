@@ -1,5 +1,5 @@
 
-<form action="access/attempt_login" method="post">
+<form action="attempt_login" method="post">
 	<table>
 		<tr>
 			<td><label for="username">UserName/Email:</label></td>
@@ -15,7 +15,8 @@
     </tr>
 		<tr>
 			<td></td>
-			<td><a href="users/new">Create Account</a></td>
+			
+			<td><%= link_to("Create users", {:controller => 'users' ,:action => 'new'}, :class => 'create-account') %></td>
 		</tr>
 	</table>
 </form>
