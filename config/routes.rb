@@ -24,7 +24,14 @@ TheOtherSongClinic::Application.routes.draw do
 
 
 	# Static pages
+
 	match '/contact-us' => 'static#contact_us'
+  get "about_us/:pages" => 'static#about_us' 
+  get "events/:pages" => "static#events"
+  get "general_information/:pages" => "static#general_information"
+  get "knowledge_center/:pages" => "static#knowledge_center"
+  get "latest_at_the_other_song/:pages" => "static#latest_at_the_other_song"
+  get "our_edge/:pages" => "static#our_edge"
 	# Static pages end
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
