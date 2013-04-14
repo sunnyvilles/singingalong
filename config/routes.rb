@@ -1,18 +1,15 @@
 TheOtherSongClinic::Application.routes.draw do
-  resources :doctors
-
   #get "users/edit"
 
   #get "users/new"
 
   root :to => 'users#index'
 
-  #get "access/menu"
 	namespace :admin do
 		resources :articles
+		resources :doctors
 	end
 
-  #get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -25,13 +22,24 @@ TheOtherSongClinic::Application.routes.draw do
 
 	# Static pages
 
-	match '/contact-us' => 'static#contact_us'
-  get "about_us/:pages" => 'static#about_us' 
-  get "events/:pages" => "static#events"
-  get "general_information/:pages" => "static#general_information"
-  get "knowledge_center/:pages" => "static#knowledge_center"
-  get "latest_at_the_other_song/:pages" => "static#latest_at_the_other_song"
-  get "our_edge/:pages" => "static#our_edge"
+	get '/contact-us' => 'static#contact_us'
+
+	get '/about-us' => 'static#about_us'
+  get '/about-us/:pages' => 'static#about_us'
+
+	get '/our-edge' => 'static#our_edge'
+	get '/our-edge/:pages' => 'static#our_edge'
+
+	get '/knowledge-center' => 'static#knowledge_center'
+	get '/knowledge-center/:pages' => 'static#knowledge_center'
+
+	get '/events' => 'static#events'
+  get '/events/:pages' => 'static#events'
+
+  #get "general_information/:pages" => "static#general_information"
+  #get "knowledge_center/:pages" => "static#knowledge_center"
+  #get "latest_at_the_other_song/:pages" => "static#latest_at_the_other_song"
+  
 	# Static pages end
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -67,11 +75,11 @@ TheOtherSongClinic::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
- namespace :admin do
+ #namespace :admin do
 	 # Directs /admin/products/* to Admin::ProductsController
 	 # (app/controllers/admin/products_controller.rb)
-	 resources :products
- end
+	 #resources :products
+ #end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
@@ -82,5 +90,5 @@ TheOtherSongClinic::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  match ':controller(/:action(/:id(.:format)))'
+  #match ':controller(/:action(/:id(.:format)))'
 end

@@ -150,4 +150,15 @@ button {  width: auto; overflow: visible; }
 }
 /* NAVIGATION CSS END*/
 
+/* Activity CSS*/
+.activityList {
+	border: 1px solid black;
+}
 
+.activity{
+	border-bottom: 1px dotted black;
+}
+.activity:hover{
+	background: #00ddff;
+}
+/* Activity CSS End*/

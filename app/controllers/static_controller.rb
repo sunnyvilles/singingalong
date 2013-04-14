@@ -4,7 +4,7 @@ class StaticController < ApplicationController
 	end		
 		
 	def about_us
-		render ('static/about_us/' + params[:pages])	
+		render ('static/about_us/' + params[:pages]) and return if params[:pages].present?
 	end
 		
 	def events
@@ -16,7 +16,8 @@ class StaticController < ApplicationController
 	end
 
 	def knowledge_center
-		render ('static/knowledge_center/' + params[:pages])
+		render 'web/articles/article_list' and return if params[:pages].present? and params[:pages]=="articles"
+		render ('static/knowledge_center/' + params[:pages]) and return if params[:pages].present?
 	end
 
 	def latest_at_the_other_song
@@ -24,7 +25,7 @@ class StaticController < ApplicationController
 	end
 		
 	def our_edge
-		render ('static/our_edge/' + params[:pages])	
+		render ('static/our_edge/' + params[:pages]) and return if params[:pages].present?
 	end
 	
 

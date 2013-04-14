@@ -1,13 +1,12 @@
-Welcome to home page.
-<div>
+<div class="activityCt">
 	<h2>Recent Activity</h2>
-	<ul>
-<%@recent_activity.each{|activity|%>
-		<li>
-			<div><%=activity[:title]%></div>
-			<div><%=activity[:content]%></div>			
-		</li>
-<%}%>
+	<ul class="activityList">
+		<%@recent_activity.each{|activity|%>
+		<li class="activity">
+					<div><%=activity[:title]%></div>
+					<div><%=activity[:content]%></div>
+				</li>
+		<%}%>
 	</ul>
 </div>
 
