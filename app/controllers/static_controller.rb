@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+	layout 'application'
 	def contact_us
 		
 	end		
