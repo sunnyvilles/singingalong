@@ -2,9 +2,16 @@
 <html>
 <head>
   <title>TheOtherSongClinic</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   
   <%= csrf_meta_tags %>
+
+<%if request.env['HTTP_USER_AGENT'].downcase.match(/android|iphone|ipad|ipod/)%>
+			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+			<script type="text/javascript"  src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<%end%>
+
+  
 </head>
 <body>
 <%=render :partial=> "home/shared/menu"%>
