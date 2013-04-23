@@ -5,9 +5,14 @@ layout 'user'
   before_filter :confirm_logged_in, :except => [:index,:new, :create]
   
   def index
+
+    if mobile_device?
+      render(:template=>'home/index_mobile' , :layout => false)
+    else
 		@page_title = "Home"
 		@recent_activity = Article.get_recent_activity
     render(:template=>'home/index')
+    end
   end
   
 

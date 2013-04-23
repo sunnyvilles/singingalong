@@ -1,5 +1,7 @@
 class AccessController < ApplicationController
 
+
+
 layout 'user'
 
   before_filter :confirm_logged_in, :except => [:login, :attempt_login]
