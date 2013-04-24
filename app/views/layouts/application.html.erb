@@ -11,8 +11,9 @@
 
 <% if mobile_device? %>
 <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
-    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    
 <%end%>
 
  
@@ -21,46 +22,14 @@
 <body>
 
 <% if mobile_device? %>
-<div data-role="page" id="page">
-          <%= yield %>
- 			<div data-role="footer">
-                <div data-role="navbar">
-                    <ul>
-                        <li>
-                            <a data-role="button">Academy</a>
-                        </li>
-                        <li>
-                            <a data-role="button">Clinic</a>
-                        </li>
-                        <li>
-                            <a data-role="button">Read Up</a>
-                        </li>
-                        <li>
-                            <a data-role="button">Contacts</a>
-                        </li>
-                        <li>
-                            <a data-role="button">Search</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+<%=render :partial=> "shared/mobile_header"%>               
+ <%= yield %>			
+<%=render :partial=> "shared/mobile_footer"%>
     </div>
 <%else%>
 <%=render :partial=> "home/shared/menu"%>
 <%= yield %>
 <%end%>
-
-<p>
-  <% if mobile_device? %>
-    <%= link_to "Full Site", :mobile => 0 %>
-  <% else %>
-    <%= link_to "Mobile Site", :mobile => 1 %>
-  <% end %>
-</p>
-
-<div>user agent : <%= request.env['HTTP_USER_AGENT'] %> </div>
-<%= javascript_include_tag "application" %>
 
 </body>
 </html>

@@ -36,6 +36,9 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/events' => 'static#events'
   get '/events/:pages' => 'static#events'
 
+  get '/general-information' => 'static#general_information'
+  get '/general-information/:pages' => 'static#general_information'
+
   #get "general_information/:pages" => "static#general_information"
   #get "knowledge_center/:pages" => "static#knowledge_center"
   #get "latest_at_the_other_song/:pages" => "static#latest_at_the_other_song"

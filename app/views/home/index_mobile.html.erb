@@ -26,16 +26,17 @@
                 <a data-role="button" href="#page1" data-rel="page">back</a>
             </div>
             <div data-role="content">
-                <div class="div-widget">
+                
                     <ul data-role="listview" data-inset="true" data-theme="c">
-                        <li>About Us</li>
-                        <li>Our Edge</li>
-                        <li>Knowledge Center</li>
-                        <li>Events</li>
-                        <li>General Information</li>
-                        <li>&nbsp;Latest At The Other Song</li>
+
+                      <li><%= link_to("About Us", {:controller => 'static' ,:action => 'about_us'}) %></li>
+                      <li><%= link_to("Our Edge", {:controller => 'static' ,:action => 'our_edge'}) %></li>
+                      <li><%= link_to("Knowledge Center", {:controller => 'static' ,:action => 'knowledge_center'}) %></li>
+                      <li><%= link_to("Events", {:controller => 'static' ,:action => 'events'}) %></li>
+                      <li><%= link_to("General Information", {:controller => 'static' ,:action => 'general_information'}) %></li>
+                      
                     </ul>
-                </div>
+                
             </div>
            </div>
              </div>  

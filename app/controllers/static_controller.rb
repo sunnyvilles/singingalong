@@ -13,7 +13,7 @@ class StaticController < ApplicationController
 	end
 	
 	def general_information
-		render ('static/general_information/' + params[:pages])
+		render ('static/general_information/' + params[:pages])  and return if params[:pages].present?
 	end
 
 	def knowledge_center

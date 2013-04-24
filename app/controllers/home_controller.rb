@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 	def register_user
 		
 	end
+
+	def index_mobile
+	end
 end
