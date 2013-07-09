@@ -1,0 +1,137 @@
+<style>
+	footer{
+		background-color: #ddd;
+		border-top: 1px groove #ddd;
+		padding-top: 20px;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+	}
+	.floatLeft{
+		float: left;
+	}
+
+	.floatRight{
+		float: right;
+	}
+	.leftSection{
+		float: left;
+		width: 580px;
+	}
+	.rightSection{
+		float: right;
+	}
+	.ftSection{
+		float: left;
+		margin-right: 40px;
+	}
+
+
+	.ftSection ul{
+		margin-top: 20px;
+		list-style: disc;
+		margin-left: 20px;
+	}
+	.clear{
+		clear: both;
+	}
+	.footerCt{
+		width: 980px;
+		margin: auto;
+	}
+
+	.leftTopCt{
+		margin-bottom: 20px;
+	}
+	.footerTop{
+		padding: 10px;
+		border-bottom: 1px groove #ddd;
+	}
+	.leftSection{
+		border-right: 1px groove #ddd;
+	}
+
+	.footerBottom{
+		padding: 10px;
+		height: 20px;
+}
+</style>
+<footer>
+	<div class="footerCt">
+		<div class="footerTop">
+			<div class="leftSection">
+				<div class="leftTopCt">
+					<div class="clinicSection ftSection">
+						<%= t "footer.clinic" %>
+						<ul>
+							<li><%= t "footer.about" %></li>
+							<li><%= t "footer.edge" %></li>
+							<li><%= t "footer.kcenter" %></li>
+							<li><%= t "footer.ginformation" %></li>
+							<li><%= t "footer.events" %></li>
+							<li><%= t "footer.contactUs" %></li>
+						</ul>
+					</div>
+					<div class="academySection ftSection">
+						<%= t "footer.academy" %>
+						<ul>
+							<li><%= t "footer.about" %></li>
+							<li><%= t "footer.edge" %></li>
+							<li><%= t "footer.kcenter" %></li>
+							<li><%= t "footer.admissions" %></li>
+							<li><%= t "footer.satellitecenter" %></li>
+							<li><%= t "footer.research" %></li>
+							<li><%= t "footer.contactUs" %></li>
+						</ul>
+					</div>
+					<div class="linksSection">
+						<ul>
+							<li><%=  t "footer.downloads"%></li>
+							<li><%=  t "footer.links"%></li>
+							<li><%=  t "footer.research"%></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="socialLinks">
+				get Social with us on
+					<span>feed</span>
+					<span>twitter</span>
+					<span>facebook</span>
+				</div>
+			</div>
+			<div class="rightSection">
+			Give us your feedback
+				<form>
+					<table>
+						<tr>
+							<td>
+								<input type="text" name="name" size="50" placeholder="Name"></input>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="email" name="email" size="50" placeholder="Email"></input>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<textarea name="feedback" rows="5" cols="37" placeholder="Feedback"></textarea>
+							</td>
+						</tr>
+						<tr><td><input type="submit" value="Send"></input></td></tr>
+					</table>
+
+
+
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="footerBottom">
+			<span class="floatLeft">COpyright Etc</span>
+			<span class="floatRight">All RIght reserved</span>
+		</div>
+	</div>
+</footer>
