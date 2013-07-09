@@ -21,6 +21,7 @@ TheOtherSongClinic::Application.routes.draw do
 
 
 	# Static pages
+	get '/home' => 'static#home'
 
 	get '/contact-us' => 'static#contact_us'
 

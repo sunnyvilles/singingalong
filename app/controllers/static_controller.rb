@@ -1,5 +1,9 @@
 class StaticController < ApplicationController
 	layout 'application'
+	
+	def home
+		
+	end
 	def contact_us
 		
 	end		
