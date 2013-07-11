@@ -61,7 +61,7 @@ input, select { vertical-align:middle; outline:none; }
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
 you'll want to define those yourself. */
-h1,h2,h3,h4,h5,h6 { font-weight: bold;text-align: left;padding:0 0 8px;color:#CCCCCC; line-height:1em }
+/*h1,h2,h3,h4,h5,h6 { font-weight: bold;text-align: left;padding:0 0 8px;color:#CCCCCC; line-height:1em }*/
 
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a{color: #fff;text-decoration: none}
