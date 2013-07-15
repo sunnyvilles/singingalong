@@ -1,119 +1,3 @@
-<style>
-	footer{
-		background-color: #ddd;
-		border-top: 1px groove #ddd;
-		padding-top: 20px;
-		position: absolute;
-		top: 100%;
-		width: 100%;
-	}
-	.floatLeft{
-		float: left;
-	}
-
-	.floatRight{
-		float: right;
-	}
-	.leftSection{
-		float: left;
-		width: 500px;
-	}
-	.rightSection{
-		float: right;
-	}
-	.ftSection{
-		float: left;
-		margin-right: 40px;
-	}
-
-
-	.ftSection ul{
-		margin-top: 20px;
-		list-style: disc;
-		margin-left: 20px;
-	}
-	.ftSection ul li{
-		margin-bottom: 6px;
-		font-size: 12px;
-	}
-	.clear{
-		clear: both;
-	}
-	.footerCt{
-		width: 980px;
-		margin: auto;
-	}
-
-	.leftTopCt{
-		margin-bottom: 20px;
-	}
-	.footerTop{
-		padding: 10px;
-		border-bottom: 1px groove #ddd;
-	}
-	.leftSection{
-		border-right: 1px groove #ddd;
-	}
-
-	.footerBottom{
-		padding: 10px;
-		height: 20px;
-	}
-
-	.socialLinks{
-		float: right;
-		margin-right: 10px;
-	}
-	.linksSection{
-		float: left;
-		position: relative;
-		top: 62px;
-	}
-	.linksSection li{
-		margin-bottom: 15px;
-	}
-	.spriteIcon{
-		background: red;
-		display: inline-block;
-	}
-
-	.smlIcon{
-		height: 24px;
-		width: 24px;
-		position: relative;
-		top: 4px;
-	}
-	.feed{
-
-	}
-	.twitter{
-
-	}
-	.facebook{
-
-	}
-
-	.rightSection input{
-		height: 24px;
-		width: 400px;
-		margin-bottom: 10px;
-	}
-	.rightSection textarea{
-		width: 400px;
-		height: 80px
-	}
-	.rightSection input[type=submit]{
-		width: 80px;
-		float: right;
-		background: #888;
-		height: 36px;
-		font-size: 16px;
-		color: #fff;
-	}
-	.rightSection .feedback{
-		margin-bottom: 12px;
-	}
-</style>
 <footer>
 	<div class="footerCt">
 		<div class="footerTop">
@@ -122,31 +6,31 @@
 					<div class="clinicSection ftSection">
 						<h3><%= t "footer.clinic" %></h3>
 						<ul>
-							<li><%= t "footer.about" %></li>
-							<li><%= t "footer.edge" %></li>
-							<li><%= t "footer.kcenter" %></li>
-							<li><%= t "footer.ginformation" %></li>
-							<li><%= t "footer.events" %></li>
-							<li><%= t "footer.contactUs" %></li>
+							<li><a href=""><%= t "footer.about" %></a></li>
+							<li><a href=""><%= t "footer.edge" %></a></li>
+							<li><a href=""><%= t "footer.kcenter" %></a></li>
+							<li><a href=""><%= t "footer.ginformation" %></a></li>
+							<li><a href=""><%= t "footer.events" %></a></li>
+							<li><a href=""><%= t "footer.contactUs" %></a></li>
 						</ul>
 					</div>
 					<div class="academySection ftSection">
 						<h3><%= t "footer.academy" %></h3>
 						<ul>
-							<li><%= t "footer.about" %></li>
-							<li><%= t "footer.edge" %></li>
-							<li><%= t "footer.kcenter" %></li>
-							<li><%= t "footer.admissions" %></li>
-							<li><%= t "footer.satellitecenter" %></li>
-							<li><%= t "footer.research" %></li>
-							<li><%= t "footer.contactUs" %></li>
+							<li><a href=""><%= t "footer.about" %></a></li>
+							<li><a href=""><%= t "footer.edge" %></a></li>
+							<li><a href=""><%= t "footer.kcenter" %></a></li>
+							<li><a href=""><%= t "footer.admissions" %></a></li>
+							<li><a href=""><%= t "footer.satellitecenter" %></a></li>
+							<li><a href=""><%= t "footer.research" %></a></li>
+							<li><a href=""><%= t "footer.contactUs" %></a></li>
 						</ul>
 					</div>
 					<div class="linksSection">
 						<ul>
-							<li><%=  t "footer.downloads"%></li>
-							<li><%=  t "footer.links"%></li>
-							<li><%=  t "footer.research"%></li>
+							<li><a href=""><%=  t "footer.downloads"%></a></li>
+							<li><a href=""><%=  t "footer.links"%></a></li>
+							<li><a href=""><%=  t "footer.research"%></a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -160,7 +44,7 @@
 			</div>
 			<div class="rightSection">
 				<div class="feedback"><%= t "footer.givefeedback" %></div>
-				<form action="/submit-feedback">
+				<form action="/submit-feedback" method="POST">
 					<table>
 						<tr>
 							<td>

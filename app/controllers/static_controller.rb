@@ -1,8 +1,11 @@
 class StaticController < ApplicationController
 	layout 'application'
 	
-	def home
+	def academy
 		
+	end
+	def clinic
+
 	end
 	def contact_us
 		

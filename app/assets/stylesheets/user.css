@@ -57,7 +57,7 @@ input, select { vertical-align:middle; outline:none; }
 /*TYPOGRAPHY CSS*/
 /*
  * minimal base styles
- */
+*/
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
 you'll want to define those yourself. */
@@ -111,7 +111,7 @@ input:valid, textarea:valid   {  }
 .no-boxshadow input:invalid,
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 /*  j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #FF5E99; }
+/*a:link { -webkit-tap-highlight-color: #FF5E99; }*/
 
 /* make buttons play nice in IE:
    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
@@ -162,3 +162,121 @@ button {  width: auto; overflow: visible; }
 	background: #00ddff;
 }
 /* Activity CSS End*/
+
+/*Common CSS Rules*/
+.spriteIcon{
+	background: url("/images/sprite.png");
+	display: inline-block;
+}
+.feed{
+	background-position: -32px -22px;
+}
+.twitter{
+	background-position: -67px -22px;
+}
+.facebook{
+	background-position: -98px -22px;
+}
+
+/*Footer css*/
+footer{
+	background-color: #ddd;
+	border-top: 1px groove #ddd;
+	padding-top: 20px;
+	width: 100%;
+}
+.floatLeft{
+	float: left;
+}
+
+.floatRight{
+	float: right;
+}
+.leftSection{
+	float: left;
+	width: 500px;
+}
+.rightSection{
+	float: right;
+}
+.ftSection{
+	float: left;
+	margin-right: 40px;
+}
+
+
+.ftSection ul{
+	margin-top: 20px;
+	list-style: disc;
+	margin-left: 20px;
+}
+.ftSection ul li{
+	margin-bottom: 6px;
+	font-size: 14px;
+}
+.clear{
+	clear: both;
+}
+.footerCt{
+	width: 980px;
+	margin: auto;
+}
+
+.leftTopCt{
+	margin-bottom: 20px;
+}
+.footerTop{
+	border-bottom: 1px groove #ddd;
+}
+.leftSection{
+	border-right: 1px groove #ddd;
+}
+
+.footerBottom{
+	padding: 10px;
+	height: 20px;
+}
+
+.socialLinks{
+	float: right;
+	margin-right: 10px;
+}
+.linksSection{
+	float: left;
+	position: relative;
+	top: 62px;
+}
+.linksSection li{
+	margin-bottom: 15px;
+}
+
+
+.smlIcon{
+	height: 24px;
+	width: 24px;
+	position: relative;
+	top: 4px;
+}
+
+
+.rightSection input{
+	height: 24px;
+	width: 400px;
+	margin-bottom: 10px;
+}
+.rightSection textarea{
+	width: 400px;
+	height: 80px
+}
+.rightSection input[type=submit]{
+	width: 80px;
+	float: right;
+	background: #888;
+	height: 36px;
+	font-size: 16px;
+	color: #fff;
+}
+.rightSection .feedback{
+	margin-bottom: 12px;
+}
+/*footer css ends*/

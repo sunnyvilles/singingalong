@@ -1,3 +1,59 @@
+<style>
+	.header{
+		height: 60px;
+		border-top: 1px solid #525355;
+		background-image: -moz-linear-gradient(center top,#454648,#333);
+		background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#333),color-stop(1,#454648));
+		background-image: -webkit-linear-gradient(#454648,#333);
+		background-color: #454648;
+		-moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	}
+	.headerCt{
+		width: 980px;
+		margin: auto;
+	}
+	.headerCt .menuItems li{
+		display: inline;
+		color: white;
+	}
+
+	.headerCt .menuItems li.item{
+		margin: 20px;
+		height: 20px;
+		font-size: 22px;
+		display: inline-block;
+	}
+	.tosLogo{
+		display: inline-block;
+		background: red;
+		height: 56px;
+		width: 180px;
+	}
+
+	.contentWrap{
+		min-height: 400px;
+	}
+
+	.search{
+		height: 32px;
+		width: 128px;
+	}
+</style>
+<div class="header">
+	<div class="headerCt">
+		<span class="tosLogo floatLeft">TOS LOGO HERE</span>
+
+		<ul class="floatRight menuItems">
+			<li class="item"><a href="/clinic"><%= t "header.clinic" %></a></li>
+			<li class="item"><a href="/academy"><%= t "header.academy" %></a></li>
+			<li>Login</li>
+			<li><input type="text" class="search"></input></li>
+		</ul>
+	</div>
+</div>
+<!--
 <nav class="top-nav" data-role="navbar">
 	<ul class="nav">
 		<li class="nav-top-el">
@@ -19,7 +75,7 @@
 				<li class="nav-list-item"><a href="/our-edge/testimonials">Testimonials</a></li>
 			</ul>
 		</li>
-		
+
 		<li class="nav-top-el">
 			<a href="/knowledge-center">Knowledge Center</a>
 			<ul class="nav-list">
@@ -66,3 +122,4 @@
 	</ul>
 	<div class="clearBoth"></div>
 </nav>
+-->

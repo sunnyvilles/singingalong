@@ -20,11 +20,11 @@
 }
 
 .info {
-margin:0 auto;
-margin-top: 30%;
-padding:10px;
-width:;
-text-align: center;
+	margin:0 auto;
+	margin-top: 30%;
+	padding:10px;
+	width:;
+	text-align: center;
 }
 button {
 	text-align: center;
@@ -44,14 +44,14 @@ button {
 
 
 
- /* Prevents slides from flashing */
-    #slides {
-      display:none;
-      position:relative;
-    }
+/* Prevents slides from flashing */
+#slides {
+	display:none;
+	position:relative;
+}
 #slides .slidesjs-navigation {
-top:0%;
-bottom:0%;
+	top:0%;
+	bottom:0%;
   margin:10px 0 0 10px;
 }
 
@@ -71,19 +71,19 @@ a.slidesjs-next {
   position: absolute;
   margin-right:10px;
   clip:rect(0 96px 48px 48px);
-    top: 45%;
-    right: -30px;
-    z-index:999;
- /* background-position: -12px 0;*/
+	top: 45%;
+	right: -30px;
+	z-index:999;
+	/* background-position: -12px 0;*/
 }
 
-    a.slidesjs-previous {
+a.slidesjs-previous {
   position: absolute;
   margin-left:10px;
-    clip:rect(0 48px 48px 0);
-    top: 45%;
-    left: 10%;
-    z-index:999;
+	clip:rect(0 48px 48px 0);
+	top: 45%;
+	left: 10%;
+	z-index:999;
 }
 
 
