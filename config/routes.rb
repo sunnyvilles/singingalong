@@ -22,8 +22,10 @@ TheOtherSongClinic::Application.routes.draw do
 
 	# Static pages
 	get '/clinic' => 'static#clinic'
-	get '/academy' => 'static#academy'
+	get '/clinic/about-us' => 'static#clinic_about'
 
+	get '/academy' => 'static#academy'
+	get '/academy/about-us' => 'static#academy_about'
 	get '/contact-us' => 'static#contact_us'
 
 	get '/about-us' => 'static#about_us'
