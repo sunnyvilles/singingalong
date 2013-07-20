@@ -45,8 +45,7 @@ button {
 
 button {
 
-  background: url('/images/sprite.png') -243px -12px;
-  background-size: 100% 100%; /* size the background image at 100% like any responsive img tag */
+  background-image: url('/images/sprite.png');
   background-position: top center;
   background-repeat:no-repeat;
   cursor:pointer;
