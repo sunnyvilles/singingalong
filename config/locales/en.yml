@@ -3,8 +3,10 @@
 
 en:
   home:
+    about: "ABOUT US"
     events: "EVENTS"
     readmore: "Read More"
+    latest: "LATEST"
   header:
     academy: "ACADEMY"
     clinic: "CLINIC"

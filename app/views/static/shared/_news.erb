@@ -1,11 +1,43 @@
-<h2><%= t "home.latest" %></h2>
-<div class="news">
-	<%newses.each { |news|%>
-		<div class="eventBlock">
-			<div class="dateBlock floatLeft"></div>
-			<div class="floatLeft">
-				<h3><%news[:title]%></h3>
+<style>
+	.newsCt{
+		background-color: #eee;
+		height: 324px;
+	}
+	.news{
+		width: 980px;
+		margin: auto;
+		padding: 20px;
+	}
+	.newsBlock{
+		float: left;
+		position: relative;
+		margin-right: 15px;
+	}
+	.newsBlock .type{
+		position: absolute;
+		top: 40px;
+		left: 0;
+		padding: 8px;
+		color: #fff;
+	}
+	.newsBlock .type.video{
+		background-color: #1b7bb7;
+	}
+	.newsBlock .type.article{
+		background-color: #559d15;
+}
+</style>
+<div class="newsCt">
+	<div class="news">
+		<h2 class="title"><%= t "home.latest" %></h2>
+		<%newses.each { |news|%>
+			<div class="newsBlock">
+	<%#if news[:type]== "video"%>
+	<%#else%>
+				<img src="<%=news[:image]%>" alt="" height="194" width="280"></img>
+	<%#end%>
+				<div class="type <%=news[:type]%>"><%=news[:type].upcase%></div>
 			</div>
-		</div>
-	<%}%>
+		<%}%>
+	</div>
 </div>

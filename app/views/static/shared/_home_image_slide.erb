@@ -1,6 +1,27 @@
+<style>
+	#slides{
+		position: relative;
+		padding-bottom: 20px;
+	}
+	.slidesjs-navigation{
+		display: inline-block;
+		height: 24px;
+		width: 24px;
+		position: absolute;
+		top: 210px;
+		cursor: pointer;
+	}
+	.slidesjs-next{
+		background-position: -10px -10px;
+	}
+	.slidesjs-next{
+		background-position: -10px -10px;
+		right: 0;
+	}
+</style>
 <div id="slides">
-	<!--<a href="#" class="slidesjs-previous slidesjs-navigation">&larr;</a>
-	<a href="#" class="slidesjs-next slidesjs-navigation">&rarr;</a>-->
+	<!--<a href="#" class="slidesjs-previous slidesjs-navigation spriteIcon">&larr;</a>
+	<a href="#" class="slidesjs-next slidesjs-navigation spriteIcon">&rarr;</a>-->
 	<img src="/images/slides-1.jpg">
 	<img src="/images/slides-2.jpg">
 	<img src="/images/slides-3.jpg">
@@ -10,7 +31,7 @@
 	$(function(){
 		$("#slides").slidesjs({
 			width: 940,
-			height: 350,
+			height: 420,
 			pagination: {
 				active: false,
 				effect: "slide"
