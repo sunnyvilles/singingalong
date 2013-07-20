@@ -2,11 +2,11 @@ class StaticController < ApplicationController
 	layout 'application'
 	
 	def academy
-		#@events = Event.find(:all, :order => 'datetime DESC', :limit => 4)
+		@events = Event.find(:all, :order => 'day DESC',:limit => 4)
 	end
 	def clinic
 
-		#@events = Event.find(:all, :order => 'datetime DESC', :limit => 4)
+		@events = Event.find(:all, :order => 'day DESC', :limit => 4)
 
 	end
 	def contact_us
