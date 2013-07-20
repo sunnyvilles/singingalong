@@ -11,6 +11,8 @@ en:
     academy: "ACADEMY"
     clinic: "CLINIC"
     login: "LOGIN"
+    forgotPassword: "Forgot your password?"
+    noAccount: "Don't have an account yet?"
   navigation:
     about: "About Us"
   footer:

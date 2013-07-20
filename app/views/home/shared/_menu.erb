@@ -42,7 +42,8 @@
 		padding: 10px;
 		background-image: url("/images/sprite.png");
 		background-position: -244px -10px;
-
+		cursor: pointer;
+		position: relative;
 	}
 	.loginText{
 		padding-right: 3px;
@@ -74,6 +75,51 @@
 		position: relative;
 		right: 6px;
 	}
+	.loginBox .loginPanel{
+		display: none;
+		position: absolute;
+		height: 128px;
+		width: 228px;
+		background-color: #ededed;
+		z-index: 11;
+		top: 48px;
+		right: -82px;
+		padding: 16px;
+	}
+	.loginBox:hover .loginPanel{
+		display: block;
+	}
+	.loginPanel input{
+		width: 218px;
+		height: 24px;
+		margin-bottom: 12px;
+		padding-left: 8px;
+	}
+	.loginPanel span{
+		font-size: 14px;
+		color: #525355;
+	}
+	.loginPanel input[type="submit"]{
+		width: 92px;
+		background-position: -243px -13px;
+		border: none;
+		height: 29px;
+		color: #fff;
+	}
+	.uptri{
+		border-color: transparent transparent #ededed;
+		border-style: solid;
+		border-width: 0 10px 10px;
+		height: 0;
+		position: absolute;
+		width: 0;
+		z-index: 0;
+		top: 0;
+		display: inline-block;
+		position: absolute;
+		top: -10px;
+		left: 112px;
+	}
 </style>
 <div class="header">
 	<div class="headerCt">
@@ -86,6 +132,18 @@
 				<div class="loginBox">
 					<span class="loginText"><%= t "header.login"%></span>
 					<span class="spriteIcon downArrow"></span>
+
+					<div class="loginPanel">
+						<div class="uptri"></div>
+						<form>
+							<input type="email" name="username" placeholder="Username"></input>
+							<input type="password" name="password" placeholder="Password"></input>
+							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>"></input>
+							<span><%= t "header.forgotPassword" %></span>
+							<span><%= t "header.noAccount" %></span>
+							<span><%= t "header.signup" %></span>
+						</form>
+					</div>
 				</div>
 			</li>
 			<li>
