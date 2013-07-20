@@ -225,6 +225,9 @@ footer{
 .leftTopCt{
 	margin-bottom: 20px;
 }
+.leftTopCt a{
+	color: #666;
+}
 .footerTop{
 	border-bottom: 1px groove #ddd;
 }
