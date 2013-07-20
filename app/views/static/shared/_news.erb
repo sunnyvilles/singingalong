@@ -4,14 +4,28 @@
 		height: 324px;
 	}
 	.news{
-		width: 980px;
+		width: 960px;
 		margin: auto;
 		padding: 20px;
+		height: 206px;
+		position: relative;
+	}
+
+	.news ul{
+		text-align: left;
+		float: none;
+		top: 0px;
+		right: auto;
+		bottom: auto;
+		left: 0px;
+		margin: 0px;		
+		height: 226px;
+		margin-left: 28px;
 	}
 	.newsBlock{
 		float: left;
 		position: relative;
-		margin-right: 15px;
+		margin-right: 28px;
 	}
 	.newsBlock .type{
 		position: absolute;
@@ -25,19 +39,57 @@
 	}
 	.newsBlock .type.article{
 		background-color: #559d15;
-}
+	}
+
+	.slideControl{
+		position: absolute;
+		top: 77px;
+		height: 36px;
+		width: 20px;
+	}
+	.slideNavLeft{
+		left: 0;
+		background-position: -416px -42px;
+	}
+	.slideNavRight{
+		right: -42px;
+		background-position: -380px -42px;
+	}
+	.sliderCt{
+		position: relative;		
+	}
 </style>
+
 <div class="newsCt">
 	<div class="news">
 		<h2 class="title"><%= t "home.latest" %></h2>
-		<%newses.each { |news|%>
-			<div class="newsBlock">
+		<div class="sliderCt">
+			<a id="ui-carousel-prev" href="#" class="spriteIcon slideNavLeft slideControl"></a>
+			<a id="ui-carousel-next" href="#" class="spriteIcon slideNavRight slideControl"></a>
+			<ul>
+				<%newses.each { |news|%>
+					<li  class="newsBlock">
+						<div>
 	<%#if news[:type]== "video"%>
 	<%#else%>
-				<img src="<%=news[:image]%>" alt="" height="194" width="280"></img>
+							<img src="<%=news[:image]%>" alt="" height="194" width="290"></img>
 	<%#end%>
-				<div class="type <%=news[:type]%>"><%=news[:type].upcase%></div>
-			</div>
-		<%}%>
+							<div class="type <%=news[:type]%>"><%=news[:type].upcase%></div>
+						</div>
+					</li>
+				<%}%>
+
+			</ul>
+		</div>
 	</div>
 </div>
+<script>
+	$(function(){
+		$(".sliderCt ul").carouFredSel({
+        auto  : false,
+        items : 3,
+        prev  : '#ui-carousel-prev',
+        next  : '#ui-carousel-next'
+      });
+	});
+</script>
