@@ -6,6 +6,8 @@ class StaticController < ApplicationController
 	end
 	def clinic
 
+		
+
 	end
 	def contact_us
 		
