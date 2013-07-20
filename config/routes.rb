@@ -1,4 +1,5 @@
 TheOtherSongClinic::Application.routes.draw do
+  
   #get "users/edit"
 
   #get "users/new"
@@ -8,6 +9,7 @@ TheOtherSongClinic::Application.routes.draw do
 	namespace :admin do
 		resources :articles
 		resources :doctors
+    resources :events
 	end
 
 
@@ -98,4 +100,13 @@ TheOtherSongClinic::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   #match ':controller(/:action(/:id(.:format)))'
+
+ # get "event/index"
+ # get "event/new"
+ # get "event/create"
+ # get "event/edit"
+ # get "event/show"
+ # get "event/update"
+ # get "event/destroy"
+
 end
