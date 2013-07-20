@@ -1,0 +1,62 @@
+<style>
+	.aboutUs{
+		float: left;
+		width: 650px;
+		border-right: 1px solid #666;
+	}
+
+	.news{
+		height: 200px;
+		margin-top: 12px;
+	}
+
+</style>
+<%= render :partial => "/static/shared/home_image_slide" %>
+<div class="aboutUs">
+	<h2><%= t "home.about"%> </h2>
+	<div>
+		kdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg k
+		dfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kd
+		fjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfj
+		gh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh
+		dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdf
+		jgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjh
+		<p class="blockQuote">
+			gkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjh
+			g kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjg
+			h kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhg
+		</p>
+		fjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfj
+		gh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh
+		dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdf
+		jgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjh
+	</div>
+</div>
+<div class="events">
+	<%= render :partial => "/static/shared/events", :locals => {:events => [
+			{:date => "June 15",
+				:day => "Sat.",
+				:title => "The Title Of the Event",
+				:sub_title => "Subtitle will come here",
+				:link => "/event/123"
+			},{:date => "June 15",
+				:day => "Sat.",
+				:title => "Event 1",
+				:sub_title => "skjhf dg",
+				:link => "/event/123"
+			},{:date => "June 15",
+				:day => "Sat.",
+				:title => "The Title Of the Event",
+				:sub_title => "Subtitle will come here",
+				:link => "/event/123"
+			},{:date => "June 15",
+				:day => "Sat.",
+				:title => "The Title Of the Event",
+				:sub_title => "Subtitle will come here",
+				:link => "/event/123"
+			}]}%>
+</div>
+<div class="clear"></div>
+<div class="news clear">
+	<%= render :partial => "/static/shared/news", :locals => {:newses => []}%>
+</div>

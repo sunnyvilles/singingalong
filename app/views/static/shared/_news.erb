@@ -1,0 +1,11 @@
+<h2><%= t "home.latest" %></h2>
+<div class="news">
+	<%newses.each { |news|%>
+		<div class="eventBlock">
+			<div class="dateBlock floatLeft"></div>
+			<div class="floatLeft">
+				<h3><%news[:title]%></h3>
+			</div>
+		</div>
+	<%}%>
+</div>

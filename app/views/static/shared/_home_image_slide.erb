@@ -1,0 +1,31 @@
+<div id="slides">
+	<!--<a href="#" class="slidesjs-previous slidesjs-navigation">&larr;</a>
+	<a href="#" class="slidesjs-next slidesjs-navigation">&rarr;</a>-->
+	<img src="/images/slides-1.jpg">
+	<img src="/images/slides-2.jpg">
+	<img src="/images/slides-3.jpg">
+	<img src="/images/slides-4.jpg">
+</div>
+<script>
+	$(function(){
+		$("#slides").slidesjs({
+			width: 940,
+			height: 350,
+			pagination: {
+				active: false,
+				effect: "slide"
+			},
+			navigation: {
+				active:true,
+				effect:"slide"
+			},
+			play: {
+				active: true,
+				interval: 5000,
+				auto : true
+			}
+
+		});
+	});
+
+</script>
