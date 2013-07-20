@@ -22,7 +22,7 @@
 	.headerCt .menuItems li.item{
 		margin: 20px;
 		height: 20px;
-		font-size: 22px;
+		font-size: 20px;
 		display: inline-block;
 	}
 	.tosLogo{
@@ -37,10 +37,31 @@
 		width: 980px;
 		margin: auto;
 	}
+	.loginBox{
+		display: inline-block;
+		padding: 10px;
+		background-image: url("/images/sprite.png");
+		background-position: -244px -10px;
 
+	}
+	.loginText{
+		padding-right: 3px;
+		position: relative;
+		bottom: 2px;
+	}
+
+	.downArrow{
+		width: 16px;
+		height: 16px;
+		background-position: -128px -28px;
+		position: relative;
+		bottom: 2px;
+	}
 	.search{
-		height: 32px;
+		height: 22px;
 		width: 128px;
+		position: relative;
+		bottom: 5px;
 	}
 </style>
 <div class="header">
@@ -50,7 +71,12 @@
 		<ul class="floatRight menuItems">
 			<li class="item"><a href="/clinic"><%= t "header.clinic" %></a></li>
 			<li class="item"><a href="/academy"><%= t "header.academy" %></a></li>
-			<li>Login</li>
+			<li>
+				<div class="loginBox">
+					<span class="loginText"><%= t "header.login"%></span>
+					<span class="spriteIcon downArrow"></span>
+				</div>
+			</li>
 			<li><input type="text" class="search"></input></li>
 		</ul>
 	</div>

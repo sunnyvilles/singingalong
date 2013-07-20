@@ -2,7 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  home:
+    events: "EVENTS"
+    readmore: "Read More"
+  header:
+    academy: "ACADEMY"
+    clinic: "CLINIC"
+    login: "LOGIN"
   navigation:
     about: "About Us"
   footer:
