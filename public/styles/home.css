@@ -29,6 +29,7 @@
 button {
 	text-align: center;
 	margin: 8px 0 8px 0;
+  border: none;
 }
 
 .clinic_button {
@@ -42,49 +43,51 @@ button {
 	width:49%;
 }
 
+button {
 
+  background: url('/images/sprite.png') -243px -12px;
+  background-size: 100% 100%; /* size the background image at 100% like any responsive img tag */
+  background-position: top center;
+  background-repeat:no-repeat;
+  cursor:pointer;
+}
 
 /* Prevents slides from flashing */
 #slides {
 	display:none;
 	position:relative;
+  height: 100%;
 }
+
 #slides .slidesjs-navigation {
-	top:0%;
+	top:40%;
 	bottom:0%;
-  margin:10px 0 0 10px;
+  position: absolute;
 }
 
 a.slidesjs-next,
 a.slidesjs-previous {
-  background-image:url("images/arrow-sprite.png");
-  background-repeat: no-repeat;
-  display:block;
-  width:48px;
-  height:48px;
-  overflow: hidden;
+  width:60px;
+  height:97px;
+  z-index:999;
   text-indent: -9999px;
-  float: left;
 }
+
 
 a.slidesjs-next {
-  position: absolute;
-  margin-right:10px;
-  clip:rect(0 96px 48px 48px);
-	top: 45%;
-	right: -30px;
-	z-index:999;
-	/* background-position: -12px 0;*/
+  background:url('/images/sprite.png') -347px -12px no-repeat;
+  right:10px;
 }
-
 a.slidesjs-previous {
-  position: absolute;
-  margin-left:10px;
-	clip:rect(0 48px 48px 0);
-	top: 45%;
-	left: 10%;
-	z-index:999;
+  background:url('/images/sprite.png') -420px -12px no-repeat;
+  left:10px;
 }
 
+ul li{
+  display: inline;
+}
 
+ul li:before {
+    content: '\b7\a0';
+}
 
