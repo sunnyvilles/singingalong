@@ -30,25 +30,9 @@
     </div>
 <%else%>
 <%=render :partial=> "home/shared/menu"%>
-<div class="contentWrap">
+
 <%= yield %>
-</div>
-<%= render :partial => "/static/shared/news", :locals => {:newses => [
-			{
-				:type => "video",
-				:title => "The Title",
-				:link => "kjdhs"
-			},
-			{
-				:type => "article",
-				:title => "The Title",
-				:link => "kjdhs"
-			},
-			{
-				:type => "article",
-				:title => "The Title",
-				:link => "kjdhs"
-			}]}%>
+		
 <%=render :partial=> "home/shared/footer"%>
 <%end%>
 
