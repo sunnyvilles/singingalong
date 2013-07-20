@@ -3,18 +3,31 @@
 		float: left;
 		width: 650px;
 		border-right: 1px solid #666;
+		padding-top: 20px;
 	}
 
 	.news{
 		height: 200px;
 		margin-top: 12px;
 	}
+	.aboutCt{
+		padding: 22px 0;
+		font-size: 14px;
+	}
 
+	.aboutCt .blockQuote{
+		border-left: 4px solid #dd0017;
+		padding-left: 22px;
+		font-size: 18px;
+		margin: 20px 0;
+	}
 </style>
+
+<div class="contentWrap">
 <%= render :partial => "/static/shared/home_image_slide" %>
 <div class="aboutUs">
-	<h2><%= t "home.about"%> </h2>
-	<div>
+	<h2 class="title"><%= t "home.about"%> </h2>
+	<div class="aboutCt">
 		kdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg k
 		dfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kd
 		fjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfj
@@ -22,14 +35,22 @@
 		dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdf
 		jgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjh
 		<p class="blockQuote">
-			gkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjh
+			" gkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjh
 			g kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjg
 			h kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhg
+			dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdf
+			jgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjh
+			fjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfj
+			
 		</p>
 		fjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfj
 		gh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh
 		dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdf
 		jgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjh
+		fjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfj
+		gh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh
+		dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdfjgh dkfjgh kdfjhg kdfjhgkdf
+		
 	</div>
 </div>
 <div class="events">
@@ -57,6 +78,20 @@
 			}]}%>
 </div>
 <div class="clear"></div>
-<div class="news clear">
-	<%= render :partial => "/static/shared/news", :locals => {:newses => []}%>
 </div>
+<%= render :partial => "/static/shared/news", :locals => {:newses => [
+			{
+				:type => "video",
+				:title => "The Title",
+				:link => "kjdhs"
+			},
+			{
+				:type => "article",
+				:title => "The Title",
+				:link => "kjdhs"
+			},
+			{
+				:type => "article",
+				:title => "The Title",
+				:link => "kjdhs"
+			}]}%>
