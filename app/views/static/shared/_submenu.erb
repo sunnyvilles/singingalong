@@ -1,0 +1,129 @@
+<style>
+	.submenu{
+		height: 42px;
+		border-top: 1px solid #525355;
+		background-image: -moz-linear-gradient(center top,#787878,#424242);
+		background-image: -webkit-linear-gradient(#787878,#424242);
+		background-color: #454648;
+		-moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+	}
+	.submenuItems{
+		width: 980px;
+		margin: auto;
+	}
+	.submenuItem{
+		position: relative;
+	}
+	.submenuItem ul{
+		display: none;
+		position: absolute;
+		width: 980px;
+		left: -16px;
+	}
+	.submenuItem ul li{
+		background-color: #ededed;
+		display: inline-block;
+	}
+	.submenuItem ul li a{
+		color: #000;
+	}
+	.submenuItem:hover ul{
+		display: block;
+	}
+	.submenuItems li a{
+		color: #ddd;
+}
+	.submenuItems li{
+		float: left;
+		
+		padding: 0 16px;
+		font-size: 18px;
+		height: 42px;
+		line-height: 40px;
+	}
+	.submenuItems li:hover{
+		background-color: #ededed;
+
+		cursor: pointer;
+	}
+	.submenuItems li:hover a{
+		color: #000;
+	}
+</style>
+<div class="header submenu">
+	<ul class="submenuItems">
+		<li>
+			<div class="submenuItem">
+				<a href=""><%= t "submenu.about" %></a>
+				<ul>
+					<li>
+						<a href=""><%= t "submenu.aboutsection.aim" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.aboutsection.team" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.aboutsection.association" %></a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="submenuItem">
+				<a><%= t "submenu.edge" %></a>
+				<ul>
+					<li>
+						<a href=""><%= t "submenu.edgeSection.beliefe" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.edgeSection.approach" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.edgeSection.therapies" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.edgeSection.clinic" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.edgeSection.testimonial" %></a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="submenuItem">
+				<a><%= t "submenu.knowledgeCenter" %></a>
+				<ul>
+					<li>
+						<a href=""><%= t "submenu.knowledge.articles" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.knowledge.case" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.knowledge.video" %></a>
+					</li>
+					<li>
+						<a href=""><%= t "submenu.knowledge.about" %></a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="submenuItem">
+				<a href=""><%= t "submenu.generalInfo" %></a>
+			</div>
+		</li>
+		<li>
+			<div class="submenuItem">
+				<a><%= t "submenu.events" %></a>
+			</div></li>
+		<li>
+			<div class="submenuItem">
+				<a><%= t "submenu.contactUs" %></a>
+			</div>
+		</li>
+	</ul>
+</div>

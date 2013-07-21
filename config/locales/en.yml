@@ -7,6 +7,28 @@ en:
     events: "EVENTS"
     readmore: "Read More"
     latest: "LATEST"
+  submenu:
+    about: "ABOUT US"
+    aboutsection:
+      aim: "OUR AIM"
+      team: "OUR TEAM"
+      association: "OUR ASSOCIATION"
+    edge: "OUR EDGE"
+    edgeSection:
+      beliefe: "OUR BELIFE"
+      approach: "OUR APPROACH"
+      therapies: "COMPLIMENTRY THERAPIES"
+      clinic: "SPECIALITY CLINIC"
+      testimonials: "TESTIMONIALS"
+    knowledgeCenter: "KNOWLEDGE CENTER"
+    knowledge:
+      articles: "ARTICLES"
+      case: "CASE STUDIES"
+      video: "VIDEOS"
+      about: "ABOUT HOMEOPATHY"
+    generalInfo: "GENERAL INFORMATION"
+    events: "EVENTS"
+    contactUs: "CONTACT US"
   header:
     academy: "ACADEMY"
     clinic: "CLINIC"
