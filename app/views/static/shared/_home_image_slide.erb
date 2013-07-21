@@ -1,6 +1,24 @@
 <style>
 	#slides{
-		position: relative;		
+		position: relative;
+	}
+	#slides ul{
+		text-align: left;
+		float: none;
+		position: relative;
+		top: 0px;
+		right: auto;
+		bottom: auto;
+		margin: 0px;
+		display: block;
+		position: relative;
+		height: 420px;
+		overflow: hidden;
+
+	}
+	#slides ul li{
+		display: inline;
+		float: left;
 	}
 	.slidesjs-navigation{
 		display: inline-block;
@@ -18,16 +36,29 @@
 		right: 0;
 	}
 </style>
-<div id="slides">
+<div id="slides" style="width: 5000px;">
 	<!--<a href="#" class="slidesjs-previous slidesjs-navigation spriteIcon">&larr;</a>
 	<a href="#" class="slidesjs-next slidesjs-navigation spriteIcon">&rarr;</a>-->
-	<img src="/images/slides-1.jpg">
-	<img src="/images/slides-2.jpg">
-	<img src="/images/slides-3.jpg">
-	<img src="/images/slides-4.jpg">
+	<ul>
+		<li><img src="/images/slides-1.jpg" height="420" width="980"></li>
+		<li><img src="/images/slides-2.jpg" height="420" width="980"></li>
+		<li><img src="/images/slides-3.jpg" height="420" width="980"></li>
+		<li><img src="/images/slides-4.jpg" height="420" width="980"></li>
+		<li><img src="/images/slides-1.jpg" height="420" width="980"></li>
+	</ul>
+	<div class="clear"></div>
 </div>
 <script>
-	$(function(){
+	var slidePosition = 1470 - ($(window).width()/2);
+	$("#slides ul").css('left', -slidePosition);
+	setInterval(function(){
+		slidePosition < 2200 ? slidePosition+= 980 : slidePosition = 1470 - ($(window).width()/2);
+
+		$("#slides ul").animate({
+			'left': -slidePosition
+		});		
+	}, 10000);
+	/*$(function(){
 		$("#slides").slidesjs({
 			width: 940,
 			height: 400,
@@ -46,6 +77,6 @@
 			}
 
 		});
-	});
+});*/
 
 </script>
