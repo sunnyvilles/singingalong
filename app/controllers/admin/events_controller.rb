@@ -1,8 +1,7 @@
 class Admin::EventsController < ApplicationController
- 
+	layout "admin/application.html"
   def index
     @events = Event.all
-
     respond_to do |format|
       format.html 
       format.json { render json: @events }

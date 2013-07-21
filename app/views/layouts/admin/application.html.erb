@@ -6,22 +6,15 @@
  <meta charset="utf-8">
 <%= stylesheet_link_tag "application" %>
 
-<% if mobile_device? %>
-<meta content="width=device-width, initial-scale=1" name="viewport">
-<%end%>
-
  
 <%= csrf_meta_tags %>
 <script src="/scripts/jquery-1.9.1.min.js"></script>
-
+<script src="/scripts"></script>
 </head>
 <body>
 <%=render :partial=> "home/shared/menu"%>
 
 <%= yield %>
-		
-
-<%end%>
 
 </body>
 </html>
