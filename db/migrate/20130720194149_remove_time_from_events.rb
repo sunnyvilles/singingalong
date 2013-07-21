@@ -3,10 +3,10 @@ class RemoveTimeFromEvents < ActiveRecord::Migration
  # it back to 'datetime' when running on heroku
  
   def up
-    remove_column :events, :time
+    remove_column :events, :datetime
       end
 
   def down
-    add_column :events, :time, :datetime
+    add_column :events, :datetime, :datetime
   end
 end
