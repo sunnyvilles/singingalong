@@ -1,5 +1,12 @@
+@font-face {
+	font-family: 'texgyreadventorbold';
+	font-style: normal;
+	font-weight: 400;
+	src: local('texgyreadventorbold'),url('/fonts/Maven_Pro_Regular.otf'); /* IE9 Compat Modes */
+}
 body{
 	margin: 0;
+	font-family: texgyreadventorbold;
 }
 .floatLeft{
 	float: left;
@@ -63,7 +70,7 @@ button {
 
 .homeBtns:hover {
 	color: #fff;
-	
+
 	background: -webkit-gradient(linear,0% 0,0% 100%,from(#999),to(#111));
 	background: -moz-linear-gradient(100% 100% 90deg,#999,#111);
 	background-image: -o-linear-gradient(#999,#111);
@@ -74,7 +81,7 @@ button {
 	box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
 	background-color:#EEE;
 
-	
+
 	cursor: pointer;
 
 	background: -webkit-gradient(linear,0% 0,0% 100%,from(#e7e7e7),to(#d7d6d6));
@@ -215,7 +222,7 @@ ul li:before {
 	left: 50%;
 	margin-left: -250px;
 }
-.footer{
+.footer{	
 	position: absolute;
 	top: 100%;
 	margin-top: -40px;
