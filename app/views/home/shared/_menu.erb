@@ -11,9 +11,8 @@
 	.header{
 		height: 60px;
 		border-top: 1px solid #525355;
-		background-image: -moz-linear-gradient(center top,#454648,#333);
-		background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#333),color-stop(1,#454648));
-		background-image: -webkit-linear-gradient(#454648,#333);
+		background-image: -moz-linear-gradient(center top,#424242,#787878);		
+		background-image: -webkit-linear-gradient(#424242,#787878);
 		background-color: #454648;
 		-moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
@@ -23,13 +22,18 @@
 		width: 980px;
 		margin: auto;
 	}
+	.headerCt .menuItems li.selected{
+		background-color: #424242;
+	}
 	.headerCt .menuItems li{
 		display: inline;
 		color: white;
 	}
-
+	.headerCt .menuItems li.item:hover{
+		background-color: #424242;
+	}
 	.headerCt .menuItems li.item{
-		margin: 20px;
+		padding: 20px;
 		height: 20px;
 		font-size: 20px;
 		display: inline-block;
@@ -53,6 +57,7 @@
 		background-position: -244px -10px;
 		cursor: pointer;
 		position: relative;
+		margin-left: 22px;
 	}
 	.loginText{
 		padding-right: 3px;
@@ -136,8 +141,8 @@
 		<a href="/"><span class="tosLogo floatLeft spriteIcon"></span></a>
 
 		<ul class="floatRight menuItems">
-			<li class="item"><a href="/clinic"><%= t "header.clinic" %></a></li>
-			<li class="item"><a href="/academy"><%= t "header.academy" %></a></li>
+			<li class="item <%=params[:action] == "clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
+			<li class="item <%=params[:action] == "academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
 			<li>
 				<div class="loginBox">
 					<span class="loginText"><%= t "header.login"%></span>

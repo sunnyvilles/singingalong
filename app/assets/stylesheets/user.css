@@ -168,11 +168,17 @@ button {  width: auto; overflow: visible; }
 	background: url("/images/sprite.png");
 	display: inline-block;
 }
+.mail{
+	background-position: -793px -66px;
+}
 .feed{
 	background-position: -32px -22px;
 }
+.linkedin{
+	background-position: -830px -68px;
+}
 .twitter{
-	background-position: -67px -22px;
+	background-position: -64px -22px;
 }
 .facebook{
 	background-position: -98px -22px;
