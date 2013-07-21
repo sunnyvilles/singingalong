@@ -1,87 +1,119 @@
 body{
-margin: 0;
+	margin: 0;
 }
 .floatLeft{
-float: left;
+	float: left;
 }
 
 .floatRight{
-float: right;
+	float: right;
 }
 
 .sliderCt{
-width: 800px;
+	width: 800px;
 }
 .infoCt{
-width: 350px;;
+	width: 350px;;
 }
 
 .links{
-color: #805f40;
-width: 330px;
-font-size: 14px;
-margin-left: -20px;
-font-weight: bold;
+	color: #805f40;
+	width: 330px;
+	font-size: 14px;
+	margin-left: -20px;
+	font-weight: bold;
 }
 .links li a{
-float: left;
+	float: left;
 }
 .info, info.h3 {
-margin:0 auto;
+	margin:0 auto;
 
 }
 
 .info {
-margin:0 auto;
-margin-top: 30%;
-padding:10px;
-width:;
-text-align: center;
+	margin:0 auto;
+	margin-top: 30%;
+	padding:10px;
+	width:;
+	text-align: center;
 }
 button {
-text-align: center;
-margin: 8px 0 8px 0;
+	text-align: center;
+	margin: 8px 0 8px 0;
   border: none;
 }
 
 .clinic_button {
-width: 48%;
+	width: 48%;
 }
 .home_button {
-width: 100%;
+	width: 100%;
 }
 .home_button:after {
-content: "\00bb";
-padding-left: 6px;
-position: absolute;
+	content: "\00bb";
+	padding-left: 6px;
+	position: absolute;
 }
 .academy_button{
-display: inline-block;
-width:48%;
+	display: inline-block;
+	width:48%;
 }
 
 
+.homeBtns:hover {
+	color: #fff;
+	
+	background: -webkit-gradient(linear,0% 0,0% 100%,from(#999),to(#111));
+	background: -moz-linear-gradient(100% 100% 90deg,#999,#111);
+	background-image: -o-linear-gradient(#999,#111);
+}
+.homeBtns {
+	-webkit-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	background-color:#EEE;
 
-button.homeBtns {
--webkit-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
--moz-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
-background-color:#EEE;
-border-radius:0;
--webkit-border-radius:0;
--moz-border-radius:0;
-border:1px solid #999;
-color:#666;
-font-family:'Lucida Grande',Tahoma,Verdana,Arial,Sans-serif;
-font-size:11px;
-font-weight:900;
-padding:2px 6px;
-height:38px;
-cursor: pointer;
+	
+	cursor: pointer;
+
+	background: -webkit-gradient(linear,0% 0,0% 100%,from(#e7e7e7),to(#d7d6d6));
+	background: -moz-linear-gradient(100% 100% 90deg,#d7d6d6,#e7e7e7);
+	background: -webkit-gradient(linear,0% 0,0% 100%,from(#e7e7e7),to(#d7d6d6));
+	background-image: -o-linear-gradient(#e7e7e7,#e7e7e7);
+
+
+	border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border:1px solid #999;
+	color:#666;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,Sans-serif;
+	font-size:14px;
+	line-height: 36px;
+	font-weight:900;
+	padding:2px 6px;
+	height:38px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	width: 200px;
+	float: left;
+	margin-right: 20px;
+}
+
+.home_button{
+	width: 434px;
+	margin-top: 10px;
 }
 .btnCt{
-width: 300px;
-margin: auto;
+	width: 300px;
+	margin: auto;
+}
+.coverLogo{
+	background-position: -10px -50px;
 }
 /*button.homeBtns {
 background:
@@ -93,36 +125,36 @@ cursor:pointer;
 
 /* Prevents slides from flashing */
 #slides {
-/*display:none;
-position:relative;
-height: 100%;*/
-position:relative;
-width: 800px;
+	/*display:none;
+	position:relative;
+	height: 100%;*/
+	position:relative;
+	width: 800px;
 }
 
 #slides .slidesjs-navigation {
-top:40%;
-bottom:0%;
+	top:40%;
+	bottom:0%;
   position: absolute;
 }
 #slides .title, #slides .secondryTitle{
-position: absolute;
+	position: absolute;
 
-left: 40px;
+	left: 40px;
 }
 #slides .secondryTitle{
-top: 520px;
-background-color: #e4e4e4;
-padding: 9px;
-width: 356px;
+	top: 60%;
+	background-color: #e4e4e4;
+	padding: 9px;
+	width: 356px;
 }
 #slides .title{
-top: 450px;
-background-color: #f78103;
-font-size: 32px;
-color: #fff;
-padding: 11px;
-width: 256px;
+	top: 50%;
+	background-color: #f78103;
+	font-size: 32px;
+	color: #fff;
+	padding: 11px;
+	width: 256px;
 }
 a.slidesjs-next,
 a.slidesjs-previous {
@@ -149,7 +181,7 @@ a.slidesjs-previous {
 a.slidesjs-next, icon-chevron-right {
   background-position: -347px -12px no-repeat;
   right:10px;
-	
+
 }
 a.slidesjs-previous, icon-chevron-left {
   background-position:  -420px -12px no-repeat;
@@ -163,9 +195,29 @@ ul li{
 }
 
 ul li:before {
-content: '\b7\a0';
+	content: '\b7\a0';
 }
 .homeContainer{
-width: 1150px;
-margin: auto;
+	width: 1150px;
+	margin: auto;
+}
+
+.coverLogo{
+	background-position: -10px -116px;
+	height: 306px;
+	width: 500px;
+}
+.content{
+	width: 500px;
+	position: absolute;
+	top: 48px;
+	z-index: 100;
+	left: 50%;
+	margin-left: -250px;
+}
+.footer{
+	position: absolute;
+	top: 100%;
+	margin-top: -40px;
+	z-index: 100;
 }
