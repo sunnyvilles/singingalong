@@ -108,13 +108,14 @@ button {
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
-	width: 200px;
-	float: left;
+	width: 182px;
+	float: left;	
+}
+.rightMartin20{
 	margin-right: 20px;
 }
-
 .home_button{
-	width: 434px;
+	width: 400px;
 	margin-top: 10px;
 }
 .btnCt{
@@ -214,15 +215,15 @@ ul li:before {
 .coverLogo{
 	background-position: -10px -116px;
 	height: 306px;
-	width: 500px;
+	width: 414px;
 }
 .content{
-	width: 500px;
+	width: 414px;
 	position: absolute;
 	top: 48px;
 	z-index: 100;
 	left: 50%;
-	margin-left: -250px;
+	margin-left: -207px;
 }
 .footer{	
 	position: absolute;
@@ -239,13 +240,14 @@ ul li:before {
 }
 
 .footer .motto{
-	width: 460px;
+	width: 408px;
 	margin: auto;
 	color: #fff;
 	font-size: 22px;
 	padding-bottom: 20px;
 }
-.footer .motto span:before{
+
+.footer .motto span.dotAfter:before{
 	content: '\b7\a0'
 }
 .overlay{
