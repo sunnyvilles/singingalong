@@ -2,12 +2,14 @@ class StaticController < ApplicationController
 	layout 'application'
 	
 	def academy
-		@events = Event.find(:all, :order => 'day DESC',:limit => 4)
+		#@events = Event.find(:all, :order => 'day DESC',:limit => 4)
 	end
 	def clinic
+		#@events = Event.find(:all, :order => 'day DESC', :limit => 4)
+	end
 
-		@events = Event.find(:all, :order => 'day DESC', :limit => 4)
-
+	def clinic_about
+		render 'static/clinic/about' and return
 	end
 	def contact_us
 		
