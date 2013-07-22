@@ -278,12 +278,14 @@ footer{
 	height: 80px
 }
 .rightSection input[type=submit]{
-	width: 80px;
+	width: 91px;
 	float: right;
-	background: #888;
-	height: 36px;
+	
+	height: 29px;
 	font-size: 16px;
 	color: #fff;
+	background-position: -243px -13px;
+	border: none;
 }
 .rightSection .feedback{
 	margin-bottom: 12px;
