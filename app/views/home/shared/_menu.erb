@@ -12,7 +12,7 @@
 	.header{
 		height: 60px;
 		border-top: 1px solid #525355;
-		background-image: -moz-linear-gradient(center top,#424242,#787878);		
+		background-image: -moz-linear-gradient(center top,#424242,#787878);
 		background-image: -webkit-linear-gradient(#424242,#787878);
 		background-color: #454648;
 		-moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
@@ -103,7 +103,7 @@
 		padding-bottom: 19px;
 	}
 	.loginBox:hover .loginPanel{
-		display: block;
+		/*display: block;*/
 	}
 	.loginPanel input{
 		width: 218px;
@@ -139,29 +139,40 @@
 	}
 
 
-.signup_btn{
-border:1px solid #589913; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 4px 7px 3px 7px; text-decoration:none; display:inline-block; color: #FFFFFF;
- background-color: #75CB19; background-image: -webkit-gradient(linear, left top, left bottom, from(#75CB19), to(#B2EE10));
- background-image: -webkit-linear-gradient(top, #75CB19, #B2EE10);
- background-image: -moz-linear-gradient(top, #75CB19, #B2EE10);
- background-image: -ms-linear-gradient(top, #75CB19, #B2EE10);
- background-image: -o-linear-gradient(top, #75CB19, #B2EE10);
- background-image: linear-gradient(to bottom, #75CB19, #B2EE10);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#75CB19, endColorstr=#B2EE10);
- 
-}
+	.signup_btn{
+		border:1px solid #589913;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		font-size:12px;
+		font-family:arial, helvetica, sans-serif;
+		padding: 4px 7px 3px 7px;
+		text-decoration:none;
+		display:inline-block;
+		color: #FFFFFF;
+		/*background-color: #75CB19;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#75CB19), to(#B2EE10));
+		background-image: -webkit-linear-gradient(top, #75CB19, #B2EE10);
+		background-image: -moz-linear-gradient(top, #75CB19, #B2EE10);
+		background-image: -ms-linear-gradient(top, #75CB19, #B2EE10);
+		background-image: -o-linear-gradient(top, #75CB19, #B2EE10);
+		background-image: linear-gradient(to bottom, #75CB19, #B2EE10);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#75CB19, endColorstr=#B2EE10);*/
+		background-image: url("/images/green-btn.png");
+		background-position: -1px -1px;
+	}
 
-.signup_btn:hover{
-/*	opacity: .67;
- border:1px solid #41700e;
- background-color: #5b9e13; background-image: -webkit-gradient(linear, left top, left bottom, from(#5b9e13), to(#8ebe0d));
- background-image: -webkit-linear-gradient(top, #5b9e13, #8ebe0d);
- background-image: -moz-linear-gradient(top, #5b9e13, #8ebe0d);
- background-image: -ms-linear-gradient(top, #5b9e13, #8ebe0d);
- background-image: -o-linear-gradient(top, #5b9e13, #8ebe0d);
- background-image: linear-gradient(to bottom, #5b9e13, #8ebe0d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#5b9e13, endColorstr=#8ebe0d); */
-  opacity: .67;
+	.signup_btn:hover{
+		/*	opacity: .67;
+		 border:1px solid #41700e;
+		 background-color: #5b9e13; background-image: -webkit-gradient(linear, left top, left bottom, from(#5b9e13), to(#8ebe0d));
+		 background-image: -webkit-linear-gradient(top, #5b9e13, #8ebe0d);
+		 background-image: -moz-linear-gradient(top, #5b9e13, #8ebe0d);
+		 background-image: -ms-linear-gradient(top, #5b9e13, #8ebe0d);
+		 background-image: -o-linear-gradient(top, #5b9e13, #8ebe0d);
+		 background-image: linear-gradient(to bottom, #5b9e13, #8ebe0d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#5b9e13, endColorstr=#8ebe0d); 
+		opacity: .67;*/
 
-}
+	}
 </style>
 <div class="header">
 	<div class="headerCt">
@@ -183,7 +194,7 @@ border:1px solid #589913; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>"></input>
 							<span><%= t "header.forgotPassword" %></span>
 							<span><%= t "header.noAccount" %></span>
-							<span class="signup_btn"><%= t "header.signup" %></span> 
+							<span class="signup_btn"><%= t "header.signup" %></span>
 						</form>
 					</div>
 				</div>
@@ -195,73 +206,16 @@ border:1px solid #589913; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 		</ul>
 	</div>
 </div>
-<!--
-<nav class="top-nav" data-role="navbar">
-	<ul class="nav">
-		<li class="nav-top-el">
-			<a href="/about-us"><%= t "navigation.about" %></a>
-			<ul class="nav-list">
-				<li class="nav-list-item"><a href="/about-us/our_mission">Our Mission</a></li>
-				<li class="nav-list-item"><a href="/about-us/our_team">Our Team</a></li>
-				<li class="nav-list-item"><a href="/about-us/our_associations_and_tie_ups">Our Associations and Tie Ups</a></li>
-			</ul>
-		</li>
-		<li class="nav-top-el">
-			<a href="/our-edge">Our Edge</a>
-			<ul class="nav-list">
-				<li class="nav-list-item"><a href="/our-edge/our_belief">Our Belief</a></li>
-				<li class="nav-list-item"><a href="/our-edge/our_approach">Our Approach</a></li>
-				<li class="nav-list-item"><a href="/our-edge/our_process">Our Process</a></li>
-				<li class="nav-list-item"><a href="/our-edge/complementary_therapies">Complementary Therapies</a></li>
-				<li class="nav-list-item"><a href="/our-edge/speciality_clinic">Speciality Clinic</a></li>
-				<li class="nav-list-item"><a href="/our-edge/testimonials">Testimonials</a></li>
-			</ul>
-		</li>
-
-		<li class="nav-top-el">
-			<a href="/knowledge-center">Knowledge Center</a>
-			<ul class="nav-list">
-				<li class="nav-list-item"><a href="/knowledge-center/homeopathy">Homoeopathy</a></li>
-				<li class="nav-list-item"><a href="/knowledge-center/articles">Articles</a></li>
-				<li class="nav-list-item"><a href="/knowledge-center/case_studies">Case studies</a></li>
-				<li class="nav-list-item"><a href="/knowledge-center/videos">Videos</a></li>
-				<li class="nav-list-item"><a href="/knowledge-center/webinars">Webinars</a></li>
-				<li class="nav-list-item"><a href="/knowledge-center/recommended">Recommended reading</a></li>
-			</ul>
-		</li>
-		<li class="nav-top-el">
-			<a href="/events">Events</a>
-			<ul class="nav-list">
-				<li class="nav-list-item"><a href="/events/parenting_workshop">Parenting Workshop</a></li>
-				<li class="nav-list-item"><a href="/events/movement_and_meditation">Movement and meditation</a></li>
-				<li class="nav-list-item"><a href="/events/yoga_at_the_other_song">Yoga at 'the other song'</a></li>
-				<li class="nav-list-item"><a href="/events/other_events">Other events</a></li>
-				<li class="nav-list-item"><a href="/events/calender_of_events">Calendar of Events</a></li>
-				<li class="nav-list-item"><a href="/events/offers_and_discounts">Offers and Discounts</a></li>
-				<li class="nav-list-item"><a href="/events/payment_options">Payment Options</a></li>
-			</ul>
-		</li>
-		<li class="nav-top-el">
-			<a href="/latest-at-the-other-song">Latest at The Other Song</a>
-		</li>
-		<li class="nav-top-el">
-			<a href="/contact-us">General Information</a>
-			<ul class="nav-list">
-				<li class="nav-list-item"><a href="">Clinic Schedule</a></li>
-				<li class="nav-list-item"><a href="">Book an appointment</a></li>
-				<li class="nav-list-item"><a href="">Payment options</a></li>
-				<li class="nav-list-item"><a href="">Clinic brochure</a></li>
-				<li class="nav-list-item"><a href="">Case record form (Adults)</a></li>
-				<li class="nav-list-item"><a href="">Pediatric case record form</a></li>
-			</ul>
-		</li>
-		<li class="nav-top-el">
-			<a href="/contact-us">Contact Us</a>
-			<ul class="nav-list">
-				<li class="nav-list-item"></li>
-			</ul>
-		</li>
-	</ul>
-	<div class="clearBoth"></div>
-</nav>
--->
+<script>
+	$("body").click(function(){
+		$(".loginPanel").css({
+			display: 'none'
+		});	});
+	$(".loginBox").click(function(){
+		console.log($(".loginPanel"));
+		$(".loginPanel").css({
+			display: 'block'
+		});
+		return false;
+	});
+</script>
