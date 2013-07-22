@@ -23,13 +23,13 @@ TheOtherSongClinic::Application.routes.draw do
 
 
 	# Static pages
-	get '/clinic' => 'static#clinic'
+	get '/clinic' => 'web/clinic#about_us'
 	get '/clinic/about-us' => 'static#clinic_about'
 	#get '/clinic/knowledge-center' => 'static#clinic_about'
 	get '/clinic/articles' => 'web/clinic#articles'
 
 	
-	get '/academy' => 'static#academy'
+	get '/academy' => 'web/academy#about_us'
 	get '/academy/about-us' => 'static#academy_about'
 	get '/contact-us' => 'static#contact_us'
 

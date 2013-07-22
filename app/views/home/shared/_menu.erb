@@ -179,8 +179,8 @@
 		<a href="/"><span class="tosLogo floatLeft spriteIcon"></span></a>
 
 		<ul class="floatRight menuItems">
-			<li class="item <%=params[:action] == "clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
-			<li class="item <%=params[:action] == "academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
+			<li class="item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
+			<li class="item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
 			<li>
 				<div class="loginBox">
 					<span class="loginText"><%= t "header.login"%></span>
