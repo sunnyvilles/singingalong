@@ -141,6 +141,7 @@ button {
 .rightMartin20{
 	margin-right: 20px;
 }
+
 .home_button{
 	width: 380px;
 	margin-top: 10px;
@@ -208,12 +209,15 @@ a.slidesjs-previous {
 	display: inline-block;
 	height: 100px;
 	width: 60px;
+
 }
 .next{
 	background-position: -347px -12px;
+	margin-right: 15px;
 }
 .prev{
-	background-position:  -420px -12px;
+	background-position:  -410px -12px;
+	margin-left: 15px;
 }
 a.slidesjs-next, icon-chevron-right {
   background-position: -347px -12px no-repeat;
