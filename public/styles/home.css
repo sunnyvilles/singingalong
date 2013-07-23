@@ -113,7 +113,7 @@ button {
 }
 
 .homeBtn:hover {
-	color: #fff;
+	/*color: #fff;*/
 }
 .homeBtn{
 	display: inline-block !important;
