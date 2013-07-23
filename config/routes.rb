@@ -24,9 +24,14 @@ TheOtherSongClinic::Application.routes.draw do
 
 	# Static pages
 	get '/clinic' => 'web/clinic#about_us'
+	#do we need this one?
 	get '/clinic/about-us' => 'static#clinic_about'
-	#get '/clinic/knowledge-center' => 'static#clinic_about'
-	get '/clinic/articles' => 'web/clinic#articles'
+	get '/clinic/aim' => 'web/clinic#aim'
+	get '/clinic/team' => 'web/clinic#team'
+	get '/clinic/associations' => 'web/clinic#association'
+
+	get '/clinic/knowledge-center' => 'web/clinic#knowledge_center'
+	
 
 	
 	get '/academy' => 'web/academy#about_us'

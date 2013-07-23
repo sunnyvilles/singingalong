@@ -6,4 +6,21 @@ class Web::ClinicController < ApplicationController
 	def about_us
 		render 'static/clinic' and return
 	end
+
+	def aim
+		
+	end
+
+	def team
+		
+	end
+
+	def association
+
+	end
+
+
+	def knowledge_center
+
+	end
 end

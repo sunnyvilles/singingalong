@@ -1,13 +1,13 @@
 <style>
-@font-face {
-	font-family: 'tisapro';
-	font-style: normal;
-	font-weight: 400;
-	src: local('tisapro'),url('/fonts/TisaPro_Regular.otf'); /* IE9 Compat Modes */
-}
+	@font-face {
+		font-family: 'tisapro';
+		font-style: normal;
+		font-weight: 400;
+		src: local('tisapro'),url('/fonts/TisaPro_Regular.otf'); /* IE9 Compat Modes */
+	}
 	.aboutUs{
 		float: left;
-		width: 650px;
+		width: 630px;
 		border-right: 1px solid #666;
 		padding-top: 20px;
 		font-family: 'tisapro';
@@ -20,6 +20,7 @@
 	.aboutCt{
 		padding: 22px 0;
 		font-size: 15px;
+		min-height: 350px;
 	}
 
 	.aboutCt .blockQuote{
@@ -28,80 +29,80 @@
 		font-size: 22px;
 		margin: 20px 0;
 	}
-	.contentWrap{
-		height: 420px;
-	}
 </style>
 
 
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
-<%= render :partial => "/static/shared/submenu", :locals => {:scope => "academy"} %>
+<%= render :partial => "web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
-<div class="aboutUs">
-	<h2 class="title"><%= t "home.about"%> </h2>
-	<div class="aboutCt">
+	<div class="padder">
+		<div class="aboutUs">
+			<h2 class="title"><%= t "home.about"%> </h2>
+			<div class="aboutCt">
+			A dynamic collective of top homeopathic practitioners. <br />
 		The Research Academy is a dynamic collective of top homeopathic practitioners. They lead in creating an atmosphere of quality learning through one-on-one knowledge sharing sessions and bring together clinical practices that facilitate classical to modern day training.
-		<p class="blockQuote">
+				<p class="blockQuote">
 			" Dr. Rajan Sankaran, head and principal instructor guides each student with his renowned thinking across various homeopathic systems along with other leading practitioners developing a full range of skills in future homeopaths.
 				 The teachings include progressive approaches and new thinking in the field, expanding the strong classical base in accord with the latest advancements in the field.
 
-		</p>
+				</p>
 		Clinical experience is crucial to homeopathic studies; students at the academy receive individual attention during their course, with close supervision, enabling them to think differently, while handling each case.
+			</div>
+		</div>
+		<div class="events">
+			<%= render :partial => "/static/shared/events", :locals => {:events => [
+					{:date => "June 15",
+						:day => "Sat.",
+						:title => "The Title Of the Event",
+						:sub_title => "Subtitle will come here",
+						:link => "/event/123"
+					},{:date => "June 15",
+						:day => "Sat.",
+						:title => "Event 1",
+						:sub_title => "skjhf dg",
+						:link => "/event/123"
+					},{:date => "June 15",
+						:day => "Sat.",
+						:title => "The Title Of the Event",
+						:sub_title => "Subtitle will come here",
+						:link => "/event/123"
+					},{:date => "June 15",
+						:day => "Sat.",
+						:title => "The Title Of the Event",
+						:sub_title => "Subtitle will come here",
+						:link => "/event/123"
+					}]}%>
+		</div>
+		<div class="clear"></div>
 	</div>
 </div>
-<div class="events">
-	<%= render :partial => "/static/shared/events", :locals => {:events => [
-			{:date => "June 15",
-				:day => "Sat.",
-				:title => "The Title Of the Event",
-				:sub_title => "Subtitle will come here",
-				:link => "/event/123"
-			},{:date => "June 15",
-				:day => "Sat.",
-				:title => "Event 1",
-				:sub_title => "skjhf dg",
-				:link => "/event/123"
-			},{:date => "June 15",
-				:day => "Sat.",
-				:title => "The Title Of the Event",
-				:sub_title => "Subtitle will come here",
-				:link => "/event/123"
-			},{:date => "June 15",
-				:day => "Sat.",
-				:title => "The Title Of the Event",
-				:sub_title => "Subtitle will come here",
-				:link => "/event/123"
-			}]}%>
-</div>
-<div class="clear"></div>
-</div>
 <%= render :partial => "/static/shared/news", :locals => {:newses => [
-			{
-				:type => "video",
-				:title => "The Title",
-				:link => "kjdhs"
-			},
-			{
-				:type => "article",
-				:title => "The Title",
-				:link => "kjdhs"
-			},
-			{
-				:type => "article",
-				:title => "The Title",
-				:link => "kjdhs"
-			},{
-				:type => "video",
-				:title => "The Title",
-				:link => "kjdhs"
-			},
-			{
-				:type => "article",
-				:title => "The Title",
-				:link => "kjdhs"
-			},
-			{
-				:type => "article",
-				:title => "The Title",
-				:link => "kjdhs"
-			}]}%>
+		{
+			:type => "video",
+			:title => "The Title",
+			:link => "kjdhs"
+		},
+		{
+			:type => "article",
+			:title => "The Title",
+			:link => "kjdhs"
+		},
+		{
+			:type => "article",
+			:title => "The Title",
+			:link => "kjdhs"
+		},{
+			:type => "video",
+			:title => "The Title",
+			:link => "kjdhs"
+		},
+		{
+			:type => "article",
+			:title => "The Title",
+			:link => "kjdhs"
+		},
+		{
+			:type => "article",
+			:title => "The Title",
+			:link => "kjdhs"
+		}]}%>

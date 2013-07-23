@@ -24,6 +24,7 @@
 		width: 980px;
 		left: -16px;
 		top: 42px;
+		border-right: 1px solid #ddd;
 	}
 	.submenuItem ul li{
 		background-color: #ededed;
@@ -81,10 +82,17 @@
 		top: 3px;
 		left: 3px;
 	}
+
+	.blockQuote{
+		border-left: 4px solid #dd0017;
+		padding-left: 22px;
+		font-size: 22px;
+		margin: 20px 0;
+	}
 </style>
 <div class="header submenu">
 	<ul class="submenuItems">
-		<li class="<%=["about_us"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["about_us", "aim", "team", "association"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="submenuItem">
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
 				<div class="left-border floatLeft"></div>
@@ -106,7 +114,7 @@
 		</li>
 		<li>
 			<div class="submenuItem">
-				<a><%= t "submenu.edge" %></a>
+				<a href="/<%=scope%>/edge"><%= t "submenu.edge" %></a>
 				<ul>
 					<li>
 						<a href=""><%= t "submenu.edgeSection.beliefe" %></a>

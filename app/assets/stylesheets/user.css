@@ -164,6 +164,15 @@ button {  width: auto; overflow: visible; }
 /* Activity CSS End*/
 
 /*Common CSS Rules*/
+.contentWrap{
+	padding-top: 20px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.padder{
+	padding: 10px;
+	margin-top: 40px;
+}
 .spriteIcon{
 	background: url("/images/sprite.png");
 	display: inline-block;
@@ -184,14 +193,17 @@ button {  width: auto; overflow: visible; }
 	background-position: -98px -22px;
 }
 
+.title{
+	font-size: 24px;
+	font-weight: bold;
+}
+
 /*Footer css*/
 footer{
-	/*background-color: #cfcfcf;*/
 	border-top: 1px groove #ddd;
 	padding-top: 20px;
 	width: 100%;
 	background-image: url("/images/footer.jpg");
-
 }
 .floatLeft{
 	float: left;
