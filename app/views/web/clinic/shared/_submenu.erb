@@ -101,7 +101,7 @@
 </style>
 <div class="header submenu">
 	<ul class="submenuItems">
-		<li class="<%=["about_us", "aim", "team", "association"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["about", "aim", "team", "association"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="submenuItem">
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
 				<div class="left-border floatLeft"></div>
@@ -144,9 +144,9 @@
 				</ul>
 			</div>
 		</li>
-		<li class="<%=["knowledge_center"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["articles"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="submenuItem">
-				<a href="/<%=scope%>/knowledge-center"><%= t "submenu.knowledgeCenter" %></a>
+				<a href="/<%=scope%>/articles"><%= t "submenu.knowledgeCenter" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
 					<li>
