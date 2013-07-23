@@ -8,7 +8,7 @@
 	font-family: 'tisapro';
 	font-style: normal;
 	font-weight: 400;
-	src: local('tisapro'),url('/fonts/TisaPro_Regular.otf'); /* IE9 Compat Modes */
+	src: local('tisapro'),url('/fonts/TisaPro-Regular.otf'); /* IE9 Compat Modes */
 }
 body{
 	margin: 0;
