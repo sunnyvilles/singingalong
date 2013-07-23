@@ -8,9 +8,6 @@ class StaticController < ApplicationController
 		#@events = Event.find(:all, :order => 'day DESC', :limit => 4)
 	end
 
-	def clinic_about
-		render 'static/clinic/about' and return
-	end
 	def contact_us
 		
 	end		
