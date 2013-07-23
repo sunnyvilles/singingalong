@@ -6,7 +6,7 @@
  <meta charset="utf-8">
 <%= stylesheet_link_tag "application" %>
 
-
+ <%= javascript_include_tag 'application' %>
 <%= stylesheet_link_tag 'mobile' if mobile_device? %>
 
 <% if mobile_device? %>
@@ -16,11 +16,12 @@
 
 <%end%>
 
- 
+
 <%= csrf_meta_tags %>
-<script src="/scripts/jquery-1.9.1.min.js"></script>
+
 <script src="/scripts/jquery.slides.min.js"></script>
 <script src="/scripts/jq.carouFredSel.js"></script>
+
 </head>
 <body>
 
