@@ -82,9 +82,9 @@
 
 		$("#slides ul").animate({
 			'left': -slidePosition
-		});
+		}, 'slow');
 		$(".slideControler .slideCircle.selected").removeClass("selected");
 		$($(".slideControler .slideCircle")[slideCounter]).addClass("selected");
 		
-	}, 10000);
+	}, 3000);
 </script>
