@@ -65,16 +65,17 @@
 				$(".title, .secondryTitle").hide();
 				setTimeout(function(){					
 					$(".title, .secondryTitle").show();
-				},500);
-				
+				},100);				
 			});
 			$('#slides').superslides({
 				slide_easing: 'easeInOutCubic',
-				slide_speed: 300,
+				slide_speed: 'slow',
 				pagination: false,
 				hashchange: false,
-				scrollable: true
+				scrollable: true,
+				play: 3000
 			});
+			
 		</script>
   </body>
 </html>
