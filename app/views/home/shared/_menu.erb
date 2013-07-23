@@ -43,7 +43,13 @@
 		width: 980px;
 		margin: auto;
 	}
-	.headerCt .menuItems li.selected{
+	.headerCt .menuItems li.clinic.selected{
+		background-image: url("/images/sprite.png");
+		background-position: -1074px -27px;		
+	}
+	.headerCt .menuItems li.academy.selected{
+		/*background-image: url("/images/sprite.png");
+		background-position: -1190px -27px;*/
 		background-color: #424242;
 	}
 	.headerCt .menuItems li{
@@ -54,7 +60,7 @@
 		background-color: #424242;
 	}
 	.headerCt .menuItems li.item{
-		padding: 20px;
+		padding: 20px 22px;
 		height: 20px;
 		font-size: 20px;
 		display: inline-block;
@@ -201,8 +207,8 @@
 		<a href="/"><span class="tosLogo floatLeft spriteIcon"></span></a>
 
 		<ul class="floatRight menuItems">
-			<li class="item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
-			<li class="item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
+			<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
+			<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
 			<li>
 				<div class="loginBox">
 					<span class="loginText"><%= t "header.login"%></span>

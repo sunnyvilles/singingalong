@@ -601,8 +601,12 @@ Superslides.prototype = {
       }
     }
 
-    that.$el.trigger('animating.slides', [orientation]);
-		$(".title, .secondryTitle").hide();
+    that.$el.trigger('animating.slides', [orientation]);		
+		$(".title, .secondryTitle").animate({
+			left: -1800
+		},{
+			duration: 400
+		});
     that.animation(orientation, function() {
       that._findPositions(orientation.upcoming_slide, that);
 
@@ -612,7 +616,9 @@ Superslides.prototype = {
 
       that.animating = false;
       that.$el.trigger('animated.slides');
-			$(".title, .secondryTitle").fadeIn();
+			$(".title, .secondryTitle").animate({
+				left: 0
+			});
       if (!that.init) {
         that.$el.trigger('init.slides');
         that.init = true;
