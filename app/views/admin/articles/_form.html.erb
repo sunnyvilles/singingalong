@@ -27,8 +27,14 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div  class="field">
-  <%= f.select ["Clinic", "Academy"] ,:selected => '1'%>
+  <div  class="field source_select">
+    <%= f.label :source %><br />
+  <%= f.select :source,["Clinic", "Academy"] ,:selected => '1'%>
+
+  </div>
+  <div  class="field type_select">
+    <%= f.label :type %><br />
+  <%= f.select :type,["Video", "Article","Case Study"] ,:selected => '1'%>
 
   </div>
   <div class="field">
