@@ -3,6 +3,9 @@ class Web::ClinicController < ApplicationController
     @articles = Article.find(:all, :order => 'created_at DESC', :limit => 10)
   end
 
+	def article
+    @article = Article.find(params[:article_id])
+  end
 
 	def about
 		
