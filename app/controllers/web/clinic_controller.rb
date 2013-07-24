@@ -1,7 +1,8 @@
 class Web::ClinicController < ApplicationController	
   def articles
-    #@article = Article.find(params[:id])
+    @articles = Article.find(:all, :order => 'created_at DESC', :limit => 10)
   end
+
 
 	def about
 		
