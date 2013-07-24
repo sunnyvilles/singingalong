@@ -1,6 +1,7 @@
 <style>
 	
 </style>
+<%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article-list">
@@ -10,15 +11,14 @@
 		<%= render :partial => "/web/clinic/shared/left_navigation" %>
 		<div class="floatLeft articlesRightPanel">
 			<div class="topHeader">
-				<span class="floatLeft spriteIcon pagination"><a>&laquo; Previous</a></span>
+				<%if page_no !=1%>
+					<a href="/clinic/articles?page=<%=page_no.to_i-1%>">
+				<%end%><span class="floatLeft spriteIcon pagination">&laquo; Previous</span>
+				<%if page_no !=1%></a><%end%>
 				<span class="articleCount">Articles Found: 45<%=@articles.size%></span>
-				<span class="floatRight spriteIcon pagination next"><a>Next &raquo;</a></span>
+				<a href="/clinic/articles?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 			</div>
-
-
 			<div class="articlesList">
-				
-
 				<%@articles.each { |article|%>
 
 				<div class="article">
@@ -35,13 +35,8 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-
-
-
-
-
 				<% } %>
-				<div class="article">
+				<!--<div class="article">
 					<img src="" height="140" width="200" class="floatLeft" alt=""/>
 					<div class="floatRight contentBlock">
 						<h3 class="articleTitle floatLeft">Title of the article</h3>
@@ -93,7 +88,7 @@
 						</div>
 					</div>
 					<div class="clear"></div>
-				</div>
+				</div>-->
 				
 			</div>
 			

@@ -1,6 +1,7 @@
 <style>
 	.article .padder{
 		margin-top: 22px;
+		
 	}
 
 	.article .title{
@@ -9,6 +10,9 @@
 	.article .article-title:before{
 		content: "\00bb\a0";
 		font-size: 20px;
+	}
+	.article img{
+		margin-right: 12px;
 	}
 </style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
@@ -21,8 +25,19 @@
 		</div>
 		<%= render :partial => "/web/clinic/shared/left_navigation" %>
 		<div class="floatLeft articlesRightPanel">
-			<%=@article.to_json%>
+			<h3><%=@article[:title]%></h3>
+			<span><%=@article[:created_at]%></span>
+			<div class="sharingTools">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div class="articleContentArea">
+				<img src="" alt="" height="180" width="280" class="floatLeft"/>
+				<%=@article[:content]%>
+			</div>
 		</div>
+		<div class="clear"></div>
 	</div>
 </div>
 
