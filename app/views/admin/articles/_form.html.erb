@@ -34,12 +34,16 @@
   </div>
   <div  class="field type_select">
     <%= f.label :type %><br />
-  <%= f.select :type,["Video", "Article","Case Study"] ,:selected => '1'%>
+  <%= f.select :type,["Article","Video", "Case Study"] ,:selected => '1'%>
 
   </div>
-  <div class="field">
+  <div class="field content_text">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
+  </div>
+  <div class="field content_url">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -48,11 +52,12 @@
 <% end %>
 
 <script type="text/javascript">
-$(".loginBox").click(function(){
-    console.log($(".loginPanel"));
-    $(".loginPanel").css({
-      display: 'block'
+$(document).ready(function() {
+$(".content_url").css({
+      display: 'none'
     });
-    return false;
-  });
+}
+
+);
+
 </script>
