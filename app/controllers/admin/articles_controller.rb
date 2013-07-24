@@ -58,7 +58,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     respond_to do |format|
-      if @article.update_attributes(params[:id])
+      if @article.update_attributes(params[:article])
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully updated.' }
         format.json { head :no_content }
       else

@@ -132,8 +132,9 @@
 
 			<div class="articlesList">
 				
+<%=will_paginate @articles%>
 
-				<%@articles.each { |article|%>
+<%@articles.each { |article|%>
 
 				<div class="article">
 					<img src="" height="140" width="200" class="floatLeft" alt=""/>
@@ -155,6 +156,8 @@
 
 
 				<% } %>
+
+				
 				<div class="article">
 					<img src="" height="140" width="200" class="floatLeft" alt=""/>
 					<div class="floatRight contentBlock">
