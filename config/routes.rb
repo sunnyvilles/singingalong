@@ -1,5 +1,6 @@
 TheOtherSongClinic::Application.routes.draw do
   
+
   #get "users/edit"
 
   #get "users/new"
@@ -11,15 +12,15 @@ TheOtherSongClinic::Application.routes.draw do
 		resources :doctors
     resources :events
 	end
-
-
+resources :articles
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-	match 'articles/:id' => 'web/articles#show'
+	#match 'articles/:id' => 'web/articles#show'
 
 
 	# Static pages
