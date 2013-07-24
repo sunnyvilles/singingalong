@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   
 has_and_belongs_to_many :doctors
-  attr_accessible :content, :name, :title
+  attr_accessible :content, :name, :title,:source,:type
 
 
 	#to search articles using name , title , content
@@ -25,4 +25,5 @@ has_and_belongs_to_many :doctors
 			}]
 		return activity
 	end
+	 self.inheritance_column = :_type_disabled
 end

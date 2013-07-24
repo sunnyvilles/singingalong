@@ -6,6 +6,8 @@
     <th>Name</th>
     <th>Title</th>
     <th>Content</th>
+    <th>Source</th>
+    <th>Type</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,7 +18,8 @@
     <td><%= article.name %></td>
     <td><%= article.title %></td>
     <td><%= article.content %></td>
-
+    <td><%= article.source %></td>
+    <td><%= article.type %></td>
     <td><%= link_to 'Edit', edit_admin_article_path(article),:style=>"color:red;" %></td>
     <td><%= link_to 'Show', [:admin,article],:style=>"color:red;" %></td>
     <td><%= link_to 'Destroy',[:admin,article], confirm: 'Are you sure?', method: :delete ,:style=>"color:red;"%></td>

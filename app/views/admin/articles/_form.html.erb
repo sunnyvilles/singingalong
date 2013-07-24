@@ -29,22 +29,19 @@
   </div>
   <div  class="field source_select">
     <%= f.label :source %><br />
-  <%= f.select :source,["Clinic", "Academy"] ,:selected => '1'%>
+  <%= f.select :source,["clinic", "academy"] ,:selected => '1'%>
 
   </div>
   <div  class="field type_select">
     <%= f.label :type %><br />
-  <%= f.select :type,["Article","Video", "Case Study"] ,:selected => '1'%>
+  <%= f.select :type,["article","video", "case study"] ,:selected => '1'%>
 
   </div>
   <div class="field content_text">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <div class="field content_url">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
