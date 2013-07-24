@@ -1,127 +1,13 @@
 <style>
-	.article-list .padder{
-		padding: 10px 0;
-	}
-	.article-list .title{
-		padding-left: 10px;
-	}
-	.article-list .articlesLeftPanel{
-		width: 160px;
-		margin-top: 20px;
-	}
-	.article-list .articlesRightPanel{
-		width: 790px;
-		padding-left: 30px;
-	}
-	.article-list .articlesLeftPanel ul li:first-child{
-		background-color: #599d15;
-		padding: 8px 12px;
-		color: #fff;
-		margin-top: 20px;
-	}
-	.article-list .articlesLeftPanel ul li{
-		padding: 4px 12px ;
-	}
-	.article-list .articlesLeftPanel ul li a{
-		color: #000;
-		font-size: 14px;
-	}
-	.article-list .articlesLeftPanel ul li a:hover{
-		text-decoration: underline;
-	}
-
-
-	.article-list .topHeader{
-		border-bottom: 1px solid #666;
-		height: 38px;
-	}
-	.article-list .navigation a{
-		color: #000;
-	}
-	.article-list .pagination{
-		height: 30px;
-		width: 91px;
-		background-position: -243px -13px;
-		text-align: center;
-		line-height: 28px;
-	}
-	.article-list .pagination.next{
-		margin-right: 8px;
-	}
-	.article-list .articleCount{
-		width: 160px;
-		position: absolute;
-		left: 50%;
-	}
-
-	.article-list .article{
-		padding: 16px 0;
-		position: relative;
-	}
-	.article-list .article img{
-		margin-right: 18px;
-	}
-
-	.article-list .articleTitle{
-
-		font-size: 16pt;
-	}
-	.article-list .articleDate{
-		font-size: 12pt;
-		margin-right: 6px;
-	}
-	.article-list .articleContent{
-		margin-top: 16px;
-		line-height: 18px;
-		font-size: 12pt;
-		color: #666;
-	}
-	.article-list .contentBlock{
-		width: 570px;
-	}
-	.article-list .sharingTool{
-		background: red;
-		display: inline-block;
-		height: 24px;
-		width: 90px;
-	}
-	.article-list .tools{
-		margin-top: 18px;
-	}
-	.article-list .tools a{
-		font-size: 14pt;
-		float: right;
-		color: #666;
-		padding-right: 10px;
-	}
-	.article-list .tools a:after{
-		content: "\00bb";
-	}
-	.articleContent{
-		height: 54px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+	
 </style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article-list">
 	<div class="padder">
 		<h2 class="title"><%= t "submenu.knowledge.articles"%> </h2>
-		<div class="floatLeft articlesLeftPanel">
-			<ul>
-				<li>POPULARITY</li>
-				<li><a>Latest</a></li>
-				<li><a>Most Read</a></li>
-				<li><a>Most Shared</a></li>
-			</ul>
-			<ul>
-				<li>CATEGORIES</li>
-				<li><a>Allergy</a></li>
-				<li><a>Chronic</a></li>
-				<li><a>Healing</a></li>
-			</ul>
-		</div>
+
+		<%= render :partial => "/web/clinic/shared/left_navigation" %>
 		<div class="floatLeft articlesRightPanel">
 			<div class="topHeader">
 				<span class="floatLeft spriteIcon pagination"><a>&laquo; Previous</a></span>
@@ -137,7 +23,7 @@
 <%@articles.each { |article|%>
 
 				<div class="article">
-					<img src="" height="140" width="200" class="floatLeft" alt=""/>
+					<img src="/images/articles/primary-<%=article[:id]%>.jpg" height="140" width="200" class="floatLeft" alt=""/>
 					<div class="floatRight contentBlock">
 						<h3 class="articleTitle floatLeft"><%=article[:title]%></h3>
 						<span class="articleDate floatRight"><%=article[:created_at].strftime('%B %d, %Y')%></span>
@@ -145,7 +31,7 @@
 						<div class="articleContent"><%=article[:content]%></div>
 						<div class="tools">
 							<span class="spriteIcon sharingTool">Share Tool</span>
-							<a>Read More</a>
+							<a href="/clinic/articles/<%=article[:id]%>">Read More</a>
 						</div>
 					</div>
 					<div class="clear"></div>

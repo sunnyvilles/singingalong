@@ -1,0 +1,28 @@
+<style>
+	.article .padder{
+		margin-top: 22px;
+	}
+
+	.article .title{
+		display: inline-block;
+	}
+	.article .article-title:before{
+		content: "\00bb\a0";
+		font-size: 20px;
+	}
+</style>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<div class="contentWrap article article-list">
+	<div class="padder">
+		<div class="topHeader">
+			<h2 class="title"><%= t "submenu.knowledge.articles"%> </h2>
+			<span class="article-title"><%=@article[:title].upcase%></span>
+		</div>
+		<%= render :partial => "/web/clinic/shared/left_navigation" %>
+		<div class="floatLeft articlesRightPanel">
+			<%=@article.to_json%>
+		</div>
+	</div>
+</div>
+
