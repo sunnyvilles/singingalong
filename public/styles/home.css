@@ -244,7 +244,7 @@ ul li:before {
 }
 
 .footer .motto{
-	width: 464px;
+	width: 470px;
 	margin: auto;
 	color: #fff;
 	font-size: 24.36px;
@@ -260,6 +260,7 @@ ul li:before {
 	background-color: rgba(0,0,0,0.4);
 	position: absolute;
 	top: 0;
+	z-index: 10;
 }
 
 .title1{
