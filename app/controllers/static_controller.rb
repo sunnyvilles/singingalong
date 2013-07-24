@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
 	layout 'application'
-	
+		
 	def academy
 		#@events = Event.find(:all, :order => 'day DESC',:limit => 4)
 	end
@@ -37,5 +37,4 @@ class StaticController < ApplicationController
 		render ('static/our_edge/' + params[:pages]) and return if params[:pages].present?
 	end
 	
-
 end
