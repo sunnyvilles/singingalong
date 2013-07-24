@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 has_and_belongs_to_many :doctors
   attr_accessible :content, :name, :title
 
-	
+	ARTICLE_FOR = ["Clinic","Academy"]
 
 	#to search articles using name , title , content
 

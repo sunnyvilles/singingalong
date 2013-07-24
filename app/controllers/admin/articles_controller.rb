@@ -1,4 +1,5 @@
 class Admin::ArticlesController < ApplicationController
+  layout "admin/application.html"
   # GET /articles
   # GET /articles.json
   def index
