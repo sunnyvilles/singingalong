@@ -1,32 +1,26 @@
 <style>
 	@font-face {
-		font-family: 'mavenproregular';
-		font-style: normal;
-		font-weight: 400;
-		src: local('mavenproregular'),url('/fonts/Maven_Pro_Regular.otf'); /* IE9 Compat Modes */
-	}
-
-	@font-face {
-		font-family: 'mavenpromedium';
-		font-style: normal;
-		font-weight: 400;
-		src: local('mavenproregular'),url('/fonts/Maven_Pro_Medium.otf'); /* IE9 Compat Modes */
+		font-family: MavenProBlack;
+		src: local(MavenProBlack), url('/fonts/MavenProBlack.otf') format('opentype');
 	}
 	@font-face {
-		font-family: 'mavenprobold';
-		font-style: normal;
-		font-weight: 400;
-		src: local('mavenprobold'),url('/fonts/Maven_Pro_Bold.otf'); /* IE9 Compat Modes */
+		font-family: MavenProBold;
+		src: local(MavenProBold), url('/fonts/MavenProBold.otf') format('opentype');
 	}
-
 	@font-face {
-		font-family: 'mavenproblack';
-		font-style: normal;
-		font-weight: 400;
-		src: local('mavenproblack'),url('/fonts/Maven_Pro_Black.otf'); /* IE9 Compat Modes */
+		font-family: MavenProMedium;
+		src: local(MavenProMedium), url('/fonts/MavenProMedium.otf') format('opentype');
+	}
+	@font-face {
+		font-family: MavenProRegular;
+		src: local(MavenProRegular), url('/fonts/MavenProRegular.otf') format('opentype');
+	}
+	@font-face {
+		font-family: TisaProRegular;
+		src: local(TisaProRegular), url('/fonts/TisaProRegular.otf') format('opentype');
 	}
 	body{
-		font-family: mavenproregular;
+		font-family: 'MavenProRegular';
 		margin: 0;
 	}
 	.header{
@@ -45,17 +39,23 @@
 	}
 	.headerCt .menuItems li.clinic.selected, .headerCt .menuItems li.clinic:hover{
 		background-image: url("/images/sprite.png");
-		background-position: -1074px -27px;		
+		background-position: -1070px -27px;		
+	}
+	.headerCt .menuItems li.clinic.selected{
+		font-weight: bold;
 	}
 	.headerCt .menuItems li.academy.selected, .headerCt .menuItems li.academy.item:hover{
 		background-image: url("/images/sprite.png");
-		background-position: -1412px -27px;
+		background-position: -1408px -27px;		
+	}
+	.headerCt .menuItems li.academy.selected{
+		font-weight: bold;
 	}
 	.headerCt .menuItems li{
 		display: inline;
 		color: white;
 	}
-	
+
 	.headerCt .menuItems li.item{
 		padding: 20px 22px;
 		height: 20px;
@@ -118,7 +118,7 @@
 	.loginBox .loginPanel{
 		display: none;
 		position: absolute;
-		height: 128px;
+		height: 138px;
 		width: 228px;
 		background-color: #ededed;
 		z-index: 11;
@@ -133,7 +133,7 @@
 	.loginPanel input{
 		width: 218px;
 		height: 24px;
-		margin-bottom: 12px;
+		margin-bottom: 10px;
 		padding-left: 8px;
 	}
 	.loginPanel span{
@@ -146,7 +146,7 @@
 		border: none;
 		height: 29px;
 		color: #fff;
-		margin-bottom: 4px;
+		margin-bottom: 8px;
 	}
 	.uptri{
 		border-color: transparent transparent #ededed;
