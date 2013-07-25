@@ -1,15 +1,28 @@
 @font-face {
+	font-family: MavenProBlack;
+	src: local(MavenProBlack), url('/fonts/MavenProBlack.otf') format('opentype');
+}
+@font-face {
 	font-family: MavenProBold;
 	src: local(MavenProBold), url('/fonts/MavenProBold.otf') format('opentype');
 }
 @font-face {
-	font-family: TisaProRegular;
-	src: local(TisaProRegular), url('/fonts/TisaProRegular.otf') format('opentype');
+	font-family: MavenProMedium;
+	src: local(MavenProMedium), url('/fonts/MavenProMedium.otf') format('opentype');
 }
+@font-face {
+	font-family: MavenProRegular;
+	src: local(MavenProRegular), url('/fonts/MavenProRegular.otf') format('opentype');
+}
+@font-face {
+	font-family: TisaProRegular;
+	src: local(TisaProRegular), url('TisaProRegular.otf') format('opentype');
+}
+
 
 body{
 	margin: 0;
-	font-family: TisaProRegular;
+	font-family: 'MavenProRegular';
 }
 .floatLeft{
 	float: left;
@@ -106,7 +119,7 @@ button {
 	width: 147px !important;
 	background-position: -857px -40px !important;
 	font-size:18pt;
-	padding: 6px 16px;
+	padding: 12px 16px;
 	text-decoration:none;
 	color: #080808;
 	text-align: center;
@@ -232,7 +245,7 @@ ul li:before {
 	z-index: 100;
 	width: 100%;
 	height: 40px;
-	font-family: 'TisaProRegular';
+	/*font-family: 'TisaProRegular';*/
 }
 .footer .copyright{
 	color: white;
@@ -241,12 +254,12 @@ ul li:before {
 }
 
 .footer .motto{
-	width: 475px;
+	width: 465px;
 	margin: auto;
 	color: #fff;
 	font-size: 24.36px;
 	padding-bottom: 20px;
-	font-family: 'MavenProBold';
+	font-family: 'TisaProRegular';
 }
 
 .footer .motto span.dotAfter:before{
