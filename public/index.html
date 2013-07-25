@@ -6,31 +6,23 @@
     <title>The Other Song</title>
     <link rel="stylesheet" type="text/css" href="/styles/home.css">
 		<link rel="stylesheet" type="text/css" href="/styles/superslides.css">
-		 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+		<script src="/scripts/jquery.min.js"></script>
+		<script src="/scripts/jquery.slides.min.js"></script>
 		<script src="/scripts/jquery.superslides.js"></script>
   </head>
   <body>
 		<!--<a href="/clinic"><button class="clinic_button homeBtns">CLINIC</button></a>-->
 		<div id="slides">
-			
 			<ul class="slides-container">
 				<li>
-					<img src="images/home-slides-1.jpg" alt="">
-					
-					<div class="title title1">Essential Homoeopathy </div>
-					<div class="secondryTitle">A complete online discussion forum, mentoring and training program with Dr. Rajan Sankaran.</div>
+					<img src="images/home-slides-1.jpg" alt="">					
 				</li>
 				<li>
-					<img src="images/home-slides-2.jpg" alt="">
-					
-					<div class="title title2">'the other song' launches speciality clinic</div>
-					<div class="secondryTitle">An interdisciplinary collaboration of healthcare professionals.</div>
+					<img src="images/home-slides-2.jpg" alt="">					
 				</li>
 				<li>
 					<img src="images/home-slides-3.jpg" alt="">					
-					<div class="title title3">Secrets of Sarkar</div>
-					<div class="secondryTitle">A 2 day workshop on 1st and 2nd August, 2013.</div>
 				</li>
 			</ul>
 			<!--<div class="overlay"></div>-->
@@ -42,14 +34,30 @@
 					<i class="icon-chevron-left"></i>
 				</a>
 			</nav>
+
+		</div>
+		<div class="contentWrapper">
 			<div class="content">
 				<div class="spriteIcon coverLogo"></div>
 				<div class="btnContainer">
-					<a href="/clinic"><span class="rightMartin50 spriteIcon homeBtn">CLINIC</span></a>
+					<a href="/clinic"><span class="rightMargin18 spriteIcon homeBtn">CLINIC</span></a>
 					<a href="/academy"><span class="spriteIcon homeBtn">ACADEMY</span></a>
-					<!--<a href="/home"><span class="home_button button_example">GO TO HOMEPAGE</span></a>-->
 				</div>
 			</div>
+			<ul class="slideTitles">
+				<li>
+					<div class="title title1">Essential Homoeopathy </div>
+					<div class="secondryTitle">A complete online discussion forum, mentoring and training program with Dr. Rajan Sankaran.</div>
+				</li>
+				<li>
+					<div class="title title2">'the other song' launches speciality clinic</div>
+					<div class="secondryTitle">An interdisciplinary collaboration of healthcare professionals.</div>
+				</li>
+				<li>
+					<div class="title title3">Secrets of Sarkar</div>
+					<div class="secondryTitle">A 2 day workshop on 1st and 2nd August, 2013.</div>
+				</li>
+			</ul>
 			<div class="footer">
 				<div class="motto">
 					<span>TEACHING</span>
@@ -60,13 +68,12 @@
 				<span class="copyright floatRight">All Rights Reserved</span>
 			</div>
 		</div>
-
 		<script>
 			$(".spriteIcon").click(function(evt){
 				$(".title, .secondryTitle").hide();
-				setTimeout(function(){					
+				setTimeout(function(){
 					$(".title, .secondryTitle").show();
-				},100);				
+				},100);
 			});
 			$('#slides').superslides({
 				slide_easing: 'easeInOutCubic',
@@ -74,9 +81,15 @@
 				pagination: false,
 				hashchange: false,
 				scrollable: true,
-				play: 3000
+				play: 3000,
+				animateTitle: function(options){
+					$(".slideTitles li").hide();
+					$($(".slideTitles li")[options.upcoming_slide]).show();
+					/*$($(".slideTitles li")[options.upcoming_slide]).animate({
+						
+					})*/
+				}
 			});
-			
 		</script>
   </body>
 </html>
