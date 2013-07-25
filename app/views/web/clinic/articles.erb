@@ -15,7 +15,7 @@
 					<a href="/clinic/articles?page=<%=page_no.to_i-1%>">
 				<%end%><span class="floatLeft spriteIcon pagination">&laquo; Previous</span>
 				<%if page_no !=1%></a><%end%>
-				<span class="articleCount">Articles Found: 45<%=@articles.size%></span>
+				<span class="articleCount">Articles Found: <%=@articles.size%></span>
 				<a href="/clinic/articles?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 			</div>
 			<div class="articlesList">
