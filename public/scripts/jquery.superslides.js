@@ -557,6 +557,7 @@
 				this.play_id = setInterval(function() {
 					that.animate();
 				}, this.options.play);
+				console.log(this.play_id)
 			}
 
 			this.$el.trigger('started.slides');
