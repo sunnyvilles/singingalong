@@ -23,7 +23,7 @@
 			<h2 class="title"><%= t "submenu.knowledge.articles"%> </h2>
 			<span class="article-title"><%=@article[:title].upcase%></span>
 		</div>
-		<%= render :partial => "/web/clinic/shared/left_navigation" %>
+		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "articles"} %>
 		<div class="floatLeft articlesRightPanel">
 			<h3><%=@article[:title]%></h3>
 			<span><%=@article[:created_at]%></span>
