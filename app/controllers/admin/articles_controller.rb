@@ -40,10 +40,10 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    
   handle_file_upload(params)
 
-@article = Article.new(params[:article])
-raise @article.to_yaml
+  @article = Article.new(params[:article])
     respond_to do |format|
       if @article.save
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
@@ -87,15 +87,18 @@ raise @article.to_yaml
     end
   end
 
-#private
+private
 #fileuploadhandle
   def handle_file_upload(params)
-    if params[:uploadedfile]
-      uploaded_io = params[:uploadedfile]
+    if params[:article][:uploadedfile]
+      uploaded_io = params[:article][:uploadedfile]
       File.open(Rails.root.join('public', 'images','articles',
           uploaded_io.original_filename), 'wb') do |file|
         file.write(uploaded_io.read)
       end
+
+
+
       params[:article][:uploadedfile] = uploaded_io.original_filename
     end
 
