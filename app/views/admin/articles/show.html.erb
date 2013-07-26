@@ -23,5 +23,9 @@
   <%= @article.type %>
 </p>
 
+<p>
+  <b>Image:</b>
+  <%= image_tag Rails.root.join('public', 'images','articles') + @article.get_image %>
+</p>
 
 <%= link_to 'Back', admin_articles_path %>
