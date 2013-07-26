@@ -40,8 +40,10 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(params[:article])
+  handle_file_upload(params)
 
+@article = Article.new(params[:article])
+raise @article.to_yaml
     respond_to do |format|
       if @article.save
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
@@ -49,13 +51,18 @@ class Admin::ArticlesController < ApplicationController
       else
         format.html { render :action=> "new" }
         format.json { render :json=> @article.errors, :status=> :unprocessable_entity }
-      end
-    end
+      end #if else
+    end #do
+  
+
+  
   end
 
   # PUT /articles/1
   # PUT /articles/1.json
   def update
+    handle_file_upload(params)
+
     @article = Article.find(params[:id])
     respond_to do |format|
       if @article.update_attributes(params[:article])
@@ -79,4 +86,24 @@ class Admin::ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+#private
+#fileuploadhandle
+  def handle_file_upload(params)
+    if params[:uploadedfile]
+      uploaded_io = params[:uploadedfile]
+      File.open(Rails.root.join('public', 'images','articles',
+          uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:article][:uploadedfile] = uploaded_io.original_filename
+    end
+
+    rescue => e
+  logger.error( 'Upload failed. ' + e.to_s )
+  flash[:error] = 'Upload failed. Please try again.'
+  render :action => 'new'
+
+  end
+
 end

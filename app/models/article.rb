@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   
 has_and_belongs_to_many :doctors
-  attr_accessible :content, :name, :title,:source,:type
+  attr_accessible :content, :name, :title,:source,:type,:uploadedfile
 
 
 	#to search articles using name , title , content
@@ -25,5 +25,12 @@ has_and_belongs_to_many :doctors
 			}]
 		return activity
 	end
+
+	def get_image
+    	return uploadedfile || 'primary-1.jpg'
+    end
+
+
 	 self.inheritance_column = :_type_disabled
+	#attr_protected :uploadedfile
 end
