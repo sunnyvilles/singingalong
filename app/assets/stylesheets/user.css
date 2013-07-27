@@ -473,18 +473,19 @@ footer{
 
 .videoCt{
 	margin-top: 20px;
-	height: 200px;
+	height: 180px;
 	position: relative;
 }
 .video{
 	margin-right: 10px;
-	height: 200px;
+	height: 180px;
 	width: 280px;
-	background: red;
 }
 .videoContent{
+	width: 524px;
 	position: absolute;
 	bottom: 0;
+	left: 290px;
 }
 /*Article css end*/
 
@@ -492,7 +493,7 @@ footer{
 /*Admin Articles List Start*/
 .articleList h1{
 	font-size: 32px;
-	
+
 }
 .articleList table tr th{
 	background: #000;
