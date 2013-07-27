@@ -1,4 +1,4 @@
-
+<div class="articleList">
 <h1>Listing articles</h1>
 
 <table style="margin:auto;">
@@ -17,7 +17,7 @@
   <tr>
     <td><%= article.name %></td>
     <td><%= article.title %></td>
-    <td><%= article.content %></td>
+    <td><%= article.content[0..200] %>...</td>
     <td><%= article.source %></td>
     <td><%= article.type %></td>
     <td><%= link_to 'Edit', edit_admin_article_path(article),:style=>"color:red;" %></td>
@@ -30,3 +30,4 @@
 <br />
 
 <%= link_to 'New Article', new_admin_article_path ,:style=>"color:blue;"%>
+</div>

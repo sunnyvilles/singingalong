@@ -1,90 +1,90 @@
+<div class="articleEdit">
+	<style type="text/css">
 
-<style type="text/css">
-
-.new_article
-{margin-left:25px;}
-</style>
-<%= form_for([:admin, @article]) do |f| %>
+		.new_article
+		{margin-left:25px;}
+	</style>
+	<%= form_for([:admin, @article]) do |f| %>
 
 
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+		<% if @article.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+				<ul>
+					<% @article.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div  class="field source_select">
-    <%= f.label :source %><br />
-  <%= f.select :source,["clinic", "academy"] ,:selected => '1'%>
+		<div class="field">
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</div>
+		<div class="field">
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</div>
+		<div  class="field source_select">
+			<%= f.label :source %><br />
+			<%= f.select :source,["clinic", "academy"] ,:selected => '1'%>
 
-  </div>
-  <div  class="field type_select">
-    <%= f.label :type %><br />
-  <%= f.select :type,["article","video", "case study"] ,:selected => '1'%>
+		</div>
+		<div  class="field type_select">
+			<%= f.label :type %><br />
+			<%= f.select :type,["article","video", "case study"] ,:selected => '1'%>
 
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
+		</div>
+		<div class="field">
+			<%= f.label :content %><br />
+			<%= f.text_area :content, :cols => 120, :rows=>30 %>
+		</div>
 
-  <%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
-<p>
-  <div class="field">
-    <%= f.label :file_caption_0, 'upload a picture' %><br />
-    <%= f.file_field :file_caption_0 %>
-  </div>
-  <div class="field">
-    <%=f.label :caption_0, 'caption' %>
-    <%=f.text_field :caption_0%>
-    </div>
-</p>
-<p>
-    <div class="field">
-    <%= f.label :file_caption_1, 'upload another picture' %><br />
-    <%= f.file_field :file_caption_1 %>
-  </div>
-  <div class="field">
-    <%=f.label :caption_1, 'caption' %>
-    <%=f.text_field :caption_1%>
-    </div>
-</p>
-<p>
-    <div class="field">
-    <%= f.label :file_caption_2, 'upload one more picture' %><br />
-    <%= f.file_field :file_caption_2 %>
-  </div>
-  <div class="field">
-    <%=f.label :caption_2, 'caption' %>
-    <%=f.text_field :caption_2%>
-    </div>
-    </p>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
+		<p>
+		<div class="field">
+			<%= f.label :file_caption_0, 'upload a picture' %><br />
+			<%= f.file_field :file_caption_0 %>
+		</div>
+		<div class="field">
+			<%=f.label :caption_0, 'caption' %>
+			<%=f.text_field :caption_0%>
+		</div>
+	</p>
+	<p>
+	<div class="field">
+		<%= f.label :file_caption_1, 'upload another picture' %><br />
+		<%= f.file_field :file_caption_1 %>
+	</div>
+	<div class="field">
+		<%=f.label :caption_1, 'caption' %>
+		<%=f.text_field :caption_1%>
+	</div>
+	</p>
+	<p>
+	<div class="field">
+		<%= f.label :file_caption_2, 'upload one more picture' %><br />
+		<%= f.file_field :file_caption_2 %>
+	</div>
+	<div class="field">
+		<%=f.label :caption_2, 'caption' %>
+		<%=f.text_field :caption_2%>
+	</div>
+	</p>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 
 <% end %>
-
+</div>
 <script type="text/javascript">
-$(document).ready(function() {
-$(".content_url").css({
+	$(document).ready(function() {
+		$(".content_url").css({
       display: 'none'
     });
-}
+	}
 
 );
 

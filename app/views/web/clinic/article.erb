@@ -1,7 +1,7 @@
 <style>
 	.article .padder{
 		margin-top: 22px;
-		
+
 	}
 
 	.article .title{
@@ -13,12 +13,26 @@
 		font-size: 20px;
 	}
 	.article img{
-		margin-right: 12px;
+
 	}
 
 	.articlesRightPanel{
 		padding: 28px 0;
 	}
+	.articleSharingTools{
+		position: relative;
+		bottom: 8px;
+	}
+	.articleImageSlide{
+		margin: 0 10px 10px 0;
+		height: 178px;
+		width: 282px;
+		overflow: hidden;
+	}
+	.articleImageSlide{
+		position: relative;
+	}
+	
 </style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
@@ -32,17 +46,69 @@
 		<div class="floatLeft articlesRightPanel">
 			<h3><%=@article[:title]%></h3>
 			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
-			<div class="sharingTools">
-				<span></span>
-				<span></span>
-				<span></span>
+			<div class="articleSharingTools floatRight">
+				<a><span class="spriteIcon smlIcon mail"></span></a>
+				<a><span class="spriteIcon smlIcon facebook"></span></a>
+				<a><span class="spriteIcon smlIcon twitter"></span></a>
 			</div>
+
 			<div class="articleContentArea">
-				<img src="" alt="" height="180" width="280" class="floatLeft"/>
+				<%if(@article[:file_caption_0].present?)%>
+				<div class="floatLeft articleImageSlide">
+					<%if(@article[:file_caption_0].present?)%>
+					<div>
+						<img src="/images/articles/primary_1_1.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@article[:file_caption_0]%></span>
+					</div>
+					<%end%>
+					<%if(@article[:file_caption_1].present?)%>
+					<div>
+						<img src="/images/articles/primary_1_1.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@article[:file_caption_1]%></span>
+					</div>
+					<%end%>
+					<%if(@article[:file_caption_2].present?)%>
+					<div>
+						<img src="/images/articles/primary_1_1.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@article[:file_caption_2]%></span>
+					</div>
+					<%end%>
+				</div>
+				<%end%>
 				<%=@article[:content]%>
+				<div class="videoCt">
+					<div class="video floatLeft">
+					<!--<iframe width="282" height="180" src="//www.youtube.com/embed/Y8wOjt2LDFk" frameborder="0" ></iframe>-->
+					</div>
+					<div class="floatLeft">
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+						nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+						volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+						ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+					</div>										
+				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
 	</div>
 </div>
 
+<script>
+	<%if(@article[:file_caption_1].present?)%>
+	$(".articleImageSlide").slidesjs({
+		width: 278,
+		height: 178,
+		play: {
+			active: false,
+			effect: "slide",
+			interval: 5000
+		},
+		navigation:{
+			active: false
+		},
+		pagination: {
+			active: true
+		}
+	});
+	<%end%>
+</script>

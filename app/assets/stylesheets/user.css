@@ -190,7 +190,7 @@ button {  width: auto; overflow: visible; }
 	background-position: -64px -22px;
 }
 .facebook{
-	background-position: -98px -22px;
+	background-position: -94px -22px;
 }
 
 .title{
@@ -312,119 +312,211 @@ footer{
 
 /*Article CSS Start*/
 .article-list .padder{
-		padding: 10px 0;
-	}
-	.article-list .title{
-		padding-left: 10px;
-	}
-	.article-list .articlesLeftPanel{
-		width: 136px;
-		margin-top: 10px;
-	}
-	.article-list .articlesRightPanel{
-		width: 790px;
-		padding-left: 30px;
-	}
-	.article-list .articlesRightPanel h3{
-		font-size: 18px;
-		font-family: 'TisaProRegular';
-	}
-	.article-list .articlesRightPanel .date{
-		font-size: 14px;
-		font-family: 'TisaProRegular';
-	}
-	.article-list .articleContentArea{
-		padding-top: 16px;
-	}
-	.article-list .articlesLeftPanel ul li:first-child{
-		background-color: #599d15;
-		padding: 8px 12px;
-		color: #fff;
-		margin-top: 20px;
-	}
-	.article-list .articlesLeftPanel ul li{
-		padding: 4px 12px ;
-	}
-	.article-list .articlesLeftPanel ul li a{
-		color: #000;
-		font-size: 14px;
-	}
-	.article-list .articlesLeftPanel ul li a:hover{
-		text-decoration: underline;
-	}
+	padding: 10px 0;
+}
+.article-list .title{
+	padding-left: 10px;
+}
+.article-list .articlesLeftPanel{
+	width: 136px;
+	margin-top: 10px;
+}
+.article-list .articlesRightPanel{
+	width: 804px;
+	padding-left: 30px;
+	padding-right: 10px;
+}
+.article-list .articlesRightPanel h3{
+	font-size: 18px;
+	font-family: 'TisaProRegular';
+}
+.article-list .articlesRightPanel .date{
+	font-size: 14px;
+	font-family: 'TisaProRegular';
+}
+.article-list .articleContentArea{
+	padding-top: 16px;
+	font-family: 'TisaProRegular';
+}
+.article-list .articlesLeftPanel ul li:first-child{
+	background-color: #599d15;
+	padding: 8px 12px;
+	color: #fff;
+	margin-top: 20px;
+}
+.article-list .articlesLeftPanel ul li{
+	padding: 4px 12px ;
+}
+.article-list .articlesLeftPanel ul li a{
+	color: #000;
+	font-size: 14px;
+}
+.article-list .articlesLeftPanel ul li a:hover{
+	text-decoration: underline;
+}
 
 
-	.article-list .topHeader{
-		border-bottom: 1px solid #666;
-		height: 38px;
-	}
-	.article-list .navigation a{
-		color: #000;
-	}
-	.article-list .pagination{
-		height: 30px;
-		width: 91px;
-		background-position: -243px -13px;
-		text-align: center;
-		line-height: 28px;
-	}
-	.article-list .pagination.next{
-		margin-right: 8px;
-	}
-	.article-list .articleCount{
-		width: 160px;
-		position: absolute;
-		left: 50%;
-	}
+.article-list .topHeader{
+	border-bottom: 1px solid #666;
+	height: 38px;
+}
+.article-list .navigation a{
+	color: #000;
+}
+.article-list .pagination{
+	height: 30px;
+	width: 91px;
+	background-position: -243px -13px;
+	text-align: center;
+	line-height: 28px;
+}
 
-	.article-list .article{
-		padding: 16px 0;
-		position: relative;
-	}
-	.article-list .article img{
-		margin-right: 18px;
-	}
+.slidesjs-pagination{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 100;
+}
+.slidesjs-pagination-item{
+	display: inline-block;
+}
 
-	.article-list .articleTitle{
+.slidesjs-pagination-item a{
+	color: red;
+	font-size: 1px;
+}
 
-		font-size: 16pt;
-	}
-	.article-list .articleDate{
-		font-size: 12pt;
-		margin-right: 6px;
-	}
-	.article-list .articleContent{
-		margin-top: 16px;
-		line-height: 18px;
-		font-size: 12pt;
-		color: #666;
-	}
-	.article-list .contentBlock{
-		width: 570px;
-	}
-	.article-list .sharingTool{		
-		display: inline-block;
-		height: 24px;
-		width: 90px;
-	}
-	.article-list .tools{
-		margin-top: 18px;
-	}
-	.article-list .tools a{
-		font-size: 12pt;
-		float: right;
-		color: #666;
-		padding-right: 10px;
-	}
-	.article-list .tools a:after{
-		content: "\00bb";
-	}
-	.articleContent{
-		height: 54px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.articlesList{
-		font-family: 'TisaProRegular';
-	}
-	/*Article css end*/
+.article-list .pagination.next{
+	margin-right: 8px;
+}
+.article-list .articleCount{
+	width: 160px;
+	position: absolute;
+	left: 50%;
+}
+
+.article-list .article{
+	padding: 16px 0;
+	position: relative;
+}
+.article-list .article img{
+	margin-right: 18px;
+}
+
+.article-list .articleTitle{
+
+	font-size: 16pt;
+}
+.article-list .articleDate{
+	font-size: 12pt;
+	margin-right: 6px;
+}
+.article-list .articleContent{
+	margin-top: 16px;
+	line-height: 18px;
+	font-size: 12pt;
+	color: #666;
+}
+.article-list .contentBlock{
+	width: 570px;
+}
+.article-list .sharingTool{		
+	display: inline-block;
+	height: 24px;
+	width: 90px;
+}
+.article-list .tools{
+	margin-top: 18px;
+}
+.article-list .tools a{
+	font-size: 12pt;
+	float: right;
+	color: #666;
+	padding-right: 10px;
+}
+.article-list .tools a:after{
+	content: "\00bb";
+}
+.articleContent{
+	height: 54px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.articlesList{
+	font-family: 'TisaProRegular';
+}
+
+.slidesjs-pagination-item a{
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin-right: 6px;
+	display: inline-block;
+	background-position: -187px -27px;
+	background-image: url("/images/sprite.png");
+	display: inline-block;
+	cursor: pointer;
+}
+.slidesjs-pagination-item a:hover, .slidesjs-pagination-item a.active{
+	background-position: -215px -27px;
+}
+.caption{
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	background: #f67a00;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	padding: 10px;
+}
+
+.videoCt{
+	margin-top: 20px;
+	height: 200px;
+	position: relative;
+}
+.video{
+	margin-right: 10px;
+	height: 200px;
+	width: 280px;
+	background: red;
+}
+.videoContent{
+	position: absolute;
+	bottom: 0;
+}
+/*Article css end*/
+
+
+/*Admin Articles List Start*/
+.articleList h1{
+	font-size: 32px;
+	
+}
+.articleList table tr th{
+	background: #000;
+	color: #fff;
+}
+.articleList table tr td{
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+/*Admin Articles List End start*/
+
+/*Admin Article edit*/
+.articleEdit h1{
+	font-size: 32px;
+
+}
+.articleEdit{
+	width: 980px;
+	margin: auto;
+}
+.actions input{
+	width: 200px;
+	margin-top: 20px;
+	height: 32px;
+	background: #ddd;
+}
+/*Admin Article edit end*/
