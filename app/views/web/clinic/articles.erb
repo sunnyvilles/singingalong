@@ -1,5 +1,7 @@
 <style>
-	
+	.sharingTool{
+		background-image: url("/images/share-icon.jpg");
+	}
 </style>
 <%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
@@ -32,7 +34,7 @@
 						<div class="clear"></div>
 						<div class="articleContent"><%=article[:content]%></div>
 						<div class="tools">
-							<span class="spriteIcon sharingTool">Share Tool</span>
+							<span class="sharingTool"></span>
 							<a href="/clinic/articles/<%=article[:id]%>">Read More</a>
 						</div>
 					</div>

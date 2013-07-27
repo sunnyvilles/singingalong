@@ -318,12 +318,23 @@ footer{
 		padding-left: 10px;
 	}
 	.article-list .articlesLeftPanel{
-		width: 160px;
-		margin-top: 20px;
+		width: 136px;
+		margin-top: 10px;
 	}
 	.article-list .articlesRightPanel{
 		width: 790px;
 		padding-left: 30px;
+	}
+	.article-list .articlesRightPanel h3{
+		font-size: 18px;
+		font-family: 'TisaProRegular';
+	}
+	.article-list .articlesRightPanel .date{
+		font-size: 14px;
+		font-family: 'TisaProRegular';
+	}
+	.article-list .articleContentArea{
+		padding-top: 16px;
 	}
 	.article-list .articlesLeftPanel ul li:first-child{
 		background-color: #599d15;
@@ -391,8 +402,7 @@ footer{
 	.article-list .contentBlock{
 		width: 570px;
 	}
-	.article-list .sharingTool{
-		background: red;
+	.article-list .sharingTool{		
 		display: inline-block;
 		height: 24px;
 		width: 90px;
@@ -401,7 +411,7 @@ footer{
 		margin-top: 18px;
 	}
 	.article-list .tools a{
-		font-size: 14pt;
+		font-size: 12pt;
 		float: right;
 		color: #666;
 		padding-right: 10px;
@@ -413,5 +423,8 @@ footer{
 		height: 54px;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+	.articlesList{
+		font-family: 'TisaProRegular';
 	}
 	/*Article css end*/
