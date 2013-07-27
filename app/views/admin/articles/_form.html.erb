@@ -37,16 +37,42 @@
   <%= f.select :type,["article","video", "case study"] ,:selected => '1'%>
 
   </div>
-  <div class="field content_text">
+  <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
 
-  <div class="field content_text">
-    <%= f.label :uploadedfile, 'upload a picture' %><br />
-    <%= f.file_field :uploadedfile %>
+  <%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
+<p>
+  <div class="field">
+    <%= f.label :file_caption_0, 'upload a picture' %><br />
+    <%= f.file_field :file_caption_0 %>
   </div>
-  
+  <div class="field">
+    <%=f.label :caption_0, 'caption' %>
+    <%=f.text_field :caption_0%>
+    </div>
+</p>
+<p>
+    <div class="field">
+    <%= f.label :file_caption_1, 'upload another picture' %><br />
+    <%= f.file_field :file_caption_1 %>
+  </div>
+  <div class="field">
+    <%=f.label :caption_1, 'caption' %>
+    <%=f.text_field :caption_1%>
+    </div>
+</p>
+<p>
+    <div class="field">
+    <%= f.label :file_caption_2, 'upload one more picture' %><br />
+    <%= f.file_field :file_caption_2 %>
+  </div>
+  <div class="field">
+    <%=f.label :caption_2, 'caption' %>
+    <%=f.text_field :caption_2%>
+    </div>
+    </p>
   <div class="actions">
     <%= f.submit %>
   </div>

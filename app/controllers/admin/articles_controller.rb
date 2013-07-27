@@ -40,7 +40,8 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    
+   
+    puts "xxxxxxxxx" + params[:article][:id].to_s
   handle_file_upload(params)
 
   @article = Article.new(params[:article])
@@ -90,23 +91,31 @@ class Admin::ArticlesController < ApplicationController
 private
 #fileuploadhandle
   def handle_file_upload(params)
-    if params[:article][:uploadedfile]
-      uploaded_io = params[:article][:uploadedfile]
+    count = 0
+3.times do
+    if params[:article]["file_caption_" + count.to_s]
+      uploaded_io = params[:article]["file_caption_" + count.to_s]
       File.open(Rails.root.join('public', 'images','articles',
           uploaded_io.original_filename), 'wb') do |file|
         file.write(uploaded_io.read)
       end
 
+#params[:article][:id].to_s + "-" + count.to_s <<-- file name
 
-
-      params[:article][:uploadedfile] = uploaded_io.original_filename
+      params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
+      #save original file names(uploaded_io.original_filename) to a public variable array and pass that to create action , rename those files there just after save
     end
-
+    count +=1
+end
     rescue => e
   logger.error( 'Upload failed. ' + e.to_s )
   flash[:error] = 'Upload failed. Please try again.'
   render :action => 'new'
 
   end
+ 
+ def handle_file_rename()
 
+
+ end
 end
