@@ -25,6 +25,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    puts "sssssssssss" + @article.file_caption_0.to_s
   end
 
 
@@ -105,16 +106,13 @@ private
           uploaded_io.original_filename), 'wb') do |file|
         file.write(uploaded_io.read)
       end
-
-#params[:article][:id].to_s + "-" + count.to_s <<-- file name
-
       params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
-      #save original file names(uploaded_io.original_filename) to a public variable array and pass that to create action , rename those files there just after save
      
       file_names[count] = uploaded_io.original_filename
     end
     count +=1
   end
+
     rescue => e
   logger.error( 'Upload failed. ' + e.to_s )
   flash[:error] = 'Upload failed. Please try again.'
@@ -122,18 +120,28 @@ private
 
   end
  
+
+
  def handle_file_rename(article_id,file_names)
   id_count =0
    
-    file_names.each {|file_name|
-extension = File.extname(Rails.root.join('public', 'images','articles',
+    file_names.each { |file_name|
+        extension = File.extname(Rails.root.join('public', 'images','articles',
           file_name.to_s))
-          File.rename(Rails.root.join('public', 'images','articles',
+
+        File.rename(Rails.root.join('public', 'images','articles',
           file_name.to_s),Rails.root.join('public', 'images','articles',
           article_id.to_s + "-" + id_count.to_s + extension))
   
       id_count +=1                                                       
     }
+
+rescue => e
+  logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
+  flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
+  render :action => 'edit'
+
+
  end
 
 end
