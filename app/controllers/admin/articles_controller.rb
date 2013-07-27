@@ -49,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
  
     respond_to do |format|
       if @article.save
-        puts "iiiiiiiiiiidddddddddd" + @article.id.to_s
+        
         handle_file_rename(@article.id,file_names)
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
@@ -66,7 +66,8 @@ class Admin::ArticlesController < ApplicationController
   # PUT /articles/1
   # PUT /articles/1.json
   def update
-    handle_file_upload(params)
+    file_names=[]
+    handle_file_upload(params,file_names)
 
     @article = Article.find(params[:id])
 
@@ -113,7 +114,7 @@ private
       file_names[count] = uploaded_io.original_filename
     end
     count +=1
-end
+  end
     rescue => e
   logger.error( 'Upload failed. ' + e.to_s )
   flash[:error] = 'Upload failed. Please try again.'
@@ -125,13 +126,14 @@ end
   id_count =0
    
     file_names.each {|file_name|
-
+extension = File.extname(Rails.root.join('public', 'images','articles',
+          file_name.to_s)
           File.rename(Rails.root.join('public', 'images','articles',
           file_name.to_s),Rails.root.join('public', 'images','articles',
-          article_id.to_s + "-" + id_count.to_s + ".jpg"))
+          article_id.to_s + "-" + id_count.to_s + extension))
   
       id_count +=1                                                       
-}
+    }
  end
 
 end
