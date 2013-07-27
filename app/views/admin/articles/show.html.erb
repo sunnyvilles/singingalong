@@ -24,8 +24,17 @@
 </p>
 
 <p>
-  <b>Image:</b>
-  <%= image_tag Rails.root.join('public', 'images','articles') + @article.get_image %>
+  <b>Image 1 caption:</b>
+ <%= @article.file_caption_0 %>
+</p>
+<p>
+  <b>Image 1 caption:</b>
+ <%= @article.file_caption_1 %>
+</p>
+<p>
+  <b>Image 1 caption:</b>
+ <%= @article.file_caption_2 %>
 </p>
 
+<%-# image_tag (Rails.root.join('public', 'images','articles') + @article.get_image) -%>
 <%= link_to 'Back', admin_articles_path %>
