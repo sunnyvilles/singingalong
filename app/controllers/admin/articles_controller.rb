@@ -2,6 +2,7 @@ class Admin::ArticlesController < ApplicationController
   layout "admin/application.html"
   # GET /articles
   # GET /articles.json
+  
   def index
     @articles = Article.all
     respond_to do |format|
@@ -40,13 +41,16 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-   
-    puts "xxxxxxxxx" + params[:article][:id].to_s
-  handle_file_upload(params)
+   file_names = [] 
+    
+  handle_file_upload(params,file_names)
 
   @article = Article.new(params[:article])
+ 
     respond_to do |format|
       if @article.save
+        puts "iiiiiiiiiiidddddddddd" + @article.id.to_s
+        handle_file_rename(@article.id,file_names)
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
       else
@@ -65,6 +69,7 @@ class Admin::ArticlesController < ApplicationController
     handle_file_upload(params)
 
     @article = Article.find(params[:id])
+
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully updated.' }
@@ -90,7 +95,7 @@ class Admin::ArticlesController < ApplicationController
 
 private
 #fileuploadhandle
-  def handle_file_upload(params)
+  def handle_file_upload(params,file_names)
     count = 0
 3.times do
     if params[:article]["file_caption_" + count.to_s]
@@ -104,6 +109,8 @@ private
 
       params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
       #save original file names(uploaded_io.original_filename) to a public variable array and pass that to create action , rename those files there just after save
+     
+      file_names[count] = uploaded_io.original_filename
     end
     count +=1
 end
@@ -114,8 +121,17 @@ end
 
   end
  
- def handle_file_rename()
+ def handle_file_rename(article_id,file_names)
+  id_count =0
+   
+    file_names.each {|file_name|
 
-
+          File.rename(Rails.root.join('public', 'images','articles',
+          file_name.to_s),Rails.root.join('public', 'images','articles',
+          article_id.to_s + "-" + id_count.to_s + ".jpg"))
+  
+      id_count +=1                                                       
+}
  end
+
 end
