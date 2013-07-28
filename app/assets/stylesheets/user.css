@@ -369,6 +369,7 @@ footer{
 	background-position: -1575px -58px;
 	text-align: center;
 	line-height: 28px;
+	color: #ddd !important;
 }
 
 .slidesjs-pagination{
