@@ -36,5 +36,10 @@
  <%= @article.file_caption_2 %>
 </p>
 
+<p>
+  <b>Youtube Video:</b>
+ <%= @article.youtubeurl %>
+</p>
+
 <%-# image_tag (Rails.root.join('public', 'images','articles') + @article.get_image) -%>
 <%= link_to 'Back', admin_articles_path %>
