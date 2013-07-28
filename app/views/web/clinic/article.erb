@@ -55,7 +55,7 @@
 			<div class="articleSharingTools floatRight">
 				<a><span class="spriteIcon smlIcon mail"></span></a>
 
-				<a href="http://www.facebook.com/sharer.php?u='+<%=request.fullpath%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
+				<a href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
 				<a><span class="spriteIcon smlIcon twitter"></span></a>
 			</div>
 
