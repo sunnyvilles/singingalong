@@ -25,7 +25,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-    puts "sssssssssss" + @article.file_caption_0.to_s
+
   end
 
 
@@ -74,6 +74,7 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        handle_file_rename(@article.id,file_names)
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully updated.' }
         format.json { head :no_content }
       else
