@@ -15,7 +15,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-
+    @article.sharecount = 0
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json=> @article }
@@ -48,7 +48,7 @@ class Admin::ArticlesController < ApplicationController
 
   @article = Article.new(params[:article])
  
-    respond_to do |format|
+   respond_to do |format|
       if @article.save
         
         handle_file_rename(@article.id,file_names)

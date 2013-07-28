@@ -9,10 +9,22 @@ class Web::ClinicController < ApplicationController
     
     @total_articles = Article.find(:all, :conditions => [ "source = ?", "clinic" ])
     @total_articles_remain = @total_articles.size - start_value
+
   end
 
 	def article
+
     @article = Article.find(params[:article_id])
+	puts "aaaaaaaaaaaaaaaa share count " + @article.sharecount.to_s
+
+    @article.sharecount += 1
+
+    @article.save
+
+  rescue => e
+  logger.error( 'couldnt increase share count ' + e.to_s )
+  flash[:error] = 'couldnt increase share count'
+ 
   	end
 
 	def about

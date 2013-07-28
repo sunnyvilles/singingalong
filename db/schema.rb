@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130728083344) do
+ActiveRecord::Schema.define(:version => 20130728091417) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130728083344) do
     t.string   "file_caption_1"
     t.string   "file_caption_2"
     t.string   "youtubeurl"
+    t.integer  "sharecount"
   end
 
   create_table "articles_doctors", :id => false, :force => true do |t|
