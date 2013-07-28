@@ -40,6 +40,18 @@ class Web::ClinicController < ApplicationController
     @total_case_studies_remain = @total_case_studies.size - start_value
 
   end
+
+	def case_study
+		@article = Article.find(params[:article_id])		
+
+    @article.viewcount += 1
+
+    @article.save
+
+		rescue => e
+			logger.error( 'couldnt increase share count ' + e.to_s )
+			flash[:error] = 'couldnt increase share count' 
+	end
 	def about
 		
 	end
