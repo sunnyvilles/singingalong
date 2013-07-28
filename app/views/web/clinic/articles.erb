@@ -36,7 +36,7 @@
 				
 				<%img_url = article[:file_caption_0].present? ? "/images/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>
 				<div class="article">
-					<img src="/images/articles/<%=article[:id]%>-0.jpg" height="140" width="200" class="floatLeft" alt=""/>
+					<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>
 					<div class="floatRight contentBlock">
 						<h3 class="articleTitle floatLeft"><%=article[:title]%></h3>
 						<span class="articleDate floatRight"><%=article[:created_at].strftime('%B %d, %Y')%></span>
