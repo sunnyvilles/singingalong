@@ -4,26 +4,28 @@ class Web::ClinicController < ApplicationController
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
     
+    if params[:order]=="views"
 
-    @articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
-    
+    @articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'viewcount DESC', :offset => start_value, :limit => per_page) 
     @total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
     @total_articles_remain = @total_articles.size - start_value
 
+    else
+
+    @articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)  
+    @total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
+    @total_articles_remain = @total_articles.size - start_value
+    
+    end
   end
 
 	def article
 
-    @article = Article.find(params[:article_id])
-		puts "aaaaaaaaaaaaaaaa view count " + @article.viewcount.to_s
-
-    @article.viewcount += 1
-
-    @article.save
-
-		rescue => e
-			logger.error( 'couldnt increase share count ' + e.to_s )
-			flash[:error] = 'couldnt increase share count' 
+    	@article = Article.find(params[:article_id])
+		  @article.viewcount += 1.to_i
+    	@article.save
+    
+    
 	end
 
 	def case_studies
@@ -58,4 +60,5 @@ class Web::ClinicController < ApplicationController
 	def knowledge_center
 
 	end
+
 end
