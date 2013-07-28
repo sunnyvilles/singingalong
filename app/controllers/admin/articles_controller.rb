@@ -25,6 +25,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+
   end
 
 
@@ -49,7 +50,7 @@ class Admin::ArticlesController < ApplicationController
  
     respond_to do |format|
       if @article.save
-        puts "iiiiiiiiiiidddddddddd" + @article.id.to_s
+        
         handle_file_rename(@article.id,file_names)
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
@@ -66,12 +67,14 @@ class Admin::ArticlesController < ApplicationController
   # PUT /articles/1
   # PUT /articles/1.json
   def update
-    handle_file_upload(params)
+    file_names=[]
+    handle_file_upload(params,file_names)
 
     @article = Article.find(params[:id])
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        handle_file_rename(@article.id,file_names)
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully updated.' }
         format.json { head :no_content }
       else
@@ -104,16 +107,13 @@ private
           uploaded_io.original_filename), 'wb') do |file|
         file.write(uploaded_io.read)
       end
-
-#params[:article][:id].to_s + "-" + count.to_s <<-- file name
-
       params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
-      #save original file names(uploaded_io.original_filename) to a public variable array and pass that to create action , rename those files there just after save
      
       file_names[count] = uploaded_io.original_filename
     end
     count +=1
-end
+  end
+
     rescue => e
   logger.error( 'Upload failed. ' + e.to_s )
   flash[:error] = 'Upload failed. Please try again.'
@@ -121,17 +121,28 @@ end
 
   end
  
+
+
  def handle_file_rename(article_id,file_names)
   id_count =0
    
-    file_names.each {|file_name|
+    file_names.each { |file_name|
+        extension = File.extname(Rails.root.join('public', 'images','articles',
+          file_name.to_s))
 
-          File.rename(Rails.root.join('public', 'images','articles',
+        File.rename(Rails.root.join('public', 'images','articles',
           file_name.to_s),Rails.root.join('public', 'images','articles',
-          article_id.to_s + "-" + id_count.to_s + ".jpg"))
+          article_id.to_s + "-" + id_count.to_s + extension))
   
       id_count +=1                                                       
-}
+    }
+
+rescue => e
+  logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
+  flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
+  render :action => 'edit'
+
+
  end
 
 end

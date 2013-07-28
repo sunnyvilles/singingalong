@@ -17,11 +17,11 @@
 					<a href="/clinic/articles?page=<%=page_no.to_i-1%>">
 				<%end%><span class="floatLeft spriteIcon pagination">&laquo; Previous</span>
 				<%if page_no !=1%></a><%end%>
-				<span class="articleCount">Articles Found: <%=@articles.size%></span>
-				<%if @articles.size > 10%>
+				<span class="articleCount">Articles Found: <%=@total_articles.size%></span>
+				<%if @total_articles_remain > 10%>
 				<a href="/clinic/articles?page=<%=page_no.to_i+1%>"><%end%>
 				<span class="floatRight spriteIcon pagination next">Next &raquo;</span>
-				<%if @articles.size > 10%></a><%end%>
+				<%if @total_articles_remain > 10%></a><%end%>
 			</div>
 			<div class="articlesList">
 				<%@articles.each { |article|%>
