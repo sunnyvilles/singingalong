@@ -344,6 +344,10 @@ footer{
 	color: #fff;
 	margin-top: 20px;
 }
+
+.article-list .articlesLeftPanel ul li.case-studies:first-child{
+	background-color: #599d15;
+}
 .article-list .articlesLeftPanel ul li{
 	padding: 4px 12px ;
 }
