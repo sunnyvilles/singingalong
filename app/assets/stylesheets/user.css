@@ -369,6 +369,7 @@ footer{
 	background-position: -1575px -58px;
 	text-align: center;
 	line-height: 28px;
+	color: #000 !important;
 }
 
 .slidesjs-pagination{
@@ -472,22 +473,26 @@ footer{
 	padding: 10px;
 }
 
-.videoCt{
+.article .videoCt{
 	margin-top: 20px;
 	height: 180px;
 	position: relative;
 }
-.video{
+.article .video{
 	margin-right: 10px;
 	height: 180px;
 	width: 280px;
 }
-.videoContent{
-	width: 524px;
+.article .videoContent{
+	width: 514px;
 	position: absolute;
 	bottom: 0;
 	left: 290px;
 	font-size: 10pt;
+}
+
+ .video{
+	
 }
 /*Article css end*/
 

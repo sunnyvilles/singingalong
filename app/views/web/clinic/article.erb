@@ -32,7 +32,14 @@
 	.articleImageSlide{
 		position: relative;
 	}
-	
+
+	.contentWrap{
+		bottom: 4px;
+	}
+	.submenuItem ul{
+		border-right: 1px solid #ddd;
+		left: 0 !important;
+	}
 </style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
@@ -76,17 +83,19 @@
 				</div>
 				<%end%>
 				<%=@article[:content]%>
-				<div class="videoCt">
-					<div class="video floatLeft">
-					<iframe width="282" height="180" src="//www.youtube.com/embed/Y8wOjt2LDFk" frameborder="0" ></iframe>
+				<%if @article[:youtubeurl].present?%>
+					<div class="videoCt">
+						<div class="video floatLeft">
+						<iframe width="282" height="180" src="<%=@article[:youtubeurl]%>" frameborder="0" ></iframe>
+						</div>
+						<div class="floatLeft videoContent">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+							nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+							volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+							ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+						</div>
 					</div>
-					<div class="floatLeft videoContent">
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-						nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-						volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-						ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-					</div>										
-				</div>
+				<%end%>
 			</div>
 		</div>
 		<div class="clear"></div>
