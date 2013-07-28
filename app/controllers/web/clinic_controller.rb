@@ -21,7 +21,7 @@ class Web::ClinicController < ApplicationController
 
 	def article
     	@article = Article.find(params[:article_id])
-		  @article.viewcount += 1.to_i
+		  @article.viewcount = @article.viewcount.to_i +  1.to_i
     	@article.save
 	end
 
