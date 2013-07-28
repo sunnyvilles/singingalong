@@ -11,6 +11,7 @@
 	}
 </style>
 <%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
+
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article-list">
@@ -32,7 +33,8 @@
 			</div>
 			<div class="articlesList">
 				<%@articles.each { |article|%>
-
+				
+				<%img_url = article[:file_caption_0].present? ? "/images/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>
 				<div class="article">
 					<img src="/images/articles/<%=article[:id]%>-0.jpg" height="140" width="200" class="floatLeft" alt=""/>
 					<div class="floatRight contentBlock">
