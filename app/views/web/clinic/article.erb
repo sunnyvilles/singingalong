@@ -55,7 +55,8 @@
 			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
 				<a><span class="spriteIcon smlIcon mail"></span></a>
-				<a><span class="spriteIcon smlIcon facebook"></span></a>
+
+				<a href="http://www.facebook.com/sharer.php?u='+<%=request.fullpath%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
 				<a><span class="spriteIcon smlIcon twitter"></span></a>
 			</div>
 
