@@ -364,9 +364,9 @@ footer{
 	color: #000;
 }
 .article-list .pagination{
-	height: 30px;
-	width: 91px;
-	background-position: -243px -13px;
+	height: 30px; 
+	width: 128px;
+	background-position: -1575px -58px;
 	text-align: center;
 	line-height: 28px;
 }
@@ -386,8 +386,9 @@ footer{
 	font-size: 1px;
 }
 
-.article-list .pagination.next{
-	margin-right: 8px;
+.article-list .pagination.next{	
+	background-position: -1731px -57px;
+	width: 92px;
 }
 .article-list .articleCount{
 	width: 160px;
