@@ -5,7 +5,7 @@
 		{margin-left:25px;}
 		.image{
 			border: 1px solid black;
-}
+		}
 	</style>
 	<%= form_for([:admin, @article]) do |f| %>
 
@@ -46,7 +46,7 @@
 		</div>
 
 		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
-	<p class="image">
+		<div class="image">
 		<div class="field">
 			<%= f.label :file_caption_0, 'upload a picture' %><br />
 			<%= f.file_field :file_caption_0 %>
@@ -54,10 +54,10 @@
 		</div>
 		<div class="field">
 			<%=f.label :caption_0, 'caption' %>
-			<%=f.text_field :caption_0%>			
+			<%=f.text_field :caption_0%>
 		</div>
-	</p>
-	<p class="image">
+	</div>
+	<div class="image">
 	<div class="field">
 		<%= f.label :file_caption_1, 'upload another picture' %><br />
 		<%= f.file_field :file_caption_1 %>
@@ -67,8 +67,8 @@
 		<%=f.label :caption_1, 'caption' %>
 		<%=f.text_field :caption_1%>
 	</div>
-	</p>
-	<p class="image">
+	</div>
+	<div class="image">
 	<div class="field">
 		<%= f.label :file_caption_2, 'upload one more picture' %><br />
 		<%= f.file_field :file_caption_2 %>
@@ -78,12 +78,12 @@
 		<%=f.label :caption_2, 'caption' %>
 		<%=f.text_field :caption_2%>
 	</div>
-	</p>
+	</div>
 
 	<div class="field">
-			<%= f.label :youtubeurl, "youtube video url" %><br />
-			<%= f.text_field :youtubeurl %>
-		</div>
+		<%= f.label :youtubeurl, "youtube video url" %><br />
+		<%= f.text_field :youtubeurl %>
+	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
