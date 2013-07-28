@@ -5,7 +5,7 @@ class Web::ClinicController < ApplicationController
   	start_value = (page - 1 )*per_page
     
 
-    @articles = Article.find(:all, :conditions => [ "source = ?", "clinic" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+    @articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
     
     @total_articles = Article.find(:all, :conditions => [ "source = ?", "clinic" ])
     @total_articles_remain = @total_articles.size - start_value
