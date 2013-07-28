@@ -2,6 +2,13 @@
 	.sharingTool{
 		background-image: url("/images/share-icon.jpg");
 	}
+	.contentWrap{
+		bottom: 0;
+	}
+	.submenuItem ul{
+		border-right: 1px solid #ddd;
+		left: 0 !important;
+	}
 </style>
 <%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
