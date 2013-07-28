@@ -15,7 +15,7 @@ class Web::ClinicController < ApplicationController
 	def article
 
     @article = Article.find(params[:article_id])
-		puts "aaaaaaaaaaaaaaaa share count " + @article.viewcount.to_s
+		puts "aaaaaaaaaaaaaaaa view count " + @article.viewcount.to_s
 
     @article.viewcount += 1
 
