@@ -1,6 +1,7 @@
 <style>
 	.article .padder{
 		margin-top: 0;
+
 	}
 
 	.article .title{
@@ -45,10 +46,10 @@
 <div class="contentWrap article article-list">
 	<div class="padder">
 		<div class="topHeader">
-			<a href="/clinic/articles"><h2 class="title"><%= t "submenu.knowledge.articles"%> </h2></a>
+			<a href="/clinic/articles"><h2 class="title"><%= t "submenu.knowledge.video"%> </h2></a>
 			<span class="article-title"><%=@article[:title].upcase%></span>
 		</div>
-		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "articles"} %>
+		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "videos"} %>
 		<div class="floatLeft articlesRightPanel">
 			<h3><%=@article[:title]%></h3>
 			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>

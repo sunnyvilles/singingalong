@@ -38,6 +38,9 @@ resources :articles, only: [:show, :index]
 	get '/clinic/case-studies' => 'web/clinic#case_studies'
 	get '/clinic/case-studies/:article_id' => 'web/clinic#case_study'
 
+	get '/clinic/videos' => 'web/clinic#videos'
+	get '/clinic/videos/:article_id' => 'web/clinic#video'
+
 	
 	get '/academy' => 'web/academy#about_us'
 	get '/academy/about-us' => 'static#academy_about'

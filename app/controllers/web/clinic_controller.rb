@@ -21,9 +21,9 @@ class Web::ClinicController < ApplicationController
 
     @article.save
 
-		rescue => e
-			logger.error( 'couldnt increase share count ' + e.to_s )
-			flash[:error] = 'couldnt increase share count' 
+	rescue => e
+		logger.error( 'couldnt increase share count ' + e.to_s )
+		flash[:error] = 'couldnt increase share count'
 	end
 
 	def case_studies
@@ -46,10 +46,36 @@ class Web::ClinicController < ApplicationController
 
     @article.save
 
-		rescue => e
-			logger.error( 'couldnt increase share count ' + e.to_s )
-			flash[:error] = 'couldnt increase share count' 
+	rescue => e
+		logger.error( 'couldnt increase share count ' + e.to_s )
+		flash[:error] = 'couldnt increase share count'
 	end
+
+	def videos
+		per_page = 10
+  	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
+  	start_value = (page - 1 )*per_page
+
+
+    @videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","video" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+
+    @total_videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "video" ])
+    @total_videos_remain = @total_videos.size - start_value
+	end
+
+	def video
+		@article = Article.find(params[:article_id])
+
+    @article.viewcount += 1
+
+    @article.save
+
+	rescue => e
+		logger.error( 'couldnt increase share count ' + e.to_s )
+		flash[:error] = 'couldnt increase share count' 
+	end
+
+	
 	def about
 		
 	end
