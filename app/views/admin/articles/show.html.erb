@@ -42,4 +42,5 @@
 </p>
 
 <%-# image_tag (Rails.root.join('public', 'images','articles') + @article.get_image) -%>
+<td><%= link_to 'Edit', edit_admin_article_path(@article),:style=>"color:red;" %></td>
 <%= link_to 'Back', admin_articles_path %>

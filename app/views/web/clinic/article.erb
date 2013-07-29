@@ -55,7 +55,10 @@
 			<div class="articleSharingTools floatRight">
 				<a href="mailto:" target="_top"><span class="spriteIcon smlIcon mail"></span></a>	 
 
-				<a href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=SomeSize,height=SomeSize');return false;" target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
+
+
+
+				<a href="/social-sharing/facebook" remote="true" method="post"><span class="spriteIcon smlIcon facebook"></span></a>
 				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			<a href=# onclick="window.open("/social-sharing/facebook",'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=200,height=200')">fbtest</a>
 			</div>
