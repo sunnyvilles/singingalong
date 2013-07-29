@@ -11,4 +11,9 @@ class Web::ArticlesController < ApplicationController
     end
   end
 
+  def social_sharing
+
+puts "SSSSSSSSSSSSSSSSSSSSSSSs" + params[:site].to_s
+  end
+
 end
