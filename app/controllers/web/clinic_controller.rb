@@ -98,4 +98,14 @@ class Web::ClinicController < ApplicationController
 
 	end
 
+ def social_sharing
+
+  @article_url = params[:site_url]
+
+    respond_to do |format|
+      format.js #views/web/clinic/social_sharing.js.erb
+      end
+
+  end
+
 end
