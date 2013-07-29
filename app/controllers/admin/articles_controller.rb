@@ -47,7 +47,7 @@ class Admin::ArticlesController < ApplicationController
   handle_file_upload(params,file_names)
 
   @article = Article.new(params[:article])
- @article.viewcount = 0.to_i
+  @article.viewcount = 0.to_i
    respond_to do |format|
       if @article.save
         

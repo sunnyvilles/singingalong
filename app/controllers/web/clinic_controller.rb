@@ -26,10 +26,10 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def case_studies
+
   	per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
-
 
     @case_studies = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","case study" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
 
@@ -60,9 +60,11 @@ class Web::ClinicController < ApplicationController
 
     @total_videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "video" ])
     @total_videos_remain = @total_videos.size - start_value
+    
 	end
 
 	def video
+
 		@article = Article.find(params[:article_id])
 
     @article.viewcount += 1
@@ -70,10 +72,11 @@ class Web::ClinicController < ApplicationController
     @article.save
 
 	rescue => e
+
 		logger.error( 'couldnt increase share count ' + e.to_s )
 		flash[:error] = 'couldnt increase share count'
-	end
 
+	end
 
 	def about
 
@@ -90,7 +93,6 @@ class Web::ClinicController < ApplicationController
 	def association
 
 	end
-
 
 	def knowledge_center
 
