@@ -1,5 +1,5 @@
 <style>
-	.submenu{
+	/*.submenu{
 		height: 42px;
 		border-top: 1px solid #525355;
 		background-image: -moz-linear-gradient(center top,#787878,#424242);
@@ -22,9 +22,9 @@
 		display: none;
 		position: absolute;
 		width: 980px;
-		left: -16px;
+		left: 0;
 		top: 42px;
-		/*border-right: 1px solid #ddd;*/
+		
 	}
 	.submenuItem ul li{
 		background-color: #ededed;
@@ -41,14 +41,12 @@
 		display: block;
 	}
 	.submenuItems li a{
-		color: #ddd;
-		/*font-size: 15.5pt;
-		line-height: 32pt;*/
+		color: #ddd;		
 	}
 	.submenuItems li{
 		float: left;
-		padding: 0 16px;
-		font-size: 18px;
+		padding: 0 11px;
+		font-size: 16px;
 		height: 42px;
 		line-height: 40px;
 	}
@@ -67,7 +65,7 @@
 	.left-border{
 		background-image: url("/images/left-border.jpg");
     height: 78px;
-    left: -16px;
+    left: -11px;
     position: absolute;
     top: 0;
     width: 6px;
@@ -98,11 +96,122 @@
 		padding-left: 22px;
 		font-size: 22px;
 		margin: 20px 0;
+	}*/
+	.submenu{
+		height: 42px;
+		border-top: 1px solid #525355;
+		background-image: -moz-linear-gradient(center top,#787878,#424242);
+		background-image: -webkit-linear-gradient(#787878,#424242);
+		background-color: #454648;
+		-moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		background-image: url("/images/submenu-bg.jpg");
+		margin-bottom: 35px;
+	}
+	.submenuItems{
+		width: 980px;
+		margin: auto;
+		position: relative;
+	}
+	.submenuItem{
+		/*position: relative;*/
+	}
+	.submenuItem ul{
+		display: none;
+		position: absolute;
+		width: 980px;
+		left: 2px;
+		top: 42px;
+		/*border-right: 1px solid #ddd;*/
+		z-index: 1;
+	}
+	.submenuItem ul li{
+		background-color: #ededed;
+		display: inline-block;
+	}
+	.submenuItem ul li a{
+		color: #666;
+		font-size: 16px;
+	}
+	.submenuItem ul li a:hover{
+		text-decoration: underline;
+	}
+	li.selected ul{
+		display: block;
+	}
+	.submenuItems li a{
+		color: #ddd;
+		/*font-size: 15.5pt;
+		line-height: 32pt;*/
+	}
+	.submenuItem li{
+		height: 38px;
+	}
+	.submenuItems li{
+		float: left;
+
+		padding: 0 10px;
+		font-size: 16px;
+		height: 42px;
+		line-height: 40px;
+	}
+	.submenuItems li.selected{
+		background-color: #ededed;
+
+		cursor: pointer;
+	}
+	.submenuItems li.selected div > a{
+		color: #000;
+		font-weight: bold;
+	}
+	.left-border-1.left-border{
+		top: 0px;
+		height: 42px;
+		position: relative;
+		float: left;
+		margin-left: -10px;
+	}
+	.left-border{
+		background-image: url("/images/left-border.jpg");
+    height: 36px;
+    left: 0;
+    position: absolute;
+    top: 42px;
+    width: 6px;
+    z-index: 100;
+		display: none;
+	}
+	.selected .left-border{
+		display: block;
+	}
+	.submenuItem ul li{
+		-moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+		-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+		box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+		height: 36px;
+	}
+	.subnavIcon{
+		background-image: url("/images/subnav-icon.jpg");
+		display: inline-block;
+		height: 16px;
+		width: 16px;
+		position: relative;
+		top: 3px;
+		left: 3px;
+	}
+
+	.blockQuote{
+		border-left: 4px solid #dd0017;
+		padding-left: 22px;
+		font-size: 22px;
+		margin: 20px 0;
 	}
 </style>
 <div class="header submenu">
 	<ul class="submenuItems">
 		<li class="<%=["about_us", "aim", "team", "association"].include?(params[:action]) ? "selected" : "" %>">
+			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
 				<div class="left-border floatLeft"></div>
@@ -123,8 +232,10 @@
 			</div>
 		</li>
 		<li>
+			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/<%=scope%>/edge"><%= t "submenu.edge" %></a>
+				<div class="left-border floatLeft"></div>
 				<ul>
 					<li>
 						<a href=""><%= t "submenu.edgeSection.beliefe" %></a>
@@ -144,9 +255,11 @@
 				</ul>
 			</div>
 		</li>
-		<li>
+		<li class="<%=["articles", "article", "case_studies", "case_study", "videos", "video"].include?(params[:action]) ? "selected" : "" %>">
+			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
-				<a href="#"><%= t "submenu.knowledgeCenter" %></a>
+				<a href="/academy/articles"><%= t "submenu.knowledgeCenter" %></a>
+				<div class="left-border floatLeft"></div>
 				<ul>
 					<li>
 						<a href="/<%=scope%>/articles"><%= t "submenu.knowledge.articles" %></a>
@@ -165,13 +278,24 @@
 		</li>
 		<li>
 			<div class="submenuItem">
-				<a href=""><%= t "submenu.generalInfo" %></a>
+				<a href=""><%= t "submenu.admission" %></a>
 			</div>
 		</li>
 		<li>
 			<div class="submenuItem">
-				<a><%= t "submenu.events" %></a>
-			</div></li>
+				<a href=""><%= t "submenu.cources" %></a>
+			</div>
+		</li>
+		<li>
+			<div class="submenuItem">
+				<a href=""><%= t "submenu.research" %></a>
+			</div>
+		</li>
+		<li>
+			<div class="submenuItem">
+				<a href=""><%= t "submenu.satellite" %></a>
+			</div>
+		</li>
 		<li>
 			<div class="submenuItem">
 				<a><%= t "submenu.contactUs" %></a>
