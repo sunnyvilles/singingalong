@@ -7,6 +7,7 @@
 			border: 1px solid black;
 		}
 	</style>
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 	<%= form_for([:admin, @article]) do |f| %>
 
 
@@ -96,5 +97,6 @@
     });
 	}
 );
+tinymce.init({selector:'textarea'});
 
 </script>
