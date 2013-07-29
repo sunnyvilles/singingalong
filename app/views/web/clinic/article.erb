@@ -53,21 +53,9 @@
 			<h3><%=@article[:title]%></h3>
 			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
-<<<<<<< HEAD
-				<a href="mailto:" target="_top"><span class="spriteIcon smlIcon mail"></span></a>	 
-
-
-
-
-				<a href="/social-sharing/facebook" remote="true" method="post"><span class="spriteIcon smlIcon facebook"></span></a>
-				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-			<a href=# onclick="window.open("/social-sharing/facebook",'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=200,height=200')">fbtest</a>
-=======
 				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
 				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
 				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-			
->>>>>>> 266417aa6a20aeddc05dd11590968bd0526e5a16
 			</div>
 
 			<div class="articleContentArea">
