@@ -41,20 +41,27 @@ resources :articles, only: [:show, :index]
 	get '/clinic/videos' => 'web/clinic#videos'
 	get '/clinic/videos/:article_id' => 'web/clinic#video'
 
-	
+
+	#Clinic routes end
+
+	#Academy routes start
 	get '/academy' => 'web/academy#about_us'
-	get '/academy/about-us' => 'static#academy_about'
-	get '/contact-us' => 'static#contact_us'
+	get '/academy/aim' => 'web/academy#aim'
+	get '/academy/team' => 'web/academy#team'
+	get '/academy/associations' => 'web/academy#association'
+	
+	
+	get '/academy/articles' => 'web/academy#articles'
+	get '/academy/articles/:article_id' => 'web/academy#article'
 
-	get '/about-us' => 'static#about_us'
-  get '/about-us/:pages' => 'static#about_us'
+	get '/academy/case-studies' => 'web/academy#case_studies'
+	get '/academy/case-studies/:article_id' => 'web/academy#case_study'
 
-	get '/our-edge' => 'static#our_edge'
-	get '/our-edge/:pages' => 'static#our_edge'
+	get '/academy/videos' => 'web/academy#videos'
+	get '/academy/videos/:article_id' => 'web/academy#video'
+	
 
-	get '/knowledge-center' => 'static#knowledge_center'
-	get '/knowledge-center/:pages' => 'static#knowledge_center'
-
+	
 	get '/events' => 'static#events'
   get '/events/:pages' => 'static#events'
 

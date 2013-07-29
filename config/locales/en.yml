@@ -28,6 +28,10 @@ en:
       about: "ABOUT HOMEOPATHY"
     generalInfo: "GENERAL INFORMATION"
     events: "EVENTS"
+    admission: "ADMISSION"
+    cources: "COURCES"
+    research: "RESEARCH"
+    satellite: "SATELLITE CENTER"
     contactUs: "CONTACT US"
   header:
     academy: "ACADEMY"
