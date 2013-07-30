@@ -100,11 +100,14 @@ class Web::ClinicController < ApplicationController
 
  def social_sharing
 
-  @article_url = params[:site_url]
+    @article = Article.find(params[:article_id].to_i)
 
+    @article.sharecount = @article.sharecount.to_i +  1.to_i
+
+    @article.save
     respond_to do |format|
-      format.js #views/web/clinic/social_sharing.js.erb
-      end
+      format.html { render :layout => false }#views/web/clinic/social_sharing.html.erb
+    end
 
   end
 

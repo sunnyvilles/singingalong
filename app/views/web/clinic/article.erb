@@ -57,11 +57,11 @@
 				<a href="mailto:" target="_top"><span class="spriteIcon smlIcon mail"></span></a>	 
 
 
-	<%=link_to raw('<span class="spriteIcon smlIcon facebook"></span>'), "/social-sharing/" + URI::escape(request.original_url.sub(/^https?\:\/\//, '')), :remote => true, :"data-replace" => '#fb_sharing_replace'%>
+	<%=link_to raw('<span class="spriteIcon smlIcon facebook"></span>'), "/social-sharing/" + @article[:id].to_s, :remote => true, :"data-replace" => ''%>
 
-				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a>
 			
- 			<div id="fb_sharing_replace"></div>
+ 			
 
 			</div>
 
@@ -127,13 +127,17 @@
 	});
 	<%end%>
 
-	$(function() {
-  $('[data-remote][data-replace]')
-    .data('type', 'html')
-    .live('ajax:success', function(event, data) {
-      var $this = $(this);
-      $($this.data('replace')).html(data);
-      $this.trigger('ajax:replaced');
-    });
-});
+
+	$(document).ready(function(){
+
+
+	$('[data-remote][data-replace]')
+  		.data('type', 'html') 
+   		.on('ajax:success', function(event, data) {
+      		window.open('http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>','targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=200');
+    		}
+    	);
+})
+
+
 </script>
