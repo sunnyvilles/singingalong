@@ -15,8 +15,8 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-   # @article[:viewcount] = 0.to_i
-   # @article[:sharecount] = 0.to_i
+		# @article[:viewcount] = 0.to_i
+		# @article[:sharecount] = 0.to_i
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json=> @article }
@@ -26,13 +26,15 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-
+		#TODO get tags only for this article
+		@tags = @article.tags
+		@all_tags = Tag.select("title")
   end
 
 
   # show
- def show
-@article = Article.find(params[:id])
+	def show
+		@article = Article.find(params[:id])
 
     respond_to do |format|
       format.html 
@@ -43,13 +45,13 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-   file_names = [] 
+		file_names = []
     
-  handle_file_upload(params,file_names)
+		handle_file_upload(params,file_names)
 
-  @article = Article.new(params[:article])
-  @article.viewcount = 0.to_i
-   respond_to do |format|
+		@article = Article.new(params[:article])
+		@article.viewcount = 0.to_i
+		respond_to do |format|
       if @article.save
         
         handle_file_rename(@article.id,file_names)
@@ -64,15 +66,26 @@ class Admin::ArticlesController < ApplicationController
 
   
   end
-
+	def associate_tag(params)
+		@article = Article.find(params[:id])
+		params[:tags].each{|tag|
+			tagObj = Tag.where("title = ?", tag)
+			if(tagObj.length == 0 )					
+					@article.tags.create({:title=> tag})						
+			elsif(!@article.tags.find(tagObj[0][:id]).present?) #this tag is not already associated
+				#associate the tag with this article
+				@article.tags << tagObj[0]
+			end
+		}
+	end
   # PUT /articles/1
   # PUT /articles/1.json
   def update
-    file_names=[]
+    file_names=[]		
     handle_file_upload(params,file_names)
 
     @article = Article.find(params[:id])
-
+		associate_tag(params)
     respond_to do |format|
       if @article.update_attributes(params[:article])
         handle_file_rename(@article.id,file_names)
@@ -97,53 +110,53 @@ class Admin::ArticlesController < ApplicationController
     end
   end
 
-private
-#fileuploadhandle
+	private
+	#fileuploadhandle
   def handle_file_upload(params,file_names)
     count = 0
-3.times do
-    if params[:article]["file_caption_" + count.to_s]
-      uploaded_io = params[:article]["file_caption_" + count.to_s]
-      File.open(Rails.root.join('public', 'images','articles',
-          uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
-      params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
+		3.times do
+			if params[:article]["file_caption_" + count.to_s]
+				uploaded_io = params[:article]["file_caption_" + count.to_s]
+				File.open(Rails.root.join('public', 'images','articles',
+						uploaded_io.original_filename), 'wb') do |file|
+					file.write(uploaded_io.read)
+				end
+				params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
      
-      file_names[count] = uploaded_io.original_filename
-    end
-    count +=1
-  end
+				file_names[count] = uploaded_io.original_filename
+			end
+			count +=1
+		end
 
-    rescue => e
-  logger.error( 'Upload failed. ' + e.to_s )
-  flash[:error] = 'Upload failed. Please try again.'
-  render :action => 'new'
+	rescue => e
+		logger.error( 'Upload failed. ' + e.to_s )
+		flash[:error] = 'Upload failed. Please try again.'
+		render :action => 'new'
 
   end
  
 
 
- def handle_file_rename(article_id,file_names)
-  id_count =0
+	def handle_file_rename(article_id,file_names)
+		id_count =0
    
     file_names.each { |file_name|
-        extension = File.extname(Rails.root.join('public', 'images','articles',
+			extension = File.extname(Rails.root.join('public', 'images','articles',
           file_name.to_s))
 
-        File.rename(Rails.root.join('public', 'images','articles',
+			File.rename(Rails.root.join('public', 'images','articles',
           file_name.to_s),Rails.root.join('public', 'images','articles',
           article_id.to_s + "-" + id_count.to_s + extension))
   
       id_count +=1                                                       
     }
 
-rescue => e
-  logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
-  flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
-  render :action => 'edit'
+	rescue => e
+		logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
+		flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
+		render :action => 'edit'
 
 
- end
+	end
 
 end

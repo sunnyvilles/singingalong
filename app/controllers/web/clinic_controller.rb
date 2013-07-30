@@ -1,28 +1,34 @@
 class Web::ClinicController < ApplicationController
+	before_filter :collect_tags
+	def collect_tags
+		@all_tags = Tag.select("title")
+	end
   def articles
+
+		
   	per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
 
     if params[:order]=="views"
 
-    @articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'viewcount DESC', :offset => start_value, :limit => per_page)
-    @total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
-    @total_articles_remain = @total_articles.size - start_value
-
+			@articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'viewcount DESC', :offset => start_value, :limit => per_page)
+			@total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
+			@total_articles_remain = @total_articles.size - start_value
+		
     else
 
-    @articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
-    @total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
-    @total_articles_remain = @total_articles.size - start_value
+			@articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+			@total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
+			@total_articles_remain = @total_articles.size - start_value
 
     end
   end
 
 	def article
-    	@article = Article.find(params[:article_id])
-		  @article.viewcount = @article.viewcount.to_i +  1.to_i
-    	@article.save
+		@article = Article.find(params[:article_id])
+		@article.viewcount = @article.viewcount.to_i +  1.to_i
+		@article.save
 	end
 
 	def case_studies
@@ -98,7 +104,7 @@ class Web::ClinicController < ApplicationController
 
 	end
 
- def social_sharing
+	def social_sharing
 
     @article = Article.find(params[:article_id].to_i)
 

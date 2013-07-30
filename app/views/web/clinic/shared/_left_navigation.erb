@@ -7,8 +7,9 @@
 	</ul>
 	<ul>
 		<li class="<%=type%>">CATEGORIES</li>
-		<li><a href="/<%=scope%>/<%=type%>?category=allergy">Allergy</a></li>
-		<li><a href="/<%=scope%>/<%=type%>?category=chronic">Chronic</a></li>
-		<li><a href="/<%=scope%>/<%=type%>?category=healing">Healing</a></li>
+		<%@all_tags.each{|tag|%>
+			<li><a href="/<%=scope%>/<%=type%>?category=<%=tag[:title]%>"><%=tag[:title].titleize%></a></li>
+		<%}%>
+				
 	</ul>
 </div>

@@ -7,7 +7,11 @@
 			border: 1px solid black;
 		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"></link>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<script src="/scripts/tag-it.js"></script>
 	<%= form_for([:admin, @article]) do |f| %>
 
 
@@ -87,10 +91,15 @@
 		</div>
 
 		<div class="field">
-			<%= f.label :categories, "Categories" %><br />
-			<%= f.text_field :categories %>
+			<label>Add Categories:</label>
+			<ul id="myTags">
+				<%@tags.each{|tag|%>
+						<li><%=tag[:title]%></li>
+				<%}%>
+				
+			</ul>
 		</div>
-	
+
 		<div class="actions">
 			<%= f.submit %>
 		</div>
@@ -108,5 +117,19 @@
 		toolbar: " bold italic underline",
 		menubar : false
 	});
+	 $(document).ready(function() {
+        $("#myTags").tagit({
+					fieldName: "tags[]",
+					availableTags: (function(tags){
+						var tagArr = [];
+						for(var i=0;i<tags.length;i++){
+							tagArr.push(tags[i].title)
+						}
+						console.log(tagArr);
+						return tagArr;
+					})(<%=raw @all_tags.to_json%>),
+					autocomplete: {delay: 0, minLength: 1}
+				});
+    });
 
 </script>

@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
-	#before_filter :prepare_for_mobile
-
+	#before_filter :prepare_for_mobile	
 	protect_from_forgery
 
 
