@@ -55,7 +55,7 @@
 			<div class="articleSharingTools floatRight">
 				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
 				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
-				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=@article[:title]%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			</div>
 
 			<div class="articleContentArea">
