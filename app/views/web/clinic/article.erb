@@ -59,7 +59,7 @@
 
 	<%=link_to raw('<span class="spriteIcon smlIcon facebook"></span>'), "/social-sharing/" + @article[:id].to_s, :remote => true, :"data-replace" => ''%>
 
-				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a>
+				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			
  			
 
