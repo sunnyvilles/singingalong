@@ -1,5 +1,4 @@
 TheOtherSongClinic::Application.routes.draw do
-  
 
   #get "users/edit"
 
@@ -18,7 +17,7 @@ resources :articles, only: [:show, :index]
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  # match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 	#match 'articles/:id' => 'web/articles#show'
 
@@ -68,7 +67,8 @@ resources :articles, only: [:show, :index]
   get '/general-information' => 'static#general_information'
   get '/general-information/:pages' => 'static#general_information'
 
-  get '/social-sharing/:site' => 'web/articles#social_sharing'
+  get '/social-sharing/:article_id' => 'web/clinic#social_sharing'
+  
   #get "general_information/:pages" => "static#general_information"
   #get "knowledge_center/:pages" => "static#knowledge_center"
   #get "latest_at_the_other_song/:pages" => "static#latest_at_the_other_song"
