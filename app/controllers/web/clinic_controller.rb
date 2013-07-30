@@ -3,9 +3,7 @@ class Web::ClinicController < ApplicationController
 	def collect_tags
 		@all_tags = Tag.select("title")
 	end
-  def articles
-
-		
+  def articles		
   	per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
