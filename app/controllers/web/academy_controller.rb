@@ -1,8 +1,8 @@
 class Web::AcademyController < ApplicationController	
-  #def articles
-	#	@articles = Article.find(:all, :order => 'created_at DESC', :limit => 10)
-  #end
-
+	before_filter :collect_tags
+	def collect_tags
+		@all_tags = Tag.select("title")
+	end
 	def about_us
 		render 'web/academy/about' and return
 	end

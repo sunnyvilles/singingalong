@@ -72,9 +72,15 @@ class Admin::ArticlesController < ApplicationController
 			tagObj = Tag.where("title = ?", tag)
 			if(tagObj.length == 0 )					
 					@article.tags.create({:title=> tag})						
-			elsif(!@article.tags.find(tagObj[0][:id]).present?) #this tag is not already associated
+			elsif(!@article.tags.where("id = ?",tagObj[0][:id]).present?) #this tag is not already associated
 				#associate the tag with this article
 				@article.tags << tagObj[0]
+			end
+		}
+
+		@article.tags.each{|tag|
+			if (!params[:tags].include? tag[:title])
+				@article.tags.delete(tag)
 			end
 		}
 	end
