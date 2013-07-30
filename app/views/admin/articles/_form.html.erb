@@ -48,47 +48,53 @@
 
 		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
 		<div class="image">
-		<div class="field">
-			<%= f.label :file_caption_0, 'upload a picture' %><br />
-			<%= f.file_field :file_caption_0 %>
-			<img src="/images/articles/<%=@article[:id]%>-0.jpg" height="50" width="50"></img>
+			<div class="field">
+				<%= f.label :file_caption_0, 'upload a picture' %><br />
+				<%= f.file_field :file_caption_0 %>
+				<img src="/images/articles/<%=@article[:id]%>-0.jpg" height="50" width="50"></img>
+			</div>
+			<div class="field">
+				<%=f.label :caption_0, 'caption' %>
+				<%=f.text_field :caption_0%>
+			</div>
 		</div>
-		<div class="field">
-			<%=f.label :caption_0, 'caption' %>
-			<%=f.text_field :caption_0%>
+		<div class="image">
+			<div class="field">
+				<%= f.label :file_caption_1, 'upload another picture' %><br />
+				<%= f.file_field :file_caption_1 %>
+				<img src="/images/articles/<%=@article[:id]%>-1.jpg" height="50" width="50"></img>
+			</div>
+			<div class="field">
+				<%=f.label :caption_1, 'caption' %>
+				<%=f.text_field :caption_1%>
+			</div>
 		</div>
-	</div>
-	<div class="image">
-	<div class="field">
-		<%= f.label :file_caption_1, 'upload another picture' %><br />
-		<%= f.file_field :file_caption_1 %>
-		<img src="/images/articles/<%=@article[:id]%>-1.jpg" height="50" width="50"></img>
-	</div>
-	<div class="field">
-		<%=f.label :caption_1, 'caption' %>
-		<%=f.text_field :caption_1%>
-	</div>
-	</div>
-	<div class="image">
-	<div class="field">
-		<%= f.label :file_caption_2, 'upload one more picture' %><br />
-		<%= f.file_field :file_caption_2 %>
-		<img src="/images/articles/<%=@article[:id]%>-2.jpg" height="50" width="50"></img>
-	</div>
-	<div class="field">
-		<%=f.label :caption_2, 'caption' %>
-		<%=f.text_field :caption_2%>
-	</div>
-	</div>
+		<div class="image">
+			<div class="field">
+				<%= f.label :file_caption_2, 'upload one more picture' %><br />
+				<%= f.file_field :file_caption_2 %>
+				<img src="/images/articles/<%=@article[:id]%>-2.jpg" height="50" width="50"></img>
+			</div>
+			<div class="field">
+				<%=f.label :caption_2, 'caption' %>
+				<%=f.text_field :caption_2%>
+			</div>
+		</div>
 
-	<div class="field">
-		<%= f.label :youtubeurl, "youtube video url" %><br />
-		<%= f.text_field :youtubeurl %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
-<% end %>
+		<div class="field">
+			<%= f.label :youtubeurl, "youtube video url" %><br />
+			<%= f.text_field :youtubeurl %>
+		</div>
+
+		<div class="field">
+			<%= f.label :categories, "Categories" %><br />
+			<%= f.text_field :categories %>
+		</div>
+	
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	<% end %>
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -97,10 +103,10 @@
     });
 	}
 );
-tinymce.init({
-	selector:'textarea',
-	toolbar: " bold italic underline",
-	menubar : false
-});
+	tinymce.init({
+		selector:'textarea',
+		toolbar: " bold italic underline",
+		menubar : false
+	});
 
 </script>
