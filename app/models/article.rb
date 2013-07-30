@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   
 has_and_belongs_to_many :doctors
+has_and_belongs_to_many :tags
   attr_accessible :content, :name, :title,:source,:type,:file_caption_0,:file_caption_1,:file_caption_2,:caption_0,:caption_1,:caption_2,:youtubeurl
 attr_accessor :caption_0,:caption_1,:caption_2
 
