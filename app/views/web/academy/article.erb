@@ -83,7 +83,7 @@
 					<%end%>
 				</div>
 				<%end%>
-				<%=@article[:content]%>
+				<%=raw @article[:content]%>
 				<%if @article[:youtubeurl].present?%>
 					<div class="videoCt">
 						<div class="video floatLeft">

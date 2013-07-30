@@ -49,7 +49,7 @@
 							<h3 class="articleTitle floatLeft"><%=article[:title]%></h3>
 							<span class="articleDate floatRight"><%=article[:created_at].strftime('%B %d, %Y')%></span>
 							<div class="clear"></div>
-							<div class="articleContent"><%=article[:content]%></div>
+							<div class="articleContent"><%=raw article[:content]%></div>
 							<div class="tools">
 								<span class="sharingTool"></span>
 								<a href="/academy/case-studies/<%=article[:id]%>">Read More</a>

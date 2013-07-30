@@ -53,16 +53,9 @@
 			<h3><%=@article[:title]%></h3>
 			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
-
-				<a href="mailto:" target="_top"><span class="spriteIcon smlIcon mail"></span></a>	 
-
-
-	<%=link_to raw('<span class="spriteIcon smlIcon facebook"></span>'), "/social-sharing/" + @article[:id].to_s, :remote => true, :"data-replace" => ''%>
-
-				<a href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-			
- 			
-
+				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
+				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=URI::escape(request.original_url)%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			</div>
 
 			<div class="articleContentArea">
@@ -88,7 +81,7 @@
 					<%end%>
 				</div>
 				<%end%>
-				<%=@article[:content]%>
+				<%=raw @article[:content]%>
 				<%if @article[:youtubeurl].present?%>
 					<div class="videoCt">
 						<div class="video floatLeft">
@@ -127,17 +120,5 @@
 	});
 	<%end%>
 
-
-	$(document).ready(function(){
-
-
-	$('[data-remote][data-replace]')
-  		.data('type', 'html') 
-   		.on('ajax:success', function(event, data) {
-      		window.open('http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>','targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=200');
-    		}
-    	);
-})
-
-
+	
 </script>
