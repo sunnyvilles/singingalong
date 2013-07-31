@@ -17,11 +17,13 @@ class Web::ClinicController < ApplicationController
     else
 
 			@articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
-			@total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
+			@total_articles = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article" ])
 			@total_articles_remain = @total_articles.size - start_value
 
     end
   end
+
+
 
 	def article
 		@article = Article.find(params[:article_id])
