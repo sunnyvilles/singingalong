@@ -15,6 +15,8 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
+		@all_tags = Tag.select("title")
+		@tags = []
 		# @article[:viewcount] = 0.to_i
 		# @article[:sharecount] = 0.to_i
     respond_to do |format|
