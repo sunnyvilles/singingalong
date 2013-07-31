@@ -53,9 +53,11 @@ class Admin::ArticlesController < ApplicationController
 
 		@article = Article.new(params[:article])
 		@article.viewcount = 0.to_i
+		
 		respond_to do |format|
       if @article.save
-        
+				params[:id] = @article[:id]
+        associate_tag(params)
         handle_file_rename(@article.id,file_names)
         format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
