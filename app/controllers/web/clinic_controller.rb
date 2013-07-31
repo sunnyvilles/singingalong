@@ -1,8 +1,28 @@
 class Web::ClinicController < ApplicationController
 	before_filter :collect_tags
-	def collect_tags
-		@all_tags = Tag.select("title")
+		def collect_tags 
+		@all_tags = []#Tag.select("title")
+		
+		if params[:action] == "case_studies"		
+		@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "case study" ])
+		elsif params[:action] == "videos"
+		@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "video" ])
+		else
+		@arts = Article.find(:all, :conditions => [ "source = ?", "clinic"])
+		end
+
+		@arts.each do |art|
+			art.tags.each do |tag|
+				unless @all_tags.include? tag
+					@all_tags << tag
+				end
+			end
+		end
+
+
 	end
+
+
   def articles		
   	per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
@@ -45,7 +65,7 @@ class Web::ClinicController < ApplicationController
   end
 
 	def case_study
-		@article = Article.find(params[:article_id])
+	@article = Article.find(params[:article_id])
 
     @article.viewcount += 1
 
@@ -57,7 +77,7 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def videos
-		per_page = 10
+	per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
 
@@ -116,5 +136,7 @@ class Web::ClinicController < ApplicationController
     end
 
   end
+
+
 
 end
