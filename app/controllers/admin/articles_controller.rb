@@ -53,9 +53,8 @@ class Admin::ArticlesController < ApplicationController
 
 		@article = Article.new(params[:article])
 
-
 		@article.viewcount = 0.to_i
-		
+
 		respond_to do |format|
       if @article.save
 				params[:id] = @article[:id]
