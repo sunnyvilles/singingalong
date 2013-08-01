@@ -40,7 +40,12 @@ resources :articles, only: [:show, :index]
 	get '/clinic/videos' => 'web/clinic#videos'
 	get '/clinic/videos/:article_id' => 'web/clinic#video'
 
-
+	#Edge
+	get '/clinic/belief' => 'web/clinic#belief'
+	get '/clinic/our-approach' => 'web/clinic#our_approach'
+	get '/clinic/complimentry-therapies' => 'web/clinic#complimentry_therapies'
+	get '/clinic/speciality-clinic' => 'web/clinic#speciality_clinic'
+	get '/clinic/testimonials' => 'web/clinic#testimonials'
 	#Clinic routes end
 
 	#Academy routes start

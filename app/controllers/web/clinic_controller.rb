@@ -115,4 +115,20 @@ class Web::ClinicController < ApplicationController
 
   end
 
+	def belief
+		
+	end
+
+	def our_approach
+
+	end
+	def complimentry_therapies
+
+	end
+	def speciality_clinic
+
+	end
+	def testimonials
+		
+	end
 end
