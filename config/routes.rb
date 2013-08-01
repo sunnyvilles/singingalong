@@ -64,7 +64,11 @@ resources :articles, only: [:show, :index]
 	get '/academy/videos' => 'web/academy#videos'
 	get '/academy/videos/:article_id' => 'web/academy#video'
 	
-
+	#Edge
+	get '/academy/our-approach' => 'web/academy#our_approach'
+	get '/academy/learning-model' => 'web/academy#learning_model'
+	get '/academy/teaching-tools' => 'web/academy#teaching_tools'
+	get '/academy/facilities' => 'web/academy#facilities'
 	
 	get '/events' => 'static#events'
   get '/events/:pages' => 'static#events'

@@ -105,6 +105,20 @@ class Web::AcademyController < ApplicationController
 	def knowledge_center
 
 	end
+
+
+	def our_approach
+
+	end
+	def learning_model
+
+	end
+	def teaching_tools
+		
+	end
+	def facilities
+		
+	end
 end
 
 

@@ -20,6 +20,9 @@ en:
       therapies: "COMPLIMENTRY THERAPIES"
       clinic: "SPECIALITY CLINIC"
       testimonial: "TESTIMONIALS"
+      learning_model: "LEARNING MODEL"
+      teaching_tools: "TEACHING TOOLS"
+      facilities: "FACILITIES"
     knowledgeCenter: "KNOWLEDGE CENTER"
     knowledge:
       articles: "ARTICLES"

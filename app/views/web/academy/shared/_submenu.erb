@@ -231,27 +231,25 @@
 				</ul>
 			</div>
 		</li>
-		<li>
+		<li class="<%=["our_approach", "learning_model","teaching_tools","facilities"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
-				<a href="/<%=scope%>/edge"><%= t "submenu.edge" %></a>
+				<a href="/<%=scope%>/our-approach/"><%= t "submenu.edge" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
 					<li>
-						<a href=""><%= t "submenu.edgeSection.beliefe" %></a>
+						<a href="/<%=scope%>/our-approach/"><%= t "submenu.edgeSection.approach" %></a>
 					</li>
 					<li>
-						<a href=""><%= t "submenu.edgeSection.approach" %></a>
+						<a href="/<%=scope%>/learning-model/"><%= t "submenu.edgeSection.learning_model" %></a>
 					</li>
 					<li>
-						<a href=""><%= t "submenu.edgeSection.therapies" %></a>
+						<a href="/<%=scope%>/teaching-tools/"><%= t "submenu.edgeSection.teaching_tools" %></a>
 					</li>
 					<li>
-						<a href=""><%= t "submenu.edgeSection.clinic" %></a>
+						<a href="/<%=scope%>/facilities/"><%= t "submenu.edgeSection.facilities" %></a>
 					</li>
-					<li>
-						<a href=""><%= t "submenu.edgeSection.testimonial" %></a>
-					</li>
+					
 				</ul>
 			</div>
 		</li>
