@@ -1,9 +1,29 @@
 class Web::ClinicController < ApplicationController
 	before_filter :collect_tags
 	def collect_tags
-		@all_tags = Tag.select("title")
+		@all_tags = []#Tag.select("title")
+
+
+
+		if params[:action] == "case_studies"
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "case study" ])
+		elsif params[:action] == "videos"
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "video" ])
+		else
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article"])
+		end
+
+		@arts.each do |art|
+			art.tags.each do |tag|
+				unless @all_tags.include? tag
+					@all_tags << tag
+				end
+			end
+		end
 	end
-  def articles		
+
+
+  def articles
   	per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
@@ -12,16 +32,26 @@ class Web::ClinicController < ApplicationController
 
 			@articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'viewcount DESC', :offset => start_value, :limit => per_page)
 			@total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
-			@total_articles_remain = @total_articles.size - start_value
-		
+
+		elsif params[:category]
+
+			tagname = Tag.where(:title=>params[:category]).first
+ 			@articles = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+			@total_articles = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
+
     else
 
 			@articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
-			@total_articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
-			@total_articles_remain = @total_articles.size - start_value
+			@total_articles = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article" ])
+
 
     end
+
+		@total_articles_remain = @total_articles.size - start_value
+
   end
+
+
 
 	def article
 		@article = Article.find(params[:article_id])
@@ -35,9 +65,17 @@ class Web::ClinicController < ApplicationController
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
   	start_value = (page - 1 )*per_page
 
-    @case_studies = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","case study" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+		if params[:category]
+			tagname = Tag.where(:title=>params[:category]).first
+			@case_studies = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic","case study" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+			@total_case_studies = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic", "case study" ])
 
-    @total_case_studies = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "case study" ])
+		else
+			@case_studies = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","case study" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+			@total_case_studies = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "case study" ])
+    end
+
+
     @total_case_studies_remain = @total_case_studies.size - start_value
 
   end
@@ -60,11 +98,17 @@ class Web::ClinicController < ApplicationController
   	start_value = (page - 1 )*per_page
 
 
-    @videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","video" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+		if params[:category]
+			tagname = Tag.where(:title=>params[:category]).first
+			@videos = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic","video" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+			@total_videos = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic", "video" ])
+		else
 
-    @total_videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "video" ])
+			@videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","video" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
+			@total_videos = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic", "video" ])
+    end
     @total_videos_remain = @total_videos.size - start_value
-    
+
 	end
 
 	def video
@@ -115,8 +159,10 @@ class Web::ClinicController < ApplicationController
 
   end
 
+
+
 	def belief
-		
+
 	end
 
 	def our_approach
@@ -129,6 +175,6 @@ class Web::ClinicController < ApplicationController
 
 	end
 	def testimonials
-		
+
 	end
 end

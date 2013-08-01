@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-@article = Article.find(params[:id])
+  @article = Article.find(params[:id])
 
     respond_to do |format|
       format.html 
