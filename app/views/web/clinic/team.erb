@@ -1,7 +1,70 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap">
 	<div class="padder">
-		
+		<p class="blockQuote blueBorder">
+			“A network of influential and diverse professors, instructors and faculty rooted in tradition. They are working professionals who are on top of their fields fostering invaluable education and superlative practical experience.”
+		</p>
+		The other song is a learning environment that combines real-world learning and academic theory with commitment to excellence from students, faculty, staff and administration.
+		<div class="team-first-list">
+			<div class="floatLeft team-member">
+				<img src="" alt="" height="178" width="208"></img>
+				<div class="name font22">Doctor Name</div>
+				<div class="team-title font20">Title</div>
+			</div>
+			<div class="floatLeft team-member">
+				<img src="" alt="" height="178" width="208"></img>
+				<div class="name font22">Doctor Name</div>
+				<div class="team-title font20">Title</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="accordion" class="team">
+			<h3>SENIOR CONSULTANT/ FACULTY</h3>
+			<div>
+
+			</div>
+			<h3>CONSULTANCY/FACULTY</h3>
+			<div>
+
+			</div>
+			<h3>SR. RESIDENT DOCTORS</h3>
+			<div>
+
+			</div>
+			<h3>RESIDENT DOCTORS</h3>
+			<div>
+
+			</div>
+			<h3>CURRICULUM</h3>
+			<div>
+
+			</div>
+			<h3>MARKETING AND PR (ACADEMY)</h3>
+			<div>
+
+			</div>
+			<h3>ACCREDETATION AND RESOURCES</h3>
+			<div>
+
+			</div>
+			<h3>PUBLICATION</h3>
+			<div>
+
+			</div>
+			<h3>MARKETING AND PR (CLINIC)</h3>
+			<div>
+
+			</div>
+			<h3>VISITING</h3>
+			<div>
+
+			</div>
+		</div>
 	</div>
 </div>
+<script>
+	$("#accordion").accordion();
+</script>

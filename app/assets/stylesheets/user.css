@@ -188,6 +188,9 @@ button {  width: auto; overflow: visible; }
 #accordion .ui-state-default.ui-state-active{
 	background: #1b7aba;
 }
+#accordion.team .ui-state-default.ui-state-active{
+	background: #f67a00;
+}
 /*Accordion CSS End*/
 /* NAVIGATION CSS START*/
 .nav-top-el > a{
@@ -612,3 +615,16 @@ footer{
 	background: #ddd;
 }
 /*Admin Article edit end*/
+
+/*Team page CSS Start*/
+.team-member{
+	margin-right: 34px;
+}
+.team-first-list{
+	margin-top: 22px;
+}
+
+.team-member .name{
+	
+}
+/*Team page CSS End*/
