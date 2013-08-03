@@ -145,11 +145,39 @@ button {  width: auto; overflow: visible; }
 
 .greenHeader{
 	height: 57px;
-	background-image: url("/images/green.png");
+	background-image: url("/images/g.png");
 }
 
 .blueBorder{
 	border-left: 4px solid #1b7aba !important;
+}
+
+.font14{
+	font-size: 14px;
+}
+.font16{
+	font-size: 16px;
+}
+.font18{
+	font-size: 18px;
+}
+.font20{
+	font-size: 20px;
+}
+.font22{
+	font-size: 22px;
+}
+.margin20{
+	margin: 20px 0;
+}
+.marginTop20{
+	margin-top: 20px;
+}
+.boldtext{
+	font-weight: bolder;
+}
+.black{
+	color: #000;
 }
 /*COMMON CSS END*/
 
