@@ -128,24 +128,24 @@ button {  width: auto; overflow: visible; }
 }
 
 .col1{
-	margin-right: 30px;
+	margin-right: 50px;
 }
 
 .twoCol{
-	width: 475px;
+	width: 465px;
 	
 }
 .twoCol .content{
 	padding: 10px;
 }
 .blueHeader{
-	height: 60px;
-	background: blue;
+	height: 57px;
+	background-image: url("/images/blue.png");
 }
 
 .greenHeader{
-	height: 60px;
-	background: green;
+	height: 57px;
+	background-image: url("/images/green.png");
 }
 
 .blueBorder{
