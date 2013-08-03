@@ -147,6 +147,10 @@ button {  width: auto; overflow: visible; }
 	height: 60px;
 	background: green;
 }
+
+.blueBorder{
+	border-left: 4px solid #1b7aba !important;
+}
 /*COMMON CSS END*/
 
 

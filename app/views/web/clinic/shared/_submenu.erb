@@ -157,7 +157,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="<%=["article","articles","case_studies", "case_study", "videos", "video"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["article","articles","case_studies", "case_study", "videos", "video", "about_homeopathy"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/<%=scope%>/articles"><%= t "submenu.knowledgeCenter" %></a>
@@ -182,10 +182,10 @@
 				</ul>
 			</div>
 		</li>
-		<li>
+		<li  class="<%=["general_information"].include?(params[:action]) ? "selected" : "" %>">
+			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
-				<a href=""><%= t "submenu.generalInfo" %></a>
-				<div class="left-border floatLeft"></div>
+				<a href="/<%=scope%>/general-information"><%= t "submenu.generalInfo" %></a>			
 			</div>
 		</li>
 		<li>

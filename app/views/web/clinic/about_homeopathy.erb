@@ -1,0 +1,110 @@
+<style>
+	.about-sections{
+		margin-top: 20px;
+		
+	}
+	.about-sections .img-blocks{
+		float: left;
+		cursor: pointer;
+		position: relative;
+	}
+	.titleOverlay{
+		position: absolute;
+		bottom: 50px;
+		height: 35px;
+		padding: 15px 15px 0 15px;
+		color: #ffffff;
+		font-size: 20px;
+		width: 232px;
+	}
+	.concept{
+		background-color: #f67a00;
+	}
+	.myth{
+		background-color: #599d15;
+	}
+	.advantage{
+		background-color: #1b7aba;
+	}
+	.about-content{
+		
+	}
+	#myth, #advantage{
+		display: none;
+	}
+
+</style>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<div class="contentWrap">
+	<div class="padder">
+		<h2 class="title"><%= t "submenu.knowledge.about"%> </h2>
+		<p class="blockQuote blueBorder">
+			“The cure of the part should not be attempted without treatment of the whole. No attempt should be made to cure the body without the soul, and if the head and body are to be healthy, you must begin by curing your mind , for this is the greatest error of our day in the treatment of the human body that physicians separate the soul from the body.” <br />
+			- By Pluto
+		</p>
+		<h3 class="secondryTitle">WHAT IS HOMOEOPATHY?</h3>
+		<div class="content">
+			The entire system of Homeopathy is based upon the basic principle of “SimiliaSimilibusCurentur” which means, “Like Cures Like”. This further means that medicines which can produce certain effects on healthy individuals are capable of curing any illness which displays similar effects. This system of healing was founded by German Physician & Chemist. Dr. Samuel Hahnemann (1755 – 1843).<br />
+			Like other practitioners of his era, he also adopted the orthodox school of medicine to treat his patients. However within a short period of time he was dissatisfied with the unscientific & crude methods of the treatment, especially in cases where patients purged, sweated and bled. Soon Dr. Hahnemann gave up his mode of treatment to develop a rational method of healing.<br />
+			While translating Cullen’s MateriaMedica, he came across Cinchona, from which Quinine is derived and used for the treatment of Malaria. His eagerness to understand Quinine, made him try Cinchona on himself and to his surprise, he developed symptoms similar to Malaria.<br />
+			Amazed by his findings, Hahnemann experimented several other drugs and confirmed his observations. After 15 years of thorough observation & experimentation, he confirmed & concluded the law of “SimiliaSimilibusCurentur”.<br />
+		</div>
+		<div class="about-sections">
+			<div class="img-blocks" style="margin-right: 12px;" data-section="concept">
+				<img src="" alt="CONCEPTS" height="230" width="312"></img>
+				<div class="titleOverlay concept">CONCEPTS</div>
+			</div>
+			<div class="img-blocks"style="margin-right: 12px;" data-section="myth">
+				<img src="" alt="MYTHS" height="230" width="312"></img>
+				<div class="titleOverlay myth">MYTHS</div>
+				<div class="about-content"></div>
+				<div class="clear"></div>
+			</div>
+			<div class="img-blocks" data-section="advantage">
+				<img src="" alt="ADVANTAGES" height="230" width="312"></img>
+				<div class="titleOverlay advantage">ADVANTAGES</div>
+				<div class="about-content"></div>
+			</div>
+			<div id="concept" class="about-content">
+				<h2 class="secondryTitle">VITAL FORCE / VITALITY</h2>
+					Our body is constantly exposed to various external and internal factors. Factors like temperature change, physical and mental strains, exposure to germs, pollutants and other wear and tear. Despite all this, unlike a machine, we rarely fall ill. And when we do the body defends, repairs, develops and functions itself.
+					This is the coordinating, defending and dominating force within each of us. This force is commonly known as immunity or the resistance power of our body. Dr. Hahnemann recognized this force of life as Vital Force or Vitality.
+				<h2 class="secondryTitle">DISEASE & HOMOEOPATHY</h2>
+					When you get fever or cough and cold or say you have a severe headache, what do you describe it as? Normally it is described as a disease. The science of Homoeopathy believes that they are not diseases but bodies expressing internal disharmony. And it is this disharmony that leads to the state of disease. The real sickness is disturbance of the normal functioning of the vital force or vitality. When you take Homeopathic medicines, it harmonizes the internal disharmony and restores the normal health.
+				<h2 class="secondryTitle">HOLISTIC APPROACH</h2>
+					A human body is a whole unit of various functions which we describe as your head, heart, lungs, etc. Hence when a person falls ill, his whole body is unwell and not just a body part. And as described above, when a person falls ill, it is because of a basic disorder of the vital force. In Homoeopathic treatment we give the patient a single medication to bring about complete wellness. This treats the patient as a whole, removing all ailments.
+				<h2 class="secondryTitle">INDIVIDUALIZATION</h2>
+					Dr. Hahnemann had concluded that “There are no diseases, there are only sick people”. That is why, in Homoeopathic treatments, every person is studied and treated as an individual. The prescriptions are made for the person and not for the disease that the person is suffering from. So, ten patients with similar diagnosis will receive different medicines whereas ten people with different diagnosis may receive the same medicine.
+				<h2 class="secondryTitle">SUPPRESSION</h2>
+					The modern medical practitioner treats surface manifestations like discharge or eruptions with local measures. Such treatments make the local manifestations disappear but sooner or later a deeper manifestation arises.
+					Homeopathy treats the hidden, suppressed manifestation. Homoeopathic treatments aid the process of elimination of toxins, which leads to cure. After a Homoeopathic treatment, a patient may often develop an increase of natural elimination (stool, urine, sweat) or an unnatural elimination (nasal discharges, leucorrhoea, etc.) or an old suppressed eruption may reappear. The onset of these discharges is generally accompanied by an improvement in the clinical condition of the patient.
+			</div>
+			<div id="myth" class="about-content">
+				<h2 class="secondryTitle">MYTHS: WHAT HOMOEOPATHY IS NOT</h2>
+				<h2 class="secondryTitle">Homoeopathy is not slow acting:</h2>
+				There is a misconception that Homeopathic medicines take a long time to cure. One of the reasons behind this misconception is that patients come to a Homeopath after they have tried other treatments for a long time. By the time they take Homoeopathy the disease is normally at an advanced stage.
+				To reverse the pattern of the disease it normally takes some time. People who start treating a disease with Homeopathy get faster results. It is more in the mind that it is slow acting and not in reality.
+				<h2 class="secondryTitle">Homeopathy is not placebo effect or faith healing:</h2>
+				This is again another misconception that is spread around the medical fraternity. Even chronic cases are treated effectively around the world with Homeopathy. As every patient is treated individually the medicines that treat them are also different. So, ten cases of the same ailment in ten people are treated with different medicines. The principles of Homeopathy differ from other principles, which is why there are misconceptions and bad press about Homeopathy in the medical fraternity.
+				<h2 class="secondryTitle">Homoeopathy helps only in chronic cases, not in acute ones:</h2>
+				Homoeopathy works as a great alternative therapy. It does wonders in acute cases of cold-cough, fever, otitis, tonsillitis, etc wherein the exact symptoms are noted & a perfectly suited Homoeopathic medicine is prescribed.
+			</div>
+			<div id="advantage" class="about-content">
+				<h2 class="secondryTitle">HOMOEOPATHY AND ITS UNIQUE ADVANTAGES</h2>
+				A Homoeopath follows a systematic, thorough & detailed case-taking process to understand the patient. This enables him to understand the root cause of the disease & its manifestation within that particular individual. This makes Homoeopathy distinct as compared to the other forms of healing. It is due to this process that a Homoeopath arrives at a perfect remedy, which is particularly tailor-made for each patient individually.<br />
+				It is due to this that the patient is not only cured of his chief complaint, but also experiences a complete physical, emotional & spiritual well-being on the whole.<br />
+				Hence, Homoeopathy is called a holistic form of healing, which provides long term effects. It treats the disease from its root cause; so it’s also used in end-stage & incurable diseases. It is an absolutely non-invasive & gentle mode of treatment suited for all age groups.<br />
+
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<script>
+	$(".img-blocks").click(function(evt){
+		$(".about-content").hide();
+		$("#" + $(this).data("section")).show();
+	});
+</script>
+

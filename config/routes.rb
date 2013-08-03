@@ -40,12 +40,15 @@ resources :articles, only: [:show, :index]
 	get '/clinic/videos' => 'web/clinic#videos'
 	get '/clinic/videos/:article_id' => 'web/clinic#video'
 
+	get '/clinic/about-homeopathy' => 'web/clinic#about_homeopathy'
+
 	#Edge
 	get '/clinic/belief' => 'web/clinic#belief'
 	get '/clinic/our-approach' => 'web/clinic#our_approach'
 	get '/clinic/complimentry-therapies' => 'web/clinic#complimentry_therapies'
 	get '/clinic/speciality-clinic' => 'web/clinic#speciality_clinic'
 	get '/clinic/testimonials' => 'web/clinic#testimonials'
+	get '/clinic/general-information' => 'web/clinic#general_information'
 	#Clinic routes end
 
 	#Academy routes start
@@ -73,7 +76,7 @@ resources :articles, only: [:show, :index]
 	get '/events' => 'static#events'
   get '/events/:pages' => 'static#events'
 
-  get '/general-information' => 'static#general_information'
+  #get '/general-information' => 'static#general_information'
   get '/general-information/:pages' => 'static#general_information'
 
   get '/social-sharing/:article_id' => 'web/clinic#social_sharing'

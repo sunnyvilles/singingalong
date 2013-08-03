@@ -125,7 +125,12 @@ class Web::ClinicController < ApplicationController
 		flash[:error] = 'couldnt increase share count'
 
 	end
+	def about_homeopathy
+		
+	end
 
+	def general_information
+	end
 	def about
 
 	end
