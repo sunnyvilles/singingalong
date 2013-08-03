@@ -1,10 +1,62 @@
+<style>
+	.blockQuote{
+		border-left: 4px solid green !important;
+	}
+</style>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+</script>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap">
 	<div class="padder">
 		<h2 class="title"><%= t "submenu.edgeSection.clinic"%> </h2>
 		<div class="aboutCt">
+			<p class="blockQuote">“When there is collaboration, wonderful things can happen”</p>
+			<div class="content">
+				‘the other song’ launches its ‘Speciality Clinics’ - An interdisciplinary collaboration of healthcare professionals.<br />
+				Since its inception, ‘the other song’ has been striving towards providing the best possible homoeopathic treatment. Teams of experienced consultants and highly able resident doctors help cure every patients needs. Today, the ‘the other song’ has become a platform of “Care beyond Compare”.
 
+			</div>
+			<p class="blockQuote">‘the other song’ breaks new grounds in order to facilitate this intention, ‘the other song’ now launches a series of ‘Speciality Clinics’ from August 15th 2013.</p>
+			<div class="content">
+				In speciality clinics at ‘the other song’ Like-minded health care experts and medical professionals come together in a distinctive collaboration which strengthens patient’s outcomes. <br />
+				Many a times, poor communication between health care professionals leads to adverse effects on patients. The speciality clinic at ‘the other song’ creates a union of medical experts from diverse fields such as Homoeopathy and Allopathy including Dieticians and Yoga experts. Together, they bridge this existing gap and provide patients with all the possible routes towards a healthy living. <br />
+				This first-of-its-kind Speciality Clinic by ‘the other song’ offers patients the best homoeopathic care along with the best of modern medicine. And, collectively they give patients complete, holistic treatment. The Speciality clinics combat the following ailments:
+
+			</div>
+			<div id="accordion">
+				<h3>RHEUMATOLOGY </h3>
+				<div>
+					<p class="blockQuote">
+						It is said that ‘the greatest evil is physical pain’ and what worse than restricting one’s mobility!
+					</p>
+				</div>
+				<h3>HOMOEOPATHIC WEIGHT MANAGEMENT</h3>
+				<div>
+					<p class="blockQuote">
+								“Being obese is not just about how you look, it is a HEALTH HAZARD. It puts a strain on all your body systems.”
+					</p>
+				</div>
+				<h3>DIABETES</h3>
+				<div>
+					<p>
+						What is diabetes?
+Is it disease or lifestyle related disorder?
+Is it inherited?
+Is it due to lack of insulin?
+Are diabetic pills lauded or banned?
+What’s the role of homoeopathy in diabetes?
+
+					</p>
+				</div>
+			</div>
+			<h3 class="secondryTitle"><%="Highlights of the multi-speciality clinic".upcase%>:</h3>
+			The Multi speciality clinic offers a complete health care package to its patients.  Each of them receives a primary Homoeopathic diagnosis and treatment followed by evaluation by an Allopath. Additionally, the package also includes counselling sessions on diet, yoga and physiotherapy for patients by experts. On the whole, the diagnosis leads to the best possible health program for the patients.
 		</div>
 	</div>
 </div>

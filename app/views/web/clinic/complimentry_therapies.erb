@@ -1,10 +1,50 @@
+<style>
+	.padder{
+		padding: 10px 0;
+	}
+	.blockQuote{
+		margin-left: 10px !important;
+		border-left: 4px solid green !important;
+	}
+</style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap">
 	<div class="padder">
 		<h2 class="title"><%= t "submenu.edgeSection.therapies"%> </h2>
 		<div class="aboutCt">
+			<p class="blockQuote">
+				“Homeopathy is a health practice that uses a systematic approach towards the totality of a person’s health.” 
+			</p>
+			<div style="padding: 10px;">The systematic and well-grounded procedures established in the Sensation Method of Homoeopathy along with the unique integrated setting provided by the Academy,
+				ensures that patients at ‘the other song’ Clinic get Care beyond Compare!</div>
+			<div class="floatLeft twoCol col1">
+				<div>
+					<div class="greenHeader"></div>
+					<div class="content">
+						<h3 class="seondryTitle"><%="Regression work, Breath work, and Birthing Therapy".upcase%></h3>
+						Regression work, Breath work, and Birthing Therapy work towards bringing patients to a deeper awareness of the patterns within themselves, and their perceptions of the world around them. The therapies complement the Academy’s approach to Homoeopathy and also embody the Sensation Method and other techniques. This combination of therapy and homeopathy helps in the discovery of ‘the other song.’
+					</div>
+				</div>
+				<div>
+					<div class="greenHeader"></div>
+					<div class="content">
+						<h3 class="seondryTitle"><%="Life-style modifications and dietary suggestions".upcase%></h3>
+						Life-style modifications and dietary suggestions are also advised to patients to facilitate their overall healing process. Only after the doctors assess the nature, severity and intensity of the patients’ problem, these alternative therapies are suggested. This step-by-step process makes the treatment more individualized & holistic. 
+					</div>
+				</div>
+			</div>
+			<div class="floatLeft twoCol">
+				<div>
+					<div class="greenHeader"></div>
+					<div class="content">
+						<h3 class="seondryTitle">PERSONAL PRACTICES</h3>
+						Personal practices like yoga, meditation, music, and nutrition are also included in the overall treatment recommendations at the Clinic. The attending teams of doctors assess patients and recommend a combination of alternative therapies that complement their on-going homeopathic treatment. 
 
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
 		</div>
 	</div>
 </div>

@@ -121,6 +121,32 @@ button {  width: auto; overflow: visible; }
 .clearBoth{
 	clear: both;
 }
+
+.secondryTitle{
+	margin: 20px 0;
+	font-size: 20px;
+}
+
+.col1{
+	margin-right: 30px;
+}
+
+.twoCol{
+	width: 475px;
+	
+}
+.twoCol .content{
+	padding: 10px;
+}
+.blueHeader{
+	height: 60px;
+	background: blue;
+}
+
+.greenHeader{
+	height: 60px;
+	background: green;
+}
 /*COMMON CSS END*/
 
 
@@ -195,6 +221,18 @@ button {  width: auto; overflow: visible; }
 .title{
 	font-size: 24px;
 	font-weight: bold;
+	margin-bottom: 25px;
+	padding-left: 10px;
+}
+
+.seondryTitle{
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.ternaryTitle{
+	font-size: 20px;
+	margin-bottom: 10px;
 }
 .topHeader {
 	border-bottom: 1px solid #666;
