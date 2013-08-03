@@ -180,8 +180,15 @@ button {  width: auto; overflow: visible; }
 	color: #000;
 }
 /*COMMON CSS END*/
-
-
+/*Accordion CSS Start*/
+#accordion .ui-state-default{
+	background: #888;
+	color: #fff;
+}
+#accordion .ui-state-default.ui-state-active{
+	background: #1b7aba;
+}
+/*Accordion CSS End*/
 /* NAVIGATION CSS START*/
 .nav-top-el > a{
 	color: #000;
