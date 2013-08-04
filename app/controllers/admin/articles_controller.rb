@@ -59,8 +59,8 @@ class Admin::ArticlesController < ApplicationController
       if @article.save
 				params[:id] = @article[:id]
         associate_tag(params)
-        handle_file_rename(@article.id,file_names)
-        format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully created.' }
+        handle_file_rename(@article.id,file_names)				
+        format.html { redirect_to "/admin/#{@section}/articles/#{@article.id}", :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
       else
         format.html { render :action=> "new" }
@@ -73,7 +73,7 @@ class Admin::ArticlesController < ApplicationController
   end
 	def associate_tag(params)
 		@article = Article.find(params[:id])
-		params[:tags].each{|tag|
+		params[:tags] && params[:tags].each{|tag|
 			tagObj = Tag.where("title = ?", tag)
 			if(tagObj.length == 0 )					
 					@article.tags.create({:title=> tag})						

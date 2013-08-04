@@ -140,7 +140,7 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def team
-
+		@people = Doctor.all
 	end
 
 	def association

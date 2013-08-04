@@ -95,7 +95,7 @@ class Web::AcademyController < ApplicationController
 	end
 
 	def team
-
+		@people = Doctor.all
 	end
 
 	def association
