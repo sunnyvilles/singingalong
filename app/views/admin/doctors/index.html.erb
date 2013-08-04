@@ -17,9 +17,9 @@
 <% @doctors.each do |doctor| %>
   <tr>
     <td><%= doctor.name %></td>
-    <td><%= link_to 'Show', doctor %></td>
-    <td><%= link_to 'Edit', doctor %></td>
-    <td><%= link_to 'Destroy', doctor, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', [:admin, doctor] %></td>
+    <td><%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %></td>
+    <td><%= link_to 'Destroy', [:admin, doctor], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
