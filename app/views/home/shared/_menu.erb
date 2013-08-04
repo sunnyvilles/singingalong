@@ -202,7 +202,8 @@
 <div class="header">
 	<div class="headerCt">
 		<a href="/"><span class="tosLogo floatLeft spriteIcon"></span></a>
-
+		
+		<%if !["admin/admin"].include?( params[:controller] )%>
 		<ul class="floatRight menuItems">
 			<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
 			<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
@@ -229,6 +230,7 @@
 				<span class="spriteIcon searchIcon"></span>
 			</li>
 		</ul>
+		<%end%>
 	</div>
 </div>
 <script>

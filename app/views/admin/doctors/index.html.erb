@@ -1,3 +1,9 @@
+<style>
+	a, a:hover{
+		color: #fff;
+	}
+
+</style>
 <h1>Listing doctors</h1>
 
 <table>
@@ -21,4 +27,4 @@
 <br />
 
 
-<%= link_to 'New Doctor', new_doctor_path %>
+<%= link_to 'New Doctor', "/admin/#{@section}/doctors/new" %>

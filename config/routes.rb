@@ -7,12 +7,19 @@ TheOtherSongClinic::Application.routes.draw do
   # root :to => 'users#index'
 
 	namespace :admin do
-		resources :articles
-		resources :doctors
-    resources :events
+		scope '/academy' do
+			resources :articles,:doctors, :events
+			get '/videos' => 'admin/articles#index'
+		end
+		scope '/clinic' do
+			resources :articles,:doctors, :events
+			get '/video' => 'articles#index'
+		end
 	end
-resources :articles, only: [:show, :index]
- 
+	resources :articles, only: [:show, :index]
+
+	get '/admin' => 'admin/admin#show'
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

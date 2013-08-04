@@ -1,12 +1,16 @@
 class ApplicationController < ActionController::Base
 
-	#before_filter :prepare_for_mobile	
+	#before_filter :prepare_for_mobile
+	before_filter :section
 	protect_from_forgery
 
 
 
   protected
-  
+  def section
+		@section =  request.fullpath.split("/")[2]
+		@type =  request.fullpath.split("/")[3]
+	end
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "Please log in."

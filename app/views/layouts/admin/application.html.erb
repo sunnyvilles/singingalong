@@ -1,22 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The Other Song ADMIN</title>
- 
- <meta charset="utf-8">
-<%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag 'application' %>
-<%= csrf_meta_tags %>
+	<head>
+		<title>The Other Song ADMIN</title>
 
- <link rel="stylesheet" type="text/css" href="/styles/jquery.ui.all.css"></link>
- <link rel="stylesheet" type="text/css" href="/styles/jquery.tagit.css"></link>
- <link rel="stylesheet" type="text/css" href="/styles/tagit.ui-zendesk.css"></link>
+		<meta charset="utf-8">
+		<%= stylesheet_link_tag "application" %>
+		<%= stylesheet_link_tag "admin" %>
+		<%= javascript_include_tag 'application' %>
+		<%= csrf_meta_tags %>
 
-</head>
-<body>
-<%=render :partial=> "home/shared/menu"%>
+		<link rel="stylesheet" type="text/css" href="/styles/jquery.ui.all.css"></link>
+		<link rel="stylesheet" type="text/css" href="/styles/jquery.tagit.css"></link>
+		<link rel="stylesheet" type="text/css" href="/styles/tagit.ui-zendesk.css"></link>
+		<style>
+			a, a:hover{
+				color: #000;
+			}
+			span.tabs{
+				display: inline-block;
+				height: 32px;
+				padding-right: 20px;
+				padding-top: 20px;
+				background-color: #ddd;
+			}
+			span.tabs.selected{
+				background-color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<%=render :partial=> "home/shared/menu"%>
+		<div class="dottebBottom title">Name Of the Page</div>
+		<div class="dottebBottom">
+			<!--<span>
+				<label>None</label>
+				<input type="radio" name="section"/>
+			</span>-->
+			<span>
+				<label>Academy</label>
+				<input type="radio" name="section" <%= @section == "academy" ? "checked" : "" %> value="academy"/>
+			</span>
 
-<%= yield %>
+			<span>
+				<label>Clinic</label>
+				<input type="radio" name="section"  <%= @section == "clinic" ? "checked" : "" %> value="clinic"/>
+			</span>
+		</div>
+		<%if @section.present?%>
+		<div class="dottebBottom tabs">
+			<a href="/admin/<%=@section%>/articles">
+				<span class="tabs <%= params[:controller] == "admin/articles" ? "selected" : "" %>">Articles</span>
+			</a>
+			<!--<a href="/admin/<%=@section%>/videos">
+				<span class="tabs <%= params[:action] == "videos" ? "selected" : "" %>">Videos</span>
+			</a>
+			<a href="/admin/<%=@section%>/case-studies">
+				<span class="tabs <%= params[:action] == "case_studies" ? "selected" : "" %>">Case Studies</span>
+			</a>-->
+			<a href="/admin/<%=@section%>/events">
+				<span class="tabs <%= params[:controller] == "admin/events" ? "selected" : "" %>">Events</span>
+			</a>
+			<a href="/admin/<%=@section%>/cources">
+				<span class="tabs <%= params[:controller] == "admin/cources" ? "selected" : "" %>">Courses</span>
+			</a>
+			<a href="/admin/<%=@section%>/doctors">
+				<span class="tabs <%= params[:controller] == "admin/team" ? "selected" : "" %>">Team</span>
+			</a>
+		</div>
+		<%end%>
+		<div>
+			<%= yield %>
+		</div>
 
-</body>
+		<script>
+			$("input[type=radio]").click(function(){
+				var section = $(this).val();
+				window.location = "/admin/" + section + "/articles"
+			})
+		</script>
+
+	</body>
 </html>

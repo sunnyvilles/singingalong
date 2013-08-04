@@ -1,6 +1,8 @@
-class DoctorsController < ApplicationController
-  # GET /doctors
+class Admin::DoctorsController < ApplicationController
+  layout "admin/application"
+	# GET /doctors
   # GET /doctors.json
+		
   def index
     @doctors = Doctor.all
 
