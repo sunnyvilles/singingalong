@@ -29,6 +29,7 @@ resources :articles, only: [:show, :index]
 	get '/clinic/aim' => 'web/clinic#aim'
 	get '/clinic/team' => 'web/clinic#team'
 	get '/clinic/associations' => 'web/clinic#association'
+	get '/clinic/associations/wish' => 'web/clinic#association_wish'
 	
 	#knowledge center
 	get '/clinic/articles' => 'web/clinic#articles'

@@ -148,6 +148,11 @@ button {  width: auto; overflow: visible; }
 	background-image: url("/images/green.png");
 }
 
+.orangeHeader{
+	height: 57px;
+	background-image: url("/images/orange.png");
+}
+
 .blueBorder{
 	border-left: 4px solid #1b7aba !important;
 }

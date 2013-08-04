@@ -146,7 +146,9 @@ class Web::ClinicController < ApplicationController
 	def association
 
 	end
-
+	def association_wish
+		
+	end
 	def knowledge_center
 
 	end

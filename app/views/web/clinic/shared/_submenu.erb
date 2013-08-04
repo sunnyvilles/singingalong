@@ -112,7 +112,7 @@
 </style>
 <div class="header submenu">
 	<ul class="submenuItems">
-		<li class="<%=["about", "aim", "team", "association"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["about", "aim", "team", "association", "association_wish"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
