@@ -78,7 +78,7 @@ class Admin::DoctorsController < ApplicationController
     @doctor.destroy
 
     respond_to do |format|
-      format.html { redirect_to doctors_url }
+      format.html { redirect_to [:admin, @doctor] }
       format.json { head :no_content }
     end
   end

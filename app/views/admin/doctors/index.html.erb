@@ -17,9 +17,15 @@
 <% @doctors.each do |doctor| %>
   <tr>
     <td><%= doctor.name %></td>
+<<<<<<< HEAD
     <td><%= link_to 'Show', [:admin,doctor] %></td>
     <td><%= link_to 'Edit', edit_admin_doctor_path(doctor) %></td>
     <td><%= link_to 'Destroy', [:admin,doctor], confirm: 'Are you sure?', method: :delete %></td>
+=======
+    <td><%= link_to 'Show', [:admin, doctor] %></td>
+    <td><%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %></td>
+    <td><%= link_to 'Destroy', [:admin, doctor], confirm: 'Are you sure?', method: :delete %></td>
+>>>>>>> 36aee52083cfffc93bf327e8e92b289df6cc1b54
   </tr>
 <% end %>
 </table>
