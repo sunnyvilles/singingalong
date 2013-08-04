@@ -46,7 +46,7 @@ class Admin::DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
+        format.html { redirect_to [:admin, @doctor], notice: 'Doctor was successfully created.' }
         format.json { render json: @doctor, status: :created, location: @doctor }
       else
         format.html { render action: "new" }

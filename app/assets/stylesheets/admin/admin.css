@@ -13,3 +13,11 @@
 .dottebBottom{
 	border-bottom: 1px dotted #000;
 }
+
+.adminCt{
+	width: 980px;
+	margin: auto;
+}
+a{
+	color: #000 !important;
+}

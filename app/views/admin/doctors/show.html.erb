@@ -4,7 +4,19 @@
   <b>Name:</b>
   <%= @doctor.name %>
 </p>
+<p>
+  <b>Title:</b>
+  <%= @doctor.title %>
+</p>
+<p>
+  <b>URLs:</b>
+  <%=@doctor.urls%>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @doctor.description %>
+</p>
 
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%#= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%#= link_to 'Back', doctors_path %>

@@ -12,11 +12,12 @@ TheOtherSongClinic::Application.routes.draw do
 			get '/videos' => 'admin/articles#index'
 		end
 		scope '/clinic' do
-			resources :articles,:doctors, :events
+			resources :articles, :doctors, :events
 			get '/video' => 'articles#index'
 		end
 	end
-	resources :articles, only: [:show, :index]
+	#resources :articles, only: [:show, :index]
+	#resources :doctors, only: [:show, :index]
 
 	get '/admin' => 'admin/admin#show'
 	

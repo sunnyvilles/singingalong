@@ -1,21 +1,41 @@
-<%= form_for @doctor , :url => {:action => :new} do |f| %>
-  <% if @doctor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+<%= form_for([:admin, @doctor]) do |f| %>
+	<% if @doctor.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
 
-      <ul>
-      <% @doctor.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+				<% @doctor.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.select :title, ["","Consultancy/ Faculty",
+			"Sr. Resident Doctors ",
+			"Resident Doctors ",
+			"Curriculum ",
+			"Marketing and PR (Academy) ",
+			"Accreditation and Resources",
+			"Publication",
+			"Marketing and PR (Clinic)",
+			"Visiting"] %>
+	</div>
+	<div class="field">
+		<label for="doctor_urls[]">URL</label><br />
+		<input type="text" name="doctor_urls[]"></input>		
+	</div>
+	<div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>
