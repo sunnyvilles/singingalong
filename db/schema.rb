@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130804174221) do
+ActiveRecord::Schema.define(:version => 20130805143044) do
+
+  create_table "admin_courses", :force => true do |t|
+    t.string   "course_type"
+    t.string   "title"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.time     "timing"
+    t.string   "venue"
+    t.text     "description"
+    t.decimal  "fees",        :precision => 10, :scale => 0
+    t.decimal  "discounts",   :precision => 10, :scale => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -54,11 +68,10 @@ ActiveRecord::Schema.define(:version => 20130804174221) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "title"
-    t.string   "sub_title"
-    t.text     "description"
-    t.datetime "datetime"
-    t.date     "day"
+    t.string "title"
+    t.string "sub_title"
+    t.text   "description"
+    t.date   "day"
   end
 
   create_table "tags", :force => true do |t|
@@ -75,12 +88,14 @@ ActiveRecord::Schema.define(:version => 20130804174221) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.boolean  "isAdmin"
+    t.string   "username",        :limit => 25
+    t.string   "email",           :limit => 100, :null => false
     t.string   "hashed_password"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "salt",            :limit => 40
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
+
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end

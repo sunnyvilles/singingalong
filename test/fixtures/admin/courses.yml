@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_type: MyString
+  title: MyString
+  start_date: 2013-08-05
+  end_date: 2013-08-05
+  timing: 2013-08-05 20:00:44
+  venue: MyString
+  description: MyText
+  fees: 9.99
+  discounts: 9.99
+
+two:
+  course_type: MyString
+  title: MyString
+  start_date: 2013-08-05
+  end_date: 2013-08-05
+  timing: 2013-08-05 20:00:44
+  venue: MyString
+  description: MyText
+  fees: 9.99
+  discounts: 9.99
