@@ -184,6 +184,9 @@ button {  width: auto; overflow: visible; }
 .black{
 	color: #000;
 }
+.hidden{
+	display: none;
+}
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
 #accordion .ui-state-default{

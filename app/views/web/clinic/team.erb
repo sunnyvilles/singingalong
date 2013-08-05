@@ -21,57 +21,29 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div id="accordion" class="team">
-			<h3>SENIOR CONSULTANT/ FACULTY</h3>
-			<div>
-				<%raise @people.inspect%>
-				<%@people.each{|person|%>
-					<div class="floatLeft team-member">
-						<img src="" alt="" height="178" width="208"></img>
-						<div class="name font22">Doctor Name</div>
-						<div class="team-title font20">Title</div>
-					</div>
-				<%}%>
-			</div>
-			<h3>CONSULTANCY/FACULTY</h3>
-			<div>
-
-			</div>
-			<h3>SR. RESIDENT DOCTORS</h3>
-			<div>
-
-			</div>
-			<h3>RESIDENT DOCTORS</h3>
-			<div>
-
-			</div>
-			<h3>CURRICULUM</h3>
-			<div>
-
-			</div>
-			<h3>MARKETING AND PR (ACADEMY)</h3>
-			<div>
-
-			</div>
-			<h3>ACCREDETATION AND RESOURCES</h3>
-			<div>
-
-			</div>
-			<h3>PUBLICATION</h3>
-			<div>
-
-			</div>
-			<h3>MARKETING AND PR (CLINIC)</h3>
-			<div>
-
-			</div>
-			<h3>VISITING</h3>
-			<div>
-
-			</div>
+		<div id="accordion" class="team">			
+			<%@people.each{|title|%>				
+				<h3><%=Doctor.titles[title[0]]%></h3>
+				<div>					
+					<%@people[title[0]].each{|person|%>
+						<div class="floatLeft team-member">
+							<img src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
+							<div class="name font22"><%=person[:name]%></div>
+							<div class="hidden lbContent">
+								<img class="floatLeft" src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
+								<%=person[:description]%>
+							</div>
+						</div>
+						
+					<%}%>
+				</div>
+			<%}%>			
 		</div>
 	</div>
 </div>
 <script>
 	$("#accordion").accordion();
+	$(".team-member").click(function(evt){
+		$(".lbContent",this).show().dialog();
+	});
 </script>
