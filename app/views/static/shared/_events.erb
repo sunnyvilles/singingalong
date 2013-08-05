@@ -55,8 +55,9 @@
 	<%events.each { |event|%>
 		<div class="eventBlock">
 				<div class="dateBlock floatLeft">
-<div class="dateCt"><%=event[:date]%></div>
-<div class="dayCt"><%=event[:day]%></div>
+
+<div class="dateCt"><%=event[:day].strftime('%b %d')%></div>
+<div class="dayCt"><%=event[:day].strftime('%a')%>.</div>
 </div>
 			<div class="eventDesc floatLeft">
 				<h3><%=event[:title]%></h3>
