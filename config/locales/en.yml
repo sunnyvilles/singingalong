@@ -32,7 +32,11 @@ en:
     generalInfo: "GENERAL INFORMATION"
     events: "EVENTS"
     admission: "ADMISSION"
-    cources: "COURSES"
+    courses: "COURSES"
+    coursesSection:
+      indian_courses: "INDIAN COURSES"
+      international_courses: "INTERNATIONAL COURSES"
+      customized_courses: "CUSTOMIZED COURSES"
     research: "RESEARCH"
     satellite: "SATELLITE CENTER"
     contactUs: "CONTACT US"

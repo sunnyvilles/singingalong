@@ -1,0 +1,63 @@
+
+<style type="text/css"></style>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
+<%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
+<div class="contentWrap">
+	<h2 class="title">CUSTOMIZED COURSES</h2>
+	<div class="padder">
+    Tailor made courses focused on specific requirements are available for a batch of at least 25 students. Details are provided on request.
+    Write to academy@theothersong.com for further information.
+    <BR>&nbsp;<BR>
+<div id="accordion">
+<h3>INDIAN CUSTOMIZED COURSES</h3>
+<div>
+ <p>
+<%@customized_courses.each {|customized_course|%>
+
+ <h1> <%= customized_course.title %> </h1>
+
+  <b>Start date:</b>
+  <%= customized_course.start_date %>
+
+  <b>End date:</b>
+  <%= customized_course.end_date %>
+
+<br/>
+  <b>Timing:</b>
+  <%= customized_course.timing %>
+<br/>
+  <b>Venue:</b>
+  <%= customized_course.venue %>
+<br/>
+  <b>Description:</b>
+  <%= customized_course.description %>
+<br/>
+  <b>Fees:</b>
+  <%= customized_course.fees %>
+<br/>
+  <b>Discounts:</b>
+  <%= customized_course.discounts %>
+</p>
+<br/>
+
+<%}%>
+</p>
+
+</div>
+<h3>MASTER COURSES</h3>
+<div>
+ <p>
+
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+ <script>
+$(function() {
+$( "#accordion" ).accordion();
+});
+</script>

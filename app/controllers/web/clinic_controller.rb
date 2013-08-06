@@ -184,4 +184,5 @@ class Web::ClinicController < ApplicationController
 	def testimonials
 
 	end
+	
 end

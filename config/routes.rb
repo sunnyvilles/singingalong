@@ -84,6 +84,13 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/academy/teaching-tools' => 'web/academy#teaching_tools'
 	get '/academy/facilities' => 'web/academy#facilities'
 	
+	#courses
+	get '/academy/courses' => 'web/academy#courses'
+	get '/academy/indian_courses' => 'web/academy#indian_courses'
+	get '/academy/international_courses' => 'web/academy#international_courses'
+	get '/academy/customized_courses' => 'web/academy#customized_courses'
+
+
 	get '/events' => 'static#events'
   get '/events/:pages' => 'static#events'
 
