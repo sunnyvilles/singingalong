@@ -1,0 +1,64 @@
+<%= form_for(@admin_course) do |f| %>
+  <% if @admin_course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>
+
+      <ul>
+      <% @admin_course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :course_type %><br />
+    <%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :required => true%>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.text_field :start_date, :class => "datepicker", :required => true, :value => date_dmY(@admin_course.start_date) %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.text_field :end_date, :class => "datepicker", :required => true , :value => date_dmY(@admin_course.end_date)%>
+  </div>
+  <div class="field">
+    <%= f.label :timing %><br />
+    <%= f.time_select :timing, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :venue %><br />
+    <%= f.text_field :venue %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :fees %><br />
+    <%= f.text_field :fees, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :discounts %><br />
+    <%= f.text_field :discounts %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <script>
+$(function() {
+$( ".datepicker" ).datepicker({
+
+dateFormat : "dd MM yy",
+changeMonth : true,
+changeYear : true
+
+});
+});
+</script>
+<% end %>

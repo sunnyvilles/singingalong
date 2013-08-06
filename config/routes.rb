@@ -1,5 +1,7 @@
 TheOtherSongClinic::Application.routes.draw do
 
+
+
   #get "users/edit"
 
   #get "users/new"
@@ -8,11 +10,11 @@ TheOtherSongClinic::Application.routes.draw do
 
 	namespace :admin do
 		scope '/academy' do
-			resources :articles,:doctors, :events
+			resources :articles,:doctors, :events, :courses
 			get '/videos' => 'admin/articles#index'
 		end
 		scope '/clinic' do
-			resources :articles, :doctors, :events
+			resources :articles, :doctors, :events, :courses
 			get '/video' => 'articles#index'
 		end
 	end
