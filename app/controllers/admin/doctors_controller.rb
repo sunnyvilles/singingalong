@@ -51,7 +51,7 @@ class Admin::DoctorsController < ApplicationController
     #@doctor.urls << params[:url]
     respond_to do |format|
       if @doctor.save
-          handle_picture_rename(params,pic_name)
+          handle_picture_rename(params,@doctor.id,pic_name)
      
         format.html { redirect_to [:admin, @doctor], notice: 'Doctor was successfully created.' }
         format.json { render json: @doctor, status: :created, location: @doctor }
@@ -73,10 +73,8 @@ class Admin::DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
 
     respond_to do |format|
-      if @doctor.update_attributes(params[:doctor])
-      
-       
-          handle_picture_rename(params,file_name)
+      if @doctor.update_attributes(params[:doctor])       
+          handle_picture_rename(params,@doctor.id,file_name)
       
         format.html { redirect_to [:admin,@doctor], notice: 'Doctor was successfully updated.' }
         format.json { head :no_content }
@@ -113,14 +111,13 @@ private
 
   end
 
-  def handle_picture_rename(params,pic_name)
-    unless params[:picture].nil? || params[:picture].blank?
-      extension = File.extname(Rails.root.join('public', 'images','doctors',
-          pic_name[0].to_s))
-
+  def handle_picture_rename(params,doctor_id,pic_name)
+puts "xxxxxxxxxxxxx" + pic_name[0].to_s
+    unless params[:doctor][:picture].nil? || params[:doctor][:picture].blank?
+    puts "yyyyyyyyyyyyyyyyyyyyyy"
       File.rename(Rails.root.join('public', 'images','doctors',
           pic_name[0].to_s),Rails.root.join('public', 'images','doctors',
-          params[:doctor][:id].to_s + extension))
+          doctor_id.to_s + ".jpg"))
     end
   end
 end
