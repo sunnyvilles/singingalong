@@ -178,6 +178,9 @@ button {  width: auto; overflow: visible; }
 .marginTop20{
 	margin-top: 20px;
 }
+.marginRight10{
+	margin-right: 10px;
+}
 .boldtext{
 	font-weight: bolder;
 }

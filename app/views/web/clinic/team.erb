@@ -30,7 +30,8 @@
 							<img src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
 							<div class="name font22"><%=person[:name]%></div>
 							<div class="hidden lbContent">
-								<img class="floatLeft" src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
+								<img class="floatLeft marginRight10" src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
+								<h2 class="title floatLeft"><%=person[:name]%></h2>
 								<%=person[:description]%>
 								<div class="links">
 									<%person.urls.each{|url|%>
@@ -53,7 +54,7 @@
 	$(".team-member").click(function(evt){
 		$(".lbContent",this).dialog({
 			modal: true,
-			width: 500
+			width: 600
 		});
 	});
 </script>
