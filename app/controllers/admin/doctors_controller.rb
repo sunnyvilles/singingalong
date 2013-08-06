@@ -42,10 +42,15 @@ class Admin::DoctorsController < ApplicationController
   # POST /doctors
   # POST /doctors.json
   def create
+    pic_name =[]
+
+    handle_picture_upload(params,pic_name)
+
     @doctor = Doctor.new(params[:doctor])
 
     respond_to do |format|
       if @doctor.save
+        handle_picture_rename(@doctor.id,pic_name)
         format.html { redirect_to [:admin, @doctor], notice: 'Doctor was successfully created.' }
         format.json { render json: @doctor, status: :created, location: @doctor }
       else
@@ -58,6 +63,7 @@ class Admin::DoctorsController < ApplicationController
   # PUT /doctors/1
   # PUT /doctors/1.json
   def update
+    handle_picture_upload(params)
     @doctor = Doctor.find(params[:id])
 
     respond_to do |format|
@@ -81,5 +87,30 @@ class Admin::DoctorsController < ApplicationController
       format.html { redirect_to [:admin, @doctor] }
       format.json { head :no_content }
     end
+  end
+private
+  def handle_picture_upload(params,pic_name)
+  if params[:doctor][:picture]
+        uploaded_io = params[:doctor][:picture]
+        pic_name[0] = uploaded_io.original_filename
+        
+        File.open(Rails.root.join('public', 'images','doctors',
+            uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+      end
+
+
+  end
+
+  def handle_picture_rename(doctor_id,pic_name)
+  
+    extension = File.extname(Rails.root.join('public', 'images','doctors',
+          pic_name[0].to_s))
+
+      File.rename(Rails.root.join('public', 'images','doctors',
+          pic_name[0].to_s),Rails.root.join('public', 'images','doctors',
+          doctor_id.to_s + extension))
+  
   end
 end

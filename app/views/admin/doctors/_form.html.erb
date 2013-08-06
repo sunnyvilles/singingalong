@@ -35,6 +35,11 @@
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
 	</div>
+	<div class="field">
+				<%= f.label :picture, 'upload a picture' %><br />
+				<%= f.file_field :picture %>
+				<img src="/images/doctors/<%=@doctor[:id]%>.jpg" height="80" width="60"></img>
+			</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
