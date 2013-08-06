@@ -112,9 +112,9 @@ private
   end
 
   def handle_picture_rename(params,doctor_id,pic_name)
-puts "xxxxxxxxxxxxx" + pic_name[0].to_s
+
     unless params[:doctor][:picture].nil? || params[:doctor][:picture].blank?
-    puts "yyyyyyyyyyyyyyyyyyyyyy"
+
       File.rename(Rails.root.join('public', 'images','doctors',
           pic_name[0].to_s),Rails.root.join('public', 'images','doctors',
           doctor_id.to_s + ".jpg"))
