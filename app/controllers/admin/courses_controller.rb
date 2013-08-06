@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
-  # GET /admin/courses
+  layout "admin/application"
+	# GET /admin/courses
   # GET /admin/courses.json
   def index
     @admin_courses = Admin::Course.all
