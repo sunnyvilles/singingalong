@@ -178,6 +178,9 @@ button {  width: auto; overflow: visible; }
 .marginTop20{
 	margin-top: 20px;
 }
+.marginRight10{
+	margin-right: 10px;
+}
 .boldtext{
 	font-weight: bolder;
 }
@@ -187,6 +190,11 @@ button {  width: auto; overflow: visible; }
 .hidden{
 	display: none;
 }
+.ui-widget-header, ui-dialog-titlebar{
+	background: #fff !important;
+	border: none !important;
+}
+
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
 #accordion .ui-state-default{
