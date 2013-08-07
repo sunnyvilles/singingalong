@@ -27,15 +27,18 @@
 				<div>					
 					<%@people[title[0]].each{|person|%>
 						<div class="floatLeft team-member">
-							<img src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
+							<img src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
 							<div class="name font22"><%=person[:name]%></div>
 							<div class="hidden lbContent">
-								<img class="floatLeft marginRight10" src="/images/team/<%=person[:id]%>-primary.jpg" alt="" height="178" width="208"></img>
-								<h2 class="title floatLeft"><%=person[:name]%></h2>
-								<%=person[:description]%>
+								<img class="floatLeft marginRight10" src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
+								<div style="min-height: 40px;">
+									<h2 class="title floatLeft" style="margin: 0 8px 8px; 0"><%=person[:name]%></h2>
+									<%=person[:description]%>
+									
+								</div>
 								<div class="links">
 									<%person.urls.each{|url|%>
-									<a href="<%=url%>"><%=url%></a>
+									<a href="<%=url%>"><%=url[:title]%></a><br />
 									<%}%>
 								</div>
 								
