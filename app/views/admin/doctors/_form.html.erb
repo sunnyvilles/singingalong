@@ -1,3 +1,4 @@
+
 <%= form_for([:admin, @doctor]) do |f| %>
 	<% if @doctor.errors.any? %>
 		<div id="error_explanation">
@@ -33,7 +34,7 @@
 	</div>
 	<div class="field">
 		<%= f.label :description %><br />
-		<%= f.text_area :description %>
+		<%= f.text_area :description , :rows=>"20",:class=>"doc_text"%>
 	</div>
 	<div class="field">
 				<%= f.label :picture, 'upload a picture' %><br />
@@ -43,4 +44,10 @@
 	<div class="actions">
 		<%= f.submit %>
 	</div>
+<style type="text/css">
+.doc_text {
+
+width:800px;
+}
+	</style>
 <% end %>
