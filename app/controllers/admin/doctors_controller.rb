@@ -2,7 +2,7 @@ class Admin::DoctorsController < ApplicationController
   layout "admin/application"
 	# GET /doctors
   # GET /doctors.json
-		
+
   def index
     @doctors = Doctor.all
 
@@ -16,7 +16,7 @@ class Admin::DoctorsController < ApplicationController
   # GET /doctors/1.json
   def show
     @doctor = Doctor.find(params[:id])
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @doctor }
@@ -36,7 +36,7 @@ class Admin::DoctorsController < ApplicationController
   # GET /doctors/1/edit
   def edit
     @doctor = Doctor.find(params[:id])
-    
+
   end
 
   # POST /doctors
@@ -47,7 +47,7 @@ class Admin::DoctorsController < ApplicationController
     handle_picture_upload(params,pic_name)
 
     @doctor = Doctor.new(params[:doctor])
-		
+
     respond_to do |format|
       if @doctor.save
 				handle_picture_rename(params,@doctor.id,pic_name)
@@ -64,17 +64,17 @@ class Admin::DoctorsController < ApplicationController
   # PUT /doctors/1
   # PUT /doctors/1.json
   def update
-         
- 
+
+
 		file_name =[]
 		handle_picture_upload(params,file_name)
-		
+
     @doctor = Doctor.find(params[:id])
 		save_url(@doctor, params)
     respond_to do |format|
-      if @doctor.update_attributes(params[:doctor])       
+      if @doctor.update_attributes(params[:doctor])
 				handle_picture_rename(params,@doctor.id,file_name)
-      
+
         format.html { redirect_to [:admin,@doctor], notice: 'Doctor was successfully updated.' }
         format.json { head :no_content }
       else
@@ -89,7 +89,7 @@ class Admin::DoctorsController < ApplicationController
   def destroy
     @doctor = Doctor.find(params[:id])
     @doctor.destroy
- 
+
     respond_to do |format|
       format.html { redirect_to [:admin, @doctor] }
       format.json { head :no_content }
@@ -100,7 +100,7 @@ class Admin::DoctorsController < ApplicationController
 		unless params[:doctor]["picture"].nil? || params[:doctor]["picture"].blank?
 			uploaded_io = params[:doctor][:picture]
 			pic_name[0] = uploaded_io.original_filename
-        
+
 			File.open(Rails.root.join('public', 'images','doctors',
 					uploaded_io.original_filename), 'wb') do |file|
 				file.write(uploaded_io.read)
@@ -111,9 +111,10 @@ class Admin::DoctorsController < ApplicationController
   end
 
   def handle_picture_rename(params,doctor_id,pic_name)
-		puts "xxxxxxxxxxxxx" + pic_name[0].to_s
+
     unless params[:doctor][:picture].nil? || params[:doctor][:picture].blank?
-			puts "yyyyyyyyyyyyyyyyyyyyyy"
+
+
       File.rename(Rails.root.join('public', 'images','doctors',
           pic_name[0].to_s),Rails.root.join('public', 'images','doctors',
           doctor_id.to_s + ".jpg"))
@@ -129,10 +130,10 @@ class Admin::DoctorsController < ApplicationController
 							:title => url
 						})
 				end
-				
-			end			
+
+			end
 		}
-		doctor.urls.each{|url|			
+		doctor.urls.each{|url|
 			if(!params[:doctor_urls].include? url[:title])
 				doctor.urls.delete(url)
 			end
