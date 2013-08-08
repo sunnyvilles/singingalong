@@ -19,6 +19,11 @@ width:980px;
 		margin:10px 12px 0px 12px;
 	
 	}
+	p img {
+
+		float: left;
+		margin:3px;
+	}
 </style>
 <h1>Listing doctors</h1>
 <% col = 0 %>
@@ -29,10 +34,10 @@ width:980px;
 			<%end%>
 
 		<td>
-			<img src="/images/doctors/<%=doctor.id%>.jpg" height="80" width="60"></img>
-			<%= doctor.name %><br/>
-			<%= doctor.title %><br/>
-			<%= doctor.description %><br/>
+			<p><img src="/images/doctors/<%=doctor.id%>.jpg" height="80" width="60"></img></p>
+			Name:  <%= doctor.name %><br/>
+			Title: <%= doctor.title %><br/>
+			Description: <br/><%= doctor.description %><br/>
 		
 			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %><br/>
 			<%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %>
