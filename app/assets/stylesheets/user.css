@@ -64,12 +64,12 @@ you'll want to define those yourself. */
 /*h1,h2,h3,h4,h5,h6 { font-weight: bold;text-align: left;padding:0 0 8px;color:#CCCCCC; line-height:1em }*/
 
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
-a{color: #fff;text-decoration: none}
+a{text-decoration: none}
 
 a:hover, a:active { outline: none; }
 
 a, a:active, a:visited { outline: none }
-a:hover { color:#fff; }
+a:hover { text-decoration: underline; }
 
 ol { list-style-type: decimal; }
 
@@ -207,6 +207,27 @@ button {  width: auto; overflow: visible; }
 #accordion.team .ui-state-default.ui-state-active{
 	background: #f67a00;
 }
+
+#accordion .ui-accordion-header-icon{
+	right: 10px;
+	left: auto;
+}
+#accordion .ui-state-active .ui-accordion-header-icon{
+	background: url('/styles/images/minus.png');
+	background-position: -3px -3px;
+	height: 22px;
+	width: 22px;
+}
+#accordion .ui-accordion-header-icon{	
+	background: url('/styles/images/plus.png');
+	background-position: -3px -3px;
+	height: 22px;
+	width: 22px;
+}
+
+#accordion .ui-widget-content{
+	border: none;
+}
 /*Accordion CSS End*/
 /* NAVIGATION CSS START*/
 .nav-top-el > a{
@@ -252,6 +273,12 @@ button {  width: auto; overflow: visible; }
 	padding-top: 20px;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
+	font-family: 'TisaProRegular';
+	color:  #636363;
+}
+
+.contentWrap .highlight{
+	color: #333333;
 }
 .padder{
 	padding: 10px;

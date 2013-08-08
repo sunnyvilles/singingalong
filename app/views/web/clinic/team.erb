@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/styles/jquery-ui.css" />
+<script src="/scripts/jquery-ui.js"></script>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap">
@@ -80,7 +80,7 @@
 		</div>
 		<div id="accordion" class="team">
 			<%@people.each{|title|%>
-				<h3><%=Doctor.titles[title[0]]%></h3>
+				<h3><%=Doctor.titles[title[0]].upcase%></h3>
 				<div>
 					<%@people[title[0]].each{|person|%>
 						<div class="floatLeft team-member">
@@ -114,7 +114,7 @@
 	$(".team-member").click(function(evt){
 		$(".lbContent",this).dialog({
 			modal: true,
-			width: 600
+			width: 970
 		});
 	});
 </script>
