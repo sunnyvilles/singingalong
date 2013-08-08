@@ -2,31 +2,38 @@
 	a, a:hover{
 		color: #fff;
 	}
-
+	tr th{
+		background: black;
+		color: #fff;
+	}
 </style>
 <h1>Listing doctors</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Title</th>
-    <th>URL</th>
+    <th>Title</th>    
     <th>Description</th>
+		<th>show</th>
+		<th>edit</th>
+		<th>delete</th>
   </tr>
 
-<% @doctors.each do |doctor| %>
-  <tr>
-    <td><%= doctor.name %></td>
+	<% @doctors.each do |doctor| %>
+		<tr>
+			<td><%= doctor.name %></td>
+			<td><%= doctor.title %></td>
+			<td><%= doctor.description[0...50] %></td>
+			<td><%= link_to 'Show', [:admin, doctor] %></td>
+			<td><%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %></td>
+			<td><%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %></td>
 
-    <td><%= link_to 'Show', [:admin, doctor] %></td>
-    <td><%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %></td>
-    <td><%= link_to 'Destroy', [:admin, doctor], confirm: 'Are you sure?', method: :delete %></td>
-
-  </tr>
-<% end %>
+		</tr>
+	<% end %>
 </table>
 
 <br />
+<div class="actions">
+	<a href="/admin/academy/doctors/new"><input type="button" value="New Team Member"/></a>
+</div>
 
-
-<%= link_to 'New Doctor', "/admin/#{@section}/doctors/new" %>
