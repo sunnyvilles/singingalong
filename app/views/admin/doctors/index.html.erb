@@ -2,33 +2,47 @@
 	a, a:hover{
 		color: #fff;
 	}
+	.outer_table {
+width:980px;
+
+	}
 	tr th{
 		background: black;
 		color: #fff;
 	}
+
+	td {
+		display:inline-block;
+		width:295px;
+		height:200px;
+		border: 1px solid grey;
+		margin:10px 12px 0px 12px;
+	
+	}
 </style>
 <h1>Listing doctors</h1>
+<% col = 0 %>
+<table class="outer_table">
+  	<% @doctors.each do |doctor| %>
+			<%if col%3 == 0%>
+				<tr>
+			<%end%>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>    
-    <th>Description</th>
-		<th>show</th>
-		<th>edit</th>
-		<th>delete</th>
-  </tr>
-
-	<% @doctors.each do |doctor| %>
-		<tr>
-			<td><%= doctor.name %></td>
-			<td><%= doctor.title %></td>
-			<td><%= doctor.description[0...50] %></td>
-			<td><%= link_to 'Show', [:admin, doctor] %></td>
-			<td><%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %></td>
-			<td><%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %></td>
-
-		</tr>
+		<td>
+			<img src="/images/doctors/<%=doctor.id%>.jpg" height="80" width="60"></img>
+			<%= doctor.name %><br/>
+			<%= doctor.title %><br/>
+			<%= doctor.description %><br/>
+		
+			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %><br/>
+			<%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %>
+		</td>
+			
+			<% col = col + 1 %>
+			<%if col%3 == 0%>
+				</tr>
+			<%end%>
+		
 	<% end %>
 </table>
 
