@@ -37,6 +37,10 @@ width:980px;
 			<p><img src="/images/doctors/<%=doctor.id%>.jpg" height="80" width="60"></img></p>
 			Name:  <%= doctor.name %><br/>
 			Title: <%= doctor.title %><br/>
+			Urls:  <% doctor.urls.each do |url| %>
+						<%=url.title%>,
+					<%end%>
+					<p>&nbsp</p>
 			Description: <br/><%= doctor.description %><br/>
 		
 			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %><br/>
