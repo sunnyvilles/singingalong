@@ -3,29 +3,38 @@
 		color: #fff;
 	}
 	.outer_table {
-width:980px;
+		width:980px;
 
-	}
-	tr th{
-		background: black;
-		color: #fff;
 	}
 
 	td {
 		display:inline-block;
 		width:295px;
-		height:200px;
-		border: 1px solid grey;
-		margin:10px 12px 0px 12px;
-	
+		height:200px;		
+		padding:10px 15px 0px 11px;
+		border-right:1px dashed lightgrey;
+		border-bottom:1px dashed lightgrey;
+		margin-bottom: 5px;
+		position: relative;
+
 	}
 	p img {
 
-		float: left;
+		left:0px;
 		margin:3px;
 	}
+	.tdContent {
+		padding:6px 6px 4px 6px;
+		border: 1px solid grey;
+		display: block;
+
+	}
+	.tdText {
+
+
+
+	}
 </style>
-<h1>Listing doctors</h1>
 <% col = 0 %>
 <table class="outer_table">
   	<% @doctors.each do |doctor| %>
@@ -34,17 +43,22 @@ width:980px;
 			<%end%>
 
 		<td>
-			<p><img src="/images/doctors/<%=doctor.id%>.jpg" height="80" width="60"></img></p>
+			<div class="tdContent">
+			<div class="floatLeft"><img src="/images/doctors/<%=doctor.id%>.jpg" height="80" width="60"></img></div>
+			<div class="tdText">
 			Name:  <%= doctor.name %><br/>
 			Title: <%= doctor.title %><br/>
 			Urls:  <% doctor.urls.each do |url| %>
 						<%=url.title%>,
 					<%end%>
+			
 					<p>&nbsp</p>
 			Description: <br/><%= doctor.description %><br/>
 		
 			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %><br/>
 			<%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %>
+			</div>
+			</div>
 		</td>
 			
 			<% col = col + 1 %>
