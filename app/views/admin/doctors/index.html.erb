@@ -10,7 +10,7 @@ tr {
 	display: block;
 	
 }
-	td {
+td {
 		display:inline-block;
 		width:295px;
 		height:200px;		
@@ -21,7 +21,7 @@ tr {
 	}
 	
 		.tdContent {
-padding:6px 6px 0px 6px;
+padding:10px 10px 0px 10px;
 margin-bottom: 6px;
 border: 1px solid grey;
 display: table;
@@ -36,23 +36,45 @@ box-sizing: border-box; /* Opera/IE 8+ */
 
 }
 .doc_img {
-
-vertical-align:top;
-      display: table-cell;
-      margin-right: 5px;
-     
-
+	 vertical-align:top;
+     display: table-cell;
+     width: 80px;			/*default width of image ---------------*/
 }
 .tdText {
+	display: table-cell;
+	overflow: hidden;
+	height: 180px;
+	font-size:12px;
+	font-family:arial, helvetica, sans-serif;
+	text-decoration:none;
+} 
 
-display: table-cell;
-overflow: hidden;
-height: 180px;
-font-size:12px;
-font-family:arial, helvetica, sans-serif;
-text-decoration:none;
+.tdText table {
+	width: 100%;
+	margin-left:10px;
 }
 
+.tdText td {
+	width:auto;
+	height: auto;
+	margin-bottom: 4px;
+	margin-top: 0px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+   
+}
+.tdText td:first-child{
+	width:60px;
+}
+
+.tdText td:first-child:last-child {
+	width:auto;
+}
+.outer_table {
+	margin-top: 10px;
+}
 </style>
 <% col = 0 %>
 <table class="outer_table">
@@ -64,17 +86,25 @@ text-decoration:none;
 		<td>
 			<div class="tdContent">
 			<div class="doc_img"><img src="/images/doctors/<%=doctor.id%>.jpg" width="80"></img></div>
-			<div class="tdText">
-			Name:  <%= doctor.name %><br/>
-			Title: <%= doctor.title %><br/>
-			Urls:  <% doctor.urls.each do |url| %>
-						<%=url.title%>,
-					<%end%>
 			
-					<p>&nbsp</p>
-			Description: <br/><%= truncate(doctor.description,:length=>60) %><br/>
+			<div class="tdText">
+				
+				<table>
 		
-			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %><br/>
+				<tr><td><b>Name:</b></td><td><%= doctor.name %></td></tr>
+				<tr><td><b>Title:</b></td><td><%= doctor.title %></td></tr>
+				<% unless doctor.urls.blank? %>
+				<tr><td><b>URL:</b></td><td><%= doctor.urls.first.title%></td></tr>
+				
+				<%end%>
+				
+				<tr><td colspan="2"><p>&nbsp</p></td></tr>
+				<tr><td colspan="2"><b>Description:</b></td></tr>
+				<tr><td colspan="2"><%=truncate(doctor.description,:length=>100) %></td></tr>
+				</table>
+
+					
+			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %>  
 			<%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %>
 			</div>
 			</div>
@@ -90,6 +120,6 @@ text-decoration:none;
 
 <br />
 <div class="actions">
-	<a href="/admin/academy/doctors/new"><input type="button" value="New Team Member"/></a>
+	<a href="/admin/academy/doctors/new"><input type="button" value="Add New Employee"/></a>
 </div>
 
