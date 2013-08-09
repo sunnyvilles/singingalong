@@ -15,7 +15,7 @@ TheOtherSongClinic::Application.routes.draw do
 		end
 		scope '/clinic' do
 			resources :articles, :doctors, :events, :courses
-			get '/video' => 'articles#index'
+			get '/videos' => 'articles#index'
 		end
 	end
 	#resources :articles, only: [:show, :index]

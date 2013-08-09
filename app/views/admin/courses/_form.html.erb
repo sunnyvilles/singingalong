@@ -1,3 +1,4 @@
+<div class="">
 <%= form_for(@admin_course) do |f| %>
   <% if @admin_course.errors.any? %>
     <div id="error_explanation">
@@ -16,8 +17,12 @@
     <%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title ,"Course Title" %><br />
     <%= f.text_field :title, :required => true%>
+  </div>
+  <div class="field">
+    <%= f.label :batch %><br />
+    <%= f.select :batch ,["1","2","3"] %>
   </div>
   <div class="field">
     <%= f.label :start_date %><br />
@@ -36,10 +41,6 @@
     <%= f.text_field :venue %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :required => true %>
-  </div>
-  <div class="field">
     <%= f.label :fees %><br />
     <%= f.text_field :fees, :required => true %>
   </div>
@@ -47,8 +48,27 @@
     <%= f.label :discounts %><br />
     <%= f.text_field :discounts %>
   </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email%>
+  </div>
+  <div class="field">
+    <%= f.label :phone_no %><br />
+    <%= f.text_field :phone_no%>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :curriculam %><br />
+    <%= f.text_area :curriculam, :required => true %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
+  </div>
+
   </div>
   <script>
 $(function() {
