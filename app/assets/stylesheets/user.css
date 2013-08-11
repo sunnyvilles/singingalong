@@ -197,6 +197,10 @@ button {  width: auto; overflow: visible; }
 .menuItems a{
 	color: #fff;
 }
+
+.menuItems a:hover{
+	text-decoration: none;
+}
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
 #accordion .ui-state-default{

@@ -60,6 +60,8 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/clinic/speciality-clinic' => 'web/clinic#speciality_clinic'
 	get '/clinic/testimonials' => 'web/clinic#testimonials'
 	get '/clinic/general-information' => 'web/clinic#general_information'
+	get '/clinic/events' => 'web/clinic#events'
+	get '/clinic/contact-us' => 'web/clinic#contact'
 	#Clinic routes end
 
 	#Academy routes start
@@ -91,11 +93,11 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/academy/customized_courses' => 'web/academy#customized_courses'
 
 
-	get '/events' => 'static#events'
-  get '/events/:pages' => 'static#events'
+	#get '/events' => 'static#events'
+  #get '/events/:pages' => 'static#events'
 
   #get '/general-information' => 'static#general_information'
-  get '/general-information/:pages' => 'static#general_information'
+  #get '/general-information/:pages' => 'static#general_information'
 
   get '/social-sharing/:article_id' => 'web/clinic#social_sharing'
   

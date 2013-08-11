@@ -184,5 +184,12 @@ class Web::ClinicController < ApplicationController
 	def testimonials
 
 	end
-	
+
+	def events
+
+	end
+
+	def contact
+		
+	end
 end
