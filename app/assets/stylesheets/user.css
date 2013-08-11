@@ -194,7 +194,9 @@ button {  width: auto; overflow: visible; }
 	background: #fff !important;
 	border: none !important;
 }
-
+.menuItems a{
+	color: #fff;
+}
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
 #accordion .ui-state-default{
