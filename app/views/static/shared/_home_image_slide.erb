@@ -14,7 +14,7 @@
 		margin: 0px;
 		display: block;
 		position: relative;
-		height: 400px;
+		height: 260px;
 		overflow: hidden;
 		width: 5000px;
 	}
@@ -40,9 +40,9 @@
 
 	.slideControler{
 		position: absolute;
-		bottom: 0;
+		bottom: 23px;
 		right: 50%;
-		margin-right: -485px;
+		margin-right: -259px;
 		z-index: 10;
 	}
 	.slideCircle{
@@ -52,7 +52,11 @@
 		cursor: pointer;
 	}
 	.slideCircle.selected{
-		background-position: -214px -27px;
+		background-image: none;
+		background-color: #777;
+		border-radius: 14px;
+		height: 14px;
+		width: 14px
 	}
 </style>
 <div id="slides">
@@ -64,11 +68,11 @@
 		<span class="spriteIcon slideCircle"></span>
 	</div>
 	<ul>
-		<li><img src="/images/<%=scope%>/slides-1.jpg" height="400" width="980" /></li>
-		<li><img src="/images/<%=scope%>/slides-2.jpg" height="400" width="980" /></li>
-		<li><img src="/images/<%=scope%>/slides-3.jpg" height="400" width="980" /></li>
-		<li><img src="/images/<%=scope%>/slides-1.jpg" height="400" width="980" /></li>
-		<li><img src="/images/<%=scope%>/slides-2.jpg" height="400" width="980" /></li>
+		<li><img src="/images/<%=scope%>/header-1.jpg" height="260" width="980" /></li>
+		<li><img src="/images/<%=scope%>/header-1.jpg" height="260" width="980" /></li>
+		<li><img src="/images/<%=scope%>/header-1.jpg" height="260" width="980" /></li>
+		<li><img src="/images/<%=scope%>/header-1.jpg" height="260" width="980" /></li>
+		<li><img src="/images/<%=scope%>/header-1.jpg" height="260" width="980" /></li>
 	</ul>
 
 	<div class="clear"></div>
