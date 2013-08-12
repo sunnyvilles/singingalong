@@ -121,10 +121,13 @@ button {  width: auto; overflow: visible; }
 .clearBoth{
 	clear: both;
 }
-
+.blackText{
+	color: #000;
+}
 .secondryTitle{
 	margin: 20px 0;
 	font-size: 20px;
+	color: #000;
 }
 
 .col1{
@@ -677,3 +680,30 @@ footer{
 	
 }
 /*Team page CSS End*/
+
+/*Contact Us Page CSS Start*/
+.mapCt{
+	height: 300px;
+	background: gray;	
+}
+.contactAddr, .contactNums{
+	height: 342px;
+	width: 489px;
+}
+.contactAddr{
+	
+}
+.seperator{
+	width: 1px;
+	border-right: 1px solid #333;
+}
+.contactCt{
+	border-bottom: 1px solid #333;
+}
+.contactUs{
+	font-family: 'MavenProRegular';
+}
+.contactNums .email{
+	font-size: 18px;
+}
+/*Contact Us Page CSS End*/
