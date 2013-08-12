@@ -238,6 +238,16 @@ button {  width: auto; overflow: visible; }
 #accordion .ui-widget-content{
 	border: none;
 }
+.ui-accordion .ui-accordion-icons{
+	padding-left: 6px !important;
+}
+.ui-widget{
+	font-family: 'TisaProRegular' !important;
+}
+#accordion .ui-widget-content{
+	color: #636363;
+	font-size: 16px;
+}
 /*Accordion CSS End*/
 /* NAVIGATION CSS START*/
 .nav-top-el > a{
