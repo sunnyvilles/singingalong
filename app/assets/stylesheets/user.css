@@ -215,17 +215,18 @@ button {  width: auto; overflow: visible; }
 	left: auto;
 }
 #accordion .ui-state-active .ui-accordion-header-icon{
-	background: url('/styles/images/minus.png');
-	background-position: -3px -3px;
+	background: url('/images/sprite.png');
+	background-position: -2019px -76px;
 	height: 22px;
 	width: 22px;
 }
 #accordion .ui-accordion-header-icon{	
-	background: url('/styles/images/plus.png');
-	background-position: -3px -3px;
+	background: url('/images/sprite.png');
+	background-position: -1981.8px -71px;
 	height: 22px;
 	width: 22px;
 }
+	
 
 #accordion .ui-widget-content{
 	border: none;
@@ -342,6 +343,7 @@ footer{
 .leftSection{
 	float: left;
 	width: 500px;
+
 }
 .rightSection{
 	float: right;
@@ -351,6 +353,10 @@ footer{
 	margin-right: 40px;
 }
 
+.ftSection h3{
+	
+color:#333333;
+}
 
 .ftSection ul{
 	margin-top: 20px;
@@ -390,6 +396,9 @@ footer{
 .socialLinks{
 	float: right;
 	margin-right: 10px;
+	color:#333333;
+	font-weight: bold;
+
 }
 .linksSection{
 	float: left;
