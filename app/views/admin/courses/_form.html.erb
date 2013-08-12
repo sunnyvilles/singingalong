@@ -1,4 +1,5 @@
-<div class="">
+<div class="xmas">
+  <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <%= form_for(@admin_course) do |f| %>
   <% if @admin_course.errors.any? %>
     <div id="error_explanation">
@@ -11,66 +12,72 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :course_type %><br />
+<table>
+  <tr><td>
+    <%= f.label :course_type %></td><td>
     <%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
-  </div>
-  <div class="field">
-    <%= f.label :title ,"Course Title" %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :title ,"Course Title" %></td><td>
     <%= f.text_field :title, :required => true%>
-  </div>
-  <div class="field">
-    <%= f.label :batch %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :batch %></td><td>
     <%= f.select :batch ,["1","2","3"] %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :start_date %></td><td>
     <%= f.text_field :start_date, :class => "datepicker", :required => true, :value => date_dmY(@admin_course.start_date) %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :end_date %></td><td>
     <%= f.text_field :end_date, :class => "datepicker", :required => true , :value => date_dmY(@admin_course.end_date)%>
-  </div>
-  <div class="field">
-    <%= f.label :timing %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :timing %></td><td>
     <%= f.time_select :timing, :required => true %>
-  </div>
-  <div class="field">
-    <%= f.label :venue %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :venue %></td><td>
     <%= f.text_field :venue %>
-  </div>
-  <div class="field">
-    <%= f.label :fees %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :fees %></td><td>
     <%= f.text_field :fees, :required => true %>
-  </div>
-  <div class="field">
-    <%= f.label :discounts %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :discounts %></td><td>
     <%= f.text_field :discounts %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :email %></td><td>
     <%= f.text_field :email%>
-  </div>
-  <div class="field">
-    <%= f.label :phone_no %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :phone_no %></td><td>
     <%= f.text_field :phone_no%>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :description %></td><td>
     <%= f.text_area :description, :required => true %>
-  </div>
-  <div class="field">
-    <%= f.label :curriculam %><br />
+  </td></tr>
+  <tr><td>
+    <%= f.label :curriculam %></td><td>
     <%= f.text_area :curriculam, :required => true %>
-  </div>
-  
+  </td></tr>
+  </table>
   <div class="actions">
     <%= f.submit %>
   </div>
 
   </div>
   <script>
+  tinymce.init({
+    selector:'textarea',
+    toolbar: " bold italic underline",
+    menubar : false
+  });
+
 $(function() {
 $( ".datepicker" ).datepicker({
 
@@ -82,5 +89,12 @@ changeYear : true
 });
 </script>
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+ <style type="text/css">
+.xmas {
+
+  margin: 1px solid gray;
+
+}
+ </style>
 
 <% end %>
