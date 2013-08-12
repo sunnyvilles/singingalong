@@ -330,7 +330,7 @@ footer{
 	border-top: 1px groove #ddd;
 	padding-top: 20px;
 	width: 100%;
-	background-image: url("/images/footer.jpg");
+	background-image: url("/images/footer.png");
 }
 .floatLeft{
 	float: left;
