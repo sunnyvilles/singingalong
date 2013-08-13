@@ -49,13 +49,13 @@
 		<%if @section.present?%>
 		<div class="dottebBottom tabs">
 			<a href="/admin/<%=@section%>/articles">
-				<span class="tabs <%= params[:controller] == "admin/articles" ? "selected" : "" %>">Articles</span>
+				<span class="tabs <%= @type == "article" ? "selected" : "" %>">Articles</span>
 			</a>
 			<a href="/admin/<%=@section%>/videos">
-				<span class="tabs <%= params[:action] == "videos" ? "selected" : "" %>">Videos</span>
+				<span class="tabs <%= @type == "video" ? "selected" : "" %>">Videos</span>
 			</a>
 			<a href="/admin/<%=@section%>/case-studies">
-				<span class="tabs <%= params[:action] == "case_studies" ? "selected" : "" %>">Case Studies</span>
+				<span class="tabs <%= @type == "case study" ? "selected" : "" %>">Case Studies</span>
 			</a>
 			<a href="/admin/<%=@section%>/events">
 				<span class="tabs <%= params[:controller] == "admin/events" ? "selected" : "" %>">Events</span>
