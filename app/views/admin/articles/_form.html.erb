@@ -1,11 +1,58 @@
 <div class="articleEdit">
 	<style type="text/css">
 
-		.new_article
-		{margin-left:25px;}
-		.image{
-			border: 1px solid black;
+		
+
+		.image img{
+
+			width: 100%;
+			height: 100%;
 		}
+		.adminCt {
+			padding: 10px;
+  			border: 1px solid grey;
+  			padding-top:30px;
+ 
+
+		}
+		.image {
+
+			padding: 10px 0px 10px 0px;
+			border-bottom:1px dashed grey;
+		}
+
+table .first_col {
+	margin: 0px;
+	padding: 0px;
+	width: 15%;
+	min-height: 100%;
+	padding-right: 25px;
+}
+.actions input {
+
+  position: absolute;
+  width:60px;
+top:63px;
+height: 25px;
+margin-top: 0px;
+}
+
+<% if @original_type == "videos" %>
+
+table .first_col {
+display: none;
+
+}
+
+table {
+	width: 64%;
+}
+table td {
+padding: 0px 40px 10px 40px;
+}
+
+<%end%>
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"></link>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -26,46 +73,57 @@
 			</div>
 		<% end %>
 
-		<div class="field">
-			<%= f.label :name %><br />
-			<%= f.text_field :name %>
-		</div>
-		<div class="field">
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</div>
-		<div  class="field source_select">
-			<%= f.label :source %><br />
-			<%= f.select :source,["clinic", "academy"] %>
-
-		</div>
-		<div  class="field type_select">
-			<%= f.label :type %><br />
-			<%= f.select :type,["article","video", "case study"] %>
-
-		</div>
-		<div class="field">
-			<%= f.label :content %><br />
-			<%= f.text_area :content, :cols => 120, :rows=>30 %>
-		</div>
-
-		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
-		<div class="image">
+		<table class="article_table">
+		<tr><td class="first_col" rowspan="4">
+				<div class="image">
 			<div class="field">
+				<img src="/images/articles/<%=@article[:id]%>-0.jpg"></img>
 				<%= f.label :file_caption_0, 'upload a picture' %><br />
 				<%= f.file_field :file_caption_0 %>
-				<img src="/images/articles/<%=@article[:id]%>-0.jpg" height="50" width="50"></img>
+				
 			</div>
 			<div class="field">
 				<%=f.label :caption_0, 'caption' %>
 				<%=f.text_field :caption_0%>
 			</div>
 		</div>
-		<div class="image">
+
+			</td>
+			<td><%= f.label :title  ,(@type + " title") %></td>
+			<td><%= f.text_field :title %></td>
+		</tr>
+			<tr>
+				
+			<td><label>Subject / Category</label></td>
+			<td><ul id="myTags">
+				<%@tags.each{|tag|%>
+						<li><%=tag[:title]%></li>
+				<%}%>
+				
+			</ul></td>
+		</tr>
+		<tr>
+			
+			<td><%= f.label :the_doctor , "By" %></td>
+			<td><%= f.text_field :the_doctor %></td>
+		</tr>
+
+		<tr>
+			
+			<td><%= f.label :youtubeurl, "youtube video url" %>
+
+<% if @original_type == "videos" %> <br/><br/> Description <%end%>
+			</td>
+			<td><%= f.text_field :youtubeurl %></td>
+		</tr>
+		<tr>
+			<td class="first_col">
+					<div class="image floatLeft">
 			<div class="field">
+				<img src="/images/articles/<%=@article[:id]%>-1.jpg"></img>
 				<%= f.label :file_caption_1, 'upload another picture' %><br />
 				<%= f.file_field :file_caption_1 %>
-				<img src="/images/articles/<%=@article[:id]%>-1.jpg" height="50" width="50"></img>
+				
 			</div>
 			<div class="field">
 				<%=f.label :caption_1, 'caption' %>
@@ -74,33 +132,35 @@
 		</div>
 		<div class="image">
 			<div class="field">
+								<img src="/images/articles/<%=@article[:id]%>-2.jpg" ></img>
+
 				<%= f.label :file_caption_2, 'upload one more picture' %><br />
 				<%= f.file_field :file_caption_2 %>
-				<img src="/images/articles/<%=@article[:id]%>-2.jpg" height="50" width="50"></img>
 			</div>
 			<div class="field">
 				<%=f.label :caption_2, 'caption' %>
 				<%=f.text_field :caption_2%>
 			</div>
-		</div>
+			</div>
 
-		<div class="field">
-			<%= f.label :youtubeurl, "youtube video url" %><br />
-			<%= f.text_field :youtubeurl %>
-		</div>
+			</td>
+			<%-#<td><%= f.label :content ></td>-%>
+			<td colspan="2"><%= f.text_area :content, :cols => 120, :rows=>30 %></td>
+		</tr>
 
-		<div class="field">
-			<label>Add Categories:</label>
-			<ul id="myTags">
-				<%@tags.each{|tag|%>
-						<li><%=tag[:title]%></li>
-				<%}%>
-				
-			</ul>
-		</div>
+	</table>
+
+		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
+		
+		
+		
+
+		
+
+		
 
 		<div class="actions">
-			<%= f.submit %>
+			<%= f.submit "save"%>
 		</div>
 	<% end %>
 </div>
@@ -111,7 +171,14 @@
 		toolbar: " bold italic underline",
 		menubar : false
 	});
+
+
 	 $(document).ready(function() {
+$(".actions input").css({
+
+  left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
+}) ;
+
         $("#myTags").tagit({
 					fieldName: "tags[]",
 					availableTags: (function(tags){

@@ -4,7 +4,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles.json
   
   def index
-    puts "ssssssssssssssssss" + @type.to_s
+
     @articles = Article.where("source = ? and type=?", @section,@type)
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +28,7 @@ class Admin::ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    puts "zzzzzzzzzzzz" + params[:id].to_s
     @article = Article.find(params[:id])
 		#TODO get tags only for this article
 		@tags = @article.tags
@@ -53,6 +54,9 @@ class Admin::ArticlesController < ApplicationController
 		handle_file_upload(params,file_names)
 
 		@article = Article.new(params[:article])
+
+   @article.type = @type
+    @article.source = @section
 
 		@article.viewcount = 0.to_i
 

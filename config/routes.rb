@@ -12,12 +12,22 @@ TheOtherSongClinic::Application.routes.draw do
 		scope '/academy' do
 			resources :articles,:doctors, :events, :courses
 			get '/videos' => 'articles#index'
+			get '/videos/new' => 'articles#new'
+			get '/videos/:id/edit' =>'articles#edit'
 			get '/case-studies' => 'articles#index'
+			get '/case-studies/new' => 'articles#new'
+			get '/case-studies/:id/edit' =>'articles#edit'
 		end
 		scope '/clinic' do
 			resources :articles, :doctors, :events, :courses
 			get '/videos' => 'articles#index'
+			get '/videos/new' => 'articles#new'
+			get '/videos/:id/edit' =>'articles#edit'
 			get '/case-studies' => 'articles#index'
+			get '/case-studies/new' => 'articles#new'
+			get '/case-studies/:id/edit' =>'articles#edit'
+			
+
 		end
 	end
 	#resources :articles, only: [:show, :index]

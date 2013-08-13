@@ -7,10 +7,12 @@ class ApplicationController < ActionController::Base
 
 
   protected
+
   def section
 		@section =  request.fullpath.split("/")[2]
-		chk_type =  request.fullpath.split("/")[3][0..-2]
-		puts "zzzzzzzzzzzzzzzzz" + chk_type
+		@original_type = request.fullpath.split("/")[3]
+		chk_type =   request.fullpath.split("/")[3][0..-2]
+		
 		if chk_type=="case-studie"
 			@type = "case study"
 		else

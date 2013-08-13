@@ -16,17 +16,23 @@
 			a, a:hover{
 				color: #000;
 			}
-			span.tabs{
-				display: inline-block;
-				height: 32px;
-				padding-right: 20px;
-				padding-top: 20px;
-				background-color: #ddd;
+		
+			.tabs li{
+
+				display: inline;
 			}
-			span.tabs.selected{
-				background-color: #fff;
-			}
+				span.tabs{
+display: inline-block;
+height: 32px;
+padding-right: 20px;
+padding-top: 20px;
+background-color: #ddd;
+}
+span.tabs.selected{
+background-color: #fff;
+}
 		</style>
+ 
 	</head>
 	<body>
 		<%=render :partial=> "home/shared/menu"%>
@@ -47,26 +53,28 @@
 			</span>
 		</div>
 		<%if @section.present?%>
-		<div class="dottebBottom tabs">
-			<a href="/admin/<%=@section%>/articles">
+		
+			<ul class="tabs dottebBottom">
+			<li><a href="/admin/<%=@section%>/articles">
 				<span class="tabs <%= @type == "article" ? "selected" : "" %>">Articles</span>
-			</a>
-			<a href="/admin/<%=@section%>/videos">
+			</a></li>
+			<li><a href="/admin/<%=@section%>/videos">
 				<span class="tabs <%= @type == "video" ? "selected" : "" %>">Videos</span>
-			</a>
-			<a href="/admin/<%=@section%>/case-studies">
+			</a></li>
+			<li><a href="/admin/<%=@section%>/case-studies">
 				<span class="tabs <%= @type == "case study" ? "selected" : "" %>">Case Studies</span>
-			</a>
-			<a href="/admin/<%=@section%>/events">
+			</a></li>
+			<li><a href="/admin/<%=@section%>/events">
 				<span class="tabs <%= params[:controller] == "admin/events" ? "selected" : "" %>">Events</span>
-			</a>
-			<a href="/admin/<%=@section%>/courses">
+			</a></li>
+			<li><a href="/admin/<%=@section%>/courses">
 				<span class="tabs <%= params[:controller] == "admin/courses" ? "selected" : "" %>">Courses</span>
-			</a>
-			<a href="/admin/<%=@section%>/doctors">
+			</a></li>
+			<li><a href="/admin/<%=@section%>/doctors">
 				<span class="tabs <%= params[:controller] == "admin/team" ? "selected" : "" %>">Team</span>
-			</a>
-		</div>
+			</a></li>
+			</ul>
+		
 		<%end%>
 		<div class="adminCt">
 			<%= yield %>
@@ -77,7 +85,10 @@
 				var section = $(this).val();
 				window.location = "/admin/" + section + "/articles"
 			})
+			 $(function() {
+$( ".tabs" ).tabs();
+});
 		</script>
-
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	</body>
 </html>
