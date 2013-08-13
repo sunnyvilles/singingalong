@@ -39,7 +39,7 @@ class Web::ClinicController < ApplicationController
  			@articles = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
 			@total_articles = tagname.articles.find(:all, :conditions => [ "source = ? and type=?", "clinic", "article" ])
 
-    else
+    	else
 
 			@articles = Article.find(:all, :conditions => [ "source = ? and type=?", "clinic","article" ], :order => 'created_at DESC', :offset => start_value, :limit => per_page)
 			@total_articles = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article" ])
@@ -113,7 +113,7 @@ class Web::ClinicController < ApplicationController
 
 	def video
 
-		@article = Article.find(params[:article_id])
+	@article = Article.find(params[:article_id])
 
     @article.viewcount += 1
 
@@ -130,6 +130,7 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def general_information
+	
 	end
 	def about
 

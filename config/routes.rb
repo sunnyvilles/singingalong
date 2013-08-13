@@ -11,11 +11,13 @@ TheOtherSongClinic::Application.routes.draw do
 	namespace :admin do
 		scope '/academy' do
 			resources :articles,:doctors, :events, :courses
-			get '/videos' => 'admin/articles#index'
+			get '/videos' => 'articles#index'
+			get '/case-studies' => 'articles#index'
 		end
 		scope '/clinic' do
 			resources :articles, :doctors, :events, :courses
 			get '/videos' => 'articles#index'
+			get '/case-studies' => 'articles#index'
 		end
 	end
 	#resources :articles, only: [:show, :index]

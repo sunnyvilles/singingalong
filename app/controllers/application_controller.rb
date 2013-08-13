@@ -9,7 +9,13 @@ class ApplicationController < ActionController::Base
   protected
   def section
 		@section =  request.fullpath.split("/")[2]
-		@type =  request.fullpath.split("/")[3]
+		chk_type =  request.fullpath.split("/")[3][0..-2]
+		puts "zzzzzzzzzzzzzzzzz" + chk_type
+		if chk_type=="case-studie"
+			@type = "case study"
+		else
+			@type = chk_type
+		end
 	end
   def confirm_logged_in
     unless session[:user_id]

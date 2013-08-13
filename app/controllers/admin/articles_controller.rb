@@ -4,7 +4,8 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles.json
   
   def index
-    @articles = Article.where("source = ?", @section)
+    puts "ssssssssssssssssss" + @type.to_s
+    @articles = Article.where("source = ? and type=?", @section,@type)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json=> @articles }
