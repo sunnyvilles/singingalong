@@ -1,4 +1,4 @@
-<div class="xmas">
+
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <%= form_for(@admin_course) do |f| %>
   <% if @admin_course.errors.any? %>
@@ -12,7 +12,7 @@
       </ul>
     </div>
   <% end %>
-<table>
+<table class="course_table">
   <tr><td>
     <%= f.label :course_type %></td><td>
     <%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
@@ -20,6 +20,7 @@
   <tr><td>
     <%= f.label :title ,"Course Title" %></td><td>
     <%= f.text_field :title, :required => true%>
+    <br/>the character limit for this is 30
   </td></tr>
   <tr><td>
     <%= f.label :batch %></td><td>
@@ -59,7 +60,7 @@
   </td></tr>
   <tr><td>
     <%= f.label :description %></td><td>
-    <%= f.text_area :description, :required => true %>
+    <%= f.text_area :description, :required => true,:cols => "120" %>
   </td></tr>
   <tr><td>
     <%= f.label :curriculam %></td><td>
@@ -67,10 +68,10 @@
   </td></tr>
   </table>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "save" , :class=> "course_submit"%>
   </div>
 
-  </div>
+ 
   <script>
   tinymce.init({
     selector:'textarea',
@@ -90,9 +91,27 @@ changeYear : true
 </script>
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
  <style type="text/css">
-.xmas {
+.adminCt {
 
-  margin: 1px solid gray;
+  border: 1px solid grey;
+  padding:10px;
+
+}
+.course_submit {
+
+  position: absolute;
+
+}
+
+.course_table {
+
+  width:100%;
+}
+
+.course_table td{
+
+
+padding:5px 30px 5px 5px;
 
 }
  </style>
