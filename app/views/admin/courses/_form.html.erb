@@ -88,6 +88,14 @@ changeYear : true
 
 });
 });
+$("document").ready(function(){
+$(".actions input").css({
+
+  left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
+}) ;
+
+})
+
 </script>
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
  <style type="text/css">
@@ -97,10 +105,13 @@ changeYear : true
   padding:10px;
 
 }
-.course_submit {
+.actions input {
 
   position: absolute;
-
+  width:60px;
+top:63px;
+height: 25px;
+margin-top: 0px;
 }
 
 .course_table {
@@ -114,6 +125,9 @@ changeYear : true
 padding:5px 30px 5px 5px;
 
 }
+[required]:before {
+     content: " *";
+ }
  </style>
 
 <% end %>
