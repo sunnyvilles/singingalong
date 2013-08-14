@@ -328,6 +328,7 @@ button {  width: auto; overflow: visible; }
 	font-weight: bold;
 	margin-bottom: 25px;
 	padding-left: 10px;
+	color: #000;
 }
 
 .seondryTitle{
@@ -726,3 +727,7 @@ color:#333333;
 	font-size: 18px;
 }
 /*Contact Us Page CSS End*/
+
+.satelliteContent{
+	
+}

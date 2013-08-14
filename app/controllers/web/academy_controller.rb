@@ -134,6 +134,10 @@ class Web::AcademyController < ApplicationController
 		@basic_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "basic courses"])
 
 	end
+
+	def satellite
+
+	end
 end
 
 
