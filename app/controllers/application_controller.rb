@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
   def section
 		@section =  request.fullpath.split("/")[2]
 		@original_type = request.fullpath.split("/")[3]
-		chk_type =   request.fullpath.split("/")[3][0..-2]
-		
+		unless @original_type.blank?
+			chk_type =  request.fullpath.split("/")[3][0..-2]
+		end
 		if chk_type=="case-studie"
 			@type = "case study"
 		else
