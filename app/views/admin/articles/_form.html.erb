@@ -17,8 +17,9 @@
 		}
 		.image {
 
-			padding: 10px 0px 10px 0px;
+			padding-bottom: 10px;
 			border-bottom:1px dashed grey;
+			
 		}
 
 table .first_col {
@@ -27,6 +28,13 @@ table .first_col {
 	width: 15%;
 	min-height: 100%;
 	padding-right: 25px;
+
+}
+
+table .first_col .bottomTopMargin10 {
+
+	margin-bottom:10px;
+	margin-top:10px;
 }
 .actions input {
 
@@ -118,7 +126,7 @@ padding: 0px 40px 10px 40px;
 		</tr>
 		<tr>
 			<td class="first_col">
-					<div class="image floatLeft">
+					<div class="image floatLeft bottomTopMargin10">
 			<div class="field">
 				<img src="/images/articles/<%=@article[:id]%>-1.jpg"></img>
 				<%= f.label :file_caption_1, 'upload another picture' %><br />
@@ -132,7 +140,7 @@ padding: 0px 40px 10px 40px;
 		</div>
 		<div class="image">
 			<div class="field">
-								<img src="/images/articles/<%=@article[:id]%>-2.jpg" ></img>
+					<img src="/images/articles/<%=@article[:id]%>-2.jpg" ></img>
 
 				<%= f.label :file_caption_2, 'upload one more picture' %><br />
 				<%= f.file_field :file_caption_2 %>
@@ -145,7 +153,7 @@ padding: 0px 40px 10px 40px;
 
 			</td>
 			<%-#<td><%= f.label :content ></td>-%>
-			<td colspan="2"><%= f.text_area :content, :cols => 120, :rows=>30 %></td>
+			<td colspan="2" style="padding-top=10px;"><%= f.text_area :content, :cols => 120, :rows=>30 %></td>
 		</tr>
 
 	</table>
