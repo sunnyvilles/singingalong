@@ -1,3 +1,4 @@
 class Testimonial < ActiveRecord::Base
-  # attr_accessible :title, :body
+belongs_to :event , foreign_key: "event_id"
+attr_accessible :title
 end

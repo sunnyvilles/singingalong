@@ -19,7 +19,7 @@ color: #fff;
 <% @events.each do |event| %>
   <tr>
     <td><%= event.title %></td>
-    <td><%= link_to 'Show', [:admin, event] %></td>
+    <td><%= link_to '', [:admin, event] %></td>
     <td><%= link_to 'Edit', "/admin/#{@section}/events/#{event.id}/edit" %></td>
     <td><%= link_to 'Destroy', [:admin, event], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
