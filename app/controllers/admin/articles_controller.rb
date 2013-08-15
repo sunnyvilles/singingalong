@@ -5,7 +5,7 @@ class Admin::ArticlesController < ApplicationController
   
   def index
 
-    @articles = Article.where("source = ? and type=?", @section,@type)
+    @articles = Article.where("source = ? and type = ?", @section, @type)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json=> @articles }
@@ -16,6 +16,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
+    @article.doctors.build
 		@all_tags = Tag.select("title")
 		@tags = []
 		# @article[:viewcount] = 0.to_i

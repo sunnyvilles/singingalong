@@ -37,12 +37,10 @@ class Admin::EventsController < ApplicationController
 
 
   def create
-puts "zzzzzzzzzzzzzzz"
-file_names = []
+
+    file_names = []
 
     handle_file_upload(params,file_names)
-puts "sssssssssszzzzzzzzzzzzzzz"
-
 
     @event = Event.new(params[:event])
 
@@ -60,9 +58,9 @@ puts "sssssssssszzzzzzzzzzzzzzz"
 
 
   def update
- file_names=[]    
+    file_names=[] 
+       
     handle_file_upload(params,file_names)
-
 
     @event = Event.find(params[:id])
 

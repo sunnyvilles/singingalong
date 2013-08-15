@@ -114,8 +114,13 @@
 					</ul></td>
 			</tr>
 			<tr class="admin-article-field">
-				<td><%= f.label :the_doctor , "By:" %></td>
-				<td><%= f.text_field :the_doctor %></td>
+				<td><label>By:</label></td>
+				<td>
+					 <%= f.fields_for :doctors do |g| %>   
+   						<%= g.text_field :title %>
+  					<% end %>
+  					
+				</td>
 			</tr>
 
 			<tr>
