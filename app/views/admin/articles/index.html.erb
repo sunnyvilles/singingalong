@@ -42,8 +42,8 @@
 				<td><%= article.doctors.first.name unless article.doctors.blank? %></td>
 				<td></td>
 				<td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
-				<td><a href="/admin/#{@section}/articles/#{article.id}/"><span class="adminSprite crossIcon"></span></a></td>
-				<!--<%= link_to 'Destroy',"", confirm: 'Are you sure?', method: :delete ,:style=>"color:red;"%>-->
+				<td><a data-confirm="Are you sure?" data-method="delete" rel="nofollow" href=<%="/admin/#{@section}/articles/#{article.id}/"%>><span class="adminSprite crossIcon"></span></a></td>
+				
 			</tr>
 		<% end %>
 	</table>

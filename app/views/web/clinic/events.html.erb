@@ -1,36 +1,47 @@
 <style type="text/css">
-.submenu{
-	margin-bottom: 0 !important;
-}
+	.submenu{
+		margin-bottom: 0 !important;
+	}
 </style>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap">
 	<h2 class="title">EVENTS</h2>
-		<div class="padder">
-			<div id="accordion">
-				<h3>WORKSHOPS</h3>
-				<div>
+	<div class="padder">
+		<div id="accordion">
+			<h3>WORKSHOPS</h3>
+			<div>
+				<%@events.each{|event|%>
+					<div class="eventDesc">
+						<div class="dateBlock floatLeft">
+							<div class="dateCt">Jul 10</div>
+							<div class="dayCt">Wed.</div>
+						</div>
+						<div class="floatLeft" style="width: 800px;">
+							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
+							<div class="eventDescBlk">
+								<%=event[:description]%>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
 
-				</div>
-				<h3>SEMINARS</h3>
-				<div>
+				<%}%>
+			</div>
+			<h3>SEMINARS</h3>
+			<div>
 
-				</div>
-				<h3>VISITS</h3>
-				<div>
+			</div>
+			<h3>VISITS</h3>
+			<div>
+			</div>
+			<h3>LECTURES</h3>
+			<div>
 
-
-
-				</div>
-				<h3>LECTURES</h3>
-				<div>
-
-
-				</div>				
 			</div>
 		</div>
+	</div>
 </div>
 <script>
 	$(function() {
