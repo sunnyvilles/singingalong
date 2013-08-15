@@ -37,10 +37,11 @@ class Admin::EventsController < ApplicationController
 
 
   def create
-
+puts "zzzzzzzzzzzzzzz"
 file_names = []
 
     handle_file_upload(params,file_names)
+puts "sssssssssszzzzzzzzzzzzzzz"
 
 
     @event = Event.new(params[:event])
@@ -92,15 +93,26 @@ file_names = []
   private
   def handle_file_upload(params,file_names)
     count = 0
+   
+
     3.times do
+
+
+
+
       if params[:event]["image_" + count.to_s]
+      
         uploaded_io = params[:event]["image_" + count.to_s]
+
         File.open(Rails.root.join('public', 'images','events',
             uploaded_io.original_filename), 'wb') do |file|
+
           file.write(uploaded_io.read)
+          
         end
         file_names[count] = uploaded_io.original_filename
       end
+     
       count +=1
     end
 
