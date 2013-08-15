@@ -225,7 +225,7 @@
 				<a href="/<%=scope%>/satellite"><%= t "submenu.satellite" %></a>
 			</div>
 		</li>
-		<li>
+		<li class="<%=["contact"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="submenuItem">
 				<a href="/<%=scope%>/contact-us"><%= t "submenu.contactUs" %></a>
 			</div>
