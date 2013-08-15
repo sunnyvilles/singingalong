@@ -187,7 +187,7 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def events
-
+		@events = Event.find(:all)
 	end
 
 	def contact
