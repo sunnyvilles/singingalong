@@ -1,7 +1,7 @@
 <div class="articleEdit">
 	<style type="text/css">
 
-		
+
 
 		.image img{
 
@@ -10,62 +10,65 @@
 		}
 		.adminCt {
 			padding: 10px;
-  			border: 1px solid grey;
-  			padding-top:30px;
- 
+			border: 1px solid grey;
+			padding-top:30px;
+
 
 		}
 		.image {
 
 			padding-bottom: 10px;
 			border-bottom:1px dashed grey;
-			
+
 		}
 
-table .first_col {
-	margin: 0px;
-	padding: 0px;
-	width: 15%;
-	min-height: 100%;
-	padding-right: 25px;
+		table .first_col {
+			margin: 0px;
+			padding: 0px;
+			width: 15%;
+			min-height: 100%;
+			padding-right: 25px;
 
-}
+		}
 
-table .first_col .bottomTopMargin10 {
+		table .first_col .bottomTopMargin10 {
 
-	margin-bottom:10px;
-	margin-top:10px;
-}
-.actions input {
+			margin-bottom:10px;
+			margin-top:10px;
+		}
+		.actions input {
 
-  position: absolute;
-  width:60px;
-top:63px;
-height: 25px;
-margin-top: 0px;
-}
+			position: absolute;
+			width:60px;
+			top:63px;
+			height: 25px;
+			margin-top: 0px;
+		}
 
-<% if @original_type == "videos" %>
+		<% if @original_type == "videos" %>
 
-table .first_col {
-display: none;
+			table .first_col {
+				display: none;
 
-}
+			}
 
-table {
-	width: 64%;
-}
-table td {
-padding: 0px 40px 10px 40px;
-}
+			table {
+				width: 64%;
+			}
+			table td {
+				padding: 0px 40px 10px 40px;
+			}
 
-<%end%>
+		<%end%>
 
 	</style>
-	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"></link>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/styles/jquery-ui.css"></link>
+	<link rel="stylesheet" type="text/css" href="/styles/tinymce/content.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="/styles/tinymce/skin.min.css"></link>
+	<script src="/scripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/scripts/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/scripts/tinymce.min.js"></script>
+	<!--<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>-->
 	<script src="/scripts/tag-it.js"></script>
 	<%= form_for([:admin, @article]) do |f| %>
 
@@ -82,90 +85,87 @@ padding: 0px 40px 10px 40px;
 		<% end %>
 
 		<table class="article_table">
-		<tr><td class="first_col" rowspan="4">
-				<div class="image">
-			<div class="field">
-				<img src="/images/articles/<%=@article[:id]%>-0.jpg"></img>
-				<%= f.label :file_caption_0, 'upload a picture' %><br />
-				<%= f.file_field :file_caption_0 %>
-				
-			</div>
-			<div class="field">
-				<%=f.label :caption_0, 'caption' %>
-				<%=f.text_field :caption_0%>
-			</div>
-		</div>
+			<tr  class="admin-article-field">
+				<td class="first_col" rowspan="4">
+					<div class="image">
+						<div class="field">
+							<img src="/images/articles/<%=@article[:id]%>-0.jpg"></img>
+							<%= f.label :file_caption_0, 'upload a picture' %><br />
+							<%= f.file_field :file_caption_0 %>
 
-			</td>
-			<td><%= f.label :title  ,(@type + " title") %></td>
-			<td><%= f.text_field :title %></td>
-		</tr>
+						</div>
+						<div class="field">
+							<%=f.label :caption_0, 'caption' %>
+							<%=f.text_field :caption_0%>
+						</div>
+					</div>
+
+				</td>
+				<td><%= f.label :title  ,(@type.capitalize + " Title:") %></td>
+				<td><%= f.text_field :title %></td>
+			</tr>
+			<tr class="admin-article-field">
+				<td><label>Subject / Category:</label></td>
+				<td><ul id="myTags">
+						<%@tags.each{|tag|%>
+							<li><%=tag[:title]%></li>
+						<%}%>
+
+					</ul></td>
+			</tr>
+			<tr class="admin-article-field">
+				<td><%= f.label :the_doctor , "By:" %></td>
+				<td><%= f.text_field :the_doctor %></td>
+			</tr>
+
 			<tr>
-				
-			<td><label>Subject / Category</label></td>
-			<td><ul id="myTags">
-				<%@tags.each{|tag|%>
-						<li><%=tag[:title]%></li>
-				<%}%>
-				
-			</ul></td>
-		</tr>
-		<tr>
-			
-			<td><%= f.label :the_doctor , "By" %></td>
-			<td><%= f.text_field :the_doctor %></td>
-		</tr>
-
-		<tr>
-			
-			<td><%= f.label :youtubeurl, "youtube video url" %>
-
-<% if @original_type == "videos" %> <br/><br/> Description <%end%>
-			</td>
-			<td><%= f.text_field :youtubeurl %></td>
-		</tr>
-		<tr>
-			<td class="first_col">
+				<td><%= f.label :youtubeurl, "Youtube Video Url:" %>
+					<% if @original_type == "videos" %> <br/><br/> Description: <%end%>
+				</td>
+				<td><%= f.text_field :youtubeurl %></td>
+			</tr>
+			<tr>
+				<td class="first_col">
 					<div class="image floatLeft bottomTopMargin10">
-			<div class="field">
-				<img src="/images/articles/<%=@article[:id]%>-1.jpg"></img>
-				<%= f.label :file_caption_1, 'upload another picture' %><br />
-				<%= f.file_field :file_caption_1 %>
-				
-			</div>
-			<div class="field">
-				<%=f.label :caption_1, 'caption' %>
-				<%=f.text_field :caption_1%>
-			</div>
-		</div>
-		<div class="image">
-			<div class="field">
-					<img src="/images/articles/<%=@article[:id]%>-2.jpg" ></img>
+						<div class="field">
+							<img src="/images/articles/<%=@article[:id]%>-1.jpg"></img>
+							<%= f.label :file_caption_1, 'upload another picture' %><br />
+							<%= f.file_field :file_caption_1 %>
 
-				<%= f.label :file_caption_2, 'upload one more picture' %><br />
-				<%= f.file_field :file_caption_2 %>
-			</div>
-			<div class="field">
-				<%=f.label :caption_2, 'caption' %>
-				<%=f.text_field :caption_2%>
-			</div>
-			</div>
+						</div>
+						<div class="field">
+							<%=f.label :caption_1, 'caption' %>
+							<%=f.text_field :caption_1%>
+						</div>
+					</div>
+					<div class="image">
+						<div class="field">
+							<img src="/images/articles/<%=@article[:id]%>-2.jpg" ></img>
 
-			</td>
-			<%-#<td><%= f.label :content ></td>-%>
-			<td colspan="2" style="padding-top=10px;"><%= f.text_area :content, :cols => 120, :rows=>30 %></td>
-		</tr>
+							<%= f.label :file_caption_2, 'upload one more picture' %><br />
+							<%= f.file_field :file_caption_2 %>
+						</div>
+						<div class="field">
+							<%=f.label :caption_2, 'caption' %>
+							<%=f.text_field :caption_2%>
+						</div>
+					</div>
 
-	</table>
+				</td>
+				<%-#<td><%= f.label :content ></td>-%>
+				<td colspan="2" style="padding-top=10px;"><%= f.text_area :content, :cols => 120, :rows=>30 %></td>
+			</tr>
+
+		</table>
 
 		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
-		
-		
-		
 
-		
 
-		
+
+
+
+
+
 
 		<div class="actions">
 			<%= f.submit "save"%>
@@ -181,24 +181,23 @@ padding: 0px 40px 10px 40px;
 	});
 
 
-	 $(document).ready(function() {
-$(".actions input").css({
+	$(document).ready(function() {
+		$(".actions input").css({
 
-  left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
-}) ;
+			left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
+		}) ;
 
-        $("#myTags").tagit({
-					fieldName: "tags[]",
-					availableTags: (function(tags){
-						var tagArr = [];
-						for(var i=0;i<tags.length;i++){
-							tagArr.push(tags[i].title)
-						}
-						console.log(tagArr);
-						return tagArr;
-					})(<%=raw @all_tags.to_json%>),
-					autocomplete: {delay: 0, minLength: 1}
-				});
-    });
+		$("#myTags").tagit({
+			fieldName: "tags[]",
+			availableTags: (function(tags){
+				var tagArr = [];
+				for(var i=0;i<tags.length;i++){
+					tagArr.push(tags[i].title)
+				}
+				return tagArr;
+			})(<%=raw @all_tags.to_json%>),
+			autocomplete: {delay: 0, minLength: 1}
+		});
+	});
 
 </script>

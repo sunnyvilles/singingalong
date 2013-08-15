@@ -12,83 +12,84 @@
 		<link rel="stylesheet" type="text/css" href="/styles/jquery.ui.all.css"></link>
 		<link rel="stylesheet" type="text/css" href="/styles/jquery.tagit.css"></link>
 		<link rel="stylesheet" type="text/css" href="/styles/tagit.ui-zendesk.css"></link>
-		<style>
-			a, a:hover{
-				color: #000;
-			}
 		
-			.tabs li{
 
-				display: inline;
-			}
-				span.tabs{
-display: inline-block;
-height: 32px;
-padding-right: 20px;
-padding-top: 20px;
-background-color: #ddd;
-}
-span.tabs.selected{
-background-color: #fff;
-}
-		</style>
- 
 	</head>
 	<body>
 		<%=render :partial=> "home/shared/menu"%>
-		<div class="dottebBottom title">Name Of the Page</div>
-		<div class="dottebBottom">
-			<!--<span>
-				<label>None</label>
-				<input type="radio" name="section"/>
-			</span>-->
-			<span>
-				<label>Academy</label>
-				<input type="radio" name="section" <%= @section == "academy" ? "checked" : "" %> value="academy"/>
-			</span>
+		<div style="width: 980px; margin: auto;">			
+			<div class="admin-secondHeader">
+				<span>
+					<input type="radio" name="section" <%= @section != "academy" and @section != "clinic" ? "checked" : "" %>/>
+					<label>None</label>					
+				</span>
+				<span>
+					<input type="radio" name="section" <%= @section == "academy" ? "checked" : "" %> value="academy"/>
+					<label>Academy</label>					
+				</span>
 
-			<span>
-				<label>Clinic</label>
-				<input type="radio" name="section"  <%= @section == "clinic" ? "checked" : "" %> value="clinic"/>
-			</span>
-		</div>
-		<%if @section.present?%>
-		
-			<ul class="tabs dottebBottom">
-			<li><a href="/admin/<%=@section%>/articles">
-				<span class="tabs <%= @type == "article" ? "selected" : "" %>">Articles</span>
-			</a></li>
-			<li><a href="/admin/<%=@section%>/videos">
-				<span class="tabs <%= @type == "video" ? "selected" : "" %>">Videos</span>
-			</a></li>
-			<li><a href="/admin/<%=@section%>/case-studies">
-				<span class="tabs <%= @type == "case study" ? "selected" : "" %>">Case Studies</span>
-			</a></li>
-			<li><a href="/admin/<%=@section%>/events">
-				<span class="tabs <%= params[:controller] == "admin/events" ? "selected" : "" %>">Events</span>
-			</a></li>
-			<li><a href="/admin/<%=@section%>/courses">
-				<span class="tabs <%= params[:controller] == "admin/courses" ? "selected" : "" %>">Courses</span>
-			</a></li>
-			<li><a href="/admin/<%=@section%>/doctors">
-				<span class="tabs <%= params[:controller] == "admin/team" ? "selected" : "" %>">Team</span>
-			</a></li>
-			</ul>
-		
-		<%end%>
-		<div class="adminCt">
-			<%= yield %>
-		</div>
+				<span>
+					<input type="radio" name="section"  <%= @section == "clinic" ? "checked" : "" %> value="clinic"/>
+					<label>Clinic</label>					
+				</span>
+			</div>
+			<%if @section.present?%>
 
+				<ul class="admin-tabs dottebBottom">
+					<li class="admin-tab <%= @type == "article" ? "selected" : "" %>">
+						<a href="/admin/<%=@section%>/articles">
+							<span>Articles</span>
+						</a>
+					</li>
+					<li class="admin-tab <%= @type == "video" ? "selected" : "" %>">
+						<a href="/admin/<%=@section%>/videos">
+							<span>Videos</span>
+						</a>
+					</li>
+					<li class="admin-tab <%= @type == "case study" ? "selected" : "" %>">
+						<a href="/admin/<%=@section%>/case-studies">
+							<span>Case Studies</span>
+						</a>
+					</li>
+					<% if @section === "clinic" %>
+					<li class="admin-tab <%= params[:controller] == "admin/events" ? "selected" : "" %>">
+						<a href="/admin/<%=@section%>/events">
+							<span>Events</span>
+						</a>
+					</li>
+					<%else%>
+					<li class="admin-tab <%= params[:controller] == "admin/courses" ? "selected" : "" %>">
+						<a href="/admin/<%=@section%>/courses">
+							<span>Courses</span>
+						</a>
+					</li>
+					<%end%>
+					<li class="admin-tab <%= params[:controller] == "admin/doctors" ? "selected" : "" %>">
+						<a href="/admin/<%=@section%>/doctors">
+							<span>Team</span>
+						</a>
+					</li>
+				</ul>
+
+			<%end%>
+			<div class="adminCt">
+				<%= yield %>
+			</div>
+		</div>
 		<script>
 			$("input[type=radio]").click(function(){
 				var section = $(this).val();
-				window.location = "/admin/" + section + "/articles"
+				if(section === "clinic" || section === "academy"){
+					window.location = "/admin/" + section + "/articles";
+				}else{
+					window.location = "/admin/";
+				}
+				
 			})
-			 $(function() {
-$( ".tabs" ).tabs();
-});
+			/*$(function() {
+				$( ".tabs" ).tabs();
+			});*/
 		</script>
- <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<!--<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
 	</body>
 </html>

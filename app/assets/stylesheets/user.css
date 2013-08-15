@@ -660,37 +660,7 @@ color:#333333;
 /*Article css end*/
 
 
-/*Admin Articles List Start*/
-.articleList h1{
-	font-size: 32px;
 
-}
-.articleList table tr th{
-	background: #000;
-	color: #fff;
-}
-.articleList table tr td{
-	border-bottom: 1px solid black;
-	border-right: 1px solid black;
-}
-/*Admin Articles List End start*/
-
-/*Admin Article edit*/
-.articleEdit h1{
-	font-size: 32px;
-
-}
-.articleEdit{
-	width: 980px;
-	margin: auto;
-}
-.actions input{
-	width: 200px;
-	margin-top: 20px;
-	height: 32px;
-	background: #ddd;
-}
-/*Admin Article edit end*/
 
 /*Team page CSS Start*/
 .team-member{

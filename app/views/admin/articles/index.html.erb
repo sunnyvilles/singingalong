@@ -21,7 +21,9 @@
 <div class="articleList">
   <div class="upperbar">
 <h2 class="floatLeft"><%=@original_type.humanize%> Dashboard</h2>
-<div class="page floatRight">pagination</div>
+<div class="page floatRight">
+	<ul></ul>
+</div>
 <%= button_to 'New '+ @type, "/admin/#{@section}/#{@original_type}/new",:class=>"btn btn_newArticle floatRight",:method => :get %>
 
 </div>
@@ -39,11 +41,10 @@
 <% @articles.each do |article| %>
   <tr>
     <td><%= article.created_at.strftime("%d-%m-%Y") %></td>
-    <td><%= link_to article.name, "/admin/#{@section}/#{@original_type}/#{article.id}/edit",:style=>"color:blue;" %></td>
-    
+    <td><%= link_to article.name, "/admin/#{@section}/#{@original_type}/#{article.id}/edit",:style=>"color:blue;" %></td>    
     <td><%= article.doctors.first.name unless article.doctors.blank? %></td>
-<td></td>
-  <td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
+		<td></td>
+		<td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
     <td><%= link_to 'Destroy',"/admin/#{@section}/articles/#{article.id}/", confirm: 'Are you sure?', method: :delete ,:style=>"color:red;"%></td>
   </tr>
 <% end %>

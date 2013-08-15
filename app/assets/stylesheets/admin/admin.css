@@ -21,3 +21,82 @@
 .adminCt a{
 	color: #000 !important;
 }
+
+.admin-topheader{
+	border-bottom: 1px dotted #000;
+	border-top: 1px dotted #000;
+	padding: 10px;
+}
+.admin-secondHeader{
+	border-bottom: 1px dotted #000;
+	padding: 10px;
+}
+.admin-secondHeader input{
+
+}
+.admin-secondHeader label{
+	margin-right: 32px;
+	margin-left: 10px;
+	position: relative;
+	top: 3px;
+}
+.admin-tabs{
+	padding:10px 0;
+}
+.admin-tab{
+	display: inline-block;
+	height: 28px;
+	background-color: #ddd;
+	border: 1px solid black;
+	border-radius: 6px 6px 0 0;
+	width: 148px;
+	margin-right: -6px;
+}
+.admin-tab.selected{
+	background-color: #fff;
+}
+
+.admin-tab a{
+	display: inline-block;
+	padding: 6px 24px;
+}
+
+.admin-article-field td{
+	padding-bottom: 10px;
+}
+.articleEdit td {
+	font-size: 16px;
+}
+
+/*Admin Articles List Start*/
+
+.articleList table tr th{
+	background-color: #e3e3e3;
+}
+.articleList table tr td{
+	background-color: #fff;
+}
+.articleList table{
+	background-color: #888;
+}
+.articleList table tr td{
+	
+}
+/*Admin Articles List End start*/
+
+/*Admin Article edit*/
+.articleEdit h1{
+	font-size: 32px;
+
+}
+.articleEdit{
+	width: 980px;
+	margin: auto;
+}
+.actions input{
+	width: 200px;
+	margin-top: 20px;
+	height: 32px;
+	background: #ddd;
+}
+/*Admin Article edit end*/
