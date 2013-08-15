@@ -144,6 +144,10 @@ class Web::AcademyController < ApplicationController
 	def contact
 		
 	end
+
+	def research
+
+	end
 end
 
 

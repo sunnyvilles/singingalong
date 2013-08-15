@@ -159,6 +159,9 @@ button {  width: auto; overflow: visible; }
 .blueBorder{
 	border-left: 4px solid #1b7aba !important;
 }
+.greenBorder{
+	border-left: 4px solid #599d15 !important;
+}
 
 .font14{
 	font-size: 14px;
