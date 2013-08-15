@@ -57,8 +57,8 @@
 		<div class="eventBlock">
 				<div class="dateBlock floatLeft">
 
-<div class="dateCt"><%=event[:day].strftime('%b %d')%></div>
-<div class="dayCt"><%=event[:day].strftime('%a')%>.</div>
+<div class="dateCt"><%=event[:day].present? ? event[:day].strftime('%b %d') : ""%></div>
+<div class="dayCt"><%=event[:day].present? ? event[:day].strftime('%a') : ""%>.</div>
 </div>
 			<div class="eventDesc floatLeft">
 				<h3 class="highlight"><%=event[:title]%></h3>
