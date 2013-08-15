@@ -1,25 +1,28 @@
 <!--<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">-->
 <h1>Listing events</h1>
+<div class="articleList">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Date</th>
+			<th>Description</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>URL</th>
-    <th>Description</th>
-  </tr>
+		<% @events.each do |event| %>
+			<tr>
+				<td><%= event.title %></td>
+				<td><%= event.day %></td>
+				<!--<%= link_to '', [:admin, event] %>-->				
+				<td><%= event.description[0..100] %></td>
+				<td><%= link_to 'Edit', "/admin/#{@section}/events/#{event.id}/edit" %></td>
+				<td><%= link_to 'Delete', [:admin, event], confirm: 'Are you sure?', method: :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.title %></td>
-    <td><%= link_to '', [:admin, event] %></td>
-    <td><%= link_to 'Edit', "/admin/#{@section}/events/#{event.id}/edit" %></td>
-    <td><%= link_to 'Destroy', [:admin, event], confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
 
 
 <%= link_to 'New Event', "/admin/#{@section}/events/new" %>

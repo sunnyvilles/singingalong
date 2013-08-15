@@ -1,56 +1,54 @@
 <style type="text/css">
 
-.upperbar {
-  width: 100%;
-  padding:6px 0px 6px 0px;
-  border-bottom: 1px dotted gray;
-  overflow: hidden;
+	.upperbar {
+		width: 100%;
+		padding:6px 0px 6px 0px;
+		border-bottom: 1px dotted gray;
+		overflow: hidden;
 
-}
-.articleList table {
-  width:100%;
-  margin-top: 5px;
-}
-.articleList table td,th {
+	}
+	
+	.articleList table td,th {
 
-  padding: 5px;
-}
+		padding: 5px;
+	}
 
 </style>
 
 <div class="articleList">
   <div class="upperbar">
-<h2 class="floatLeft"><%=@original_type.humanize%> Dashboard</h2>
-<div class="page floatRight">
-	<ul></ul>
-</div>
-<%= button_to 'New '+ @type, "/admin/#{@section}/#{@original_type}/new",:class=>"btn btn_newArticle floatRight",:method => :get %>
+		<h2 class="floatLeft"><%=@original_type.humanize%> Dashboard</h2>
+		<div class="page floatRight">
+			<ul></ul>
+		</div>
+		<%= button_to 'New '+ @type, "/admin/#{@section}/#{@original_type}/new",:class=>"btn btn_newArticle floatRight",:method => :get %>
 
-</div>
-<table >
-  <tr>
-    <th>Date</th>
-    <th>Title</th>
-    
-    <th><%=@type%> By</th>
-   <th>Subcategories</th>
-    <th>Last Modified On</th>
-    <th>Delete</th>
-  </tr>
+	</div>
+	<table >
+		<tr>
+			<th>Date</th>
+			<th>Title</th>
 
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.created_at.strftime("%d-%m-%Y") %></td>
-    <td><%= link_to article.name, "/admin/#{@section}/#{@original_type}/#{article.id}/edit",:style=>"color:blue;" %></td>    
-    <td><%= article.doctors.first.name unless article.doctors.blank? %></td>
-		<td></td>
-		<td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
-    <td><%= link_to 'Destroy',"/admin/#{@section}/articles/#{article.id}/", confirm: 'Are you sure?', method: :delete ,:style=>"color:red;"%></td>
-  </tr>
-<% end %>
-</table>
+			<th><%=@type%> By</th>
+			<th>Subcategories</th>
+			<th>Last Modified On</th>
+			<th>Delete</th>
+		</tr>
 
-<br />
+		<% @articles.each do |article| %>
+			<tr>
+				<td><%= article.created_at.strftime("%d-%m-%Y") %></td>
+				<td><%= link_to article.name, "/admin/#{@section}/#{@original_type}/#{article.id}/edit",:style=>"color:blue;" %></td>
+				<td><%= article.doctors.first.name unless article.doctors.blank? %></td>
+				<td></td>
+				<td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
+				<td><a href="/admin/#{@section}/articles/#{article.id}/"><span class="adminSprite crossIcon"></span></a></td>
+				<!--<%= link_to 'Destroy',"", confirm: 'Are you sure?', method: :delete ,:style=>"color:red;"%>-->
+			</tr>
+		<% end %>
+	</table>
+
+	<br />
 
 
 </div>
