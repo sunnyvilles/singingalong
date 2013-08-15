@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 		else
 			@type = chk_type
 		end
+
 	end
   def confirm_logged_in
     unless session[:user_id]
