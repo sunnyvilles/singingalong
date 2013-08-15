@@ -140,6 +140,10 @@ class Web::AcademyController < ApplicationController
 	def satellite
 
 	end
+
+	def contact
+		
+	end
 end
 
 

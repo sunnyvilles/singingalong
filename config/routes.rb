@@ -107,6 +107,7 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/academy/satellite' => 'web/academy#satellite'
 	get '/academy/admissions' => 'web/academy#admissions'
 
+	get '/academy/contact-us' => 'web/academy#contact'
 	#get '/events' => 'static#events'
   #get '/events/:pages' => 'static#events'
 

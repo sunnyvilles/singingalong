@@ -184,7 +184,8 @@
 				</ul>
 			</div>
 		</li>
-		<li>
+		<li class="<%=["admissions"].include?(params[:action]) ? "selected" : "" %>">
+			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/<%=scope%>/admissions"><%= t "submenu.admission" %></a>
 			</div>
