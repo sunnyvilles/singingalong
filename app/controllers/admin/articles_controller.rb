@@ -28,7 +28,7 @@ class Admin::ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    puts "zzzzzzzzzzzz" + params[:id].to_s
+  
     @article = Article.find(params[:id])
 		#TODO get tags only for this article
 		@tags = @article.tags
