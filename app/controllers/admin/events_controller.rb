@@ -47,7 +47,7 @@ class Admin::EventsController < ApplicationController
     respond_to do |format|
       if @event.save
          handle_file_rename(@event.id,file_names)
-        format.html { redirect_to [:admin,@event] , notice: 'Event was successfully created.' }
+        format.html { redirect_to "/admin/clinic/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -58,6 +58,7 @@ class Admin::EventsController < ApplicationController
 
 
   def update
+
     file_names=[] 
        
     handle_file_upload(params,file_names)
@@ -67,7 +68,8 @@ class Admin::EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
          handle_file_rename(@event.id,file_names)
-        format.html { redirect_to [:admin,@event], notice: 'Event was successfully updated.' }
+
+        format.html { redirect_to "/admin/clinic/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

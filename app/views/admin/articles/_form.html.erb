@@ -1,4 +1,4 @@
-<div class="articleEdit">
+
 	<style type="text/css">
 
 
@@ -8,13 +8,12 @@
 			width: 100%;
 			height: 100%;
 		}
-		.adminCt {
-			padding: 10px;
-			border: 1px solid grey;
-			padding-top:30px;
-
-
-		}
+		.adminCt2 {
+      padding: 10px;
+        border: 1px solid grey;
+        padding-top:30px;
+        margin-top: 10px;
+ }
 		.image {
 
 			padding-bottom: 10px;
@@ -83,7 +82,7 @@
 				</ul>
 			</div>
 		<% end %>
-
+<div class="adminCt2">
 		<table class="article_table">
 			<tr  class="admin-article-field">
 				<td class="first_col" rowspan="4">
@@ -178,8 +177,9 @@
 		<div class="actions">
 			<%= f.submit "save"%>
 		</div>
-	<% end %>
 </div>
+	<% end %>
+
 <script type="text/javascript">
 
 	tinymce.init({

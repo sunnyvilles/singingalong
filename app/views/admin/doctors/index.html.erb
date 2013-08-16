@@ -74,6 +74,15 @@ td {
 .outer_table {
 	margin-top: 10px;
 }
+
+.actions input {
+
+  position: absolute;
+  width:150px;
+top:63px;
+height: 25px;
+margin-top: 0px;
+}
 </style>
 <% col = 0 %>
 <table class="outer_table">
@@ -121,4 +130,13 @@ td {
 <div class="actions">
 	<a href="/admin/academy/doctors/new"><input type="button" value="Add New Employee"/></a>
 </div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".actions input").css({
 
+			left: (($(window).width()-980)/2 + (980-60-75)).toString() + "px"
+		}) ;
+		});
+
+
+</script>

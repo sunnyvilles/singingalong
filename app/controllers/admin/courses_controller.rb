@@ -41,11 +41,12 @@ class Admin::CoursesController < ApplicationController
   # POST /admin/courses
   # POST /admin/courses.json
   def create
+
     @admin_course = Admin::Course.new(params[:admin_course])
 
     respond_to do |format|
       if @admin_course.save
-        format.html { redirect_to @admin_course, notice: 'Course was successfully created.' }
+        format.html { redirect_to "/admin/academy/courses/#{@admin_course.id}/edit", notice: 'Course was successfully created.' }
         format.json { render json: @admin_course, status: :created, location: @admin_course }
       else
         format.html { render action: "new" }
@@ -57,11 +58,12 @@ class Admin::CoursesController < ApplicationController
   # PUT /admin/courses/1
   # PUT /admin/courses/1.json
   def update
+
     @admin_course = Admin::Course.find(params[:id])
 
     respond_to do |format|
       if @admin_course.update_attributes(params[:admin_course])
-        format.html { redirect_to @admin_course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to "/admin/academy/courses/#{@admin_course.id}/edit", notice: 'Course was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
