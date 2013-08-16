@@ -52,7 +52,7 @@ class Admin::DoctorsController < ApplicationController
       if @doctor.save
 				handle_picture_rename(params,@doctor.id,pic_name)
 				save_url(@doctor, params)
-        format.html { redirect_to [:admin, @doctor], notice: 'Doctor was successfully created.' }
+        format.html { redirect_to  edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully created.' }
         format.json { render json: @doctor, status: :created, location: @doctor }
       else
         format.html { render action: "new" }
@@ -63,6 +63,7 @@ class Admin::DoctorsController < ApplicationController
 
   # PUT /doctors/1
   # PUT /doctors/1.json
+  
   def update
 
 
@@ -75,7 +76,7 @@ class Admin::DoctorsController < ApplicationController
       if @doctor.update_attributes(params[:doctor])
 				handle_picture_rename(params,@doctor.id,file_name)
 
-        format.html { redirect_to [:admin,@doctor], notice: 'Doctor was successfully updated.' }
+        format.html { redirect_to edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

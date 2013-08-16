@@ -21,10 +21,11 @@
       width: 100%;
       height: 100%;
     }
-    .adminCt {
+    .adminCt2 {
       padding: 10px;
         border: 1px solid grey;
         padding-top:30px;
+        margin-top: 10px;
  
 
     }
@@ -49,6 +50,7 @@ table .first_col .bottomTopMargin10 {
   margin-bottom:10px;
   margin-top:10px;
 }
+
 .actions input {
 
   position: absolute;
@@ -57,12 +59,9 @@ top:63px;
 height: 25px;
 margin-top: 0px;
 }
-.repeatMe {
-background: green;
-  display: block;
-}
-</style>
 
+</style>
+<div class="adminCt2">
   <table class="events_table">
 <tr>
 <td  class="first_col" rowspan="4">
@@ -164,6 +163,8 @@ background: green;
     <%= render "testimonial_fields", :f => h %>
   <% end %>
   <p><%= link_to_add_fields "Add T", f, :testimonials %></p>
+
+
 </td>
 </tr>
 
@@ -172,6 +173,8 @@ background: green;
   <div class="actions">
     <%= f.submit %>
   </div>
+
+</div>
   <script>
 
 
@@ -185,7 +188,13 @@ changeYear : true
 });
 });
 
+$("document").ready(function(){
+$(".actions input").css({
 
+  left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
+}) ;
+
+})
 
 </script>
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
