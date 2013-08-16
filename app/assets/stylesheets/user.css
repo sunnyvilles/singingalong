@@ -127,8 +127,8 @@ button {  width: auto; overflow: visible; }
 .secondryTitle{
 	margin: 20px 0;
 	font-size: 20px;
-	color: #000;
-}
+	color: #333;
+}.s
 
 .col1{
 	margin-right: 50px;
@@ -690,7 +690,7 @@ color:#333333;
 }
 .seperator{
 	width: 1px;
-	border-right: 1px solid #333;
+	border-right: 1px solid #888;
 }
 .contactCt{
 	border-bottom: 1px solid #333;

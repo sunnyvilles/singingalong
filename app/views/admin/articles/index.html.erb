@@ -1,20 +1,5 @@
-<style type="text/css">
-
-	.upperbar {
-		width: 100%;
-		padding:6px 0px 6px 0px;
-		border-bottom: 1px dotted gray;
-		overflow: hidden;
-
-	}
-	
-	.articleList table td,th {
-
-		padding: 5px;
-	}
-
-</style>
-
+<%= render :partial => "/admin/shared/header" %>
+<%= render :partial => "/admin/shared/tabs" %>
 <div class="articleList">
   <div class="upperbar">
 		<h2 class="floatLeft"><%=@original_type.humanize%> Dashboard</h2>
@@ -43,7 +28,7 @@
 				<td><%=article.tags.select('distinct title').collect { |p| p.title }.join(',')%></td>
 				<td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
 				<td><a data-confirm="Are you sure?" data-method="delete" rel="nofollow" href=<%="/admin/#{@section}/articles/#{article.id}/"%>><span class="adminSprite crossIcon"></span></a></td>
-				
+
 			</tr>
 		<% end %>
 	</table>

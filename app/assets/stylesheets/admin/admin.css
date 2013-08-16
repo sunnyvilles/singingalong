@@ -110,9 +110,18 @@
 	margin: auto;
 }
 .actions input{
-	width: 200px;
-	margin-top: 20px;
+	width: 200px;	
 	height: 32px;
 	background: #ddd;
 }
 /*Admin Article edit end*/
+
+.actions{
+	background: red;
+	position: absolute;
+	top: -53px;
+	right: 0;
+}
+.adminCt2{
+	position: relative;
+}

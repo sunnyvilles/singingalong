@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def section
-		@section =  request.fullpath.split("/")[2]
+		@section = params[:section].present? ?  params[:section] : request.fullpath.split("/")[2]
 		@original_type = request.fullpath.split("/")[3]
 		unless @original_type.blank?
 			chk_type =  request.fullpath.split("/")[3][0..-2]

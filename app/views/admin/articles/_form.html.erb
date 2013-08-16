@@ -1,88 +1,84 @@
 
-	<style type="text/css">
+<style type="text/css">
 
 
 
-		.image img{
+	.image img{
 
-			width: 100%;
-			height: 100%;
-		}
-		.adminCt2 {
-      padding: 10px;
-        border: 1px solid grey;
-        padding-top:30px;
-        margin-top: 10px;
- }
-		.image {
+		width: 100%;
+		height: 100%;
+	}
+	.adminCt2 {
+		padding: 10px;
+		border: 1px solid grey;
+		padding-top:30px;
+		margin-top: 10px;
+	}
+	.image {
 
-			padding-bottom: 10px;
-			border-bottom:1px dashed grey;
+		padding-bottom: 10px;
+		border-bottom:1px dashed grey;
 
-		}
+	}
+
+	table .first_col {
+		margin: 0px;
+		padding: 0px;
+		width: 15%;
+		min-height: 100%;
+		padding-right: 25px;
+
+	}
+
+	table .first_col .bottomTopMargin10 {
+
+		margin-bottom:10px;
+		margin-top:10px;
+	}
+
+	<% if @original_type == "videos" %>
 
 		table .first_col {
-			margin: 0px;
-			padding: 0px;
-			width: 15%;
-			min-height: 100%;
-			padding-right: 25px;
+			display: none;
 
 		}
 
-		table .first_col .bottomTopMargin10 {
-
-			margin-bottom:10px;
-			margin-top:10px;
+		table {
+			width: 64%;
 		}
-		.actions input {
-
-			position: absolute;
-			width:60px;
-			top:63px;
-			height: 25px;
-			margin-top: 0px;
+		table td {
+			padding: 0px 40px 10px 40px;
 		}
 
-		<% if @original_type == "videos" %>
+	<%end%>
 
-			table .first_col {
-				display: none;
+</style>
+<link rel="stylesheet" type="text/css" href="/styles/jquery-ui.css"></link>
+<link rel="stylesheet" type="text/css" href="/styles/tinymce/content.min.css"></link>
+<link rel="stylesheet" type="text/css" href="/styles/tinymce/skin.min.css"></link>
+<script src="/scripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/scripts/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/scripts/tinymce.min.js"></script>
+<!--<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>-->
+<script src="/scripts/tag-it.js"></script>
+<%= form_for([:admin, @article]) do |f| %>
+	<%= render :partial => "/admin/shared/header" %>
+	<%= render :partial => "/admin/shared/tabs" %>
+	<% if @article.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-			}
-
-			table {
-				width: 64%;
-			}
-			table td {
-				padding: 0px 40px 10px 40px;
-			}
-
-		<%end%>
-
-	</style>
-	<link rel="stylesheet" type="text/css" href="/styles/jquery-ui.css"></link>
-	<link rel="stylesheet" type="text/css" href="/styles/tinymce/content.min.css"></link>
-	<link rel="stylesheet" type="text/css" href="/styles/tinymce/skin.min.css"></link>
-	<script src="/scripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/scripts/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/scripts/tinymce.min.js"></script>
-	<!--<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>-->
-	<script src="/scripts/tag-it.js"></script>
-	<%= form_for([:admin, @article]) do |f| %>
-
-		<% if @article.errors.any? %>
-			<div id="error_explanation">
-				<h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-				<ul>
-					<% @article.errors.full_messages.each do |msg| %>
-						<li><%= msg %></li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-<div class="adminCt2">
+			<ul>
+				<% @article.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="adminCt2">
+		<div class="actions">
+			<%= f.submit "save"%>
+		</div>
 		<table class="article_table">
 			<tr  class="admin-article-field">
 				<td class="first_col" rowspan="4">
@@ -115,11 +111,11 @@
 			<tr class="admin-article-field">
 				<td><label>By:</label></td>
 				<td>
-					 <%= f.fields_for :doctors do |g| %>  
-					  <%= render "doctor_fields", :f => g %> 
-   						
-  					<% end %>
-  					<p><%= link_to_add_fields "Add doc", f, :doctors %></p>
+					<%= f.fields_for :doctors do |g| %>
+						<%= render "doctor_fields", :f => g %>
+
+					<% end %>
+					<p><%= link_to_add_fields "Add doc", f, :doctors %></p>
 				</td>
 			</tr>
 
@@ -159,26 +155,15 @@
 				</td>
 				<%-#<td><%= f.label :content ></td>-%>
 				<td colspan="2" style="padding-top=10px;"><%= f.text_area :content, :cols => 120, :rows=>30 %>
-				<%= f.hidden_field :origin_type, :value => @original_type.to_s%>
+					<%= f.hidden_field :origin_type, :value => @original_type.to_s%>
 				</td>
 			</tr>
 
 		</table>
 
 		<%-# image files are being uploaded as file_caption_0 etc , caption texts are going as caption_0 etc -%>
-
-
-
-
-
-
-
-
-		<div class="actions">
-			<%= f.submit "save"%>
-		</div>
-</div>
-	<% end %>
+	</div>
+<% end %>
 
 <script type="text/javascript">
 

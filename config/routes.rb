@@ -26,8 +26,6 @@ TheOtherSongClinic::Application.routes.draw do
 			get '/case-studies' => 'articles#index'
 			get '/case-studies/new' => 'articles#new'
 			get '/case-studies/:id/edit' =>'articles#edit'
-			
-
 		end
 	end
 	#resources :articles, only: [:show, :index]
