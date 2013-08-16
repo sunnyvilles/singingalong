@@ -12,7 +12,7 @@
 		<div id="accordion">
 			<h3>WORKSHOPS</h3>
 			<div>
-				<%@events.each{|event|%>
+				<%@eventsHash["workshops"].each{|event|%>
 					<div class="eventDesc">
 						<div class="dateBlock floatLeft">
 							<div class="dateCt">Jul 10</div>
@@ -31,14 +31,60 @@
 			</div>
 			<h3>SEMINARS</h3>
 			<div>
+				<%@eventsHash["seminars"].each{|event|%>
+					<div class="eventDesc">
+						<div class="dateBlock floatLeft">
+							<div class="dateCt">Jul 10</div>
+							<div class="dayCt">Wed.</div>
+						</div>
+						<div class="floatLeft" style="width: 800px;">
+							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
+							<div class="eventDescBlk">
+								<%=event[:description]%>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
 
+				<%}%>
 			</div>
 			<h3>VISITS</h3>
 			<div>
+				<%@eventsHash["visits"].each{|event|%>
+					<div class="eventDesc">
+						<div class="dateBlock floatLeft">
+							<div class="dateCt">Jul 10</div>
+							<div class="dayCt">Wed.</div>
+						</div>
+						<div class="floatLeft" style="width: 800px;">
+							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
+							<div class="eventDescBlk">
+								<%=event[:description]%>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+
+				<%}%>
 			</div>
 			<h3>LECTURES</h3>
 			<div>
+				<%@eventsHash["lectures"].each{|event|%>
+					<div class="eventDesc">
+						<div class="dateBlock floatLeft">
+							<div class="dateCt">Jul 10</div>
+							<div class="dayCt">Wed.</div>
+						</div>
+						<div class="floatLeft" style="width: 800px;">
+							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
+							<div class="eventDescBlk">
+								<%=event[:description]%>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
 
+				<%}%>
 			</div>
 		</div>
 	</div>

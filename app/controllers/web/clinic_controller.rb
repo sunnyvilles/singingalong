@@ -187,7 +187,19 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def events
-		@events = Event.find(:all)
+		events = Event.find(:all)
+		@eventsHash = {
+			"seminars" => [],
+			"workshops" => [],
+			"visits" => [],
+			"lectures" => []
+		}
+		events.each{|event|
+			if(!@eventsHash[event[:event_type]].present?)
+				@eventsHash[event[:event_type]] = []
+			end
+			@eventsHash[event[:event_type]] << event
+		}		
 	end
 
 	def contact
