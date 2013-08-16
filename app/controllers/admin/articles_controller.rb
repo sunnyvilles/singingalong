@@ -5,7 +5,7 @@ class Admin::ArticlesController < ApplicationController
   
   def index
 
-    @articles = Article.where("source = ? and type=?", @section,@type)
+    @articles = Article.where("source = ? and type = ?", @section, @type)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json=> @articles }
@@ -16,6 +16,7 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
+    @article.doctors.build
 		@all_tags = Tag.select("title")
 		@tags = []
 		# @article[:viewcount] = 0.to_i
@@ -49,13 +50,22 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+
+    unless params[:article][:origin_type].blank?
+      chk =  params[:article][:origin_type][0..-2]
+    end
+    if chk=="case-studie"
+      @type = "case study"
+    else
+      @type = chk
+    end
+
 		file_names = []
 
 		handle_file_upload(params,file_names)
 
 		@article = Article.new(params[:article])
-
-   @article.type = @type
+    @article.type = @type
     @article.source = @section
 
 		@article.viewcount = 0.to_i
@@ -64,8 +74,9 @@ class Admin::ArticlesController < ApplicationController
       if @article.save
 				params[:id] = @article[:id]
         associate_tag(params)
-        handle_file_rename(@article.id,file_names)				
-        format.html { redirect_to "/admin/#{@section}/articles/#{@article.id}", :notice=> 'Article was successfully created.' }
+        handle_file_rename(@article.id,file_names)		
+  
+        format.html { redirect_to "/admin/#{@section}/#{params[:article][:origin_type]}/#{@article.id}/edit", :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
       else
         format.html { render :action=> "new" }
@@ -73,7 +84,6 @@ class Admin::ArticlesController < ApplicationController
       end #if else
     end #do
   
-
   
   end
 	def associate_tag(params)
@@ -97,6 +107,16 @@ class Admin::ArticlesController < ApplicationController
   # PUT /articles/1
   # PUT /articles/1.json
   def update
+
+    unless params[:article][:origin_type].blank?
+      chk =  params[:article][:origin_type][0..-2]
+    end
+    if chk=="case-studie"
+      @type = "case study"
+    else
+      @type = chk
+    end
+
     file_names=[]		
     handle_file_upload(params,file_names)
 
@@ -105,7 +125,7 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update_attributes(params[:article])
         handle_file_rename(@article.id,file_names)
-        format.html { redirect_to [:admin,@article], :notice=> 'Article was successfully updated.' }
+        format.html { redirect_to "/admin/#{@section}/#{params[:article][:origin_type]}/#{@article.id}/edit", :notice=> 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action=> "edit" }

@@ -15,7 +15,7 @@
 				<td><%= event.title %></td>
 				<td><%= event.day %></td>
 				<!--<%= link_to '', [:admin, event] %>-->				
-				<td><%= event.description[0..100] %></td>
+				<td><%= event.description[0..100] unless event.description.blank?%></td>
 				<td><%= link_to 'Edit', "/admin/#{@section}/events/#{event.id}/edit" %></td>
 				<td><%= link_to 'Delete', [:admin, event], confirm: 'Are you sure?', method: :delete %></td>
 			</tr>

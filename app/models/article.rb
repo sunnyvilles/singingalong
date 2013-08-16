@@ -2,9 +2,9 @@ class Article < ActiveRecord::Base
   
 has_and_belongs_to_many :doctors
 has_and_belongs_to_many :tags
-attr_accessible :content, :name, :title,:source,:type,:file_caption_0,:file_caption_1,:file_caption_2,:caption_0,:caption_1,:caption_2,:youtubeurl,:the_doctor
-attr_accessor :caption_0,:caption_1,:caption_2,:the_doctor
-
+attr_accessible :content, :name, :title,:source,:type,:file_caption_0,:file_caption_1,:file_caption_2,:caption_0,:caption_1,:caption_2,:youtubeurl,:doctors_attributes,:origin_type
+attr_accessor :caption_0,:caption_1,:caption_2,:origin_type
+accepts_nested_attributes_for :doctors, :reject_if => lambda { |a| a[:name].blank? }
 	#to search articles using name , title , content
 
 	scope :search_by_name, lambda {|query| where( ["name LIKE ?", "%#{query}%"] )}
