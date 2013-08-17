@@ -150,7 +150,15 @@ button {  width: auto; overflow: visible; }
 	height: 57px;
 	background-image: url("/images/green.png");
 }
-
+.color333{
+	color: #333;
+}
+.tisapro{
+	font-family: 'TisaProRegular' !important;
+}
+.mavenpro{
+	font-family: 'MavenProRegular';
+}
 .orangeHeader{
 	height: 57px;
 	background-image: url("/images/orange.png");
@@ -210,11 +218,15 @@ button {  width: auto; overflow: visible; }
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
 #accordion .ui-state-default{
-	background: #888;
+	background: #909090;
 	color: #fff;
 }
 #accordion .ui-state-default.ui-state-active{
 	background: #1b7aba;
+}
+
+#accordion.maroonHeader .ui-state-default.ui-state-active{
+	background-color: #b73736;
 }
 #accordion.team .ui-state-default.ui-state-active{
 	background: #f67a00;
@@ -740,4 +752,32 @@ color:#333333;
 }
 .eventDesc:last-child{
 	border-bottom: none;
+}
+.appointemtnTable td{
+	line-height: 28px;
+}
+
+.currency-table th{
+	background: #fbface;
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+	padding: 10px 0;
+	color: #333;
+}
+.currency-table td{
+	background: #fcfce0;
+	border-right: 1px solid #666;
+	text-align: center;
+	padding: 10px 0;
+}
+.currency-table{
+	width: 100%;
+	border-collapse:collapse;
+	border: 1px solid #666;
+}
+.generalInfo ul li{
+	list-style: disc;
+}
+.generalInfo ul{
+	margin-left: 20px;
 }
