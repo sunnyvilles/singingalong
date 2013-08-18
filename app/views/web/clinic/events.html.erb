@@ -46,7 +46,7 @@
 								<%if event.testimonials.length != 0 %>
 									<div class="font18 marginTop20">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
 									<%event.testimonials.each do |testimonial|%>
-										<div class="marginTop10"><%=testimonial[:title]%></div>
+										<div class="marginTop10"><%=raw testimonial[:title]%></div>
 									<%end%>
 								<%end%>
 							</div>
