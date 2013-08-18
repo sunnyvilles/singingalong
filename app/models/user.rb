@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	#validations
 
   validates :username, :length => { :within => 5..25 }, :uniqueness => true
-  validates :email, :presence => true, :length => { :maximum => 100 }, 
+  validates :email, :presence => true, :length => { :maximum => 100 },
     :format => EMAIL_REGEX, :confirmation => true
 
   # only on create, so other attributes of this user can be changed
@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
   attr_protected :hashed_password, :salt
 
 	#called everytime a user attempts login
-  def self.authenticate(username="", password="")		
+  def self.authenticate(username="", password="")
     user = User.find_by_username(username)
-		
+
     if user #&& user.password_match?(password)
       return user
     else
@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
     # Whenever :password has a value hashing is needed
     unless password.blank?
       # always use "self" when assigning values
-      #self.salt = User.make_salt(username) if salt.blank?
-      self.hashed_password = User.hash_with_salt(password, "")
+      self.salt = User.make_salt(username) if salt.blank?
+      self.hashed_password = User.hash_with_salt(password, salt)
     end
   end
 
