@@ -9,7 +9,7 @@
 <div class="contentWrap">
 	<h2 class="title">EVENTS</h2>
 	<div class="padder">
-		<div id="accordion">
+		<div id="accordion" class="greenAccordianHeader">
 			<h3>WORKSHOPS</h3>
 			<div>
 				<%@eventsHash["workshops"].each{|event|%>
@@ -21,7 +21,34 @@
 						<div class="floatLeft" style="width: 800px;">
 							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
 							<div class="eventDescBlk">
-								<%=event[:description]%>
+								<div><%=raw event[:other_description]%></div>
+								<div class="font18 marginTop20">WORKSHOP DETAILS:</div>
+								<div class="marginTop10"><%=raw event[:description]%></div>
+
+								<div class="marginTop20">
+									<table class="event-details">
+										<%if event[:fees].present?%>
+											<tr>
+												<td>Course&nbsp;fees: </td>
+												<td class="secondCol"><%=event[:fees]%></td>
+											</tr>
+										<%end%>
+										<tr>
+											<td>Date:</td>
+											<td class="secondCol"><%=event[:day]%></td>
+										</tr>
+										<tr>
+											<td>Venue:</td>
+											<td class="secondCol">‘the other song’ academy, 7th Floor, Peninsula Heights, C.D. Burfiwala Marg lane, Andheri (W), Mumbai 400058.</td>
+										</tr>
+									</table>
+								</div>
+								<%if event.testimonials.length != 0 %>
+									<div class="font18 marginTop20">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
+									<%event.testimonials.each do |testimonial|%>
+										<div class="marginTop10"><%=testimonial[:title]%></div>
+									<%end%>
+								<%end%>
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -91,6 +118,9 @@
 </div>
 <script>
 	$(function() {
-		$( "#accordion" ).accordion();
+		$( "#accordion" ).accordion({
+			heightStyle: 'content',
+			collapsible: true
+		});
 	});
 </script>

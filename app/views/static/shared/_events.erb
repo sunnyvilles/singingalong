@@ -41,7 +41,7 @@
 			<div class="eventDescription floatLeft">
 				<h3 class="highlight"><%=event[:title]%></h3>
 				<h4><%=event[:sub_title]%></h4>
-				<a href="/clinic/events"><%= t "home.readmore" %></a>
+				<a href="/clinic/events#type=<%=event[:event_type]%>"><%= t "home.readmore" %></a>
 			</div>
 			<div class="clear"></div>
 		</div>
