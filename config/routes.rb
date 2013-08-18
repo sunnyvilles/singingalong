@@ -7,7 +7,7 @@ TheOtherSongClinic::Application.routes.draw do
   #get "users/new"
 
   # root :to => 'users#index'
-
+	resource :users
 	namespace :admin do
 		scope '/academy' do
 			resources :articles,:doctors, :events, :courses
@@ -27,12 +27,13 @@ TheOtherSongClinic::Application.routes.draw do
 			get '/case-studies/new' => 'articles#new'
 			get '/case-studies/:id/edit' =>'articles#edit'
 		end
-		match '/attempt-login' => 'access#attempt_login'
-		match '/login' => 'access#login'
+		#match '/attempt-login' => 'access#attempt_login'
+		#match '/login' => 'access#login'
 	end
 	#resources :articles, only: [:show, :index]
 	#resources :doctors, only: [:show, :index]
-
+	match 'admin/attempt-login' => 'access#attempt_login'
+	match 'admin/login' => 'access#login'
 	get '/admin' => 'admin/admin#show'
 
 	
