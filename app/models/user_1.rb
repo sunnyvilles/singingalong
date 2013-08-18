@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
     # Whenever :password has a value hashing is needed
     unless password.blank?
       # always use "self" when assigning values
-      #self.salt = User.make_salt(username) if salt.blank?
-      self.hashed_password = User.hash_with_salt(password, "")
+      self.salt = User.make_salt(username) if salt.blank?
+      self.hashed_password = User.hash_with_salt(password, salt)
     end
   end
 

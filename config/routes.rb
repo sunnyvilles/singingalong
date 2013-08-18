@@ -7,7 +7,7 @@ TheOtherSongClinic::Application.routes.draw do
   #get "users/new"
 
   # root :to => 'users#index'
-
+	resource :users
 	namespace :admin do
 		scope '/academy' do
 			resources :articles,:doctors, :events, :courses
