@@ -32,7 +32,7 @@ TheOtherSongClinic::Application.routes.draw do
 	end
 	#resources :articles, only: [:show, :index]
 	#resources :doctors, only: [:show, :index]
-
+	match 'admin/attempt-login' => 'access#attempt_login'
 	get '/admin' => 'admin/admin#show'
 
 	
