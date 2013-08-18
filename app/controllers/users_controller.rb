@@ -17,12 +17,12 @@ layout 'user'
   
 
   def new
-    @admin_user = User.new
+    @user = User.new
   end
   
   def create
-    @admin_user = User.new(params[:user])
-    if @admin_user.save
+    @user = User.new(params[:user])
+    if @user.save
       flash[:notice] = 'user created.'
       redirect_to(:controller=>'access', :action => 'login')
     else
@@ -31,12 +31,12 @@ layout 'user'
   end
 
   def edit
-    @admin_user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def update
-    @admin_user = User.find(params[:id])
-    if @admin_user.update_attributes(params[:user])
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
       flash[:notice] = 'user updated.'
       redirect_to(:controller=>'access', :action => 'menu')
     else
@@ -45,7 +45,7 @@ layout 'user'
   end
 
   def delete
-    @admin_user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def destroy

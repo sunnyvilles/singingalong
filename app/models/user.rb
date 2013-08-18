@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   validates :username, :length => { :within => 5..25 }, :uniqueness => true
   validates :email, :presence => true, :length => { :maximum => 100 }, 
-    :format => EMAIL_REGEX, :confirmation => true
+  :format => EMAIL_REGEX, :confirmation => true
 
   # only on create, so other attributes of this user can be changed
   validates_length_of :password, :within => 3..25, :on => :create

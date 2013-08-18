@@ -1,11 +1,11 @@
-<% @page_title = "Edit User: #{@admin_user.name}" -%>
+<% @page_title = "Edit User: #{@user.name}" -%>
 
 <%= link_to("<< Back to Menu", {:action => 'access/menu'}, :class => 'back-link') %>
 
 <div class="user edit">
   <h2>Edit  User</h2>
 
-  <%= form_for(:user, :url => {:action => 'update', :id => @admin_user.id}) do |f| %>
+  <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
     
   	<%= render(:partial => 'form', :locals => {:f => f} ) %>
 	
