@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def section
-		@section =  request.fullpath.split("/")[2]
+		@section = params[:section].present? ?  params[:section] : request.fullpath.split("/")[2]
 		@original_type = request.fullpath.split("/")[3]
 		unless @original_type.blank?
 			chk_type =  request.fullpath.split("/")[3][0..-2]
@@ -21,10 +21,14 @@ class ApplicationController < ActionController::Base
 		end
 
 	end
+
+	def is_logged_in?
+		return session[:user_id].present?
+	end
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "Please log in."
-      redirect_to(:controller => 'access', :action => 'login')
+      #redirect_to("/admin")
       return false # halts the before_filter
     else
       return true

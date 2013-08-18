@@ -1,201 +1,189 @@
-
-
-
 <%= form_for([:admin, @event]) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+	<%= render :partial => "/admin/shared/header" %>
+	<%= render :partial => "/admin/shared/tabs" %>
+	<% if @event.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<style type="text/css">
-
-
-.image img{
-
-      width: 100%;
-      height: 100%;
-    }
-    .adminCt2 {
-      padding: 10px;
-        border: 1px solid grey;
-        padding-top:30px;
-        margin-top: 10px;
- 
-
-    }
-    .image {
-
-      padding-bottom: 10px;
-      border-bottom:1px dashed grey;
-      
-    }
-
-table .first_col {
-  margin: 0px;
-  padding: 0px;
-  width: 15%;
-  min-height: 100%;
-  padding-right: 25px;
-
-}
-
-table .first_col .bottomTopMargin10 {
-
-  margin-bottom:10px;
-  margin-top:10px;
-}
-
-.actions input {
-
-  position: absolute;
-  width:60px;
-top:63px;
-height: 25px;
-margin-top: 0px;
-}
-
-</style>
-<div class="adminCt2">
-  <table class="events_table">
-<tr>
-<td  class="first_col" rowspan="4">
-<div class="image">
-      <div class="field">
-        <img src="/images/events/<%=@event[:id]%>-0.jpg"></img>
-        <%= f.label :image_0, 'upload a picture' %><br />
-        <%= f.file_field :image_0 %>
-        
-      </div>
-</td>
-<td> <%= f.label :title %><br /></td>
-<td> <%= f.text_field :title %></td>
-</tr>
+			<ul>
+				<% @event.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<style type="text/css">
 
 
-<tr>
-<td><%= f.label :day , 'Start Date'%></td>
-<td><%= f.text_field :day, :class => "datepicker", :value => date_dmY(@event.day)%></td>
-</tr>
+		.image img{
 
-<tr>
-<td><%= f.label :end_date , 'End Date'%></td>
-<td><%= f.text_field :end_date, :class => "datepicker", :value => date_dmY(@event.end_date)%></td>
-
-</tr>
-
-
-<tr><td><%= f.label :other_description ,'Offer Description'%></td>
-<td><%= f.text_area :other_description %></td>
-</tr>
+			width: 100%;
+			height: 100%;
+		}
+		.adminCt2 {
+			padding: 10px;
+			border: 1px solid grey;
+			padding-top:30px;
+			margin-top: 10px;
 
 
-<tr>
+		}
+		.image {
 
-<td  class="first_col" rowspan="4">
-<div class="image">
-      <div class="field">
-        <img src="/images/events/<%=@event[:id]%>-1.jpg"></img>
-        <%= f.label :image_1, 'upload a picture' %><br />
-        <%= f.file_field :image_1 %>
-        
-      </div>
-</td>
+			padding-bottom: 10px;
+			border-bottom:1px dashed grey;
 
-<td><%= f.label :event_type %></td>
-<td><%= f.select :event_type ,["workshops","seminars","visits","lectures"] %></td>
+		}
+
+		table .first_col {
+			margin: 0px;
+			padding: 0px;
+			width: 15%;
+			min-height: 100%;
+			padding-right: 25px;
+
+		}
+
+		table .first_col .bottomTopMargin10 {
+
+			margin-bottom:10px;
+			margin-top:10px;
+		}
+
+	</style>
+	<div class="adminCt2">
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+		<table class="events_table">
+			<tr>
+				<td  class="first_col" rowspan="4">
+					<div class="image">
+						<div class="field">
+							<img src="/images/events/<%=@event[:id]%>-0.jpg"></img>
+							<%= f.label :image_0, 'upload a picture' %><br />
+							<%= f.file_field :image_0 %>
+
+						</div>
+				</td>
+				<td> <%= f.label :title %><br /></td>
+				<td> <%= f.text_field :title %></td>
+			</tr>
+
+
+			<tr>
+				<td><%= f.label :day , 'Start Date'%></td>
+				<td><%= f.text_field :day, :class => "datepicker", :value => date_dmY(@event.day)%></td>
+			</tr>
+
+			<tr>
+				<td><%= f.label :end_date , 'End Date'%></td>
+				<td><%= f.text_field :end_date, :class => "datepicker", :value => date_dmY(@event.end_date)%></td>
+
+			</tr>
+
+
+			<tr><td><%= f.label :other_description ,'Offer Description'%></td>
+				<td><%= f.text_area :other_description %></td>
+			</tr>
+
+
+			<tr>
+
+				<td  class="first_col" rowspan="4">
+					<div class="image">
+						<div class="field">
+							<img src="/images/events/<%=@event[:id]%>-1.jpg"></img>
+							<%= f.label :image_1, 'upload a picture' %><br />
+							<%= f.file_field :image_1 %>
+
+						</div>
+				</td>
+
+				<td><%= f.label :event_type %></td>
+				<td><%= f.select :event_type ,["workshops","seminars","visits","lectures"] %></td>
 
 
 
-</tr>
-<tr>
-<td><%= f.label :fees %></td>
-<td><%= f.text_field :fees %></td>
-</tr>
-<tr>
-<td><label>Workshop Videos</label></td>
- <td>
+			</tr>
+			<tr>
+				<td><%= f.label :fees %></td>
+				<td><%= f.text_field :fees %></td>
+			</tr>
+			<tr>
+				<td><label>Workshop Videos</label></td>
+				<td>
 
-  <%= f.fields_for :workshop_videos do |g| %>   
-   <%= render "workshop_video_fields", :f => g %>
-  <% end %>
-  <p><%= link_to_add_fields "Add WV", f, :workshop_videos %></p>
+					<%= f.fields_for :workshop_videos do |g| %>
+						<%= render "workshop_video_fields", :f => g %>
+					<% end %>
+					<p><%= link_to_add_fields "Add WV", f, :workshop_videos %></p>
 
-</td>
-</tr>
+				</td>
+			</tr>
 
-<tr>
-<td><%= f.label :description %></td>
-<td><%= f.text_area :description %></td>
+			<tr>
+				<td><%= f.label :description %></td>
+				<td><%= f.text_area :description %></td>
 
-</tr>
-
-
-<tr>
-
-<td  class="first_col" rowspan="2">
-<div class="image">
-      <div class="field">
-        <img src="/images/events/<%=@event[:id]%>-2.jpg"></img>
-        <%= f.label :image_2, 'upload a picture' %><br />
-        <%= f.file_field :image_2 %>
-        
-      </div>
-    </div>
-</td>
-<td><label>Testimonial Videos</label></td>
- <td>
-  <%= f.fields_for :testimonial_videos do |e| %>
-  <%= render "testimonial_video_fields", :f => e %>
-  <% end %>
-<p><%= link_to_add_fields "Add TV", f, :testimonial_videos %></p>
-</td>
-</tr>
-<tr>
-<td><label>Testimonials</label></td>
- <td>
-  <%= f.fields_for :testimonials do |h| %>
-    <%= render "testimonial_fields", :f => h %>
-  <% end %>
-  <p><%= link_to_add_fields "Add T", f, :testimonials %></p>
+			</tr>
 
 
-</td>
-</tr>
+			<tr>
 
-  </table>
- 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+				<td  class="first_col" rowspan="2">
+					<div class="image">
+						<div class="field">
+							<img src="/images/events/<%=@event[:id]%>-2.jpg"></img>
+							<%= f.label :image_2, 'upload a picture' %><br />
+							<%= f.file_field :image_2 %>
 
-</div>
-  <script>
+						</div>
+					</div>
+				</td>
+				<td><label>Testimonial Videos</label></td>
+				<td>
+					<%= f.fields_for :testimonial_videos do |e| %>
+						<%= render "testimonial_video_fields", :f => e %>
+					<% end %>
+					<p><%= link_to_add_fields "Add TV", f, :testimonial_videos %></p>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Testimonials</label></td>
+				<td>
+					<%= f.fields_for :testimonials do |h| %>
+						<%= render "testimonial_fields", :f => h %>
+					<% end %>
+					<p><%= link_to_add_fields "Add T", f, :testimonials %></p>
 
 
-$(function() {
-$( ".datepicker" ).datepicker({
+				</td>
+			</tr>
 
-dateFormat : "dd MM yy",
-changeMonth : true,
-changeYear : true
+		</table>		
+	</div>
+	<script>
 
-});
-});
 
-$("document").ready(function(){
-$(".actions input").css({
+		$(function() {
+			$( ".datepicker" ).datepicker({
 
-  left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
-}) ;
+				dateFormat : "dd MM yy",
+				changeMonth : true,
+				changeYear : true
 
-})
+			});
+		});
 
-</script>
- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		$("document").ready(function(){
+			$(".actions input").css({
+
+				left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
+			}) ;
+
+		})
+
+	</script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <% end %>

@@ -85,6 +85,8 @@ margin-top: 0px;
 }
 </style>
 <% col = 0 %>
+<%= render :partial => "/admin/shared/header" %>
+<%= render :partial => "/admin/shared/tabs" %>
 <table class="outer_table">
   	<% @doctors.each do |doctor| %>
 			<%if col%3 == 0%>

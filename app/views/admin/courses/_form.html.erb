@@ -1,6 +1,8 @@
 
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <%= form_for(@admin_course) do |f| %>
+	<%= render :partial => "/admin/shared/header" %>
+	<%= render :partial => "/admin/shared/tabs" %>
   <% if @admin_course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>

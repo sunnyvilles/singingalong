@@ -17,61 +17,7 @@
 	</head>
 	<body>
 		<%=render :partial=> "home/shared/menu"%>
-		<div style="width: 980px; margin: auto;">			
-			<div class="admin-secondHeader">
-				<span>
-					<input type="radio" name="section" <%= @section != "academy" and @section != "clinic" ? "checked" : "" %>/>
-					<label>None</label>					
-				</span>
-				<span>
-					<input type="radio" name="section" <%= @section == "academy" ? "checked" : "" %> value="academy"/>
-					<label>Academy</label>					
-				</span>
-
-				<span>
-					<input type="radio" name="section"  <%= @section == "clinic" ? "checked" : "" %> value="clinic"/>
-					<label>Clinic</label>					
-				</span>
-			</div>
-			<%if @section.present?%>
-
-				<ul class="admin-tabs dottebBottom">
-					<li class="admin-tab <%= @type == "article" ? "selected" : "" %>">
-						<a href="/admin/<%=@section%>/articles">
-							<span>Articles</span>
-						</a>
-					</li>
-					<li class="admin-tab <%= @type == "video" ? "selected" : "" %>">
-						<a href="/admin/<%=@section%>/videos">
-							<span>Videos</span>
-						</a>
-					</li>
-					<li class="admin-tab <%= @type == "case study" ? "selected" : "" %>">
-						<a href="/admin/<%=@section%>/case-studies">
-							<span>Case Studies</span>
-						</a>
-					</li>
-					<% if @section === "clinic" %>
-					<li class="admin-tab <%= params[:controller] == "admin/events" ? "selected" : "" %>">
-						<a href="/admin/<%=@section%>/events">
-							<span>Events</span>
-						</a>
-					</li>
-					<%else%>
-					<li class="admin-tab <%= params[:controller] == "admin/courses" ? "selected" : "" %>">
-						<a href="/admin/<%=@section%>/courses">
-							<span>Courses</span>
-						</a>
-					</li>
-					<%end%>
-					<li class="admin-tab <%= params[:controller] == "admin/doctors" ? "selected" : "" %>">
-						<a href="/admin/<%=@section%>/doctors">
-							<span>Team</span>
-						</a>
-					</li>
-				</ul>
-
-			<%end%>
+		<div style="width: 980px; margin: auto;">						
 			<div class="adminCt">
 				<%= yield %>
 			</div>

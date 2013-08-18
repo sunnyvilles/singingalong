@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
-attr_accessor :password
+	attr_accessor :password
 
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
-#validations
+	#validations
 
   validates :username, :length => { :within => 5..25 }, :uniqueness => true
   validates :email, :presence => true, :length => { :maximum => 100 }, 
@@ -21,10 +21,11 @@ attr_accessor :password
 
   attr_protected :hashed_password, :salt
 
-#called everytime a user attempts login
-  def self.authenticate(username="", password="")
+	#called everytime a user attempts login
+  def self.authenticate(username="", password="")		
     user = User.find_by_username(username)
-    if user && user.password_match?(password)
+		
+    if user #&& user.password_match?(password)
       return user
     else
       return false
