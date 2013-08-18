@@ -781,3 +781,20 @@ color:#333333;
 .generalInfo ul{
 	margin-left: 20px;
 }
+
+
+.loginForm input[type="text"],.loginForm input[type="password"]{
+	width: 200px;
+}
+.loginForm input[type="submit"]{
+	width: 60px;
+	height: 24px;
+	background: #ddd;
+}
+.loginForm td{
+	line-height: 36px;
+}
+.loginForm a{
+	color: blue !important;
+	text-decoration: underline;
+}

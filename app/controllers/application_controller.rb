@@ -21,10 +21,14 @@ class ApplicationController < ActionController::Base
 		end
 
 	end
+
+	def is_logged_in?
+		return session[:user_id].present?
+	end
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "Please log in."
-      redirect_to(:controller => 'access', :action => 'login')
+      redirect_to("/")
       return false # halts the before_filter
     else
       return true

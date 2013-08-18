@@ -1,1 +1,10 @@
 <%= render :partial => "/admin/shared/header" %>
+<%if session[:user_id].present?%>
+<div class="font22 boldtext color333 marginTop20" style="width: 314px; margin: 20px auto;">Welcome to The Other Song</div>
+<div class="font16" style="width: 590px; margin: 20px auto;">
+	You can add Articles, Videos, Case Studies, Events, Courses and Team members.
+</div>
+<div class="font16" style="width: 300px; margin: 20px auto;">
+	To start please select clinic or academy.
+</div>
+<%end%>

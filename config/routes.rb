@@ -27,11 +27,15 @@ TheOtherSongClinic::Application.routes.draw do
 			get '/case-studies/new' => 'articles#new'
 			get '/case-studies/:id/edit' =>'articles#edit'
 		end
+		match '/attempt-login' => 'access#attempt_login'
+		match '/login' => 'access#login'
 	end
 	#resources :articles, only: [:show, :index]
 	#resources :doctors, only: [:show, :index]
 
 	get '/admin' => 'admin/admin#show'
+
+	
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

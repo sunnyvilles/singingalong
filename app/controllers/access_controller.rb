@@ -2,7 +2,7 @@ class AccessController < ApplicationController
 
 
 
-layout 'user'
+	layout "admin/application"
 
   before_filter :confirm_logged_in, :except => [:login, :attempt_login]
   
@@ -25,14 +25,17 @@ layout 'user'
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
       flash[:notice] = "You are now logged in."
-      redirect_to(:action => 'menu')
+      redirect_to(request.referer)
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')
-    end
-    
+    end    
   end
-  
+
+	def login
+		render "/admin/shared/login"
+	end
+	
   def logout
     session[:user_id] = nil
     session[:username] = nil
