@@ -192,6 +192,9 @@ button {  width: auto; overflow: visible; }
 .marginTop20{
 	margin-top: 20px;
 }
+.marginTop10{
+	margin-top: 10px;
+}
 .marginRight10{
 	margin-right: 10px;
 }
@@ -228,6 +231,10 @@ button {  width: auto; overflow: visible; }
 #accordion.maroonHeader .ui-state-default.ui-state-active{
 	background-color: #b73736;
 }
+#accordion.greenAccordianHeader .ui-state-default.ui-state-active{
+		background-color: #599d15;
+}
+
 #accordion.team .ui-state-default.ui-state-active{
 	background: #f67a00;
 }
@@ -797,4 +804,7 @@ color:#333333;
 .loginForm a{
 	color: blue !important;
 	text-decoration: underline;
+}
+.event-details td.secondCol{
+	padding-left: 20px;
 }

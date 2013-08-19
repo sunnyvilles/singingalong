@@ -1,14 +1,21 @@
 class Admin::EventsController < ApplicationController
+	before_filter :confirm_logged_in#, :only_admin
 	layout "admin/application.html"
   def index
-    @events = Event.all
+		
+    @events = Event.find(:all, :order => "id DESC")
     respond_to do |format|
       format.html 
       format.json { render json: @events }
     end
   end
 
-  
+  def only_admin
+		if(!is_logged_in?)
+			redirect_to "/admin"
+			return
+		end
+	end
   def show
     @event = Event.find(params[:id])
 

@@ -117,7 +117,7 @@
 					<%= f.fields_for :workshop_videos do |g| %>
 						<%= render "workshop_video_fields", :f => g %>
 					<% end %>
-					<p><%= link_to_add_fields "Add WV", f, :workshop_videos %></p>
+					<p><%= link_to_add_fields "Add Workshop Video", f, :workshop_videos %></p>
 
 				</td>
 			</tr>
@@ -146,7 +146,7 @@
 					<%= f.fields_for :testimonial_videos do |e| %>
 						<%= render "testimonial_video_fields", :f => e %>
 					<% end %>
-					<p><%= link_to_add_fields "Add TV", f, :testimonial_videos %></p>
+					<p><%= link_to_add_fields "Add Testimonial Video", f, :testimonial_videos %></p>
 				</td>
 			</tr>
 			<tr>
@@ -155,7 +155,7 @@
 					<%= f.fields_for :testimonials do |h| %>
 						<%= render "testimonial_fields", :f => h %>
 					<% end %>
-					<p><%= link_to_add_fields "Add T", f, :testimonials %></p>
+					<p><%= link_to_add_fields "Add Testimonial", f, :testimonials %></p>
 
 
 				</td>

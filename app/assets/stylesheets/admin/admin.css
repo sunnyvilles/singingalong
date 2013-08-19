@@ -19,9 +19,21 @@
 	width: 28px;
 	background-position: -80px -89px;
 	cursor: pointer;
+	margin: 6px;
 }
 .crossIcon:hover{
 	background-position: -80px -40px;
+}
+
+.editIcon{
+	height: 28px;
+	width: 28px;
+	background-position: -32px -89px;
+	cursor: pointer;
+	margin: 6px;
+}
+.editIcon:hover{
+	background-position: -32px -40px;
 }
 .dottebBottom{
 	border-bottom: 1px dotted #000;

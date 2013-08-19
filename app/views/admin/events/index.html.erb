@@ -16,8 +16,8 @@
 				<td><%= event.day %></td>
 				<!--<%= link_to '', [:admin, event] %>-->				
 				<td><%= event.description[0..100] unless event.description.blank?%></td>
-				<td><%= link_to 'Edit', "/admin/#{@section}/events/#{event.id}/edit" %></td>
-				<td><%= link_to 'Delete', [:admin, event], confirm: 'Are you sure?', method: :delete %></td>
+				<td><a href=<%="/admin/#{@section}/events/#{event.id}/edit"%>><span class="adminSprite editIcon"></span></a><!--<%= link_to 'Edit', "/admin/#{@section}/events/#{event.id}/edit" %>--></td>
+				<td><a href="/admin/clinic/events/<%=event.id%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="adminSprite crossIcon"></span></a><!--<%= link_to 'Delete', [:admin, event], confirm: 'Are you sure?', method: :delete %>--></td>
 			</tr>
 		<% end %>
 	</table>
