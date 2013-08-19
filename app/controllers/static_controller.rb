@@ -4,13 +4,14 @@ class StaticController < ApplicationController
 	def academy
 		#@events = Event.find(:all, :order => 'day DESC',:limit => 4)
 	end
+
 	def clinic
 		#@events = Event.find(:all, :order => 'day DESC', :limit => 4)
 	end
 	
 	def contact_us
 		
-	end		
+	end	
 		
 	def about_us
 		render ('static/about_us/' + params[:pages]) and return if params[:pages].present?

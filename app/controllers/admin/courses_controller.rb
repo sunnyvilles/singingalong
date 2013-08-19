@@ -2,6 +2,7 @@ class Admin::CoursesController < ApplicationController
   layout "admin/application"
 	# GET /admin/courses
   # GET /admin/courses.json
+  before_filter :confirm_logged_in
   def index
     @admin_courses = Admin::Course.all
 

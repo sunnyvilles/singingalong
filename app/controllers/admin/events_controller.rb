@@ -25,7 +25,6 @@ class Admin::EventsController < ApplicationController
     end
   end
 
-
   def new
     @event = Event.new
     @event.testimonial_videos.build

@@ -2,7 +2,7 @@ class Admin::ArticlesController < ApplicationController
   layout "admin/application.html"
   # GET /articles
   # GET /articles.json
-  
+  before_filter :confirm_logged_in
   def index
 
     @articles = Article.where("source = ? and type = ?", @section, @type)

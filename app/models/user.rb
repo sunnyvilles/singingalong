@@ -23,9 +23,13 @@ attr_accessor :password
 
 #called everytime a user attempts login
   def self.authenticate(username="", password="")
+    if EMAIL_REGEX.match(username).nil?
     user = User.find_by_username(username)
-
-    if user #&& user.password_match?(password)
+  else
+    user = User.where(:email=>username)[0]
+    username = user.username
+  end
+    if user && user.password_match?(password)
       return user
     else
       return false

@@ -2,7 +2,7 @@ class Admin::DoctorsController < ApplicationController
   layout "admin/application"
 	# GET /doctors
   # GET /doctors.json
-
+before_filter :confirm_logged_in
   def index
     @doctors = Doctor.all
 

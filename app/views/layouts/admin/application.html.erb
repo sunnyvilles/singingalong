@@ -17,6 +17,13 @@
 	</head>
 	<body>
 		<%=render :partial=> "home/shared/menu"%>
+		<div class="loginInfo floatRight">
+			<% if session[:username] %>
+			Logged in as : <%=session[:username]%> 
+			<%= link_to("Logout","/access/logout") %>
+			<%end%>
+
+		</div>
 		<div style="width: 980px; margin: auto;">						
 			<div class="adminCt">
 				<%= yield %>

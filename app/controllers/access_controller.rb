@@ -15,9 +15,6 @@ class AccessController < ApplicationController
     # display text & links
   end
 
-  def login
-    # login form
-  end
   
   def attempt_login
     authorized_user = User.authenticate(params[:username], params[:password])
@@ -25,7 +22,8 @@ class AccessController < ApplicationController
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
       flash[:notice] = "You are now logged in."
-      redirect_to(params[:after_login].present? ? params[:after_login] : request.referer)
+      # check isAdmin for admin_users then redirect
+      redirect_to(params[:after_login].present? ? params[:after_login] : "/admin/academy/articles")
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')

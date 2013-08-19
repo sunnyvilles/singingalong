@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
 	end
   def confirm_logged_in
     unless session[:user_id]
-      flash[:notice] = ""
-      #redirect_to("/admin")
+      flash[:notice] = "please login"
+      redirect_to("/admin/login")
       return false # halts the before_filter
     else
       return true
