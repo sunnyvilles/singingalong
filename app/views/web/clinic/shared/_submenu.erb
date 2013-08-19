@@ -193,7 +193,7 @@
 				<a href="/<%=scope%>/general-information"><%= t "submenu.generalInfo" %></a>			
 			</div>
 		</li>
-		<li class="<%=["events"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["events", "event"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/<%=scope%>/events"><%= t "submenu.events" %></a>

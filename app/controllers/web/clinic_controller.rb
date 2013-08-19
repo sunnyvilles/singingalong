@@ -201,7 +201,9 @@ class Web::ClinicController < ApplicationController
 			@eventsHash[event[:event_type]] << event
 		}		
 	end
-
+	def event
+		@event = Event.find(params[:event_id])
+	end
 	def contact
 		
 	end
