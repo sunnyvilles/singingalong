@@ -11,12 +11,14 @@ openEventLB = function(eventId){
 		}
 	})
 }
-if(window.location.hash !== ""){
-	var eventId = window.location.hash.split("#")[1];
-	openEventLB(eventId);
-}
+
+
 
 $(function(){
+	if(window.location.hash !== ""){
+		var eventId = window.location.hash.split("#")[1];
+		openEventLB(eventId);
+	}
 	$(".eventReadMore").click(function(){
 		openEventLB($(this).data().eventid)
 		return false;
