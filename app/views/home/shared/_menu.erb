@@ -215,7 +215,7 @@
 
 					<div class="loginPanel">
 						<div class="uptri"></div>
-						<form action="/login" method="POST">
+						<form action="/admin/attempt-login" method="POST">
 							<input type="email" name="username" placeholder="Username"></input>
 							<input type="password" name="password" placeholder="Password"></input>
 							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>"></input>
@@ -235,15 +235,19 @@
 	</div>
 </div>
 <script>
-	$("body").click(function(){
+	$("body").click(function(){	
 		$(".loginPanel").css({
 			display: 'none'
-		});	});
-	$(".loginBox").click(function(){
-		console.log($(".loginPanel"));
-		$(".loginPanel").css({
-			display: 'block'
+		});	
 		});
+	$(".loginBox").click(function(){
+		console.log($(".loginPanel"));	
+		if ($(".loginPanel").css('display') == 'none')
+		{	
+			$(".loginPanel").css({
+			display: 'block'
+			});
+		}
 		return false;
 	});
 </script>

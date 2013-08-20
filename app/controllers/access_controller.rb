@@ -25,8 +25,7 @@ class AccessController < ApplicationController
       # check isAdmin for admin_users then redirect
       
       if is_admin?
-      
-        redirect_to(params[:after_login].present? ? params[:after_login] : "/admin/academy/articles")
+        redirect_to(params[:after_login].present? ? params[:after_login] : "/admin")
       else
         redirect_to(request.referer)
       end
