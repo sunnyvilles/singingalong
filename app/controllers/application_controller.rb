@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
 	def is_logged_in?
 		return session[:user_id].present?
 	end
+
+	
+	def is_admin?
+		return User.find(session[:user_id]).isAdmin
+	end
+
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "please login"

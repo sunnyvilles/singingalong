@@ -25,7 +25,7 @@ attr_accessor :password
   def self.authenticate(username="", password="")
     if EMAIL_REGEX.match(username).nil?
     user = User.find_by_username(username)
-    puts "eeeeeeeeeeeeeeeeeeeeeemail"
+ 
   else
     user = User.where(:email=>username).first
     username = user.username

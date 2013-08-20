@@ -23,7 +23,14 @@ class AccessController < ApplicationController
       session[:username] = authorized_user.username
       flash[:notice] = "You are now logged in."
       # check isAdmin for admin_users then redirect
-      redirect_to(params[:after_login].present? ? params[:after_login] : "/admin/academy/articles")
+      
+      if is_admin?
+      
+        redirect_to(params[:after_login].present? ? params[:after_login] : "/admin/academy/articles")
+      else
+        redirect_to(request.referer)
+      end
+      
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')
