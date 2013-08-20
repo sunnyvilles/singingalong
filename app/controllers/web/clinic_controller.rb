@@ -203,6 +203,9 @@ class Web::ClinicController < ApplicationController
 	end
 	def event
 		@event = Event.find(params[:event_id])
+		if request.xhr?			
+			render :layout => false and return
+		end
 	end
 	def contact
 		

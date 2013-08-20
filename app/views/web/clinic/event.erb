@@ -3,13 +3,44 @@
 		margin-bottom: 0 !important;
 	}
 </style>
-<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
-<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
-<div class="contentWrap">
-	<h2 class="title"><%=@event[:title]%></h2>
-	<div class="padder">		
-		<div ><%=raw @event[:description]%></div>
-		<div><%=raw @event[:other_description]%></div>
-	</div>
+<%event=@event%>
+<%if !request.xhr?%>
+	<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
+	<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 
-</div>
+	<div class="contentWrap">
+	<%end%>
+	<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
+	<div class="eventDescBlk color636363">
+		<div><%=raw event[:other_description]%></div>
+		<div class="font18 marginTop20 color333">WORKSHOP DETAILS:</div>
+		<div class="marginTop10"><%=raw event[:description]%></div>
+
+		<div class="marginTop20">
+			<table class="event-details">
+				<%if event[:fees].present?%>
+					<tr>
+						<td>Course&nbsp;fees: </td>
+						<td class="secondCol boldtext color333"><%=event[:fees]%></td>
+					</tr>
+				<%end%>
+				<tr>
+					<td>Date:</td>
+					<td class="secondCol boldtext color333"><%=event[:day]%></td>
+				</tr>
+				<tr>
+					<td>Venue:</td>
+					<td class="secondCol">‘the other song’ academy, 7th Floor, Peninsula Heights, C.D. Burfiwala Marg lane, Andheri (W), Mumbai 400058.</td>
+				</tr>
+			</table>
+		</div>
+		<%if event.testimonials.length != 0 %>
+			<div class="font18 marginTop20 color333">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
+			<%event.testimonials.each do |testimonial|%>
+				<div class="marginTop10"><%=raw testimonial[:title]%></div>
+			<%end%>
+		<%end%>
+	</div>
+	<%if !request.xhr?%>
+	</div>
+<%end%>

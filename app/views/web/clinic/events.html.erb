@@ -2,8 +2,14 @@
 	.submenu{
 		margin-bottom: 0 !important;
 	}
+	a.eventReadMore:after{
+		content: "\00bb";
+		padding-left: 6px;
+		position: absolute;
+	}
 </style>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="/styles/jquery-ui.css" />
+<script src="/scripts/jquery-ui.js"></script>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap">
@@ -21,34 +27,43 @@
 						<div class="floatLeft" style="width: 800px;">
 							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
 							<div class="eventDescBlk">
-								<div><%=raw event[:other_description]%></div>
-								<div class="font18 marginTop20">WORKSHOP DETAILS:</div>
-								<div class="marginTop10"><%=raw event[:description]%></div>
-
-								<div class="marginTop20">
+								<div><%=raw event[:description]%></div>
+								<%if event[:fees].present?%>
 									<table class="event-details">
-										<%if event[:fees].present?%>
-											<tr>
-												<td>Course&nbsp;fees: </td>
-												<td class="secondCol"><%=event[:fees]%></td>
-											</tr>
-										<%end%>
 										<tr>
-											<td>Date:</td>
-											<td class="secondCol"><%=event[:day]%></td>
-										</tr>
-										<tr>
-											<td>Venue:</td>
-											<td class="secondCol">‘the other song’ academy, 7th Floor, Peninsula Heights, C.D. Burfiwala Marg lane, Andheri (W), Mumbai 400058.</td>
+											<td>Course&nbsp;fees: </td>
+											<td class="secondCol color333"><%=event[:fees]%></td>
 										</tr>
 									</table>
-								</div>
-								<%if event.testimonials.length != 0 %>
-									<div class="font18 marginTop20">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
-									<%event.testimonials.each do |testimonial|%>
-										<div class="marginTop10"><%=raw testimonial[:title]%></div>
-									<%end%>
+								<a class="eventReadMore" data-eventId="<%=event[:id]%>" href="/clinic/events/#<%=event[:id]%>"><%= t "home.readmore" %></a>
 								<%end%>
+								<!--<div class="font18 marginTop20">WORKSHOP DETAILS:</div>
+										<div class="marginTop10"><%=raw event[:other_description]%></div>
+
+										<div class="marginTop20">
+											<table class="event-details">
+								<%if event[:fees].present?%>
+															<tr>
+																<td>Course&nbsp;fees: </td>
+																<td class="secondCol"><%=event[:fees]%></td>
+															</tr>
+								<%end%>
+												<tr>
+													<td>Date:</td>
+													<td class="secondCol"><%=event[:day]%></td>
+												</tr>
+												<tr>
+													<td>Venue:</td>
+													<td class="secondCol">‘the other song’ academy, 7th Floor, Peninsula Heights, C.D. Burfiwala Marg lane, Andheri (W), Mumbai 400058.</td>
+												</tr>
+											</table>
+										</div>
+								<%if event.testimonials.length != 0 %>
+													<div class="font18 marginTop20">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
+									<%event.testimonials.each do |testimonial|%>
+																<div class="marginTop10"><%=raw testimonial[:title]%></div>
+									<%end%>
+								<%end%>-->
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -115,6 +130,7 @@
 			</div>
 		</div>
 	</div>
+	<div id="eventLightBox"></div>
 </div>
 <script>
 	$(function() {
@@ -122,5 +138,8 @@
 			heightStyle: 'content',
 			collapsible: true
 		});
+		
+		
 	});
+	
 </script>
