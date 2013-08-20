@@ -1,6 +1,9 @@
 
 openEventLB = function(eventId){
-	
+	$("#eventLightBox").html("loading...").dialog({
+		modal: true,
+		width: 970
+	});
 	$.ajax({
 		url : '/clinic/events/' + eventId,
 		success: function(resp){
