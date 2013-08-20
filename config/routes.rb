@@ -76,6 +76,7 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/clinic/testimonials' => 'web/clinic#testimonials'
 	get '/clinic/general-information' => 'web/clinic#general_information'
 	get '/clinic/events' => 'web/clinic#events'
+	get '/clinic/events/:event_id' => 'web/clinic#event'
 	get '/clinic/contact-us' => 'web/clinic#contact'
 	#Clinic routes end
 
