@@ -209,22 +209,29 @@
 			<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
 			<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
 			<li>
+				<%if session[:user_id].present?%>
+				<div class="loginBox logoutBox">
+				<span class="loginText"><%= t "header.logout"%></span>
+				</div>
+				<%else%>
 				<div class="loginBox">
 					<span class="loginText"><%= t "header.login"%></span>
 					<span class="spriteIcon downArrow"></span>
 
 					<div class="loginPanel">
 						<div class="uptri"></div>
-						<form action="/admin/attempt-login" method="POST">
+						<form action="/user/attempt-login" method="POST" id="loginForm">
 							<input type="email" name="username" placeholder="Username"></input>
 							<input type="password" name="password" placeholder="Password"></input>
-							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>"></input>
+							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
 							<span><%= t "header.forgotPassword" %></span>
 							<span><%= t "header.noAccount" %></span>
 							<span class="signup_btn"><%= t "header.signup" %></span>
 						</form>
 					</div>
 				</div>
+				<%end%>
+
 			</li>
 			<li>
 				<input type="text" class="search"></input>
@@ -250,4 +257,12 @@
 		}
 		return false;
 	});
+	function submitForm()
+    {
+       $("#loginForm").submit();
+    }
+
+    $('.logoutBox').click(function(){
+    	window.location = "/user/logout"
+    })
 </script>

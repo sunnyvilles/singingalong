@@ -46,4 +46,12 @@ class AccessController < ApplicationController
     flash[:notice] = "You have been logged out."
     redirect_to(:action => "login")
   end
+
+  def user_logout
+    puts "zzzzzzzzzzzzzzzzzzzzzzzzzz"
+    session[:user_id] = nil
+    session[:username] = nil
+    #flash[:notice] = "You have been logged out."
+    redirect_to("/")
+  end
 end

@@ -34,6 +34,10 @@ TheOtherSongClinic::Application.routes.draw do
 	#resources :doctors, only: [:show, :index]
 	match 'admin/attempt-login' => 'access#attempt_login'
 	match 'admin/login' => 'access#login'
+
+	match 'user/attempt-login' => 'access#attempt_login'
+	match 'user/logout' => 'access#user_logout'
+
 	get '/admin' => 'admin/admin#show'
 
 	
