@@ -124,6 +124,8 @@ TheOtherSongClinic::Application.routes.draw do
   #get '/general-information/:pages' => 'static#general_information'
 
   get '/social-sharing/:article_id' => 'web/clinic#social_sharing'
+
+	post '/submit-feedback' => 'static#submit_feedback'
   
   #get "general_information/:pages" => "static#general_information"
   #get "knowledge_center/:pages" => "static#knowledge_center"

@@ -1,90 +1,95 @@
 
 <style type="text/css"></style>
- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
 	<h2 class="title">INDIAN COURSES</h2>
 	<div class="padder">
-<div id="accordion">
-<h3>BASIC COURSES</h3>
-<div>
- <p>
-<%@basic_courses.each {|basic_course|%>
+		<div id="accordion">
+			<h3>BASIC COURSES</h3>
+			<div>
+				<p>
+					<%@basic_courses.each {|basic_course|%>
 
- <h1> <%= basic_course.title %> </h1>
+					<h1> <%= basic_course.title %> </h1>
+					<div>
+						<b>Start date:</b>
+						<%= date_dmY basic_course.start_date %>
+					</div>
+					<div>
+						<b>End date:</b>
+						<%= date_dmY  basic_course.end_date %>
+					</div>
+					<div>
+						<b>Timing:</b>
+						<%= basic_course.timing.hour %>: 00
+					</div>
+					<br/>
+					<b>Venue:</b>
+					<%= basic_course.venue %>
+					<br/>
+					<b>Description:</b>
+					<%=raw basic_course.description %>
+					<br/>
+					<b>Fees:</b>
+					<%= basic_course.fees %>
+					<br/>
+					<b>Discounts:</b>
+					<%= basic_course.discounts %>
+					</p>
+					<br/>
 
-  <b>Start date:</b>
-  <%= basic_course.start_date %>
+				<%}%>
+				</p>
 
-  <b>End date:</b>
-  <%= basic_course.end_date %>
+			</div>
+			<h3>ADVANCED COURSES</h3>
+			<div>
+				<p>
 
-<br/>
-  <b>Timing:</b>
-  <%= basic_course.timing %>
-<br/>
-  <b>Venue:</b>
-  <%= basic_course.venue %>
-<br/>
-  <b>Description:</b>
-  <%= basic_course.description %>
-<br/>
-  <b>Fees:</b>
-  <%= basic_course.fees %>
-<br/>
-  <b>Discounts:</b>
-  <%= basic_course.discounts %>
-</p>
-<br/>
+				</p>
 
-<%}%>
-</p>
+			</div>
+			<h3>FULL TIME MASTERS COURSE</h3>
+			<div>
+				<p>
 
+				</p>
+
+			</div>
+			<h3>PART TIME MASTERS COURSE</h3>
+			<div>
+				<p>
+
+				</p>
+
+			</div>
+		</div>
+	</div>
 </div>
-<h3>ADVANCED COURSES</h3>
-<div>
- <p>
-
-</p>
-
-</div>
-<h3>FULL TIME MASTERS COURSE</h3>
-<div>
- <p>
-
-</p>
-
-</div>
-<h3>PART TIME MASTERS COURSE</h3>
-<div>
- <p>
-
-</p>
-
-</div>
-</div>
-</div>
-</div>
- <script>
-$(function() {
-$( "#accordion" ).accordion();
-});
+<script>
+	$(function() {
+		$( "#accordion" ).accordion({
+			heightStyle: 'content',
+			collapsible: true
+		});
+	});
 </script>
 <style type="text/css">
 
-#accordion a span.title {
+	#accordion a span.title {
     float: left;
     display: block;
     margin-right: 10px;
     margin-top: 5px;
-}
+	}
 
-#accordion a span.ui-icon {
+	#accordion a span.ui-icon {
     position: static;   
     height: 20px;
     margin-top: 0px; 
     margin-top: 3px;
-}
+	}
 
 </style>

@@ -64,8 +64,7 @@
 					<span class="dotAfter">TREATING</span>
 					<span class="dotAfter">TRANSFORMING</span>
 				</div>
-				<span class="copyright floatLeft">copyright 2013, The Other Song</span>
-				<span class="copyright floatRight">All Rights Reserved</span>
+				<span class="copyright floatLeft tisapro"> &copy;  2013, The Other Song</span>				
 			</div>
 		</div>
 		<script>
@@ -86,7 +85,7 @@
 				pagination: false,
 				hashchange: false,
 				scrollable: true,
-				play: 3000,
+				//play: 3000,
 				animateTitle: function(options){
 					var prev = {
 						0: 2,
@@ -110,6 +109,10 @@
 					});
 				}
 			});
+
+			$("ul.slideTitles").css({
+				top : ($(window).height() - 385 - 48 - 20)/2
+			})
 		</script>
   </body>
 </html>
