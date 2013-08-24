@@ -1,5 +1,7 @@
+<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700' rel='stylesheet' type='text/css'></link>
+<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,300,400italic' rel='stylesheet' type='text/css'></link>
 <style>
-	@font-face {
+	/*@font-face {
 		font-family: MavenProBlack;
 		src: local(MavenProBlack), url('/fonts/MavenProBlack.otf') format('opentype');
 	}
@@ -18,38 +20,41 @@
 	@font-face {
 		font-family: TisaProRegular;
 		src: local(TisaProRegular), url('/fonts/TisaProRegular.otf') format('opentype');
-	}
+	}*/
 	body{
-		font-family: 'MavenProRegular';
+		font-family: 'Maven Pro';
 		margin: 0;
 	}
 	.header{
-		height: 60px;
-		border-top: 1px solid #525355;
-		background-image: -moz-linear-gradient(center top,#424242,#787878);
-		background-image: -webkit-linear-gradient(#424242,#787878);
-		background-color: #454648;
-		-moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
-		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
-		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		height: 40px;
+		border-top: 1px solid #525355;		
+		background-image: url("/images/submenu-bg.jpg");		
+		background-repeat: repeat-x;
 	}
 	.headerCt{
 		width: 980px;
 		margin: auto;
 	}
+	.headerCt > ul{
+		height: 40px;
+	}
+	.headerCt > ul >li{
+		position: relative;
+		bottom: 1px;		
+	}
+	.headerCt > ul >li.academy{
+		right: 4px;
+	}
 	.headerCt .menuItems li.clinic.selected, .headerCt .menuItems li.clinic:hover{
 		background-image: url("/images/sprite.png");
-		background-position: -1070px -27px;		
-	}
-	.headerCt .menuItems li.clinic.selected{
-		font-weight: bold;
+		background-position: -1074px -49px;
 	}
 	.headerCt .menuItems li.academy.selected, .headerCt .menuItems li.academy.item:hover{
 		background-image: url("/images/sprite.png");
-		background-position: -1410px -27px;
+		background-position: -1426px -49px;
 	}
 	.headerCt .menuItems li.academy.selected{
-		font-weight: bold;
+		
 	}
 	.headerCt .menuItems li{
 		display: inline;
@@ -57,16 +62,17 @@
 	}
 
 	.headerCt .menuItems li.item{
-		padding: 20px 22px;
+		padding: 10px 14px;
 		height: 20px;
-		font-size: 20px;
+		font-size: 10pt;
 		display: inline-block;
+		letter-spacing: 1px;
 	}
 	.tosLogo{
 		display: inline-block;
-		height: 56px;
-		width: 267px;
-		background-position: -508px -36px;
+		height: 38px;
+		width: 161px;
+		background-position: -509px -59px;
 	}
 
 	.contentWrap{
@@ -78,17 +84,20 @@
 	}
 	.loginBox{
 		display: inline-block;
-		padding: 10px;
+		padding: 4px 10px;
 		background-image: url("/images/sprite.png");
 		background-position: -244px -10px;
 		cursor: pointer;
 		position: relative;
 		margin-left: 22px;
+		font-size: 9pt;
+		top: -1px;
 	}
 	.loginText{
 		padding-right: 3px;
 		position: relative;
-		bottom: 2px;
+		bottom: 1px;
+		letter-spacing: 1px;
 	}
 
 	.downArrow{
@@ -96,34 +105,35 @@
 		height: 16px;
 		background-position: -128px -28px;
 		position: relative;
-		bottom: 2px;
+		bottom: -1px;
 	}
 	.search{
-		height: 26px;
+		height: 22px;
 		width: 212px;
 		position: relative;
-		bottom: 5px;
+		bottom: 2px;
 		background-color: #bdbdbd;
 		border: none;
 		position: relative;
-		left: 25px;
+		left: 30px;
 	}
 	.searchIcon{
-		height: 24px;
+		height: 27px;
 		width: 24px;
-		background-position: -152px -19px;
+		background-position: -152px -16px;
 		position: relative;
-		right: 6px;
+		right: 12px;
+		top: 3px;
 	}
 	.loginBox .loginPanel{
 		display: none;
 		position: absolute;
-		height: 138px;
+		height: 120px;
 		width: 228px;
 		background-color: #ededed;
 		z-index: 11;
 		top: 48px;
-		right: -82px;
+		right: -98px;
 		padding: 16px;
 		padding-bottom: 19px;
 	}
@@ -132,22 +142,31 @@
 	}
 	.loginPanel input{
 		width: 218px;
-		height: 24px;
+		height: 20px;
 		margin-bottom: 10px;
 		padding-left: 8px;
-		font-size: 16px;
+		font-size: 10pt;
+		color: #636363 !important;
 	}
 	.loginPanel span{
-		font-size: 13px;
+		font-size: 8pt;
 		color: #525355;
 	}
+	.loginPanel span.signup_btn{
+		color: #fff;
+		font-size: 8pt;
+		left: 25px;
+		letter-spacing: 1px;
+}
 	.loginPanel input[type="submit"]{
-		width: 92px;
+		width: 70px;
 		background-position: -243px -13px;
 		border: none;
-		height: 29px;
-		color: #fff;
+		height: 22px;
+		color: #fff !important;
 		margin-bottom: 8px;
+		font-size: 8pt;
+		letter-spacing: 1px;
 	}
 	.uptri{
 		border-color: transparent transparent #ededed;
@@ -166,25 +185,17 @@
 
 
 	.signup_btn{
-		border:1px solid #589913;
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		border-radius: 3px;
-		font-size:12px;
-		font-family:arial, helvetica, sans-serif;
+		border: 1px solid #589913;
+		font-size: 12px;
+		font-family: arial, helvetica, sans-serif;
 		padding: 4px 7px 3px 7px;
-		text-decoration:none;
-		display:inline-block;
-		color: #FFFFFF;
-		/*background-color: #75CB19;
-		background-image: -webkit-gradient(linear, left top, left bottom, from(#75CB19), to(#B2EE10));
-		background-image: -webkit-linear-gradient(top, #75CB19, #B2EE10);
-		background-image: -moz-linear-gradient(top, #75CB19, #B2EE10);
-		background-image: -ms-linear-gradient(top, #75CB19, #B2EE10);
-		background-image: -o-linear-gradient(top, #75CB19, #B2EE10);
-		background-image: linear-gradient(to bottom, #75CB19, #B2EE10);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#75CB19, endColorstr=#B2EE10);*/
+		text-decoration: none;
+		display: inline-block;
+		color: #FFFFFF !important;
 		background-image: url("/images/green-btn.png");
 		background-position: -1px -1px;
+		position: relative;
+		left: 10px;
 	}
 
 	.signup_btn:hover{
@@ -224,7 +235,7 @@
 							<input type="email" name="username" placeholder="Username"></input>
 							<input type="password" name="password" placeholder="Password"></input>
 							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
-							<span><%= t "header.forgotPassword" %></span>
+							<span><%= t "header.forgotPassword" %></span><br />
 							<span><%= t "header.noAccount" %></span>
 							<span class="signup_btn"><%= t "header.signup" %></span>
 						</form>

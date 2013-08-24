@@ -37,8 +37,10 @@
 		background-position: -10px -10px;
 		right: 0;
 	}
-
 	.slideControler{
+		display: none;
+}
+	/*.slideControler{
 		position: absolute;
 		bottom: 10px;
 		right: 50%;
@@ -57,7 +59,7 @@
 		border-radius: 14px;
 		height: 14px;
 		width: 14px
-	}
+	}*/
 	.sliderTitle{
 		position: absolute;
 		top: 0;
@@ -67,13 +69,20 @@
 		color: #fff;
 		padding: 64px 28px;
 	}
-	
+
+	.sliderTitle.academy{
+		background: #006699;
+	}
 		
 	.sliderTitle1{
-		font-size: 28px;
+		font-size: 20pt;
 	}
 	.sliderTitle2{
-		font-size: 18px;
+		font-size: 10pt;
+		
+		line-height: 12pt;
+		top: 10px;
+		position: relative;
 	}
 </style>
 <div id="slides">
@@ -94,7 +103,7 @@
 		<li><img src="/images/<%=scope%>/slides-3.jpg" height="260" width="652" /></li>
 		<li><img src="/images/<%=scope%>/slides-4.jpg" height="260" width="652" /></li>
 	</ul>
-	<div class="sliderTitle">
+	<div class="sliderTitle <%=scope%>">
 		<div class="textCt">
 			<div class="sliderTitle1">Essential Homeopathy</div>
 			<div class="sliderTitle2">A complete online discussion forum, mentoring and training program with Dr. Rajan Sankaran </div>

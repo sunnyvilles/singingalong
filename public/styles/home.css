@@ -15,14 +15,14 @@
 	src: local(MavenProRegular), url('/fonts/MavenProRegular.otf') format('opentype');
 }
 @font-face {
-	font-family: TisaProRegular;
+	font-family: 'Merriweather';
 	src: local(TisaProRegular), url('TisaProRegular.otf') format('opentype');
 }
 
 
 body{
 	margin: 0;
-	font-family: 'MavenProRegular';
+	font-family: 'Maven Pro';
 }
 .floatLeft{
 	float: left;
@@ -123,7 +123,7 @@ button {
 	text-decoration: none;
 	color: #080808;
 	text-align: center;
-	line-height: 12pt;
+	line-height: 10pt;
 	letter-spacing: 1px;
 }
 .rightMargin18{
@@ -264,7 +264,8 @@ ul.slideTitles{
 	font-size: 6pt;
 	padding: 0;
 	letter-spacing: 1px;
-	font-family: 'TisaProRegular';
+	font-family: 'Merriweather';
+	font-weight: 300;
 }
 
 .footer .motto{
@@ -274,8 +275,9 @@ ul.slideTitles{
 	color: #fff;
 	font-size: 11pt;
 	padding-bottom: 20px;
-	font-family: 'TisaProRegular';
+	font-family: 'Merriweather';
 	letter-spacing: 1px;
+	font-weight: 300;
 }
 
 .footer .motto span.dotAfter:before{
@@ -291,7 +293,7 @@ ul.slideTitles{
 }
 
 .title1{
-	background-color: #145d96;
+	background-color: #006699;
 }
 
 .title2{

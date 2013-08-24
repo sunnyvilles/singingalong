@@ -5,14 +5,17 @@
 		padding-left: 18px;
 		padding-top: 8px;
 	}
-
+	.eventBlock:first-child{
+		margin-top: 0;
+	}
 	.eventBlock{
 		margin-top: 22px;
 	}
-	
+
 	.eventDescription{
 		line-height: 20px;
 		width: 220px;
+		padding-top: 4px;
 	}
 	.eventDescription h4{
 		font-weight: normal;
@@ -21,28 +24,21 @@
 	.eventDescription a{
 		color: #666;
 	}
-	.eventDescription a:hover{
-		text-decoration: underline;
-	}
-	.eventDescription a:after{
-		content: "\00bb";
-		padding-left: 6px;
-		position: absolute;
-	}
+	
 </style>
 <h2 class="title highlight"><%= t "home.events" %></h2>
 <div class="eventsList">
 	<%events.each { |event|%>
 		<div class="eventBlock">
-				<div class="dateBlock floatLeft">
+			<div class="dateBlock floatLeft">
 
-<div class="dateCt"><%=event[:day].present? ? event[:day].strftime('%b %d') : ""%></div>
-<div class="dayCt"><%=event[:day].present? ? event[:day].strftime('%a') : ""%>.</div>
-</div>
+				<div class="dateCt subheader"><%=event[:day].present? ? event[:day].strftime('%b %d') : ""%></div>
+				<div class="dayCt subheader"><%=event[:day].present? ? event[:day].strftime('%a') : ""%>.</div>
+			</div>
 			<div class="eventDescription floatLeft">
-				<h3 class="highlight"><%=event[:title][0...32]%></h3>
+				<h3 class="subheader"><%=event[:title][0...32].upcase%></h3>
 				<h4><%=event[:sub_title]%></h4>
-				<a href="/clinic/events/#<%=event[:id]%>"><%= t "home.readmore" %></a>
+				<a class="links" href="/clinic/events/#<%=event[:id]%>"><%= t "home.readmore" %></a>
 			</div>
 			<div class="clear"></div>
 		</div>

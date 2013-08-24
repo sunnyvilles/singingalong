@@ -1,6 +1,6 @@
 <style>
-	.submenu{
-		height: 42px;
+/*	.submenu{
+		height: 30px;
 		border-top: 1px solid #525355;
 		background-image: -moz-linear-gradient(center top,#787878,#424242);
 		background-image: -webkit-linear-gradient(#787878,#424242);
@@ -16,16 +16,14 @@
 		margin: auto;
 		position: relative;
 	}
-	.submenuItem{
-		/*position: relative;*/
-	}
+	
 	.submenuItem ul{
 		display: none;
 		position: absolute;
 		width: 980px;
 		left: 2px;
 		top: 42px;
-		/*border-right: 1px solid #ddd;*/
+		
 		z-index: 1;
 	}
 	.submenuItem ul li{
@@ -44,8 +42,8 @@
 	}
 	.submenuItems li a{
 		color: #ddd;
-		/*font-size: 15.5pt;
-		line-height: 32pt;*/
+		
+		line-height: 32pt;
 	}
 	.submenuItem li{
 		height: 38px;
@@ -108,7 +106,7 @@
 		padding-left: 22px;
 		font-size: 22px;
 		margin: 20px 0;
-	}
+	}*/
 </style>
 <div class="header submenu">
 	<ul class="submenuItems">
@@ -118,7 +116,7 @@
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
-					<li>
+					<li class="<%= params[:action] == "about" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/aim/"><%= t "submenu.aboutsection.aim" %></a>
 					</li>

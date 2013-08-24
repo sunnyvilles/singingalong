@@ -19,7 +19,7 @@
 		right: auto;
 		bottom: auto;
 		left: 0px;
-		margin: 0px;		
+		margin: 0px;
 		height: 226px;
 		margin-left: 28px;
 	}
@@ -67,7 +67,7 @@
 
 	.caroufredsel_wrapper{
 		position: absolute !important;
-}
+	}
 </style>
 
 <div class="newsCt">
@@ -84,9 +84,9 @@
 	<%#else%>
 							<img src="<%=news[:image]%>" alt="" height="194" width="290"></img>
 	<%#end%>
-							<div class="type <%=news[:type]%>"><%=news[:type].upcase%></div>
+							<div class="subheader type <%=news[:type]%>"><%=news[:type].upcase%></div>
 						</div>
-						<h3><%=news[:title]%></h3>
+						<div class="bodyContent"><%=news[:title]%></div>
 					</li>
 				<%}%>
 
@@ -97,10 +97,10 @@
 <script>
 	$(function(){
 		$(".sliderCt ul").carouFredSel({
-        auto  : true,
-        items : 3,
-        prev  : '#ui-carousel-prev',
-        next  : '#ui-carousel-next'
-      });
+			auto  : true,
+			items : 3,
+			prev  : '#ui-carousel-prev',
+			next  : '#ui-carousel-next'
+		});
 	});
 </script>
