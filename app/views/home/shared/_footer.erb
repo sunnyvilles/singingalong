@@ -9,21 +9,18 @@
 		font-size: 13pt;
 	}
 
-.ftSection ul{
+	.ftSection ul{
+		list-style: none;
+	}
 
-list-style: none;
-
-}
-
-.ftSection li { 
-   
+	.ftSection li {
     text-indent: -.7em;
-}
+	}
 
-.ftSection li:before {
+	.ftSection li:before {
     content: '';
     background-color: #666666;
-     display: inline-block;
+		display: inline-block;
     position: relative;
     height: 8px;
     width: 8px;
@@ -34,8 +31,7 @@ list-style: none;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     margin-right: 8px;
-    
-}
+	}
 
 </style>
 <footer>
@@ -62,12 +58,12 @@ list-style: none;
 							<li><a href=""><%= t "footer.kcenter" %></a></li>
 							<li><a href=""><%= t "footer.cources" %></a></li>
 							<li><a href=""><%= t "footer.admissions" %></a></li>
-							<!--<li><a href=""><%= t "footer.satellitecenter" %></a></li>-->							
+							<!--<li><a href=""><%= t "footer.satellitecenter" %></a></li>-->
 							<li><a href=""><%= t "footer.contactUs" %></a></li>
 						</ul>
 					</div>
 					<div class="linksSection">
-						<h3><a href=""><%=  t "footer.links"%></a></h3>						
+						<h3><a href=""><%=  t "footer.links"%></a></h3>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -110,30 +106,6 @@ list-style: none;
 		</div>
 	</div>
 </footer>
-<style type="text/css">
-
-
-
-::-webkit-input-placeholder {
-
-	font-size:10pt;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-
-	font-size:10pt;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-
-  font-size:10pt;
-}
-
-:-ms-input-placeholder {  
-
-	font-size:10pt;
-}
-</style>
 
 <script>
   $(function() {

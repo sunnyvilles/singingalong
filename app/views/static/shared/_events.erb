@@ -34,8 +34,8 @@
 		<div class="eventBlock">
 			<div class="dateBlock floatLeft">
 
-				<div class="dateCt subheader"><%=event[:day].present? ? event[:day].strftime('%b %d') : ""%></div>
-				<div class="dayCt subheader"><%=event[:day].present? ? event[:day].strftime('%a') : ""%>.</div>
+				<div class="dateCt subheader" style="font-weight: normal;"><%=event[:day].present? ? event[:day].strftime('%b %d') : ""%></div>
+				<div class="dayCt subheader" style="font-weight: normal;"><%=event[:day].present? ? event[:day].strftime('%a') : ""%>.</div>
 			</div>
 			<div class="eventDescription floatLeft">
 				<h3 class="subheader"><%=event[:title][0...32].upcase%></h3>
