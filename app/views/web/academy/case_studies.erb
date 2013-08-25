@@ -28,7 +28,7 @@
 
 		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "academy", :type => "case-studies"} %>
 		<div class="floatLeft articlesRightPanel">
-			<div class="topHeader">
+			<div class="topHeader"  style="padding-bottom: 20px">
 				<%if page_no !=1%>
 					<a href="/academy/case-studies?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
 				<%end%>

@@ -1,22 +1,6 @@
 <style>
-	.article .padder{
-		margin-top: 0;
-	}
-
-	.article .title{
-		display: inline-block;
-		color: #000;
-	}
-	.article .article-title:before{
-		content: "\00bb\a0";
-		font-size: 20px;
-	}
-	.article img{
-
-	}
-
 	.articlesRightPanel{
-		padding: 28px 0;
+		padding: 28px 0 0 0;
 	}
 	.articleSharingTools{
 		position: relative;
@@ -40,27 +24,24 @@
 		left: 0 !important;
 	}
 </style>
-<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
-<%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article article-list">
 	<div class="padder">
-		<div class="topHeader">
-			<a href="/academy/articles"><h2 class="title"><%= t "submenu.knowledge.articles"%> </h2></a>
-			<span class="article-title"><%=@article[:title].upcase%></span>
+		<div class="topHeader" style="padding-bottom: 20px;">
+			<a href="/clinic/articles"><h2 class="title"><%= t "submenu.knowledge.articles"%> </h2></a>
 		</div>
-		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "academy", :type => "articles"} %>
+		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "articles"} %>
 		<div class="floatLeft articlesRightPanel">
-			<h3><%=@article[:title]%></h3>
-			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
+			<h3 class="subheader"><%=@article[:title].upcase%></h3>
+			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
-				<a target="_blank" href="mailto:" target="_top"><span class="spriteIcon smlIcon mail"></span></a>
-
+				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
 				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
 				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=@article[:title]%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-			
 			</div>
 
-			<div class="articleContentArea">
+			<div class="articleContentArea bodyContent">
 				<%if(@article[:file_caption_0].present?)%>
 				<div class="floatLeft articleImageSlide">
 					<%if(@article[:file_caption_0].present?)%>
@@ -111,7 +92,7 @@
 		play: {
 			active: false,
 			effect: "slide",
-			interval: 5000
+			interval: 3000
 		},
 		navigation:{
 			active: false
@@ -121,4 +102,6 @@
 		}
 	});
 	<%end%>
+
+
 </script>

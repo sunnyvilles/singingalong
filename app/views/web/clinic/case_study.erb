@@ -40,14 +40,14 @@
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article article-list">
 	<div class="padder">
-		<div class="topHeader">
+		<div class="topHeader" style="padding-bottom: 20px">
 			<a href="/clinic/case-studies"><h2 class="title"><%= t "submenu.knowledge.case"%> </h2></a>
 			<!--<span class="article-title"><%=@article[:title].upcase%></span>-->
 		</div>
 		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "case-studies"} %>
 		<div class="floatLeft articlesRightPanel">
 			<h3 class="subheader"><%=@article[:title].upcase%></h3>
-			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
+			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
 				<a><span class="spriteIcon smlIcon mail"></span></a>
 				<a><span class="spriteIcon smlIcon facebook"></span></a>

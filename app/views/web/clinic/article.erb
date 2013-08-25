@@ -1,6 +1,6 @@
 <style>		
 	.articlesRightPanel{
-		padding: 28px 0;
+		padding: 28px 0 0 0;
 	}
 	.articleSharingTools{
 		position: relative;
@@ -28,7 +28,7 @@
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article article-list">
 	<div class="padder">
-		<div class="topHeader">
+		<div class="topHeader" style="padding-bottom: 20px;">
 			<a href="/clinic/articles"><h2 class="title"><%= t "submenu.knowledge.articles"%> </h2></a>			
 		</div>
 		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "articles"} %>
