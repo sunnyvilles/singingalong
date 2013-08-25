@@ -48,7 +48,7 @@ class AccessController < ApplicationController
   end
 
   def user_logout
-    puts "zzzzzzzzzzzzzzzzzzzzzzzzzz"
+  
     session[:user_id] = nil
     session[:username] = nil
     #flash[:notice] = "You have been logged out."

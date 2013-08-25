@@ -63,7 +63,7 @@
   </td></tr>
   <tr><td>
     <%= f.label :description %></td><td>
-    <%= f.text_area :description,:cols => "120" %>
+    <%= f.text_area :description,:cols => "80" %>
   </td></tr>
   <tr><td>
     <%= f.label :curriculam %></td><td>
@@ -96,6 +96,8 @@ $(".actions input").css({
 
   left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
 }) ;
+
+console.log((($(window).width()-980)/2 + (980-60)).toString() + "px")
 
 })
 
