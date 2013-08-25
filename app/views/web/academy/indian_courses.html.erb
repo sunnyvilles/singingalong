@@ -4,67 +4,62 @@
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
-	<h2 class="title">INDIAN COURSES</h2>
-	<div class="padder">
-		<div id="accordion">
-			<h3>BASIC COURSES</h3>
-			<div>
-				<p>
-					<%@basic_courses.each {|basic_course|%>
+	<h2 class="title leftPadding10 topPadding20">INDIAN COURSES</h2>
 
-					<h1> <%= basic_course.title %> </h1>
-					<div>
-						<b>Start date:</b>
-						<%= date_dmY basic_course.start_date %>
-					</div>
-					<div>
-						<b>End date:</b>
-						<%= date_dmY  basic_course.end_date %>
-					</div>
-					<div>
-						<b>Timing:</b>
-						<%= basic_course.timing.hour %>: 00
-					</div>
-					<br/>
-					<b>Venue:</b>
-					<%= basic_course.venue %>
-					<br/>
-					<b>Description:</b>
-					<%=raw basic_course.description %>
-					<br/>
-					<b>Fees:</b>
-					<%= basic_course.fees %>
-					<br/>
-					<b>Discounts:</b>
-					<%= basic_course.discounts %>
-					</p>
-					<br/>
-
-				<%}%>
+	<div id="accordion">
+		<h3 class="subheader">BASIC COURSES</h3>
+		<div>
+			
+				<%@basic_courses.each {|basic_course|%>
+				<h1> <%= basic_course.title %> </h1>
+				<div>
+					<b>Start date:</b>
+					<%= date_dmY basic_course.start_date %>
+				</div>
+				<div>
+					<b>End date:</b>
+					<%= date_dmY  basic_course.end_date %>
+				</div>
+				<div>
+					<b>Timing:</b>
+					<%= basic_course.timing.hour %>: 00
+				</div>
+				<br/>
+				<b>Venue:</b>
+				<%= basic_course.venue %>
+				<br/>
+				<b>Description:</b>
+				<%=raw basic_course.description %>
+				<br/>
+				<b>Fees:</b>
+				<%= basic_course.fees %>
+				<br/>
+				<b>Discounts:</b>
+				<%= basic_course.discounts %>
 				</p>
+				<br/>
 
-			</div>
-			<h3>ADVANCED COURSES</h3>
-			<div>
-				<p>
+			<%}%>
+			
+		</div>
+		<h3 class="subheader">ADVANCED COURSES</h3>
+		<div>
+			<p>
 
-				</p>
+			</p>
+		</div>
+		<h3 class="subheader">FULL TIME MASTERS COURSE</h3>
+		<div>
+			<p>
 
-			</div>
-			<h3>FULL TIME MASTERS COURSE</h3>
-			<div>
-				<p>
+			</p>
 
-				</p>
+		</div>
+		<h3 class="subheader">PART TIME MASTERS COURSE</h3>
+		<div>
+			<p>
 
-			</div>
-			<h3>PART TIME MASTERS COURSE</h3>
-			<div>
-				<p>
-
-				</p>
-
-			</div>
+			</p>
 		</div>
 	</div>
 </div>

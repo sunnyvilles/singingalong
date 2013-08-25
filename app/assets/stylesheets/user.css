@@ -83,7 +83,7 @@ sup { vertical-align: super; font-size: smaller; }
 
 .bodyContent{	
 	font-size: 12pt;
-	min-height: 350px;
+	/*min-height: 350px;*/
 	font-family: 'Merriweather';
 	font-weight: 300;
 	line-height: 1.5em;
@@ -91,22 +91,36 @@ sup { vertical-align: super; font-size: smaller; }
 	padding-right: 10px;
 }
 
-.subheader{
+.subheader, .articleCount{
 	font-family: 'Merriweather';
 	font-size: 10pt;
 	color: #333;
 	line-height: 1.4em;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
 
 .links{
 	font-size: 10pt;
+	color: #666 !important;
+	font-family: 'Merriweather';
 }
-
+.links:hover{
+	color: #a51919 !important;
+}
+.leftPadding10{
+	padding-left: 10px;
+}
+.topPadding10{
+	padding-top: 10px;
+}
+.topPadding20{
+	padding-top: 20px;
+}
 .aboutUs{
 	float: left;
 	width: 630px;
-	border-right: 1px solid #ddd;
-	padding-top: 10px;
+	border-right: 1px solid #ddd;	
 }
 pre {
   padding: 15px;
@@ -151,9 +165,12 @@ button {  width: auto; overflow: visible; }
 	color: #000;
 }
 .secondryTitle{
-	margin: 20px 0;
-	font-size: 20px;
+	font-family: 'Merriweather';
+	font-size: 10pt;
 	color: #333;
+	line-height: 1.4em;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
 
 .col1{
@@ -163,9 +180,6 @@ button {  width: auto; overflow: visible; }
 .twoCol{
 	width: 465px;
 
-}
-.twoCol .content{
-	padding: 10px;
 }
 .blueHeader{
 	height: 57px;
@@ -191,13 +205,6 @@ button {  width: auto; overflow: visible; }
 .orangeHeader{
 	height: 57px;
 	background-image: url("/images/orange.png");
-}
-
-.blueBorder{
-	border-left: 4px solid #1b7aba !important;
-}
-.greenBorder{
-	border-left: 4px solid #599d15 !important;
 }
 
 .font14{
@@ -236,6 +243,10 @@ button {  width: auto; overflow: visible; }
 .hidden{
 	display: none;
 }
+
+.ui-dialog{
+	border-radius: 0 !important;
+}
 .ui-widget-header, ui-dialog-titlebar{
 	background: #fff !important;
 	border: none !important;
@@ -249,6 +260,15 @@ button {  width: auto; overflow: visible; }
 }
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
+#accordion{
+	margin-bottom: 10px;
+}
+#accordion .ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr{
+	border-radius: 0 !important;;
+}
+#accordion .ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl{
+	border-radius: 0 !important;
+}
 #accordion .ui-state-default{
 	background: #909090;
 	color: #fff;
@@ -267,7 +287,13 @@ button {  width: auto; overflow: visible; }
 #accordion.team .ui-state-default.ui-state-active{
 	background: #f67a00;
 }
-
+#accordion .ui-accordion-header{
+	font-family: 'Merriweather';
+	font-size: 10pt;
+	color: #333;
+	line-height: 1.4em;
+	font-weight: bold;
+}
 #accordion .ui-accordion-header-icon{
 	right: 10px;
 	left: auto;
@@ -353,7 +379,7 @@ button {  width: auto; overflow: visible; }
 	color: #333333;
 }
 .padder{
-	padding: 10px 10px 20px 10px;
+	padding: 20px 10px;
 }
 .spriteIcon{
 	background: url("/images/sprite.png");
@@ -380,16 +406,21 @@ button {  width: auto; overflow: visible; }
 	color: #333;
 	letter-spacing: 1px;
 	padding-bottom: 20px;
+	font-family: 'Maven Pro';
 }
 
 .seondryTitle{
-	font-size: 22px;
-	font-weight: bold;
+	font-family: 'Merriweather';
+	font-size: 10pt;
+	color: #333;
+	line-height: 1.4em;
 	margin-bottom: 10px;
+	font-weight: bold;
 }
 .ternaryTitle{
 	font-size: 20px;
 	margin-bottom: 10px;
+	font-family: 'Maven Pro';
 }
 .topHeader {
 	border-bottom: 1px solid #666;
@@ -524,7 +555,7 @@ footer h3{
 
 /*Article CSS Start*/
 .article-list .padder{
-	padding: 10px 0;
+	padding: 20px 0;
 }
 .article-list .title{
 	padding-left: 10px;
@@ -539,15 +570,18 @@ footer h3{
 	padding-right: 10px;
 }
 .article-list .articlesRightPanel h3{
-	font-size: 18px;
 	font-family: 'Merriweather';
+	font-size: 10pt;
+	color: #333;
+	line-height: 1.4em;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
 .article-list .articlesRightPanel .date{
 	font-size: 14px;
 	font-family: 'Merriweather';
 }
 .article-list .articleContentArea{
-	padding-top: 16px;
 	font-family: 'Merriweather';
 }
 .article-list .articlesLeftPanel ul li:first-child{
@@ -567,18 +601,12 @@ footer h3{
 .article-list .articlesLeftPanel ul li{
 	padding: 4px 12px ;
 }
-.article-list .articlesLeftPanel ul li a{
-	color: #000;
-	font-size: 14px;
-}
-.article-list .articlesLeftPanel ul li a:hover{
-	text-decoration: underline;
-}
 
 
 .article-list .topHeader{
 	border-bottom: 1px solid #666;
 	height: 38px;
+	padding-bottom: 20px;
 }
 .article-list .navigation a{
 	color: #000;
@@ -599,7 +627,7 @@ footer h3{
 	z-index: 100;
 }
 .slidesjs-pagination-item{
-	display: inline-block;
+	display: none;
 }
 
 .slidesjs-pagination-item a{
@@ -630,14 +658,12 @@ footer h3{
 	font-size: 16pt;
 }
 .article-list .articleDate{
-	font-size: 12pt;
-	margin-right: 6px;
-}
-.article-list .articleContent{
-	margin-top: 16px;
-	line-height: 18px;
-	font-size: 12pt;
-	color: #666;
+	font-family: 'Merriweather';
+	font-size: 10pt;
+	color: #333;
+	line-height: 1.4em;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
 .article-list .contentBlock{
 	width: 570px;
@@ -650,17 +676,9 @@ footer h3{
 .article-list .tools{
 	margin-top: 18px;
 }
-.article-list .tools a{
-	font-size: 12pt;
-	float: right;
-	color: #666;
-	padding-right: 10px;
-}
-.article-list .tools a:after{
-	content: "\00bb";
-}
+
 .articleContent{
-	height: 54px;
+	height: 65px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -688,8 +706,7 @@ footer h3{
 	left: 0;
 	background: #f67a00;
 	height: 20px;
-	line-height: 20px;
-	color: #fff;
+	line-height: 20pt;
 	padding: 10px;
 }
 
@@ -707,8 +724,7 @@ footer h3{
 	width: 514px;
 	position: absolute;
 	bottom: 0;
-	left: 290px;
-	font-size: 10pt;
+	left: 290px;	
 }
 
 .video{
@@ -721,7 +737,7 @@ footer h3{
 
 /*Team page CSS Start*/
 .team-member{
-	margin-right: 34px;
+	margin-right: 22px;
 }
 .team-first-list{
 	margin-top: 22px;
@@ -735,6 +751,7 @@ footer h3{
 /*Contact Us Page CSS Start*/
 .mapCt{
 	height: 300px;
+	margin-bottom: 10px;
 }
 .contactAddr, .contactNums{
 	height: 342px;
@@ -748,7 +765,7 @@ footer h3{
 	border-right: 1px solid #888;
 }
 .contactCt{
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #999;
 }
 .contactUs{
 	font-family: 'Maven Pro';
@@ -805,8 +822,7 @@ footer h3{
 	background: #fbface;
 	border-right: 1px solid #666;
 	border-bottom: 1px solid #666;
-	padding: 10px 0;
-	color: #333;
+	padding: 10px 0;	
 }
 .currency-table td{
 	background: #fcfce0;
@@ -964,4 +980,12 @@ li.selected ul{
 	font-weight: 400;
 	line-height: 1.4em;
 	color: #636363;
+}
+
+.testimonialVideoCt{
+	height: 140px;
+}
+
+.general-info-contact{
+	padding: 10px;
 }

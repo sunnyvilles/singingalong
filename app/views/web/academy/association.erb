@@ -1,6 +1,6 @@
 <style>
 	.padder{
-		padding: 10px 0;
+		padding: 20px 0;
 	}
 	.associationImage{
 		height: 220px;
@@ -8,7 +8,7 @@
 	}
 	.virtual-tour{
 		height: 290px;
-		padding: 10px;
+		padding: 0 10px;
 	}
 	.virtual-tour .slidesjs-pagination{
 		bottom: 16px;
@@ -19,14 +19,17 @@
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
 	<div class="padder">
-		<h2 class="title"><%= t "submenu.aboutsection.association"%> </h2>
+		<h2 class="title" style="padding-left: 10px;"><%= t "submenu.aboutsection.association"%> </h2>
 		<div class="aboutCt">
 			<div class="floatLeft twoCol col1">
 				<div>
-					<img src="/images/wish.jpg" class="associationImage" />
-					<div class="content">
+					<!--<img src="/images/wish.jpg" class="associationImage" />-->
+					<div class="orangeHeader"></div>
+					<div class="content" style="padding-left: 10px;">
 						<h3 class="seondryTitle">WORLD INSTITUTE FOR SENSATION HOMEOPATHY(WISH)</h3>
-						<p>WISH was founded in the year 2010 in Munich, Germany by Dr. Rajan Sankaran and a group of colleagues. It is a worldwide initiative and a not-for-profit collaboration of Homeopaths who practice and teach the Sensation Method of Homeopathy.</p>
+						<div class="bodyContent">
+							<p>WISH was founded in the year 2010 in Munich, Germany by Dr. Rajan Sankaran and a group of colleagues. It is a worldwide initiative and a not-for-profit collaboration of Homeopaths who practice and teach the Sensation Method of Homeopathy.</p>
+						</div>
 						<!--<p>The core group of members represents homeopaths from 11 countries across the world; including India, Germany, Austria, United Kingdom, Spain, France, Belgium, Holland, Japan, Canada and the USA.  Almost all of the members at WISH have been practicing Sensation Homeopathy since its inception, hence representing a huge knowledge base of skill and expertise in the method.</p>
 						<p>The core function of WISH is to advance the highest possible standards in the development and utilization of Sensation Homeopathy (SH). This would bring about the greater good of the profession into the public, and help coordinate teaching activities and offer a platform for the community using sensation method. A resource pool of cases and teaching tools would be developed, new remedies would be regularly updated to the sensation method and the assignment of miasms will be organized by ‘WISH’ for its members.</p>
 						<p>To enable internal exchange of experience and information amongst members a website www.wish4healing.com has been designed which will also present SH to the public. It will keep a calendar of seminars, a directory of sensation homoeopaths, a list of sensation groups, seminar summaries and book reviews.</p>
@@ -34,14 +37,14 @@
 						<p>The ‘WISH’ Conference is at present being held at the Academy from January 5th – 11th 2012. Sharing between sensation method practitioners is being helped by the use of the facilities of the academy for the presentation of live cases and follow-ups from the new clinic. Teaching skills are being enhanced by sharing cases in the WISH group and to a wider group of Indian homoeopaths. The members are a part of a panel of discussion of difficult cases at the clinic.</p>
 						<p>As a special highlight to promote Sensation Homeopathy WISH is organizing an international congress in 2012, titled “WISH for children “.</p>
 						-->
-						<a href="/clinic/associations/wish/" class="floatRight" style="color: #000;">Read More</a>
+						<a href="/clinic/associations/wish/" class="floatRight links">Read More</a>
 					</div>
 				</div>				
 			</div>
 			<div class="floatLeft twoCol">
 				<div>
 					<div class="orangeHeader"></div>
-					<div id="expandable" class="content" style="height: 312px;overflow: hidden;">
+					<div id="expandable" class="content bodyContent" style="height: 312px;overflow: hidden;">
 						<h3 class="seondryTitle">MAHARASTRA UNIVERSITY OF HEALTH SCIENCE, NASHIK</h3>
 						<p>The main objective of establishing the Maharashtra University of Health Sciences is to ensure systematic education, teaching, training and research in modern medicine and the Indian system of Medicine in the State of Maharashtra. This organized approach will ensure a balanced growth in the medical sciences.</p>
 
@@ -58,19 +61,19 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<h2 class="title boldtext marginTop20" style="margin-bottom: 10px;">VIRTUAL TOUR</h2>
+		<h2 class="title boldtext marginTop20" style="padding-left: 10px;">VIRTUAL TOUR</h2>
 		<div class="virtual-tour">
 			<div class="virtual-slide">
-				<img src="/images/clinic/slides-1.jpg" alt="" height="264" width="960"></img>
-				<span class="caption virtual-slide-caption">Slide 1</span>
+				<img src="/images/clinic/slides-1.jpg" alt="" height="290" width="960"></img>
+				<span class="caption virtual-slide-caption subheader">Slide 1</span>
 			</div>
 			<div class="virtual-slide">
-				<img src="/images/clinic/slides-2.jpg" alt="" height="264" width="960"></img>
-				<span class="caption virtual-slide-caption">Slide 2</span>
+				<img src="/images/clinic/slides-2.jpg" alt="" height="290" width="960"></img>
+				<span class="caption virtual-slide-caption subheader">Slide 2</span>
 			</div>
 			<div class="virtual-slide">
-				<img src="/images/clinic/slides-3.jpg" alt="" height="264" width="960"></img>
-				<span class="caption virtual-slide-caption">Slide 3</span>
+				<img src="/images/clinic/slides-3.jpg" alt="" height="290" width="960"></img>
+				<span class="caption virtual-slide-caption subheader">Slide 3</span>
 			</div>
 		</div>
 	</div>
@@ -79,10 +82,12 @@
 	$(".virtual-tour").slidesjs({
 		width: 940,
 		height: 290,
+		auto: true,
 		play: {
+			auto: true,
 			active: false,
 			effect: "slide",
-			interval: 5000
+			interval: 3000
 		},
 		navigation:{
 			active: false

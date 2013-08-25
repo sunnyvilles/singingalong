@@ -3,6 +3,10 @@
 		list-style: disc;
 		margin: 10px 16px;
 	}
+
+	.blockQuote{
+		margin-top: 0;
+	}
 </style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
@@ -13,7 +17,7 @@
 			<p class="blockQuote">
 				“Teaching and training that impart new skills, enrich old skills and provide pure intellectual contentment” 
 			</p>
-			<div>
+			<div class="bodyContent">
 				<h3 class="secondryTitle">TOOLS</h3>
 				<ul>
 					<li>Live case based clinical training supported by successful video cases</li>

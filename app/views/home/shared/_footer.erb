@@ -105,3 +105,17 @@
 	font-size:10pt;
 }
 </style>
+
+<script>
+  $(function() {
+    $( "#accordion" ).accordion({
+			heightStyle: 'content',
+			collapsible: true,
+			beforeActivate: function(){
+				$('body').animate({
+					scrollTop: $("#accordion").offset().top
+				});
+			}
+		});
+  });
+</script>
