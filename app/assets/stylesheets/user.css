@@ -111,7 +111,7 @@ sup { vertical-align: super; font-size: smaller; }
 	padding-right: 10px;
 }
 
-.subheader, .articleCount, .article-list .articleContentArea strong{
+.subheader, .articleCount, .article-list .articleContentArea strong, .articleContent strong{
 	font-family: 'Merriweather';
 	font-size: 10pt;
 	color: #333;
