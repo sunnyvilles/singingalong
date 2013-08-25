@@ -17,13 +17,7 @@
 	</head>
 	<body>
 		<%=render :partial=> "home/shared/menu"%>
-		<div class="loginInfo floatRight">
-			<% if session[:username] %>
-			Logged in as : <%=session[:username]%> 
-			<%= link_to("Logout","/access/logout") %>
-			<%end%>
-
-		</div>
+		
 		<div style="width: 980px; margin: auto;">						
 			<div class="adminCt">
 				<%= yield %>
@@ -42,6 +36,15 @@
 			/*$(function() {
 				$( ".tabs" ).tabs();
 			});*/
+		/*
+<div class="loginInfo" style="display:none;">
+			<% if session[:username] %>
+			Logged in as : <%=session[:username]%> 
+			<%= link_to("Logout","/access/logout") %>
+			<%end%>
+
+		</div>
+		*/
 		</script>
 		<!--<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
 	</body>
