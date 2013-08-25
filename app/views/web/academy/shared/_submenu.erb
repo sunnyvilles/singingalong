@@ -10,16 +10,16 @@
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
-					<li>
+					<li class="<%= params[:action] == "aim" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/aim/"><%= t "submenu.aboutsection.aim" %></a>
 					</li>
 					<li>
-						<span class="subnavIcon"></span>
+						<span class="team"></span>
 						<a href="/<%=scope%>/team/"><%= t "submenu.aboutsection.team" %></a>
 					</li>
 					<li>
-						<span class="subnavIcon"></span>
+						<span class="association"></span>
 						<a href="/<%=scope%>/associations/"><%= t "submenu.aboutsection.association" %></a>
 					</li>
 				</ul>
@@ -31,19 +31,19 @@
 				<a href="/<%=scope%>/our-approach/"><%= t "submenu.edge" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
-					<li>
+					<li class="<%= params[:action] == "our_approach" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/our-approach/"><%= t "submenu.edgeSection.approach" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "learning_model" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/learning-model/"><%= t "submenu.edgeSection.learning_model" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "teaching_tools" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/teaching-tools/"><%= t "submenu.edgeSection.teaching_tools" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "facilities" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/facilities/"><%= t "submenu.edgeSection.facilities" %></a>
 					</li>
@@ -57,19 +57,19 @@
 				<a href="/academy/articles"><%= t "submenu.knowledgeCenter" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
-					<li>
+					<li class="<%= params[:action] == "articles" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/articles"><%= t "submenu.knowledge.articles" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "case_studies" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/case-studies"><%= t "submenu.knowledge.case" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "videos" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/videos"><%= t "submenu.knowledge.video" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "about_homeopathy" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/clinic/about-homeopathy"><%= t "submenu.knowledge.about" %></a>
 					</li>
@@ -91,15 +91,15 @@
 				<a href="/academy/indian_courses"><%= t "submenu.courses" %></a>
 				<div class="left-border floatLeft"></div>
 				<ul>
-					<li>
+					<li class="<%= params[:action] == "indian_courses" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/academy/indian_courses"><%= t "submenu.coursesSection.indian_courses" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "international_courses" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/academy/international_courses"><%= t "submenu.coursesSection.international_courses" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "customized_courses" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/academy/customized_courses"><%= t "submenu.coursesSection.customized_courses" %></a>
 					</li>					
