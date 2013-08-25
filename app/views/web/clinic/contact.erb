@@ -10,9 +10,9 @@
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap contactUs">
 	<div id="map-canvas" class="mapCt"></div>
-	<div class="contactCt">
+	<div class="contactCt bodyContent" style="padding-right: 0;">
 		<div class="floatLeft contactAddr">
-			<h3 class="secondryTitle">THE OTHER SONG CLINIC</h3>
+			<h3 class="subheader">THE OTHER SONG CLINIC</h3>
 			1001, Peninsula Heights, <br />
 			C. D. Burfiwala Marg,<br />
 			Juhu Lane, Andheri (W),<br />
@@ -27,20 +27,20 @@
 				</tr>
 				<tr>
 					<td>Email:</td>
-					<td>info@theothersong.com</td>
+					<td><a href="mailto:info@theothersong.com" class="links">info@theothersong.com</a></td>
 				</tr>
 				<tr>
 					<td>Website:</td>
-					<td>www.theothersong.com</td>
+					<td><a href="http://www.theothersong.com" class="links">www.theothersong.com</a></td>
 				</tr>
 			</table>
 			<br />
-			<div class="blackText"><%="A unit of ‘Foundation for Vital Healing’".upcase%></div>
+			<div class="bodyContent"><%="A unit of ‘Foundation for Vital Healing’".upcase%></div>
 
 		</div>
 		<div class="seperator floatLeft" style="height: 286px; margin-top: 30px;"></div>
 		<div class="floatRight contactNums">
-			<h3 class="secondryTitle floatRight">FOR ENQUIRIES AND APPOITMENTS</h3>
+			<h3 class="subheader floatRight">FOR ENQUIRIES AND APPOITMENTS</h3>
 			<div class="floatRight">
 				<table class="floatRight email" style="margin-bottom: 10px;">
 					<tr>
@@ -52,16 +52,16 @@
 						<td>+91 (0) 22 42616677</td>
 					</tr>
 				</table>
-				
+
 				<div class="clear"></div>
-				<div class="blackText boldtext floatRight email">info@theothersong.com</div>
+				<div class="floatRight"><a href="mailto:info@theothersong.com" class="links">info@theothersong.com</a></div>
 				<div class="clear"></div>
 				<div class="floatRight" style="margin-bottom: 10px;">(new case, follow-up appointments/inquiries)</div>
-				<div class="blackText boldtext floatRight email">clinic@theothersong.com</div>
+				<div class="floatRight"><a href="mailto:clinic@theothersong.com" class="links">clinic@theothersong.com</a></div>
 				<div class="clear"></div>
 				<div class="floatRight" style="margin-bottom: 10px;">(follow-ups, acutes for old cases)</div>
 				<div class="clear"></div>
-				<div class="blackText boldtext floatRight email">academy@theothersong.com</div>
+				<div class="floatRight email"><a href="mailto:academy@theothersong.com" class="links">academy@theothersong.com</a></div>
 				<div class="clear"></div>
 				<div class="floatRight">(inquiries for courses)</div>
 			</div>
@@ -69,21 +69,28 @@
 		<div class="clear"></div>
 	</div>
 	<div class="contactFt">
-		<div style="width: 114px; margin: auto;">The Other Song</div>
-		<div style="width: 862px; margin: auto;font-size: 14px;">International Academy of Advanced Homoeopathy is registered under Section 25C of Indian Company Act, a Non-Profit Organization.</div>
+		<div class="bodyContent" style="text-align: center;">The Other Song</div>
+		<div class="bodyContent" style="text-align: center; font-size: 10pt;">International Academy of Advanced Homoeopathy is registered under Section 25C of Indian Company Act, a Non-Profit Organization.</div>
 	</div>
 	<div class="clear"></div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script>
-	function initialize() {
-  var mapOptions = {
-    zoom: 14,
-    center: new google.maps.LatLng(19.116234, 72.840260),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
+	function initialize() {		
+		var myLatlng = new google.maps.LatLng(19.114331,72.839548);
+		var mapOptions = {
+			zoom: 14,
+			center: myLatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+		var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'The Other Song'
+		});
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
 </script>

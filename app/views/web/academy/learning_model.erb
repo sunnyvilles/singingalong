@@ -1,38 +1,39 @@
 <style>
 	.padder{
-		padding: 10px 0;
+		padding: 20px 0;
 	}
 	.blockQuote{
 		margin-left: 10px !important;
-		border-left: 4px solid green !important;
+		margin-top: 0;
 	}
 </style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
 	<div class="padder">
-		<h2 class="title"><%= t "submenu.edgeSection.learning_model"%> </h2>
+		<h2 class="title leftPadding10"><%= t "submenu.edgeSection.learning_model"%> </h2>
 		<div class="aboutCt">
 			<p class="blockQuote">
 				“A learning model that challenges student to grow into practitioners”
 			</p>
-			<div style="padding: 10px;">The teaching and training module at the Academy is geared towards an all-round development of students and practitioners.<br />
+			<div style="padding: 10px;" class="bodyContent">The teaching and training module at the Academy is geared towards an all-round development of students and practitioners.<br />
 			The learning model adopted by the Program includes three main aspects:
 			</div>
 			<div class="floatLeft twoCol col1">
 				<div>
 					<div class="greenHeader"></div>
 					<div class="content">
-						<h3 class="seondryTitle"><%="Experiential Learning".upcase%></h3>
-						One of the basic tenants of the Academic Program at the other song is bridging the gap between theory and practice. Formal education in Homoeopathy deeply lacks extensive, practical clinical training for students, which in turn affects their ability to set up and start a successful practice on their own.<br />
+						<h3 class="seondryTitle leftPadding10 topPadding10"><%="Experiential Learning".upcase%></h3>
+						<div class="bodyContent leftPadding10">One of the basic tenants of the Academic Program at the other song is bridging the gap between theory and practice. Formal education in Homoeopathy deeply lacks extensive, practical clinical training for students, which in turn affects their ability to set up and start a successful practice on their own.<br />
 						The unique integrated setting provided by the Academy combines clinical treatment with teaching and research. It enables students to simultaneously engage with the theoretical aspects of the Sensation Method. And at the same time observe it being practiced live and applied to real cases through the work of the other song clinic.<br />
 						Live practical clinical training is the corner stone of the Academic Program at the other song. Students gain invaluable first-hand experience and knowledge of homoeopathic treatment. They practice by watching live cases being handled by experienced homeopaths, followed by discussion and in-depth analysis of the case in the classroom.<br />
+						</div>
 					</div>
 				</div>
 				<div>
 					<div class="greenHeader"></div>
-					<div class="content">
-						<h3 class="seondryTitle"><%="Learning the art of homoeopathic practice".upcase%></h3>
+					<div class="content bodyContent leftPadding10">
+						<h3 class="seondryTitle topPadding10"><%="Learning the art of homoeopathic practice".upcase%></h3>
 						The practice of homeopathy is viewed as an art and science at The Academy.  While the theory of Homoeopathy is founded on solid scientific principles, the practice of homoeopathy is an art perfected over time. Learning the art of homoeopathic practice involves apprenticing with a senior homoeopath over a period of time.
 					</div>
 				</div>
@@ -40,8 +41,8 @@
 			<div class="floatLeft twoCol">
 				<div>
 					<div class="greenHeader"></div>
-					<div class="content">
-						<h3 class="seondryTitle"><%="Learning through apprenticeship".upcase%></h3>
+					<div class="content bodyContent">
+						<h3 class="seondryTitle topPadding10"><%="Learning through apprenticeship".upcase%></h3>
 						In the homoeopathic world, only a handful of students get an opportunity to apprentice with a senior homoeopathic doctor after graduation.  A majority of students are unable to find such an opportunity and hence are not able to practice as effectively as they should.<br />
 						The Academic Program at the other song fills this void by providing an opportunity for practical clinical training to recent graduates or already practicing homeopaths. Each student is an apprentice, committed to learning skills and gaining knowledge under the mentorship and guidance of the faculty at the Academy. The faculty comprises of senior homoeopathic practitioners trained in teaching and research.
 					</div>

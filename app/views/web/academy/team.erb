@@ -1,7 +1,121 @@
+<link rel="stylesheet" href="/styles/jquery-ui.css" />
+<script src="/scripts/jquery-ui.js"></script>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
-	<div class="padder">
-		
+	<div class="padder bodyContent">
+		<p class="blockQuote blueBorder">
+			“A network of influential and diverse professors, instructors and faculty rooted in tradition. They are working professionals who are on top of their fields fostering invaluable education and superlative practical experience.”
+		</p>
+		The other song is a learning environment that combines real-world learning and academic theory with commitment to excellence from students, faculty, staff and administration.
+		<div class="team-first-list">
+			<div class="floatLeft team-member">
+				<img src="/images/doctors/rajan.jpg" alt="" height="178" width="208"></img>
+				<div class="name bodyContent">Dr. Rajan Sankaran</div>
+				<div class="team-title bodyContent">Head</div>
+				<div class="hidden lbContent bodyContent">
+					<img class="floatLeft marginRight10" src="/images/doctors/rajan.jpg" alt="" height="178" width="208"></img>
+					<div style="min-height: 40px;" class="bodyContent">
+						<h2 class="title">Dr. Rajan Sankaran</h2>
+						Dr. Rajan Sankaran is internationally renowned as a clear thinker and is best known for his path breaking concepts, especially his understanding of disease as a delusion, his use of mind
+						symptoms and dreams, his classification of remedy states into kingdoms and his additions to
+						the existing miasms. His recent work on the plant kingdom and the seven levels is fast gaining
+						in popularity and promises to revolutionize Homoeopathy. More and more Homoeopaths are
+						incorporating his ideas into practice, with the most promising results.
+
+
+					</div>
+					<div class="links">
+						<br />
+						<a href="" class="links">An awareness seminar on child health 8th July 2012(why homoeopathy? Its concept By Dr.Rajan Sankaran)</a><br />
+					</div>
+				</div>
+			</div>
+			<div class="floatLeft team-member">
+				<img src="/images/doctors/meghna.jpg" alt="" height="178" width="208"></img>
+				<div class="name bodyContent">Dr. Meghna Shah</div>
+				<div class="team-title bodyContent">Dean</div>
+				<div class="hidden lbContent bodyContent">
+					<img class="floatLeft marginRight10" src="/images/doctors/meghna.jpg" alt="" height="178" width="208"></img>
+					<div style="min-height: 40px;">
+						<h2 class="title">Dr. Meghna Shah</h2>
+
+							A young, dynamic, dedicated, intelligent and sincere person, she is gifted with an extremely
+
+							intuitive mind inclined towards research. She also possesses excellent managerial qualities with
+
+							tremendous insight into human psychology. She is an ardent follower of Homoeopathy, and
+
+							having trained under Dr.RajanSankaran for 10 years she is perhaps one of the best practitioners
+
+							and teachers of Homoeopathy from among the newer generation.
+
+							Dr.Meghna has worked in the Mumbai homoeopathic hospital after receiving her degree in 2000.
+
+							Since 2001 she has been a physician in Dr.Sankaran’s clinic. She has organized video and live
+
+							seminars of Dr.RajanSankaran and has been instrumental in starting the web-group ‘InsightAlliance Homoeopathic’. She has been an active member in organizing ‘Wednesdays with
+
+							Rajan’, one of the most successful programs in Homoeopathy.
+
+							She has assisted Dr.Sankaran on the books:Sankaran’s Schema,  Structure - Experiences with
+
+							the Mineral Kingdom,The Other Song, and Survival - the Reptilia—which have all been highly
+
+							appreciated and translated into many languages. She has spent two years researching the reptiles
+
+							for this book, including a stay at the Reptile Park in Chennai, where she observed them firsthand
+
+							and consulted the park’s herpetologists. She is currently working on Survival – the Arachnida,
+
+							apart from being at the helm of affairs at The Other Song.
+
+					</div>
+					<div class="links">
+						<br />
+						<a href="" class="links">101st international women's day Dr Meghna Shah An understanding</a><br />
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
+	<div id="accordion" class="team">
+		<%@people.each{|title|%>
+		<h3 class="secondryTitle"><%=Doctor.titles[title[0]].upcase%></h3>
+			<div>
+				<%@people[title[0]].each{|person|%>
+					<div class="floatLeft team-member">
+						<img src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
+						<div class="name bodyContent"><%=person[:name]%></div>
+						<div class="hidden lbContent bodyContent">
+							<img class="floatLeft marginRight10" src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
+							<div style="min-height: 40px;" class="bodyContent">
+								<h2 class="title" style="margin: 0 8px 8px; 0"><%=person[:name]%></h2>
+								<%=person[:description]%>
+
+							</div>
+							<div class="links">
+								<%person.urls.each{|url|%>
+									<a href="<%=url%>" class="links"><%=url[:title]%></a><br />
+								<%}%>
+							</div>
+
+						</div>
+					</div>
+				<%}%>
+
+			</div>
+		<%}%>
+	</div>
+	<div class="clear" style="height: 0;">&nbsp;</div>
 </div>
+<script>	
+	//$(".lbContent").show().dialog({autoOpen: false});
+	$(".team-member").click(function(evt){
+		$(".lbContent",this).dialog({
+			modal: true,
+			width: 970
+		});
+	});
+</script>

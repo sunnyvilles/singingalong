@@ -1,14 +1,14 @@
 <div class="floatLeft articlesLeftPanel">
 	<ul>
-		<li class="<%=type%>">POPULARITY</li>
-		<li><a href="/<%=scope%>/<%=type%>?order=latest">Latest</a></li>
-		<li><a href="/<%=scope%>/<%=type%>?order=views">Most Read</a></li>
-		<li><a href="/<%=scope%>/<%=type%>?order=shared">Most Shared</a></li>
+		<li class="<%=type%> subheader">POPULARITY</li>
+		<li><a class="links" href="/<%=scope%>/<%=type%>?order=latest">Latest</a></li>
+		<li><a class="links" href="/<%=scope%>/<%=type%>?order=views">Most Read</a></li>
+		<li><a class="links" href="/<%=scope%>/<%=type%>?order=shared">Most Shared</a></li>
 	</ul>
 	<ul>
-		<li class="<%=type%>">CATEGORIES</li>
+		<li class="subheader <%=type%>">CATEGORIES</li>
 		<%@all_tags.each{|tag|%>
-			<li><a href="/<%=scope%>/<%=type%>?category=<%=tag[:title]%>"><%=tag[:title].titleize%></a></li>
+			<li><a class="links" href="/<%=scope%>/<%=type%>?category=<%=tag[:title]%>"><%=tag[:title].titleize%></a></li>
 		<%}%>
 				
 	</ul>

@@ -43,8 +43,9 @@ en:
   header:
     academy: "ACADEMY"
     clinic: "CLINIC"
-    login: "LOGIN"
+    login: "LOG IN"
     logout: "LOGOUT"
+    signup: "SIGN UP"
     forgotPassword: "Forgot your password?"
     noAccount: "Don't have an account yet?"
   navigation:

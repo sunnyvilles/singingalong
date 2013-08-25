@@ -32,10 +32,6 @@
 	.articleImageSlide{
 		position: relative;
 	}
-
-	.contentWrap{
-		bottom: 4px;
-	}
 	.submenuItem ul{
 		border-right: 1px solid #ddd;
 		left: 0 !important;
@@ -51,7 +47,7 @@
 		</div>
 		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "videos"} %>
 		<div class="floatLeft articlesRightPanel">
-			<h3><%=@article[:title]%></h3>
+			<h3><%=@article[:title].upcase%></h3>
 			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
 				<a><span class="spriteIcon smlIcon mail"></span></a>
@@ -82,7 +78,7 @@
 					<%end%>
 				</div>
 				<%end%>
-				<%=raw @article[:content]%>
+				<div class="bodyContent"><%=raw @article[:content]%></div>
 				<%if @article[:youtubeurl].present?%>
 					<div class="videoCt">
 						<div class="video floatLeft">

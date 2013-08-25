@@ -1,11 +1,11 @@
 <style>
 	.footerBottom .copyright{
-		font-family: 'TisaProRegular';
+		font-family: 'Merriweather';
 		font-size: 12px;
 		color: #666;
 	}
 	.footerCt{
-		font-family: 'TisaProRegular';
+		font-family: 'Merriweather';
 		font-size: 13pt;
 	}
 </style>
@@ -38,16 +38,12 @@
 						</ul>
 					</div>
 					<div class="linksSection">
-						<ul>
-							<!--<li><a href=""><%=  t "footer.downloads"%></a></li>-->
-							<li><a href=""><%=  t "footer.links"%></a></li>
-							<!--<li><a href=""><%=  t "footer.research"%></a></li>-->
-						</ul>
+						<h3><a href=""><%=  t "footer.links"%></a></h3>						
 					</div>
 					<div class="clear"></div>
 				</div>
 				<div class="socialLinks">
-					<span><%= t "footer.getsocial" %>:</span>
+					<span style="font-size: 8pt; color: #3e3e3e;"><%= t "footer.getsocial" %>:</span>
 					<!--<a href=""><span class="spriteIcon smlIcon mail" title ="email"></span></a>-->
 					<a href=""><span class="spriteIcon smlIcon twitter" title ="twitter"></span></a>
 					<a href=""><span class="spriteIcon smlIcon facebook" title ="facebook"></span></a>
@@ -55,7 +51,7 @@
 				</div>
 			</div>
 			<div class="rightSection">
-				<div class="feedback"><%= t "footer.givefeedback" %></div>
+				<h3><%= t "footer.givefeedback" %></h3>
 				<form action="/submit-feedback" method="POST">
 					<table>
 						<tr>
@@ -81,8 +77,7 @@
 		</div>
 
 		<div class="footerBottom">
-			<span class="floatLeft copyright"><%= t "footer.copyright" %></span>
-			<span class="floatRight copyright"><%= t "footer.rights" %></span>
+			<span class="copyright floatLeft tisapro"> &copy;  2013, The Other Song</span>
 		</div>
 	</div>
 </footer>
@@ -92,21 +87,35 @@
 
 ::-webkit-input-placeholder {
   font-weight: bold;
- font-size:14px;
+	font-size:10pt;
 }
 
 :-moz-placeholder { /* Firefox 18- */
   font-weight: bold;
- font-size:14px;
+	font-size:10pt;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
   font-weight: bold;
-  font-size:14px;
+  font-size:10pt;
 }
 
 :-ms-input-placeholder {  
   font-weight: bold;
- font-size:14px;
+	font-size:10pt;
 }
 </style>
+
+<script>
+  $(function() {
+    $( "#accordion" ).accordion({
+			heightStyle: 'content',
+			collapsible: true,
+			beforeActivate: function(){
+				$('body').animate({
+					scrollTop: $("#accordion").offset().top
+				});
+			}
+		});
+  });
+</script>

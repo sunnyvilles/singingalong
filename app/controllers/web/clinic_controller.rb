@@ -133,7 +133,7 @@ class Web::ClinicController < ApplicationController
 	
 	end
 	def about
-
+		
 	end
 
 	def aim

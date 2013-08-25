@@ -41,7 +41,7 @@ attr_accessor :password
   # should always generate the same hashed_password.
 
   def password_match?(password="")
-    hashed_password == User.hash_with_salt(password, salt)
+    hashed_password == User.hash_with_salt(password, "salt")
   end
 
   def self.make_salt(username="")
@@ -58,7 +58,7 @@ attr_accessor :password
     # Whenever :password has a value hashing is needed
     unless password.blank?
       # always use "self" when assigning values
-      self.salt = User.make_salt(username) if salt.blank?
+      self.salt = User.make_salt(username) if true
       self.hashed_password = User.hash_with_salt(password, salt)
     end
   end

@@ -3,8 +3,11 @@
 		margin-bottom: 0 !important;
 	}
 	.general-info-contact{
-		font-family: 'TisaProRegular';
+		font-family: 'Merriweather';
 		color: #666;
+	}
+	.padder{
+		padding: 20px 10px 0 10px;
 	}
 </style>
 <link rel="stylesheet" href="/styles/jquery-ui.css" />
@@ -13,56 +16,62 @@
 <div class="contentWrap generalInfo">
 	<div class="padder">
 		<h2 class="title" style="padding-left: 0;"><%= t "submenu.generalInfo"%> </h2>
-		<div id="accordion" class="general-info-accordion maroonHeader">
-			<h3>BOOK AN APPOINTMENT AND PAYMENT OPTIONS</h3>
-			<div class="appointemtnTable">
-				<div class="font20 color333">For enquiries and appointments</div>
-				<br />
-				<table>
-					<tr>
-						<td>Telephone:</td>
-						<td>+91 (0) 22 42616666</td>
-					</tr>
-					<tr>
-						<td>Fax:</td>
-						<td>+91 (0) 22 42616677</td>
-					</tr>
-				</table>
-				<br />
-				<br />
-				<div class="font20 color333">Payment Options:</div><br />
-				<div class="font20 tisapro"><%="Payment Options - India".upcase%></div><br /><br />
-				<div class="font18">Account Name: FOUNDATION FOR VITAL HEALING</div>
-				<div class="font18">Account Number: 0036581115</div>
-				<div class="font18">Bank Name: CITI BANK (Juhu Branch)</div>
-				<div class="font18">IFSC Code: CITI0100000</div>
-				<div class="font18">MICR Number: 400037006</div>
-				<br />
-				<div class="font20 color333">OR</div>
-				<br />
-				<div class="font18">Account Name: FOUNDATION FOR VITAL HEALING</div>
-				<div class="font18">Account Number: 001105022576</div>
-				<div class="font18">Bank Name: ICICI BANK (Andheri West Branch)</div>
-				<div class="font18">IFSC Code: ICIC0000011</div>
-				<div class="font18">MICR Number: 400229003</div>
-				<br />
-				<br />
-				<div class="font20 tisapro"><%="Payment Options - International".upcase%></div><br />
-				<div class="font16">Kindly follow the Instructions below for telegraphic transfer of funds for CRS to accounts with Citibank India.</div>
-				<div class="font16">Please transfer in MT 103 format, _______________________ (Currency and Amount) on ____________________ (date) by order of</div>
-				<div class="font16">__________________________________________________________ (sender's name) to Citibank, _______________ (Name of Citibank </div>
+	</div>
+	<div id="accordion" class="general-info-accordion maroonHeader bodyContent">
+		<h3>BOOK AN APPOINTMENT AND PAYMENT OPTIONS</h3>
+		<div class="appointemtnTable bodyContent">
+			<div class="subheader">For enquiries and appointments</div>
+			<br />
+			<table>
+				<tr>
+					<td>Telephone:</td>
+					<td>+91 (0) 22 42616666</td>
+				</tr>
+				<tr>
+					<td>Fax:</td>
+					<td>+91 (0) 22 42616677</td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<div class="subheader">Payment Options:</div><br />
+			<div class="subheader"><%="Payment Options - India".upcase%></div><br /><br />
+			<div class="bodyContent">
+				<div>Account Name: FOUNDATION FOR VITAL HEALING</div>
+				<div>Account Number: 0036581115</div>
+				<div>Bank Name: CITI BANK (Juhu Branch)</div>
+				<div>IFSC Code: CITI0100000</div>
+				<div>MICR Number: 400037006</div>
+			</div>
+			<br />
+			<div class="bodyContent">OR</div>
+			<br />
+			<div class="bodyContent">
+				<div>Account Name: FOUNDATION FOR VITAL HEALING</div>
+				<div>Account Number: 001105022576</div>
+				<div>Bank Name: ICICI BANK (Andheri West Branch)</div>
+				<div>IFSC Code: ICIC0000011</div>
+				<div>MICR Number: 400229003</div>
+			</div>
+			<br />
+			<br />
+			<div class="subheader"><%="Payment Options - International".upcase%></div><br />
+			<div class="bodyContent">
+				<div>Kindly follow the Instructions below for telegraphic transfer of funds for CRS to accounts with Citibank India.</div>
+				<div>Please transfer in MT 103 format, _______________________ (Currency and Amount) on ____________________ (date) by order of</div>
+				<div>__________________________________________________________ (sender's name) to Citibank, _______________ (Name of Citibank </div>
 				<div>overseas branch as mentioned below) for credit to Citibank, Mumbai, India's Account no.___________________  (account number as mentioned below, as per your currency) favoring FOUNDATION FOR VITAL HEALING for credit to GCB Customer Savings/EEFC A/c No. 0036616113</div>
-				<div class="font16"> The Purpose of remittance is _______________________________________________</div>
+				<div> The Purpose of remittance is _______________________________________________</div>
 				<br />
-				<div class="font18">CITIBANK INDIA SWIFT CODE – CITIINBX</div>
-				<div class="font16">IBAN: GB90CITI18500800600091</div>
+				<div>CITIBANK INDIA SWIFT CODE – CITIINBX</div>
+				<div>IBAN: GB90CITI18500800600091</div>
 				<br />
 				<table class="currency-table">
 					<tr>
-						<th>CURRENCY</th>
-						<th>CITY BTANCH</th>
-						<th>ACCOUNT NUMBER</th>
-						<th>SWIFT NUMBER</th>
+						<th class="subheader">CURRENCY</th>
+						<th class="subheader">CITY BTANCH</th>
+						<th class="subheader">ACCOUNT NUMBER</th>
+						<th class="subheader">SWIFT NUMBER</th>
 					</tr>
 					<tr>
 						<td>US DOLLAR</td>
@@ -119,89 +128,69 @@
 						<td></td>
 					</tr>
 				</table>
-
-			</div>
-			<h3>CASE RECORD FORMS</h3>
-			<div>
-				<div class="floatLeft"><span class="pdfIcon"></span>Case Record Form - Personal Details</div>
-					<a target="_blank" href="/files/clinic/case-record/Case Record Form - Personal Details P.docx"><div class="floatRight">Download</div></a>
-					<!--
-				<div>Case Id: _______________                                                                  Date:</div>
-<br />
-<div>Name:  __________________________________________________________________</div>
-<div>(Begin with Surname)</div>
-<br />
-<div>Date of Birth: _____________________________________________________       Age: ______________________</div>
-<div>Sex: Male / Female</div>
-<div>Address:</div>
-<br />
-<div>Telephone (R):</div>
-<div>Mobile:</div>
-<div>E-mail:</div>
-<div>Diet: Veg. / Non veg.</div>
-<div>Marital status: Single / Married</div>
-<div>Education:</div>
-<div>Occupation (Nature of Work):</div>
-<div>Address of work place:</div>
-<div>Telephone (W):</div>
-<div>E-mail:</div>
-<div>Nationality:  ___________________________________________                   Language spoken:</div>
-<div>Referred to us by:</div>-->
-
-			</div>
-			<h3>CLINIC SCHEDULE</h3>
-			<div>
-				<div class="font18 color333">Clinic Schedule and Timings:</div>
-				<div>The clinic will be open Monday through Saturday between 9:00am to 6:00pm. The clinic will be closed on all Sundays.</div>
-				<div>The clinic observes the following holidays:</div>
-				<ul>
-					<li>New Year’s Day</li>
-					<li>Republic Day</li>
-					<li>GudiPadwa</li>
-					<li>Maharashtra Day</li>
-					<li>RakshaBandhan</li>
-					<li>Independence Day</li>
-					<li>Govinda</li>
-					<li>GaneshChaturthi</li>
-					<li>Dashera</li>
-					<li>Diwali (2 days)</li>
-				</ul>
-		</div>
-			<h3>TERMS OF SERVICES</h3>
-			<div>
-				<div>Homoeopathic treatment is essentially harmless and safe. However, we advise you to be aware of the following:-</div><br />
-				<ul>
-					<li>At “the other song” our homoeopaths are trained and well experienced to select one remedy from thousands available that most closely matches the total picture of your symptoms. Therefore, you are expected to provide full and complete information pertaining to your ailment. The clinic shall be entitled to presume that the said information provided by you is true and correct.</li>
-					<li>Our doctors will make the best possible endeavor to heal you. However, the outcome and duration of homoeopathic treatment vary by the constitution of each individual’s body, nature of ailment, past history of illnesses and other line of treatment followed in past and present.</li>
-					<li>In any unforeseen circumstances our consultants offering the treatment will not be liable to any legal proceedings. They will not be responsible for the course of events during the period of treatment. The patient bears no right to ask for any damages with respect to the same.</li>
-					<li>The clinic will not share the patient’s case records or video recordings of the consultation with the patient or relatives.</li>
-					<li>In case of terminal diseases it is recommended that you inform your medical doctor that you are receiving homoeopathic treatment. In case any symptoms persist or worsen on treatment, you should seek professional medical attention.</li>
-					<li>Like all other branches of medicine, homoeopathy also has limitations.</li>
-				</ul>
 			</div>
 		</div>
-		<div class="general-info-contact">
-			<h2 class="secondryTitle black	"><%="Contact us".upcase%></h2>
-			<h3>IN CASE OF QUERY CONTACT:</h3>
-			<div class="contact-details">
+		<h3>CASE RECORD FORMS</h3>
+		<div>
+			<div class="floatLeft bodyContent"><span class="pdfIcon"></span>Case Record Form - Personal Details</div>
+			<a class="links" target="_blank" href="/files/clinic/case-record/Case Record Form - Personal Details P.docx"><div class="floatRight">Download</div></a>
+
+		</div>
+		<h3>CLINIC SCHEDULE</h3>
+		<div class="bodyContent">
+			<div class="subheader">Clinic Schedule and Timings:</div>
+			<div class="bodyContent">The clinic will be open Monday through Saturday between 9:00am to 6:00pm. The clinic will be closed on all Sundays.</div>
+			<div class="bodyContent">The clinic observes the following holidays:</div>
+			<br />
+			<ul>
+				<li>New Year’s Day</li>
+				<li>Republic Day</li>
+				<li>GudiPadwa</li>
+				<li>Maharashtra Day</li>
+				<li>RakshaBandhan</li>
+				<li>Independence Day</li>
+				<li>Govinda</li>
+				<li>GaneshChaturthi</li>
+				<li>Dashera</li>
+				<li>Diwali (2 days)</li>
+			</ul>
+		</div>
+		<h3>TERMS OF SERVICES</h3>
+		<div class="bodyContent">
+			<div>Homoeopathic treatment is essentially harmless and safe. However, we advise you to be aware of the following:-</div><br />
+			<ul>
+				<li>At “the other song” our homoeopaths are trained and well experienced to select one remedy from thousands available that most closely matches the total picture of your symptoms. Therefore, you are expected to provide full and complete information pertaining to your ailment. The clinic shall be entitled to presume that the said information provided by you is true and correct.</li>
+				<li>Our doctors will make the best possible endeavor to heal you. However, the outcome and duration of homoeopathic treatment vary by the constitution of each individual’s body, nature of ailment, past history of illnesses and other line of treatment followed in past and present.</li>
+				<li>In any unforeseen circumstances our consultants offering the treatment will not be liable to any legal proceedings. They will not be responsible for the course of events during the period of treatment. The patient bears no right to ask for any damages with respect to the same.</li>
+				<li>The clinic will not share the patient’s case records or video recordings of the consultation with the patient or relatives.</li>
+				<li>In case of terminal diseases it is recommended that you inform your medical doctor that you are receiving homoeopathic treatment. In case any symptoms persist or worsen on treatment, you should seek professional medical attention.</li>
+				<li>Like all other branches of medicine, homoeopathy also has limitations.</li>
+			</ul>
+		</div>
+	</div>
+	<div class="general-info-contact">
+		<h2 class="secondryTitle black	"><%="Contact us".upcase%></h2>
+		<h3 class="subheader">IN CASE OF QUERY CONTACT:</h3>
+		<div class="contact-details bodyContent">
 				Tel +91 (0) 22 42616666 <br />
 				Fax +91 (0) 22 42616677<br />
-				<table style="margin: 0 0 20px 0;">
-					<tr>
-						<td class="black">info@theothersong.com</td>
-						<td>(new case, follow-up appointments/inquiries)</td>
-					</tr>
-					<tr>
-						<td class="black">clinic@theothersong.com</td>
-						<td>(follow-ups, acutes for old cases)</td>
-					</tr>
-					<tr>
-						<td class="black">academy@theothersong.com</td>
-						<td>(inquiries for courses)</td>
-					</tr>
-				</table>
-			</div>
-			the other song <br /><br />
+			<table style="margin: 0 0 20px 0;">
+				<tr>
+					<td class="black"><a href="mailto:info@theothersong.com" class="links">info@theothersong.com</a></td>
+					<td>(new case, follow-up appointments/inquiries)</td>
+				</tr>
+				<tr>
+					<td class="black"><a href="mailto:clinic@theothersong.com" class="links">clinic@theothersong.com</a></td>
+					<td>(follow-ups, acutes for old cases)</td>
+				</tr>
+				<tr>
+					<td class="black"><a href="mailto:clinic@theothersong.com" class="links">academy@theothersong.com</a></td>
+					<td>(inquiries for courses)</td>
+				</tr>
+			</table>
+		</div>
+		<div class="bodyContent">
+			The Other Song <br />
 
 			1001, Peninsula Heights, C. D. Burfiwala Marg, Juhu Lane<br />
 			Andheri (W), Mumbai - 400 058. Maharashtra, India<br />
@@ -209,14 +198,15 @@
 			info@theothersong.com <br />
 			www.theothersong.com<br />
 			A unit of ‘Foundation for Vital Healing’<br /><br /><br />
+		</div>
 
-
-			<div class="boldtext black">The Other Song –
+		<div class="bodyContent">The Other Song –
 			International Academy of Advanced Homoeopathy is registered under Section 25C of Indian Company Act, a Non-Profit Organization.</div>
-			<br /><br />
+		<br /><br />
 
-			<div class="font18">Visiting 'the other song' clinic</div>
-			<br />
+		<div class="subheader">Visiting 'the other song' clinic:</div>
+		<br />
+		<div class="bodyContent">
 			the other song—International Academy of Advanced Homoeopathy*<br />
 			1001, Peninsula Heights<br />
 			C. D. Burfiwala Marg,<br />
@@ -227,50 +217,55 @@
 			Fax: +91 (0) 22 42616677<br />
 			(*Unit of: Foundation for Vital Healing)<br />
 			(Maharashtra), INDIA<br />
-
-			<!--Enquiries<br />
+		</div>
+		<!--Enquiries<br />
 			For enquiries and appointments<br />
 			Call at +91 (0) 22 42616666 or Fax +91 (0) 22 42616677<br />-->
 
-			<div class="font18 margin20">Stay connected to us</div>
-			<table>
-				<tr>
-					<td>Facebook:</td>
-					<td>www.facebook.com/theothersongacademy</td>
-				</tr>
-				<tr>
-					<td>You tube:</td>
-					<td>Dr RajanSankaran’s talk on the benefits of studying at ‘the other song’</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><a href="http://www.youtube.com/watch?v=Ns42frFsRBU" style="color: #000;">http://www.youtube.com/watch?v=Ns42frFsRBU</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>Movie production on ‘the other song’ – international academy for advanced homoeopathy</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><a href="http://www.youtube.com/watch?v=4ejOZy-AH7E&feature=plcp" style="color: #000;">http://www.youtube.com/watch?v=4ejOZy-AH7E&feature=plcp</a></td>
-				</tr>
-			</table>
+			<div class="subheader" style="margin-top: 20px">Stay connected to us:</div>
+		<table>
+			<tr>
+				<td>Facebook:</td>
+				<td><a href="www.facebook.com/theothersongacademy" class="links">www.facebook.com/theothersongacademy</a></td>
+			</tr>
+			<tr>
+				<td>You tube:</td>
+				<td>Dr RajanSankaran’s talk on the benefits of studying at ‘the other song’</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a class="links" href="http://www.youtube.com/watch?v=Ns42frFsRBU" class="links">http://www.youtube.com/watch?v=Ns42frFsRBU</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Movie production on ‘the other song’ – international academy for advanced homoeopathy</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://www.youtube.com/watch?v=4ejOZy-AH7E&feature=plcp" class="links">http://www.youtube.com/watch?v=4ejOZy-AH7E&feature=plcp</a></td>
+			</tr>
+		</table>
 
 
 
-			<div class="font18 marginTop20">Student testimonials</div>
-			<a href="http://www.youtube.com/watch?v=-FVUjJD5zYU&feature=plcp" style="color: #000;">http://www.youtube.com/watch?v=-FVUjJD5zYU&feature=plcp</a>
-			<div class="font18 marginTop20">Newsletter</div>
-			This quarterly magazine is the easiest way to update you on various cases and events at ‘the other song’. An opportunity to stay connected.
+			<div class="subheader" style="margin-top: 20px;">Student testimonials</div>
+		<a href="http://www.youtube.com/watch?v=-FVUjJD5zYU&feature=plcp" class="links">http://www.youtube.com/watch?v=-FVUjJD5zYU&feature=plcp</a>
+		<div class="subheader" style="margin-top: 20px;">Newsletter</div>
+		<div class="bodyContent">This quarterly magazine is the easiest way to update you on various cases and events at ‘the other song’. An opportunity to stay connected.</div>
 
-		</div>
 	</div>
 </div>
+
 <script>
 	$(function() {
 		$( "#accordion" ).accordion({
 			heightStyle: 'content',
-			collapsible: true
+			collapsible: true,
+			activate: function(){
+				$('body').animate({
+					scrollTop: $("#accordion").offset().top
+				});
+			}
 		});
 	});
 </script>
