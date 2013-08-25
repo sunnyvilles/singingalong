@@ -8,7 +8,7 @@
 	}
 	.virtual-tour{
 		height: 290px;
-		padding: 10px;
+		padding: 0 10px;
 	}
 	.virtual-tour .slidesjs-pagination{
 		bottom: 16px;
@@ -60,15 +60,15 @@
 		<h2 class="title boldtext marginTop20" style="margin-bottom: 10px; padding-left: 10px;">VIRTUAL TOUR</h2>
 		<div class="virtual-tour">
 			<div class="virtual-slide">
-				<img src="/images/clinic/slides-1.jpg" alt="" height="264" width="960"></img>
+				<img src="/images/clinic/slides-1.jpg" alt="" height="290" width="960"></img>
 				<span class="caption virtual-slide-caption subheader">Slide 1</span>
 			</div>
 			<div class="virtual-slide">
-				<img src="/images/clinic/slides-2.jpg" alt="" height="264" width="960"></img>
+				<img src="/images/clinic/slides-2.jpg" alt="" height="290" width="960"></img>
 				<span class="caption virtual-slide-caption subheader">Slide 2</span>
 			</div>
 			<div class="virtual-slide">
-				<img src="/images/clinic/slides-3.jpg" alt="" height="264" width="960"></img>
+				<img src="/images/clinic/slides-3.jpg" alt="" height="290" width="960"></img>
 				<span class="caption virtual-slide-caption subheader">Slide 3</span>
 			</div>
 		</div>
@@ -79,9 +79,10 @@
 		width: 940,
 		height: 290,
 		play: {
+			auto: true,
 			active: false,
 			effect: "slide",
-			interval: 5000
+			interval: 3000
 		},
 		navigation:{
 			active: false

@@ -32,27 +32,22 @@
 	.articleImageSlide{
 		position: relative;
 	}
-
-	.contentWrap{
-		bottom: 4px;
-	}
 	.submenuItem ul{
 		border-right: 1px solid #ddd;
 		left: 0 !important;
 	}
 </style>
-<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
-<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
+<%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap article article-list">
 	<div class="padder">
-		<div class="topHeader">
-			<a href="/clinic/articles"><h2 class="title"><%= t "submenu.knowledge.video"%> </h2></a>
-			<span class="article-title"><%=@article[:title].upcase%></span>
+		<div class="topHeader"  style="padding-bottom: 20px">
+			<a href="/academy/articles"><h2 class="title"><%= t "submenu.knowledge.video"%> </h2></a>
 		</div>
-		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "videos"} %>
+		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "academy", :type => "videos"} %>
 		<div class="floatLeft articlesRightPanel">
-			<h3><%=@article[:title]%></h3>
-			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
+			<h3><%=@article[:title].upcase%></h3>
+			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
 				<a><span class="spriteIcon smlIcon mail"></span></a>
 				<a><span class="spriteIcon smlIcon facebook"></span></a>
@@ -82,7 +77,7 @@
 					<%end%>
 				</div>
 				<%end%>
-				<%=raw @article[:content]%>
+				<div class="bodyContent"><%=raw @article[:content]%></div>
 				<%if @article[:youtubeurl].present?%>
 					<div class="videoCt">
 						<div class="video floatLeft">

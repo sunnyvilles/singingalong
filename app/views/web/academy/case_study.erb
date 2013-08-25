@@ -31,10 +31,6 @@
 	.articleImageSlide{
 		position: relative;
 	}
-
-	.contentWrap{
-		bottom: 4px;
-	}
 	.submenuItem ul{
 		border-right: 1px solid #ddd;
 		left: 0 !important;
@@ -44,39 +40,39 @@
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap article article-list">
 	<div class="padder">
-		<div class="topHeader">
-			<a href="/clinic/case-studies"><h2 class="title"><%= t "submenu.knowledge.case"%> </h2></a>
-			<span class="article-title"><%=@article[:title].upcase%></span>
+		<div class="topHeader" style="padding-bottom: 20px">
+			<a href="/academy/case-studies"><h2 class="title"><%= t "submenu.knowledge.case"%> </h2></a>
+			<!--<span class="article-title"><%=@article[:title].upcase%></span>-->
 		</div>
-		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "case-studies"} %>
+		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "academy", :type => "case-studies"} %>
 		<div class="floatLeft articlesRightPanel">
-			<h3><%=@article[:title]%></h3>
-			<span class="date"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
+			<h3 class="subheader"><%=@article[:title].upcase%></h3>
+			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
 				<a><span class="spriteIcon smlIcon mail"></span></a>
 				<a><span class="spriteIcon smlIcon facebook"></span></a>
 				<a><span class="spriteIcon smlIcon twitter"></span></a>
 			</div>
 
-			<div class="articleContentArea">
+			<div class="articleContentArea bodyContent">
 				<%if(@article[:file_caption_0].present?)%>
 				<div class="floatLeft articleImageSlide">
 					<%if(@article[:file_caption_0].present?)%>
 					<div>
 						<img src="/images/articles/<%=@article[:id]%>-0.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@article[:file_caption_0]%></span>
+						<span class="caption subheader"><%=@article[:file_caption_0]%></span>
 					</div>
 					<%end%>
 					<%if(@article[:file_caption_1].present?)%>
 					<div>
 						<img src="/images/articles/<%=@article[:id]%>-1.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@article[:file_caption_1]%></span>
+						<span class="caption subheader"><%=@article[:file_caption_1]%></span>
 					</div>
 					<%end%>
 					<%if(@article[:file_caption_2].present?)%>
 					<div>
 						<img src="/images/articles/<%=@article[:id]%>-2.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@article[:file_caption_2]%></span>
+						<span class="caption subheader"><%=@article[:file_caption_2]%></span>
 					</div>
 					<%end%>
 				</div>
@@ -87,7 +83,7 @@
 						<div class="video floatLeft">
 						<iframe width="282" height="180" src="<%=@article[:youtubeurl]%>" frameborder="0" ></iframe>
 						</div>
-						<div class="floatLeft videoContent">
+						<div class="floatLeft videoContent bodyContent">
 							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
 							nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
 							volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation

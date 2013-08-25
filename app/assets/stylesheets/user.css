@@ -627,7 +627,7 @@ footer h3{
 	z-index: 100;
 }
 .slidesjs-pagination-item{
-	display: none;
+	display: inline-block;
 }
 
 .slidesjs-pagination-item a{
