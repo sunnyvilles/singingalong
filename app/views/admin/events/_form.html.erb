@@ -78,8 +78,11 @@
 
 			<tr>
 				<td><%= f.label :end_date , 'End Date'%></td>
-				<td><%= f.text_field :end_date, :class => "datepicker", :value => date_dmY(@event.end_date)%></td>
-
+				<%if @event.end_date.present?%>
+					<td><%= f.text_field :end_date, :class => "datepicker", :value => date_dmY(@event.end_date)%></td>
+				<%else%>
+					<td><%= f.text_field :end_date, :class => "datepicker", :value => ""%></td>
+				<%end%>
 			</tr>
 
 
