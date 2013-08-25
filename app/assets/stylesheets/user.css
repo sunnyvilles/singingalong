@@ -53,7 +53,9 @@ hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 
 
 input, select { vertical-align:middle; outline:none; }
 
-
+.logoutBox{
+	background-position: -244px -14px;
+}
 /*TODO make this more specific*/
 ::-webkit-input-placeholder {
 	font-size:10pt;
@@ -109,7 +111,7 @@ sup { vertical-align: super; font-size: smaller; }
 	padding-right: 10px;
 }
 
-.subheader, .articleCount{
+.subheader, .articleCount, .article-list .articleContentArea strong, .articleContent strong{
 	font-family: 'Merriweather';
 	font-size: 10pt;
 	color: #333;
@@ -601,6 +603,7 @@ footer h3{
 .article-list .articleContentArea{
 	font-family: 'Merriweather';
 }
+
 .article-list .articlesLeftPanel ul li:first-child{
 	background-color: #599d15;
 	padding: 8px 12px;
