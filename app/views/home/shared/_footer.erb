@@ -31,6 +31,11 @@
     margin-right: 8px;
 	}
 
+	.rightSection input[type="submit"],input[type="text"],input[type="email"]{
+		height: 22px;
+	}
+
+
 </style>
 <footer>
 	<div class="footerCt">
@@ -93,7 +98,7 @@
 								<textarea name="feedback" rows="5" cols="37" placeholder="<%=  t "footer.feedback" %>"></textarea>
 							</td>
 						</tr>
-						<tr><td><input type="submit" class="spriteIcon" value="<%= t "footer.send" %>"></input></td></tr>
+						<tr><td><input type="submit" class="spriteIcon feed_submit" value="<%= t "footer.send" %>"></input></td></tr>
 					</table>
 				</form>
 			</div>

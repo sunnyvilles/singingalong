@@ -40,7 +40,7 @@ TheOtherSongClinic::Application.routes.draw do
 
 	get '/admin' => 'admin/admin#show'
 
-	
+
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.

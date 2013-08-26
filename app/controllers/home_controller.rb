@@ -13,4 +13,6 @@ class HomeController < ApplicationController
 
 	def index_mobile
 	end
+
+	
 end

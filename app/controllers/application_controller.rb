@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	before_filter :section
 	protect_from_forgery
 
-
+	
 
   protected
 

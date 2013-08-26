@@ -39,3 +39,4 @@ gem 'jquery-ui-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'mail_form'
