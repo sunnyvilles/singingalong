@@ -123,6 +123,7 @@ sup { vertical-align: super; font-size: smaller; }
 	font-size: 10pt;
 	color: #666 !important;
 	font-family: 'Merriweather';
+	font-weight: normal !important;
 }
 .links:hover{
 	color: #a51919 !important;
