@@ -53,12 +53,12 @@
 		width: 20px;
 	}
 	.slideNavLeft{
-		left: -16px;
-		background-position: -416px -42px;
-	}
-	.slideNavRight{
 		right: -42px;
 		background-position: -380px -42px;
+	}
+	.slideNavRight{
+		left: -16px;
+		background-position: -416px -42px;		
 	}
 	.sliderCt{
 		position: relative;
@@ -99,7 +99,7 @@
 		$(".sliderCt ul").carouFredSel({
 			auto  : true,
 			items : 3,
-			direction:"right",
+			direction:"left",
 			prev  : '#ui-carousel-prev',
 			next  : '#ui-carousel-next'
 		});
