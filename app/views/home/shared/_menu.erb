@@ -173,7 +173,7 @@
 		font-size: 10pt;
 		color: #636363 !important;
 	}
-	.loginPanel span{
+	.loginPanel span,.logoutPanel span{
 		font-size: 8pt;
 		color: #525355;
 		padding-bottom: 5px;
@@ -268,7 +268,7 @@
 							<span class="spriteIcon downArrow"></span>
 							<div class="logoutPanel">
 								<div class="uptri"></div>
-								<span class="links">You are Logged in as :</span>
+								<span>You are Logged in as :</span>
 								<span class="user subheader"><%=session[:email]%> </span>
 							<input class="spriteIcon floatRight logoutBtn" type="button" value="LOGOUT"/>
 							</div>
@@ -282,7 +282,7 @@
 							<div class="loginPanel">
 								<div class="uptri"></div>
 								<form action="/user/attempt-login" method="POST" id="loginForm">
-									<input type="email" name="username" placeholder="Username"></input>
+									<input type="email" name="username" placeholder="Email"></input>
 									<input type="password" name="password" placeholder="Password"></input>
 									<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
 									<span><%= t "header.forgotPassword" %></span><br />
@@ -313,7 +313,6 @@
 
 	});
 	$(".loginBox").click(function(evt){
-console.log($(evt.target).attr("class"))
 		if ($(".loginPanel").css('display') == 'none')
 		{
 			$(".loginPanel").css({
@@ -322,7 +321,7 @@ console.log($(evt.target).attr("class"))
 		}
 		else
 		{
-			if($(evt.target).attr("class") === "loginText"){
+			if($(evt.target).attr("class") === "loginText" || $(evt.target).attr("class") === "spriteIcon downArrow"){
 				$(".loginPanel").css({
 					display: 'none'
 				});
