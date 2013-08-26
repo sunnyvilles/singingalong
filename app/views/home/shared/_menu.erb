@@ -313,7 +313,6 @@
 
 	});
 	$(".loginBox").click(function(evt){
-console.log($(evt.target).attr("class"))
 		if ($(".loginPanel").css('display') == 'none')
 		{
 			$(".loginPanel").css({
@@ -322,7 +321,7 @@ console.log($(evt.target).attr("class"))
 		}
 		else
 		{
-			if($(evt.target).attr("class") === "loginText"){
+			if($(evt.target).attr("class") === "loginText" || $(evt.target).attr("class") === "spriteIcon downArrow"){
 				$(".loginPanel").css({
 					display: 'none'
 				});
