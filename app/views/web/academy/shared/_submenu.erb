@@ -14,11 +14,11 @@
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/aim/"><%= t "submenu.aboutsection.aim" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "team" ? "selected" : ""%>">
 						<span class="team"></span>
 						<a href="/<%=scope%>/team/"><%= t "submenu.aboutsection.team" %></a>
 					</li>
-					<li>
+					<li class="<%= params[:action] == "association" ? "selected" : ""%>">
 						<span class="association"></span>
 						<a href="/<%=scope%>/associations/"><%= t "submenu.aboutsection.association" %></a>
 					</li>
