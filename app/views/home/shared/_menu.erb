@@ -253,21 +253,24 @@
 	</div>
 </div>
 <script>
-	$("body").click(function(){
+	$("body").click(function(evt){
 		$(".loginPanel").css({
 			display: 'none'
 		});
 	});
-	$(".loginBox").click(function(){
+	$(".loginBox").click(function(evt){
 		if ($(".loginPanel").css('display') == 'none')
 		{
 			$(".loginPanel").css({
 				display: 'block'
 			});
 		}else{
-			$(".loginPanel").css({
-				display: 'none'
-			});
+			if($(evt.target).attr("class") === "loginText"){
+				$(".loginPanel").css({
+					display: 'none'
+				});
+			}
+			
 		}
 		return false;
 	});
