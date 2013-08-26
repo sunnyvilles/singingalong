@@ -27,8 +27,8 @@
 	}
 	.header{
 		height: 39px;
-		border-top: 1px solid #525355;		
-		background-image: url("/images/submenu-bg.jpg");		
+		border-top: 1px solid #525355;
+		background-image: url("/images/submenu-bg.jpg");
 		background-repeat: repeat-x;
 	}
 	.headerCt{
@@ -40,7 +40,7 @@
 	}
 	.headerCt > ul >li{
 		position: relative;
-		bottom: 1px;		
+		bottom: 1px;
 	}
 	.headerCt > ul >li.academy{
 		right: 4px;
@@ -54,7 +54,7 @@
 		background-position: -1426px -49px;
 	}
 	.headerCt .menuItems li.academy.selected{
-		
+
 	}
 	.headerCt .menuItems li{
 		display: inline;
@@ -157,7 +157,7 @@
 		font-size: 8pt;
 		left: 25px;
 		letter-spacing: 1px;
-}
+	}
 	.loginPanel input[type="submit"]{
 		width: 70px;
 		background-position: -243px -13px;
@@ -214,65 +214,69 @@
 <div class="header">
 	<div class="headerCt">
 		<a href="/"><span class="tosLogo floatLeft spriteIcon"></span></a>
-		
+
 		<%if !["admin/admin"].include?( params[:controller] )%>
-		<ul class="floatRight menuItems">
-			<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
-			<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
-			<li>
-				<%if session[:user_id].present?%>
-				<div class="loginBox logoutBox">
-				<span class="loginText"><%= t "header.logout"%></span>
-				</div>
-				<%else%>
-				<div class="loginBox">
-					<span class="loginText"><%= t "header.login"%></span>
-					<span class="spriteIcon downArrow"></span>
+			<ul class="floatRight menuItems">
+				<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
+				<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
+				<li>
+					<%if session[:user_id].present?%>
+						<div class="loginBox logoutBox">
+							<span class="loginText"><%= t "header.logout"%></span>
+						</div>
+					<%else%>
+						<div class="loginBox">
+							<span class="loginText"><%= t "header.login"%></span>
+							<span class="spriteIcon downArrow"></span>
 
-					<div class="loginPanel">
-						<div class="uptri"></div>
-						<form action="/user/attempt-login" method="POST" id="loginForm">
-							<input type="email" name="username" placeholder="Username"></input>
-							<input type="password" name="password" placeholder="Password"></input>
-							<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
-							<span><%= t "header.forgotPassword" %></span><br />
-							<span><%= t "header.noAccount" %></span>
-							<span class="signup_btn"><%= t "header.signup" %></span>
-						</form>
-					</div>
-				</div>
-				<%end%>
+							<div class="loginPanel">
+								<div class="uptri"></div>
+								<form action="/user/attempt-login" method="POST" id="loginForm">
+									<input type="email" name="username" placeholder="Username"></input>
+									<input type="password" name="password" placeholder="Password"></input>
+									<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
+									<span><%= t "header.forgotPassword" %></span><br />
+									<span><%= t "header.noAccount" %></span>
+									<span class="signup_btn"><%= t "header.signup" %></span>
+								</form>
+							</div>
+						</div>
+					<%end%>
 
-			</li>
-			<li>
-				<input type="text" class="search"></input>
-				<span class="spriteIcon searchIcon"></span>
-			</li>
-		</ul>
+				</li>
+				<li>
+					<input type="text" class="search"></input>
+					<span class="spriteIcon searchIcon"></span>
+				</li>
+			</ul>
 		<%end%>
 	</div>
 </div>
 <script>
-	$("body").click(function(){	
+	$("body").click(function(){
 		$(".loginPanel").css({
 			display: 'none'
-		});	
 		});
-	$(".loginBox").click(function(){		
+	});
+	$(".loginBox").click(function(){
 		if ($(".loginPanel").css('display') == 'none')
 		{
 			$(".loginPanel").css({
-			display: 'block'
+				display: 'block'
 			});
-		}		
+		}else{
+			$(".loginPanel").css({
+				display: 'none'
+			});
+		}
 		return false;
 	});
 	function submitForm()
-    {
-       $("#loginForm").submit();
-    }
+	{
+		$("#loginForm").submit();
+	}
 
-    $('.logoutBox').click(function(){
-    	window.location = "/user/logout"
-    })
+	$('.logoutBox').click(function(){
+		window.location = "/user/logout"
+	})
 </script>
