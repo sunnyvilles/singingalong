@@ -1,49 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/styles/rs-caraousal/jquery.rs.carousel.css" media="all" />
 <style>
 	#slides{
+		margin: auto;
+		width: 980px;
+		height: 260px;
 		position: relative;
+	}
+	.topWrapper{
 		width: 100%;
 		overflow: hidden;
 	}
-	#slides ul{
-		text-align: left;
-		float: none;
-		position: relative;
-		top: 0px;
-		right: auto;
-		bottom: auto;
-		margin: 0px;
-		display: block;
-		position: relative;
+	.rs-carousel-mask{
+		overflow: visible;
+	}
+	.rs-carousel-horizontal .rs-carousel-item{
 		height: 260px;
-		overflow: hidden;
-		width: 5000px;
-	}
-	#slides ul li{
-		display: inline;
-		float: left;
-	}
-	.slidesjs-navigation{
-		display: inline-block;
-		height: 24px;
-		width: 24px;
-		position: absolute;
-		top: 210px;
-		cursor: pointer;
-	}
-	.slidesjs-next{
-		background-position: -10px -10px;
-	}
-	.slidesjs-next{
-		background-position: -10px -10px;
-		right: 0;
-	}
-	.slideControler{
-		display: none;
 	}
 	.sliderTitle{
 		position: absolute;
 		top: 0;
-		height: 262px;
+		left: 652px;
+		height: 132px;
 		width: 274px;
 		background: #f67a00;
 		color: #fff;
@@ -65,66 +42,77 @@
 		position: relative;
 	}
 </style>
-<!--<script src="/scripts/rs-caraousal/jquery.rs.carousel-autoscroll.js"></script>
-<script src="/scripts/rs-caraousal/jquery.rs.carousel-continuous.js"></script>
-<script src="/scripts/rs-caraousal/jquery.rs.carousel.js"></script>-->
-<div id="slides">
-	<!--<a href="#" class="slidesjs-previous slidesjs-navigation spriteIcon">&larr;</a>
-	<a href="#" class="slidesjs-next slidesjs-navigation spriteIcon">&rarr;</a>-->
-	<div class="slideControler">
-		<span class="spriteIcon slideCircle selected"></span>
-		<span class="spriteIcon slideCircle"></span>
-		<span class="spriteIcon slideCircle"></span>
-	</div>
-	<ul>
-		<li><img src="/images/<%=scope%>/slides-1.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-2.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-3.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-4.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-1.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-2.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-3.jpg" height="260" width="652" /></li>
-		<li><img src="/images/<%=scope%>/slides-4.jpg" height="260" width="652" /></li>
-	</ul>
-	<div class="sliderTitle <%=scope%>">
-		<div class="textCt">
-			<div class="sliderTitle1">Essential Homeopathy</div>
-			<div class="sliderTitle2">A complete online discussion forum, mentoring and training program with Dr. Rajan Sankaran </div>
+<script src="/scripts/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/scripts/caraousal/jquery.rs.carousel.js"></script>
+
+<!-- carousel extensions (optional) -->
+<script type="text/javascript" src="/scripts/caraousal/jquery.rs.carousel-autoscroll.js"></script>
+<script type="text/javascript" src="/scripts/caraousal/jquery.rs.carousel-continuous.js"></script>
+<script type="text/javascript" src="/scripts/caraousal/jquery.rs.carousel-touch.js"></script>
+<div class="topWrapper">
+	<div id="slides">
+		<div class="rs-carousel">
+			<ul>
+				<li>
+					<img src="/images/<%=scope%>/slides-1.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-2.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-3.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-4.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-1.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-2.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-3.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-4.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-1.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-2.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-3.jpg" height="260" width="652" />
+				</li>
+				<li>
+					<img src="/images/<%=scope%>/slides-4.jpg" height="260" width="652" />
+				</li>
+			</ul>
+		</div>
+		<div class="sliderTitle <%=scope%>">
+			<div class="textCt">
+				<div class="sliderTitle1">Essential Homeopathy</div>
+				<div class="sliderTitle2">A complete online discussion forum, mentoring and training program with Dr. Rajan Sankaran </div>
+			</div>
 		</div>
 	</div>
-	<div class="clear"></div>
 </div>
 <script>
-	var slidePosition = 652 + 980/2 - ($(window).width()/2);
-	$("#slides ul").css('left', -slidePosition);
-	$(".sliderTitle").css('left',  ($(window).width() - 980)/2 + 652) ;
-	var slideCounter = 0;
-	var allpageslider = function(){
-
-		slideCounter = (slideCounter + 1) % 3
-		slidePosition < 1200 ? slidePosition+= 652 : slidePosition = 1142 - ($(window).width()/2);
-
-		$("#slides ul").animate({
-			'left': -slidePosition
-		}, 'slow');
-		$(".slideControler .slideCircle.selected").removeClass("selected");
-		$($(".slideControler .slideCircle")[slideCounter]).addClass("selected");
-	}
-	var sliderTimer = setInterval(allpageslider, 3000);
-
-	$(".slideCircle").click(function(evt){
-		clearInterval(sliderTimer);
-		sliderTimer = setInterval(allpageslider, 3000);
-		var index = Array.prototype.indexOf.apply($(".slideCircle"), [evt.target]);
-		
-		var pos = -750 - index*980;
-		slideCounter = index;
-		slidePosition = -pos;
-		$("#slides ul").animate({
-			left : - (652 + 980/2 - ($(window).width()/2)) - 652*index
+	$(document).ready(function () {
+    $('.rs-carousel').carousel({
+			autoScroll: true,
+			continuous: true,
+			easing: "swing",
+			itemsPerTransition: "auto",
+			loop: true,
+			nextPrevActions: false,
+			orientation: "horizontal",
+			pagination: false,
+			pause: 3000,
+			speed: "slow",
+			whitespace: false
 		});
-		$(".slideCircle").removeClass("selected");
-		$(evt.target).addClass("selected");
 	});
-	//$("")
 </script>
