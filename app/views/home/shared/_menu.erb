@@ -30,6 +30,7 @@
 		border-top: 1px solid #525355;
 		background-image: url("/images/submenu-bg.jpg");
 		background-repeat: repeat-x;
+		min-width: 980px;
 	}
 	.headerCt{
 		width: 980px;
@@ -156,7 +157,7 @@
 		background-color: #ededed;
 		z-index: 11;
 		top: 48px;
-		right: -98px;
+		right: -82px;
 		padding: 16px;
 		padding-bottom: 19px;
 	}
@@ -267,8 +268,8 @@
 							<span class="spriteIcon downArrow"></span>
 							<div class="logoutPanel">
 								<div class="uptri"></div>
-								<span>You are Logged in as :</span>
-								<span class="user"> <b><%=session[:email]%></b> </span>
+								<span class="links">You are Logged in as :</span>
+								<span class="user subheader"><%=session[:email]%> </span>
 							<input class="spriteIcon floatRight logoutBtn" type="button" value="LOGOUT"/>
 							</div>
 
@@ -332,7 +333,6 @@ console.log($(evt.target).attr("class"))
 	});
 
 $(".logoutBox").click(function(evt){
-console.log($(evt.target).attr("class"))
 		if ($(".logoutPanel").css('display') == 'none')
 		{
 			$(".logoutPanel").css({
