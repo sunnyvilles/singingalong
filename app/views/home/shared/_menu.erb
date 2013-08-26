@@ -93,6 +93,17 @@
 		font-size: 9pt;
 		top: -1px;
 	}
+	.logoutBox{
+		display: inline-block;
+		padding: 4px 10px;
+		background-image: url("/images/sprite.png");
+		background-position: -244px -10px;
+		cursor: pointer;
+		position: relative;
+		margin-left: 22px;
+		font-size: 9pt;
+		top: -1px;
+	}
 	.loginText{
 		padding-right: 3px;
 		position: relative;
@@ -137,10 +148,23 @@
 		padding: 16px;
 		padding-bottom: 19px;
 	}
+.logoutBox .logoutPanel{
+		display: none;
+		position: absolute;
+		height: 60px;
+		width: 228px;
+		background-color: #ededed;
+		z-index: 11;
+		top: 48px;
+		right: -98px;
+		padding: 16px;
+		padding-bottom: 19px;
+	}
+
 	.loginBox:hover .loginPanel{
 		/*display: block;*/
 	}
-	.loginPanel input{
+	.loginPanel input,.logoutPanel input{
 		width: 218px;
 		height: 20px;
 		margin-bottom: 10px;
@@ -151,14 +175,30 @@
 	.loginPanel span{
 		font-size: 8pt;
 		color: #525355;
+		padding-bottom: 5px;
 	}
+
+	.logoutPanel span{
+		font-size: 8pt;
+		color: #525355;
+		display: block;
+		margin-bottom: 8px;
+	}
+
+	.logoutPanel span.user{
+		font-size: 11pt;
+		color: #525355;
+
+	
+	}
+
 	.loginPanel span.signup_btn{
 		color: #fff;
 		font-size: 8pt;
 		left: 25px;
 		letter-spacing: 1px;
 	}
-	.loginPanel input[type="submit"]{
+	.loginPanel input[type="submit"],.logoutPanel input[type="button"]{
 		width: 70px;
 		background-position: -243px -13px;
 		border: none;
@@ -210,6 +250,7 @@
 		opacity: .67;*/
 
 	}
+
 </style>
 <div class="header">
 	<div class="headerCt">
@@ -221,8 +262,16 @@
 				<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
 				<li>
 					<%if session[:user_id].present?%>
-						<div class="loginBox logoutBox">
+						<div class="logoutBox">
 							<span class="loginText"><%= t "header.logout"%></span>
+							<span class="spriteIcon downArrow"></span>
+							<div class="logoutPanel">
+								<div class="uptri"></div>
+								<span>You are Logged in as :</span>
+								<span class="user"> <b><%=session[:email]%></b> </span>
+							<input class="spriteIcon floatRight logoutBtn" type="button" value="LOGOUT"/>
+							</div>
+
 						</div>
 					<%else%>
 						<div class="loginBox">
@@ -257,29 +306,59 @@
 		$(".loginPanel").css({
 			display: 'none'
 		});
+		$(".logoutPanel").css({
+			display: 'none'
+		});
+
 	});
 	$(".loginBox").click(function(evt){
+console.log($(evt.target).attr("class"))
 		if ($(".loginPanel").css('display') == 'none')
 		{
 			$(".loginPanel").css({
 				display: 'block'
 			});
-		}else{
+		}
+		else
+		{
 			if($(evt.target).attr("class") === "loginText"){
 				$(".loginPanel").css({
 					display: 'none'
 				});
-			}
-			
-		}
+			}	
+			}		
 		return false;
+	
 	});
+
+$(".logoutBox").click(function(evt){
+console.log($(evt.target).attr("class"))
+		if ($(".logoutPanel").css('display') == 'none')
+		{
+			$(".logoutPanel").css({
+				display: 'block'
+			});
+		}
+		else
+		{
+			if($(evt.target).attr("class") === "loginText"){
+				$(".logoutPanel").css({
+					display: 'none'
+				});
+			}	
+				}		
+		return false;
+
+	});
+
+
+
 	function submitForm()
 	{
 		$("#loginForm").submit();
 	}
 
-	$('.logoutBox').click(function(){
+	$('.logoutBtn').click(function(){
 		window.location = "/user/logout"
 	});
 </script>
