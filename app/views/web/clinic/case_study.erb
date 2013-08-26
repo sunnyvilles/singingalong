@@ -49,10 +49,11 @@
 			<h3 class="subheader"><%=@article[:title].upcase%></h3>
 			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
 			<div class="articleSharingTools floatRight">
-				<a><span class="spriteIcon smlIcon mail"></span></a>
-				<a><span class="spriteIcon smlIcon facebook"></span></a>
-				<a><span class="spriteIcon smlIcon twitter"></span></a>
+				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
+				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=@article[:title]%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			</div>
+
 
 			<div class="articleContentArea bodyContent">
 				<%if(@article[:file_caption_0].present?)%>
