@@ -14,7 +14,7 @@ attr_accessor :password
     :format => EMAIL_REGEX, :confirmation => true
 
   # only on create, so other attributes of this user can be changed
-  validates_length_of :password, :within => 3..25, :on => :create
+  validates_length_of :password, :within => 5..25, :on => :create
 
   before_save :create_hashed_password
   after_save :clear_password
@@ -22,14 +22,14 @@ attr_accessor :password
   attr_protected :hashed_password, :salt
 
 #called everytime a user attempts login
-  def self.authenticate(username="", password="")
-    if EMAIL_REGEX.match(username).nil?
-    user = User.find_by_username(username)
+  def self.authenticate(email="", password="")
+   # if EMAIL_REGEX.match(email).nil?  #don't need as no username around anymore
+    #user = User.find_by_email(email)
  
-  else
-    user = User.where(:email=>username).first
-    username = user.username
-  end
+  #else
+    user = User.where(:email=>email).first
+   # email = user.email
+  #end
     if user && user.password_match?(password)
       return user
     else
@@ -44,8 +44,8 @@ attr_accessor :password
     hashed_password == User.hash_with_salt(password, salt)
   end
 
-  def self.make_salt(username="")
-    Digest::SHA1.hexdigest("Use #{username} with #{Time.now} to make salt")
+  def self.make_salt(email="")
+    Digest::SHA1.hexdigest("Use #{email} with #{Time.now} to make salt")
   end
 
   def self.hash_with_salt(password="", salt="")
@@ -58,7 +58,7 @@ attr_accessor :password
     # Whenever :password has a value hashing is needed
     unless password.blank?
       # always use "self" when assigning values
-      self.salt = User.make_salt(username) if salt.blank?
+      self.salt = User.make_salt(email) if salt.blank?
       self.hashed_password = User.hash_with_salt(password, salt)
     end
   end
