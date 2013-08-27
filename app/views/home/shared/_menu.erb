@@ -334,12 +334,7 @@
 		$(".signupPasswordField,.loginPanel,.logoutPanel").css({
 			display:'none'
 		});
-		/*$(".loginPanel").css({
-			display: 'none'
-		});
-		$(".logoutPanel").css({
-			display: 'none'
-		});*/
+		
 		$('#loginForm').removeData('validator');
 		$('#loginForm :input')[1].placeholder = "Password"
 		$('.signupError').text("<%= t "header.noAccount" %>");
@@ -481,7 +476,12 @@ $('#loginForm').validate({
 							        	minlength:"need at least 5 charecters",
 							        	equalTo: "password don't match"
 							        }
-							    }
+							    },
+								success: function(label) {
+						            //var name = label.attr('for');
+						            $('.signupError').text('')
+						            //label.text(name+ ' is ok!');
+						        }
 						     
 						    });
 	
