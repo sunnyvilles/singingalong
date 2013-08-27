@@ -24,9 +24,10 @@ layout 'user'
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = 'user created.'
-      redirect_to(:controller=>'access', :action => 'login')
+      redirect_to "/clinic"
     else
-      render("new")
+      flash[:notice] = 'user can not be created.'
+      redirect_to "/clinic"
     end
   end
 

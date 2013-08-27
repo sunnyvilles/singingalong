@@ -1,5 +1,6 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700' rel='stylesheet' type='text/css'></link>
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,300,400italic' rel='stylesheet' type='text/css'></link>
+<script src="/scripts/jquery.validate.min.js"></script>
 <style>
 	/*@font-face {
 		font-family: MavenProBlack;
@@ -140,8 +141,8 @@
 	.loginBox .loginPanel{
 		display: none;
 		position: absolute;
-		height: 120px;
-		width: 228px;
+		height: 124px;/*old 120px*/
+		width: 228px; 
 		background-color: #ededed;
 		z-index: 11;
 		top: 38px;
@@ -177,6 +178,12 @@
 		font-size: 8pt;
 		color: #525355;
 		padding-bottom: 5px;
+	}
+
+	span .signupError{         /*HHHHHHHHHHHHEY M HERE*/
+		display: block;
+		width: 136px;
+		overflow: hidden;
 	}
 
 	.logoutPanel span{
@@ -252,6 +259,7 @@
 
 	}
 
+
 </style>
 <div class="header">
 	<div class="headerCt">
@@ -282,16 +290,26 @@
 							<div class="loginPanel">
 								<div class="uptri"></div>
 								<form action="/user/attempt-login" method="POST" id="loginForm">
-									<input type="email" name="username" placeholder="Email"></input>
-									<input type="password" name="password" placeholder="Password"></input>
+									
+									<input type="email" id="user_email" name="email" placeholder="Email"></input>
+									<input type="password" id="user_password" name="password" placeholder="Password"></input>
+									
+									<div class="loginSubmitBtn">
 									<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
+
 									<span><%= t "header.forgotPassword" %></span><br />
-									<span><%= t "header.noAccount" %></span>
+									</div>
+									
+									<input type="password" name="password" placeholder="Retype Password" class="signupPasswordField" style="display:none"></input>
+									
+									<span class="signupError"><%= t "header.noAccount" %></span>
 									<span class="signup_btn"><%= t "header.signup" %></span>
 								</form>
 							</div>
 						</div>
+							
 					<%end%>
+				
 
 				</li>
 				<li>
@@ -302,16 +320,29 @@
 		<%end%>
 	</div>
 </div>
+
 <script>
+
+
 	$("body").click(function(evt){
+		$(".loginSubmitBtn").css({
+			display:'block'
+		});
+		$(".signupPasswordField").css({
+			display:'none'
+		});
 		$(".loginPanel").css({
 			display: 'none'
 		});
 		$(".logoutPanel").css({
 			display: 'none'
 		});
-
+		$('#loginForm').removeData('validator');
+		$('.label .error').hide()
+		
 	});
+
+
 	$(".loginBox").click(function(evt){
 		if ($(".loginPanel").css('display') == 'none')
 		{
@@ -326,7 +357,54 @@
 					display: 'none'
 				});
 			}	
-			}		
+		if($(evt.target).attr("class") === "signup_btn"){
+			if ($(".loginSubmitBtn").css('display') == 'block')
+			{
+				validateSignupForm();
+				$(".loginSubmitBtn").css({
+					display:'none'
+				});
+				$(".signupPasswordField").css({
+					display:'block'
+				});
+				$('#loginForm :input')[1].placeholder = "Password, 5 charecters at least";
+
+				
+					
+			
+
+			}
+			else
+			{
+
+				var signupFormSubmission = function(){
+				var $inputs = $('#loginForm :input');
+				$inputs[0].name = "user[email]";
+				$inputs[1].name = "user[password]";
+				
+				var form = $('#loginForm')
+				form.attr("action","/users")
+				form.attr("commit","Create User")
+				form.submit();
+				}
+
+				$("#loginForm input").keypress(
+			    function(event){
+			     if (event.which == '13') {
+			        event.preventDefault();
+			        signupFormSubmission();
+			      	}
+				});
+
+				
+
+				signupFormSubmission();
+			}
+
+
+			}
+
+		}		
 		return false;
 	
 	});
@@ -360,4 +438,39 @@ $(".logoutBox").click(function(evt){
 	$('.logoutBtn').click(function(){
 		window.location = "/user/logout"
 	});
+
+
+
+	var validateSignupForm = function(){
+
+
+$('#loginForm').validate({
+						        errorPlacement: function (error, element) {
+						            $('.signupError').text(error.text())
+
+						        },
+						        rules: {
+						            email: {
+						                required: true,
+						                email: true
+						            },
+						            password: {
+						                required: true,
+						                minlength: 5
+						            }
+						        },
+						        messages:{
+							        password:{
+							            required: "Type you password",
+							            minLength: "minimam 5 charecters"
+							        },
+							        email:{
+							            required: "Type your e-mail",
+							            email: "not a valid e-mail"
+							        }
+							    }
+						     
+						    });
+	
+}
 </script>
