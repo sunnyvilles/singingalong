@@ -1,9 +1,15 @@
 <link rel="stylesheet" href="/styles/jquery-ui.css" />
 <script src="/scripts/jquery-ui.js"></script>
+<style>
+	.blockQuote{
+		margin-top: 0;
+	}
+</style>
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap">
 	<div class="padder bodyContent">
+		<h2 class="title"><%= t "submenu.aboutsection.team"%> </h2>
 		<p class="blockQuote blueBorder">
 			“A network of influential and diverse professors, instructors and faculty rooted in tradition. They are working professionals who are on top of their fields fostering invaluable education and superlative practical experience.”
 		</p>
@@ -16,7 +22,7 @@
 				<div class="hidden lbContent bodyContent">
 					<img class="floatLeft marginRight10" src="/images/doctors/rajan.jpg" alt="" height="178" width="208"></img>
 					<div style="min-height: 40px;" class="bodyContent">
-						<h2 class="title">Dr. Rajan Sankaran</h2>
+						<h2 class="subheader">Dr. Rajan Sankaran</h2>
 						Dr. Rajan Sankaran is internationally renowned as a clear thinker and is best known for his path breaking concepts, especially his understanding of disease as a delusion, his use of mind
 						symptoms and dreams, his classification of remedy states into kingdoms and his additions to
 						the existing miasms. His recent work on the plant kingdom and the seven levels is fast gaining
@@ -38,7 +44,7 @@
 				<div class="hidden lbContent bodyContent">
 					<img class="floatLeft marginRight10" src="/images/doctors/meghna.jpg" alt="" height="178" width="208"></img>
 					<div style="min-height: 40px;">
-						<h2 class="title">Dr. Meghna Shah</h2>
+						<h2 class="subheader">Dr. Meghna Shah</h2>
 
 							A young, dynamic, dedicated, intelligent and sincere person, she is gifted with an extremely
 
@@ -91,7 +97,7 @@
 						<div class="hidden lbContent bodyContent">
 							<img class="floatLeft marginRight10" src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
 							<div style="min-height: 40px;" class="bodyContent">
-								<h2 class="title"><%=person[:name]%></h2>
+								<h2 class="subheader"><%=person[:name]%></h2>
 								<%=person[:description]%>
 
 							</div>
@@ -110,7 +116,7 @@
 	</div>
 	<div class="clear" style="height: 0;">&nbsp;</div>
 </div>
-<script>	
+<script>
 	//$(".lbContent").show().dialog({autoOpen: false});
 	$(".team-member").click(function(evt){
 		$(".lbContent",this).dialog({

@@ -310,7 +310,7 @@ button {  width: auto; overflow: visible; }
 #accordion .ui-accordion-header{
 	font-family: 'Merriweather';
 	font-size: 10pt;
-	color: #333;
+	color: #fff;
 	line-height: 1.4em;
 	font-weight: bold;
 }
