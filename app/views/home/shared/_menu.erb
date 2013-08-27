@@ -340,7 +340,7 @@ $(".logoutBox").click(function(evt){
 		}
 		else
 		{
-			if($(evt.target).attr("class") === "loginText"){
+			if($(evt.target).attr("class") === "loginText" || $(evt.target).attr("class") === "spriteIcon downArrow"){
 				$(".logoutPanel").css({
 					display: 'none'
 				});
