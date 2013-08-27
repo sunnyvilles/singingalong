@@ -260,7 +260,9 @@
 
 	}
 
-
+.loginSubmitBtn {
+	margin-bottom: 4px;
+}
 </style>
 <div class="header">
 	<div class="headerCt">
@@ -329,17 +331,21 @@
 		$(".loginSubmitBtn").css({
 			display:'block'
 		});
-		$(".signupPasswordField").css({
+		$(".signupPasswordField,.loginPanel,.logoutPanel").css({
 			display:'none'
 		});
-		$(".loginPanel").css({
+		/*$(".loginPanel").css({
 			display: 'none'
 		});
 		$(".logoutPanel").css({
 			display: 'none'
-		});
+		});*/
 		$('#loginForm').removeData('validator');
 		$('#loginForm :input')[1].placeholder = "Password"
+		$('.signupError').text("<%= t "header.noAccount" %>");
+		$('#loginForm :input')[0].value = "";
+		$('#loginForm :input')[1].value = "";
+
 		
 	});
 
@@ -429,6 +435,7 @@ $(".logoutBox").click(function(evt){
 
 	function submitForm()
 	{
+		console.log('skdjfl')
 		$("#loginForm").submit();
 	}
 

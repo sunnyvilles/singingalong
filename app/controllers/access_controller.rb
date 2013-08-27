@@ -17,10 +17,11 @@ class AccessController < ApplicationController
 
   
   def attempt_login
-    authorized_user = User.authenticate(params[:username], params[:password])
+    
+    authorized_user = User.authenticate(params[:email], params[:password])
     if authorized_user
       session[:user_id] = authorized_user.id
-      session[:username] = authorized_user.username
+      #session[:username] = authorized_user.username 
       session[:email]= authorized_user.email
       flash[:notice] = "You are now logged in."
       # check isAdmin for admin_users then redirect
@@ -39,7 +40,7 @@ class AccessController < ApplicationController
 	
   def logout
     session[:user_id] = nil
-    session[:username] = nil
+    session[:email] = nil
     flash[:notice] = "You have been logged out."
     redirect_to(:action => "login")
   end
@@ -47,7 +48,7 @@ class AccessController < ApplicationController
   def user_logout
   
     session[:user_id] = nil
-    session[:username] = nil
+    session[:email] = nil
     #flash[:notice] = "You have been logged out."
     redirect_to("/")
   end
