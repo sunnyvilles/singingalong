@@ -180,10 +180,11 @@
 		padding-bottom: 5px;
 	}
 
-	span .signupError{         /*HHHHHHHHHHHHEY M HERE*/
+	span.signupError{         /*HHHHHHHHHHHHEY M HERE*/
 		display: block;
 		width: 136px;
 		overflow: hidden;
+		float:left;
 	}
 
 	.logoutPanel span{
@@ -291,8 +292,8 @@
 								<div class="uptri"></div>
 								<form action="/user/attempt-login" method="POST" id="loginForm">
 									
-									<input type="email" id="user_email" name="email" placeholder="Email"></input>
-									<input type="password" id="user_password" name="password" placeholder="Password"></input>
+									<input type="email" id="email" name="email" placeholder="Email"></input>
+									<input type="password" id="password" name="password" placeholder="Password"></input>
 									
 									<div class="loginSubmitBtn">
 									<input class="spriteIcon" type="submit" value="<%= t "header.login" %>" onClick="submitForm()"></input>
@@ -300,7 +301,7 @@
 									<span><%= t "header.forgotPassword" %></span><br />
 									</div>
 									
-									<input type="password" name="password" placeholder="Retype Password" class="signupPasswordField" style="display:none"></input>
+									<input type="password" name="password_confirm" placeholder="Retype Password" class="signupPasswordField" style="display:none"></input>
 									
 									<span class="signupError"><%= t "header.noAccount" %></span>
 									<span class="signup_btn"><%= t "header.signup" %></span>
@@ -338,7 +339,7 @@
 			display: 'none'
 		});
 		$('#loginForm').removeData('validator');
-		$('.label .error').hide()
+		$('#loginForm :input')[1].placeholder = "Password"
 		
 	});
 
@@ -368,10 +369,6 @@
 					display:'block'
 				});
 				$('#loginForm :input')[1].placeholder = "Password, 5 charecters at least";
-
-				
-					
-			
 
 			}
 			else
@@ -457,16 +454,25 @@ $('#loginForm').validate({
 						            password: {
 						                required: true,
 						                minlength: 5
-						            }
-						        },
+						            },
+									password_confirm : {
+										minlength : 5,
+										equalTo : "#password"
+									}
+								},
 						        messages:{
 							        password:{
-							            required: "Type you password",
-							            minLength: "minimam 5 charecters"
+							        	required: "Type your password",
+							        	minlength:"need at least 5 charecters"
 							        },
 							        email:{
 							            required: "Type your e-mail",
 							            email: "not a valid e-mail"
+							        },
+							        password_confirm:{
+							        	required:"enter password again",
+							        	minlength:"need at least 5 charecters",
+							        	equalTo: "password don't match"
 							        }
 							    }
 						     
