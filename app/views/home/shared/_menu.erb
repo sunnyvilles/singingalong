@@ -326,6 +326,7 @@
 
 <script>
 
+	var loginput = $('#loginForm :input')
 
 	$("body").click(function(evt){
 		$(".loginSubmitBtn").css({
@@ -336,11 +337,11 @@
 		});
 		
 		$('#loginForm').removeData('validator');
-		$('#loginForm :input')[1].placeholder = "Password"
+		loginput[1].placeholder = "Password"
 		$('.signupError').text("<%= t "header.noAccount" %>");
-		$('#loginForm :input')[0].value = "";
-		$('#loginForm :input')[1].value = "";
-
+		loginput[0].value = "";
+		loginput[1].value = "";
+		loginput[3].value = "";
 		
 	});
 
@@ -369,24 +370,27 @@
 				$(".signupPasswordField").css({
 					display:'block'
 				});
-				$('#loginForm :input')[1].placeholder = "Password, 5 charecters at least";
+				loginput[1].placeholder = "Password, 5 charecters at least";
 
 			}
 			else
 			{
 
 				var signupFormSubmission = function(){
-				var $inputs = $('#loginForm :input');
-				$inputs[0].name = "user[email]";
-				$inputs[1].name = "user[password]";
-				
 				var form = $('#loginForm')
+				if (form.valid()) {
+				loginput[0].name = "user[email]";
+				loginput[1].name = "user[password]";
+				
+				
 				form.attr("action","/users")
 				form.attr("commit","Create User")
 				form.submit();
+				
+				 }
 				}
 
-				$("#loginForm input").keypress(
+				loginput.keypress(
 			    function(event){
 			     if (event.which == '13') {
 			        event.preventDefault();
