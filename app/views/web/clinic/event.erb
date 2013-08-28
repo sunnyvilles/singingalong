@@ -1,46 +1,93 @@
 <style>
 	.submenu{
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
+	}
+	.article-list .padder{
+		padding: 20px 10px;
+	}
+	.articleSharingTools{
+		position: relative;
+		bottom: 8px;
+	}
+	.articleImageSlide{
+		margin: 0 10px 10px 0;
+		height: 178px;
+		width: 282px;
+		overflow: hidden;
+	}
+	.articleImageSlide{
+		position: relative;
+	}
+
+	.submenuItem ul{
+		border-right: 1px solid #ddd;
+		left: 0 !important;
 	}
 </style>
-<%event=@event%>
-<%if !request.xhr?%>
-	<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
-	<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<div class="contentWrap article">
+	
+	<div class="padder">
+		<h2 class="title" style="border-bottom: 1px solid #333;"><%= t "submenu.events"%> </h2>
+		<div style="position: relative; top: 12px;">
+			<h3 class="subheader" style="margin-bottom: 10px;"><%=@event[:title].upcase%></h3>
+			<div class="subheader" style="margin-bottom: 10px;"><%=@event[:day].strftime('%B %d, %Y') %></div>
+			<div class="articleSharingTools floatRight" style="position: absolute;top: -8px;right: 0;height: 32px;">
+				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
+				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=@event[:title]%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			</div>
 
-	<div class="contentWrap">
-	<%end%>
-	<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
-	<div class="eventDescBlk color636363">
-		<div><%=raw event[:other_description]%></div>
-		<div class="font18 marginTop20 color333">WORKSHOP DETAILS:</div>
-		<div class="marginTop10"><%=raw event[:description]%></div>
-
-		<div class="marginTop20">
-			<table class="event-details">
-				<%if event[:fees].present?%>
-					<tr>
-						<td>Course&nbsp;fees: </td>
-						<td class="secondCol boldtext color333"><%=event[:fees]%></td>
-					</tr>
+			<div class="articleContentArea bodyContent">
+				<%if(@event[:file_caption_0].present?)%>
+				<div class="floatLeft articleImageSlide">
+					<%if(@event[:file_caption_0].present?)%>
+					<div>
+						<img src="/images/articles/<%=@event[:id]%>-0.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@event[:file_caption_0]%></span>
+					</div>
+					<%end%>
+					<%if(@event[:file_caption_1].present?)%>
+					<div>
+						<img src="/images/articles/<%=@event[:id]%>-1.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@event[:file_caption_1]%></span>
+					</div>
+					<%end%>
+					<%if(@event[:file_caption_2].present?)%>
+					<div>
+						<img src="/images/articles/<%=@event[:id]%>-2.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@event[:file_caption_2]%></span>
+					</div>
+					<%end%>
+				</div>
 				<%end%>
-				<tr>
-					<td>Date:</td>
-					<td class="secondCol boldtext color333"><%=event[:day]%></td>
-				</tr>
-				<tr>
-					<td>Venue:</td>
-					<td class="secondCol">‘the other song’ academy, 7th Floor, Peninsula Heights, C.D. Burfiwala Marg lane, Andheri (W), Mumbai 400058.</td>
-				</tr>
-			</table>
+				<div><%=raw @event[:other_description]%></div>
+				<div><%=raw @event[:description]%></div>				
+			</div>
 		</div>
-		<%if event.testimonials.length != 0 %>
-			<div class="font18 marginTop20 color333">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
-			<%event.testimonials.each do |testimonial|%>
-				<div class="marginTop10"><%=raw testimonial[:title]%></div>
-			<%end%>
-		<%end%>
+		<div class="clear"></div>
 	</div>
-	<%if !request.xhr?%>
-	</div>
-<%end%>
+</div>
+
+<script>
+	<%if(@event[:file_caption_1].present?)%>
+	$(".articleImageSlide").slidesjs({
+		width: 278,
+		height: 178,
+		play: {
+			active: false,
+			effect: "slide",
+			interval: 5000
+		},
+		navigation:{
+			active: false
+		},
+		pagination: {
+			active: true
+		}
+	});
+	<%end%>
+
+
+</script>
