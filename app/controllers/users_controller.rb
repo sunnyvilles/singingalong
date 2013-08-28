@@ -21,10 +21,11 @@ layout 'user'
   end
   
   def create
+    
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = 'user created.'
-        redirect_to :controller=>'access', :action => 'attempt_login', :email => @user.email,:password=>@user.password
+        redirect_to :controller=>'access', :action => 'attempt_login', :email => @user.email,:password=>params[:user][:password]
       #redirect_to "/clinic"
     else
       flash[:notice] = 'user can not be created.'
