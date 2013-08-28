@@ -1,143 +1,79 @@
-<style type="text/css">
-	.submenu{
-		margin-bottom: 0 !important;
+<style>
+	.sharingTool{
+		background-image: url("/images/share-icon.jpg");
 	}
-	a.eventReadMore:after{
-		content: "\00bb";
-		padding-left: 6px;
-		position: absolute;
+	.submenu{
+		margin-bottom: 0;
+	}
+	.submenuItem ul{
+		border-right: 1px solid #ddd;
+		left: 0 !important;
+	}
+	.bottomBar{
+		border-bottom: none;
+		border-top: 1px solid #666;
+		padding-top: 14px;
+		height: 20px;
+	}
+	.article-list .padder{
+		padding: 20px 10px;
+	}
+	.article-list .contentBlock{
+		width: 740px;
+	}
+	.article-list .contentBlock .bodyContent{
+		height: 78px;
 	}
 </style>
-<link rel="stylesheet" href="/styles/jquery-ui.css" />
-<script src="/scripts/jquery-ui.js"></script>
+<%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
+
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
-<div class="contentWrap">
-	<h2 class="title">EVENTS</h2>
+<div class="contentWrap article-list">
 	<div class="padder">
-		<div id="accordion" class="greenAccordianHeader">
-			<h3>WORKSHOPS</h3>
-			<div>
-				<%@eventsHash["workshops"].each{|event|%>
-					<div class="eventDesc">
-						<div class="dateBlock floatLeft">
-							<div class="dateCt">Jul 10</div>
-							<div class="dayCt">Wed.</div>
-						</div>
-						<div class="floatLeft" style="width: 800px;">
-							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
-							<div class="eventDescBlk">
-								<div><%=raw event[:description]%></div>
-								<%if event[:fees].present?%>
-									<table class="event-details">
-										<tr>
-											<td>Course&nbsp;fees: </td>
-											<td class="secondCol color333"><%=event[:fees]%></td>
-										</tr>
-									</table>
-								<a class="eventReadMore" data-eventId="<%=event[:id]%>" href="/clinic/events/#<%=event[:id]%>"><%= t "home.readmore" %></a>
-								<%end%>
-								<!--<div class="font18 marginTop20">WORKSHOP DETAILS:</div>
-										<div class="marginTop10"><%=raw event[:other_description]%></div>
-
-										<div class="marginTop20">
-											<table class="event-details">
-								<%if event[:fees].present?%>
-															<tr>
-																<td>Course&nbsp;fees: </td>
-																<td class="secondCol"><%=event[:fees]%></td>
-															</tr>
-								<%end%>
-												<tr>
-													<td>Date:</td>
-													<td class="secondCol"><%=event[:day]%></td>
-												</tr>
-												<tr>
-													<td>Venue:</td>
-													<td class="secondCol">‘the other song’ academy, 7th Floor, Peninsula Heights, C.D. Burfiwala Marg lane, Andheri (W), Mumbai 400058.</td>
-												</tr>
-											</table>
-										</div>
-								<%if event.testimonials.length != 0 %>
-													<div class="font18 marginTop20">COMMENTS FROM PARTICIPANTS OF EARLIER WORKSHOPS: </div>
-									<%event.testimonials.each do |testimonial|%>
-																<div class="marginTop10"><%=raw testimonial[:title]%></div>
-									<%end%>
-								<%end%>-->
-							</div>
-						</div>
-						<div class="clear"></div>
-					</div>
-
-				<%}%>
+		<h2 class="title"><%= t "submenu.events"%> </h2>		
+		<div>
+			<div class="topHeader">
+				<%if page_no !=1%>
+					<a href="/clinic/articles?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
+				<%end%>
+				<span class="articleCount subheader">Events Found: <%=@total_events%></span>
+				<%if @total_events_remain > 10%>
+					<a href="/clinic/articles?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
+				<%end%>
 			</div>
-			<h3>SEMINARS</h3>
-			<div>
-				<%@eventsHash["seminars"].each{|event|%>
-					<div class="eventDesc">
-						<div class="dateBlock floatLeft">
-							<div class="dateCt">Jul 10</div>
-							<div class="dayCt">Wed.</div>
-						</div>
-						<div class="floatLeft" style="width: 800px;">
-							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
-							<div class="eventDescBlk">
-								<%=event[:description]%>
+			<div class="articlesList">
+				<%@events.each { |event|%>					
+					<%#img_url = event[:file_caption_0].present? ? "/images/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>
+					<%img_url = "/images/events/default.jpg"%>
+					<div class="article">
+
+						<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>
+						<div class="floatRight contentBlock">
+							<h3 class="subheader floatLeft"><%=event[:title]%></h3>
+							<span class="subheader floatRight"><%=event[:day].strftime('%B %d, %Y')%></span>
+							<div class="clear"></div>
+							<div class="bodyContent"><%=raw event[:description][0...240]%>...</div>
+							<div class="tools">
+								<span class="sharingTool"></span>
+								<a class="links floatRight" href="/clinic/event/<%=event[:id]%>">Read More</a>
 							</div>
 						</div>
 						<div class="clear"></div>
 					</div>
-
-				<%}%>
+				<% } %>
 			</div>
-			<h3>VISITS</h3>
-			<div>
-				<%@eventsHash["visits"].each{|event|%>
-					<div class="eventDesc">
-						<div class="dateBlock floatLeft">
-							<div class="dateCt">Jul 10</div>
-							<div class="dayCt">Wed.</div>
-						</div>
-						<div class="floatLeft" style="width: 800px;">
-							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
-							<div class="eventDescBlk">
-								<%=event[:description]%>
-							</div>
-						</div>
-						<div class="clear"></div>
-					</div>
-
-				<%}%>
-			</div>
-			<h3>LECTURES</h3>
-			<div>
-				<%@eventsHash["lectures"].each{|event|%>
-					<div class="eventDesc">
-						<div class="dateBlock floatLeft">
-							<div class="dateCt">Jul 10</div>
-							<div class="dayCt">Wed.</div>
-						</div>
-						<div class="floatLeft" style="width: 800px;">
-							<div class="secondryTitle" style="margin-top: 0;"><%=event[:title]%></div>
-							<div class="eventDescBlk">
-								<%=event[:description]%>
-							</div>
-						</div>
-						<div class="clear"></div>
-					</div>
-
-				<%}%>
+			<div class="bottomBar">
+				<%if page_no !=1%>
+					<a href="/clinic/articles?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
+				<%end%>
+				<span class="articleCount">Events Found: <%=@total_events.size%></span>
+				<%if @total_events_remain > 10%>
+					<a href="/clinic/articles?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
+				<%end%>
 			</div>
 		</div>
+
+		<div class="clear"></div>
 	</div>
-	<div id="eventLightBox"></div>
 </div>
-<script>
-	$(function() {
-		$( "#accordion" ).accordion({
-			heightStyle: 'content',
-			collapsible: true
-		});
-	});
-	
-</script>
