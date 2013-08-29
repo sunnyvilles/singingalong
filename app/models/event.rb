@@ -11,4 +11,10 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :testimonials, :allow_destroy => true, :reject_if => lambda { |a| a[:title].blank? }
   accepts_nested_attributes_for :testimonial_videos, :allow_destroy => true, :reject_if => lambda { |a| a[:title].blank? }
   accepts_nested_attributes_for :workshop_videos, :allow_destroy => true, :reject_if => lambda { |a| a[:title].blank? }
+
+
+  validates :day, :presence => true
+  validates :title, :presence => true
+  validates :description, :presence => true
+
 end
