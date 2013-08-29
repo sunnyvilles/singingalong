@@ -27,7 +27,7 @@
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
 <%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
 <div class="contentWrap article">
-	
+
 	<div class="padder">
 		<h2 class="title" style="border-bottom: 1px solid #333;"><%= t "submenu.events"%> </h2>
 		<div style="position: relative; top: 12px;">
@@ -40,30 +40,31 @@
 			</div>
 
 			<div class="articleContentArea bodyContent">
-				<%if(@event[:file_caption_0].present?)%>
+				<%if(@event[:caption_0].present?)%>
 				<div class="floatLeft articleImageSlide">
-					<%if(@event[:file_caption_0].present?)%>
+					<%if(@event[:caption_0].present?)%>
 					<div>
-						<img src="/images/articles/<%=@event[:id]%>-0.jpg" alt="" height="178" width="282"></img>
+						<img src="/images/events/<%=@event[:id]%>-0.jpg" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@event[:file_caption_0]%></span>
 					</div>
 					<%end%>
-					<%if(@event[:file_caption_1].present?)%>
+					<%if(@event[:caption_1].present?)%>
 					<div>
-						<img src="/images/articles/<%=@event[:id]%>-1.jpg" alt="" height="178" width="282"></img>
+						<img src="/images/events/<%=@event[:id]%>-1.jpg" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@event[:file_caption_1]%></span>
 					</div>
 					<%end%>
-					<%if(@event[:file_caption_2].present?)%>
-					<div>
-						<img src="/images/articles/<%=@event[:id]%>-2.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@event[:file_caption_2]%></span>
-					</div>
+
+					<%if(@event[:caption_2].present?)%>
+						<div>
+							<img src="/images/events/<%=@event[:id]%>-2.jpg" alt="" height="178" width="282"></img>
+							<span class="caption"><%=@event[:caption_2]%></span>
+						</div>
 					<%end%>
 				</div>
 				<%end%>
 				<div><%=raw @event[:other_description]%></div>
-				<div><%=raw @event[:description]%></div>				
+				<div><%=raw @event[:description]%></div>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -71,7 +72,7 @@
 </div>
 
 <script>
-	<%if(@event[:file_caption_1].present?)%>
+	<%if(@event[:caption_1].present?)%>
 	$(".articleImageSlide").slidesjs({
 		width: 278,
 		height: 178,

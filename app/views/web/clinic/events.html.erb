@@ -44,8 +44,7 @@
 			</div>
 			<div class="articlesList">
 				<%@events.each { |event|%>					
-					<%#img_url = event[:file_caption_0].present? ? "/images/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>
-					<%img_url = "/images/events/default.jpg"%>
+					<%img_url = event[:caption_0].present? ? "/images/events/#{event[:id]}-0.jpg" : "/images/articles/default.jpg"%>
 					<div class="article">
 
 						<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>

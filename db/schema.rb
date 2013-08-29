@@ -72,18 +72,6 @@ ActiveRecord::Schema.define(:version => 20130829123549) do
   end
 
   create_table "events", :force => true do |t|
-<<<<<<< HEAD
-    t.string  "title"
-    t.text    "other_description"
-    t.text    "description"
-    t.date    "day"
-    t.integer "fees"
-    t.date    "end_date"
-    t.string  "event_type"
-    t.string  "caption_0"
-    t.string  "caption_1"
-    t.string  "caption_2"
-=======
     t.string   "title"
     t.text     "other_description"
     t.text     "description"
@@ -92,7 +80,9 @@ ActiveRecord::Schema.define(:version => 20130829123549) do
     t.integer  "fees"
     t.date     "end_date"
     t.string   "event_type"
->>>>>>> 5c5a450d54f2c5debf88935d8e300cc792df30c6
+    t.string   "caption_0"
+    t.string   "caption_1"
+    t.string   "caption_2"
   end
 
   create_table "tags", :force => true do |t|
