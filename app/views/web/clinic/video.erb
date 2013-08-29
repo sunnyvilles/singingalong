@@ -47,7 +47,7 @@
 		<%= render :partial => "/web/clinic/shared/left_navigation", :locals => {:scope => "clinic", :type => "videos"} %>
 		<div class="floatLeft articlesRightPanel">
 			<h3><%=@article[:title].upcase%></h3>
-			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') %></span>
+			<span class="subheader"><%=@article[:created_at].strftime('%B %d, %Y') unless @article[:created_at].blank? %></span>
 			<div class="articleSharingTools floatRight">
 				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
 				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>

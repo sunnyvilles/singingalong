@@ -51,7 +51,7 @@
 						<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>
 						<div class="floatRight contentBlock">
 							<h3 class="subheader floatLeft"><%=event[:title]%></h3>
-							<span class="subheader floatRight"><%=event[:day].strftime('%B %d, %Y')%></span>
+							<span class="subheader floatRight"><%=event[:day].strftime('%B %d, %Y') unless event[:day].blank?%></span>
 							<div class="clear"></div>
 							<div class="bodyContent"><%=raw event[:description][0...240]%>...</div>
 							<div class="tools">
