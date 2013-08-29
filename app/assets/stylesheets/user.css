@@ -281,7 +281,7 @@ button {  width: auto; overflow: visible; }
 /*COMMON CSS END*/
 /*Accordion CSS Start*/
 #accordion{
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 #accordion .ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr{
 	border-radius: 0 !important;;
@@ -315,6 +315,7 @@ button {  width: auto; overflow: visible; }
 	font-weight: bold;
 	border-left: none;
 	border-right: none;
+	padding-left: 10px !important;
 }
 #accordion .ui-accordion-header-icon{
 	right: 10px;
