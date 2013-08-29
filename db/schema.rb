@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130829123549) do
   end
 
   create_table "events", :force => true do |t|
+<<<<<<< HEAD
     t.string  "title"
     t.text    "other_description"
     t.text    "description"
@@ -82,6 +83,16 @@ ActiveRecord::Schema.define(:version => 20130829123549) do
     t.string  "caption_0"
     t.string  "caption_1"
     t.string  "caption_2"
+=======
+    t.string   "title"
+    t.text     "other_description"
+    t.text     "description"
+    t.datetime "datetime"
+    t.date     "day"
+    t.integer  "fees"
+    t.date     "end_date"
+    t.string   "event_type"
+>>>>>>> 5c5a450d54f2c5debf88935d8e300cc792df30c6
   end
 
   create_table "tags", :force => true do |t|
@@ -112,16 +123,13 @@ ActiveRecord::Schema.define(:version => 20130829123549) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",        :limit => 25
-    t.string   "email",           :limit => 100,                    :null => false
+    t.string   "username"
+    t.string   "email"
     t.string   "hashed_password"
-    t.string   "salt",            :limit => 40
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
-    t.boolean  "isAdmin",                        :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "isAdmin",         :default => false
   end
-
-  add_index "users", ["username"], :name => "index_users_on_username"
 
   create_table "workshop_videos", :force => true do |t|
     t.string   "title"

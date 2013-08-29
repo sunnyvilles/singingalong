@@ -1,23 +1,23 @@
 <form action="/admin/attempt-login" class="loginForm" method="POST">
-	<div class="dottebBottom padding10"> Login/SignUp</div>
-	<div style="color: red;"><%=flash[:notice]%></div>
+<div class="dottebBottom padding10"> Login/SignUp</div>
+<div style="color: red;"><%=flash[:notice]%></div>
 
-	<table class="loginFormTbl">
-		<tr>
-			<td>Email:</td>
-			<td><input type="text" name="email"></input></td>
-		</tr>
-		<tr>
-			<td>Password:</td>
-			<td><input type="password" name="password"></input></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<%#= link_to("Sign Up",:controller=>'users', :action => 'new')%>
-			
-				<input type="submit" value="Login"></input>
-			</td>
-		</tr>
-	</table>
+<table class="loginFormTbl">
+<tr>
+<td>Username:</td>
+<td><input type="text" name="email"></input></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="password"></input></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<%= link_to("Sign Up",:controller=>'users', :action => 'new')%>
+
+<input type="submit" value="Login"></input>
+</td>
+</tr>
+</table>
 </form>

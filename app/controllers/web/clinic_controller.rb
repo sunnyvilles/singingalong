@@ -187,19 +187,23 @@ class Web::ClinicController < ApplicationController
 	end
 
 	def events
-		events = Event.find(:all)
-		@eventsHash = {
-			"seminars" => [],
-			"workshops" => [],
-			"visits" => [],
-			"lectures" => []
-		}
-		events.each{|event|
-			if(!@eventsHash[event[:event_type]].present?)
-				@eventsHash[event[:event_type]] = []
-			end
-			@eventsHash[event[:event_type]] << event
-		}		
+		per_page = 10
+  	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
+  	start_value = (page - 1 )*per_page
+
+    
+
+		#@articles = Article.find(:all, :conditions => [ "type=?", "event" ], :order => 'viewcount DESC', :offset => start_value, :limit => per_page)
+		#@total_articles = Article.find(:all, :conditions => [ "type=?", "event" ])
+
+		
+
+		#@total_articles_remain = @total_articles.size - start_value
+
+		#deprecated code follows
+		@events = Event.find(:all,:order => 'day DESC', :offset => start_value, :limit => per_page)
+		@total_events = Event.find(:all, :conditions => []).size
+		@total_events_remain = @total_events - start_value
 	end
 	def event
 		@event = Event.find(params[:event_id])
