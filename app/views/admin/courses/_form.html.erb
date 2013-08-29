@@ -3,7 +3,7 @@
 <%= form_for(@admin_course) do |f| %>
 	<%= render :partial => "/admin/shared/header" %>
 	<%= render :partial => "/admin/shared/tabs" %>
-<<<<<<< HEAD
+
   <% if @admin_course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>
@@ -19,7 +19,7 @@
 <table class="course_table">
   <tr><td>
     <%= f.label :course_type %></td><td>
-    <%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
+    <%= f.select :course_type ,["indian","international","customized"] %>
   </td></tr>
   <tr><td>
     <%= f.label :title ,"Course Title" %></td><td>
@@ -27,48 +27,8 @@
     <br/>the character limit for this is 30
   </td></tr>
   <tr><td>
-    <%= f.label :batch %></td><td>
-    <%= f.select :batch ,["1","2","3"] %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :start_date %></td><td>
-    <%= f.text_field :start_date, :class => "datepicker", :value => date_dmY(@admin_course.start_date) %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :end_date %></td><td>
-    <%= f.text_field :end_date, :class => "datepicker" , :value => date_dmY(@admin_course.end_date)%>
-  </td></tr>
-  <tr><td>
-    <%= f.label :timing %></td><td>
-    <%= f.time_select :timing ,:ampm=>"true"%>
-  </td></tr>
-  <tr><td>
-    <%= f.label :venue %></td><td>
-    <%= f.text_field :venue %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :fees %></td><td>
-    <%= f.text_field :fees %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :discounts %></td><td>
-    <%= f.text_field :discounts %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :email %></td><td>
-    <%= f.text_field :email%>
-  </td></tr>
-  <tr><td>
-    <%= f.label :phone_no %></td><td>
-    <%= f.text_field :phone_no%>
-  </td></tr>
-  <tr><td>
     <%= f.label :description %></td><td>
     <%= f.text_area :description,:cols => "80" %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :curriculam %></td><td>
-    <%= f.text_area :curriculam %>
   </td></tr>
   </table>
   <div class="actions">
@@ -97,8 +57,6 @@ $(".actions input").css({
 
   left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
 }) ;
-
-console.log((($(window).width()-980)/2 + (980-60)).toString() + "px")
 
 })
 
@@ -135,130 +93,5 @@ padding:5px 30px 5px 5px;
      content: " *";
  }
  </style>
-=======
-	<% if @admin_course.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>
-
-			<ul>
-				<% @admin_course.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-	<div class="adminCt2">
-		<div class="actions">
-			<%= f.submit "save" , :class=> "course_submit"%>
-		</div>
-		<table class="course_table">
-			<tr><td>
-					<%= f.label :course_type %></td><td>
-					<%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :title ,"Course Title" %></td><td>
-					<%= f.text_field :title%>
-					<br/>the character limit for this is 30
-				</td></tr>
-			<tr><td>
-					<%= f.label :batch %></td><td>
-					<%= f.select :batch ,["1","2","3"] %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :start_date %></td><td>
-					<%= f.text_field :start_date, :class => "datepicker", :value => date_dmY(@admin_course.start_date) %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :end_date %></td><td>
-					<%= f.text_field :end_date, :class => "datepicker" , :value => date_dmY(@admin_course.end_date)%>
-				</td></tr>
-			<tr><td>
-					<%= f.label :timing %></td><td>
-					<%= f.time_select :timing ,:ampm=>"true"%>
-				</td></tr>
-			<tr><td>
-					<%= f.label :venue %></td><td>
-					<%= f.text_field :venue %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :fees %></td><td>
-					<%= f.text_field :fees %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :discounts %></td><td>
-					<%= f.text_field :discounts %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :email %></td><td>
-					<%= f.text_field :email%>
-				</td></tr>
-			<tr><td>
-					<%= f.label :phone_no %></td><td>
-					<%= f.text_field :phone_no%>
-				</td></tr>
-			<tr><td>
-					<%= f.label :description %></td><td>
-					<%= f.text_area :description,:cols => "120" %>
-				</td></tr>
-			<tr><td>
-					<%= f.label :curriculam %></td><td>
-					<%= f.text_area :curriculam %>
-				</td></tr>
-		</table>
-
-	</div>
-
-	<script>
-		tinymce.init({
-			selector:'textarea',
-			toolbar: " bold italic underline",
-			menubar : false
-		});
-
-		$(function() {
-			$( ".datepicker" ).datepicker({
-
-				dateFormat : "dd MM yy",
-				changeMonth : true,
-				changeYear : true
-
-			});
-		});
-
-	</script>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-	<style type="text/css">
-		.adminCt2 {
-			padding: 10px;
-			border: 1px solid grey;
-			padding-top:30px;
-			margin-top: 10px;
-		}
-		.actions input {
-/*
-			position: absolute;
-			width:60px;
-			top:63px;
-			height: 25px;
-			margin-top: 0px;*/
-		}
-
-		.course_table {
-
-			width:100%;
-		}
-
-		.course_table td{
-
-
-			padding:5px 30px 5px 5px;
-
-		}
-		[required]:before {
-			content: " *";
-		}
-	</style>
->>>>>>> 02a00b6d34a9ad0a2d5a7f49df727f470b57b946
 
 <% end %>

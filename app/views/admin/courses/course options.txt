@@ -1,0 +1,60 @@
+  <div class="adminCt2">
+<table class="course_table">
+  <tr><td>
+    <%= f.label :course_type %></td><td>
+    <%= f.select :course_type ,["basic courses","advanced courses","full time masters courses","part time masters courses"] %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :title ,"Course Title" %></td><td>
+    <%= f.text_field :title%>
+    <br/>the character limit for this is 30
+  </td></tr>
+  <tr><td>
+    <%= f.label :batch %></td><td>
+    <%= f.select :batch ,["1","2","3"] %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :start_date %></td><td>
+    <%= f.text_field :start_date, :class => "datepicker", :value => date_dmY(@admin_course.start_date) %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :end_date %></td><td>
+    <%= f.text_field :end_date, :class => "datepicker" , :value => date_dmY(@admin_course.end_date)%>
+  </td></tr>
+  <tr><td>
+    <%= f.label :timing %></td><td>
+    <%= f.time_select :timing ,:ampm=>"true"%>
+  </td></tr>
+  <tr><td>
+    <%= f.label :venue %></td><td>
+    <%= f.text_field :venue %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :fees %></td><td>
+    <%= f.text_field :fees %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :discounts %></td><td>
+    <%= f.text_field :discounts %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :email %></td><td>
+    <%= f.text_field :email%>
+  </td></tr>
+  <tr><td>
+    <%= f.label :phone_no %></td><td>
+    <%= f.text_field :phone_no%>
+  </td></tr>
+  <tr><td>
+    <%= f.label :description %></td><td>
+    <%= f.text_area :description,:cols => "80" %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :curriculam %></td><td>
+    <%= f.text_area :curriculam %>
+  </td></tr>
+  </table>
+  <div class="actions">
+    <%= f.submit "save" , :class=> "course_submit"%>
+  </div>
+</div>

@@ -25,8 +25,11 @@ class AccessController < ApplicationController
       session[:email]= authorized_user.email
       flash[:notice] = "You are now logged in."
       # check isAdmin for admin_users then redirect
-
-      redirect_to "/clinic"
+            if (!is_admin?)
+              redirect_to "/clinic"    
+            else
+             redirect_to "/admin"
+            end
       
     else
       flash[:notice] = "Invalid username/password combination."

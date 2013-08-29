@@ -5,32 +5,20 @@
 		<tr>
 			<th>Course type</th>
 			<th>Title</th>
-			<th>Start date</th>
-			<th>End date</th>
-			
-			<th>Venue</th>
-			
-			<th>Fees</th>
-			<th>Discounts</th>
+		
 			<th></th>
 			<th></th>
-			<th></th>
+		
 		</tr>
 
 		<% @admin_courses.each do |admin_course| %>
 			<tr>
 				<td><%= admin_course.course_type %></td>
 				<td><%= admin_course.title %></td>
-				<td><%= admin_course.start_date %></td>
-				<td><%= admin_course.end_date %></td>
 				
-				<td><%= admin_course.venue %></td>
-				
-				<td><%= admin_course.fees %></td>
-				<td><%= admin_course.discounts %></td>
 				<!--<td><%= link_to 'Show', admin_course %></td>-->
 				<td><a href="/admin/academy/courses/<%=admin_course[:id]%>/edit"><span class="adminSprite editIcon"></span></a><!--<%= link_to 'Edit', edit_admin_course_path(admin_course) %>--></td>
-				<td><a href="/admin/academy/courses/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="adminSprite crossIcon"></span></a><!--<%= link_to 'Delete', admin_course, confirm: 'Are you sure?', method: :delete %>--></td>
+				<td><a href="/admin/academy/courses/<%=admin_course[:id]%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="adminSprite crossIcon"></span></a><!--<%= link_to 'Delete', admin_course, confirm: 'Are you sure?', method: :delete %>--></td>
 			</tr>
 		<% end %>
 	</table>
