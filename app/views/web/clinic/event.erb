@@ -32,7 +32,7 @@
 		<h2 class="title" style="border-bottom: 1px solid #333;"><%= t "submenu.events"%> </h2>
 		<div style="position: relative; top: 12px;">
 			<h3 class="subheader" style="margin-bottom: 10px;"><%=@event[:title].upcase%></h3>
-			<div class="subheader" style="margin-bottom: 10px;"><%=@event[:day].strftime('%B %d, %Y') %></div>
+			<div class="subheader" style="margin-bottom: 10px;"><%=@event[:day].strftime('%B %d, %Y') unless @event[:day].blank? %></div>
 			<div class="articleSharingTools floatRight" style="position: absolute;top: -8px;right: 0;height: 32px;">
 				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
 				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
