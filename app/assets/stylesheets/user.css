@@ -313,6 +313,8 @@ button {  width: auto; overflow: visible; }
 	color: #fff;
 	line-height: 1.4em;
 	font-weight: bold;
+	border-left: none;
+	border-right: none;
 }
 #accordion .ui-accordion-header-icon{
 	right: 10px;
