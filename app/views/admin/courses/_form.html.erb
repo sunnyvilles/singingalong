@@ -26,10 +26,19 @@
     <%= f.text_field :title%>
     <br/>the character limit for this is 30
   </td></tr>
+  <tr>
+      <td><%= f.label :course_pdf, 'Course PDF' %><br /></td>
+      
+      <td>
+        <%= f.file_field :course_pdf %>
+        <a href="/files/courses/<%=@admin_course[:id]%>.pdf"><u>pdf file</u></a>
+      </td>
+    </tr>
   <tr><td>
     <%= f.label :description %></td><td>
     <%= f.text_area :description,:cols => "80" %>
   </td></tr>
+  
   </table>
   <div class="actions">
     <%= f.submit "save" , :class=> "course_submit"%>

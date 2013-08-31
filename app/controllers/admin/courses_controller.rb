@@ -43,10 +43,15 @@ class Admin::CoursesController < ApplicationController
   # POST /admin/courses.json
   def create
 
+    pdf_name =[]
+
+    handle_pdf_upload(params,pdf_name)
+
     @admin_course = Admin::Course.new(params[:admin_course])
 
     respond_to do |format|
       if @admin_course.save
+        handle_pdf_rename(params,@admin_course.id,pdf_name)
         format.html { redirect_to "/admin/academy/courses/#{@admin_course.id}/edit", notice: 'Course was successfully created.' }
         format.json { render json: @admin_course, status: :created, location: @admin_course }
       else
@@ -60,10 +65,15 @@ class Admin::CoursesController < ApplicationController
   # PUT /admin/courses/1.json
   def update
 
+    pdf_name =[]
+
+    handle_pdf_upload(params,pdf_name)
+
     @admin_course = Admin::Course.find(params[:id])
 
     respond_to do |format|
       if @admin_course.update_attributes(params[:admin_course])
+        handle_pdf_rename(params,@admin_course.id,pdf_name)
         format.html { redirect_to "/admin/academy/courses/#{@admin_course.id}/edit", notice: 'Course was successfully updated.' }
         format.json { head :no_content }
       else
@@ -84,4 +94,32 @@ class Admin::CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def handle_pdf_upload(params,pdf_name)
+    unless params[:admin_course]["course_pdf"].nil? || params[:admin_course]["course_pdf"].blank?
+      uploaded_io = params[:admin_course][:course_pdf]
+      pdf_name[0] = uploaded_io.original_filename
+
+      File.open(Rails.root.join('public', 'files','courses',
+          uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+    end
+
+
+  end
+
+  def handle_pdf_rename(params,course_id,pdf_name)
+
+    unless params[:admin_course][:course_pdf].nil? || params[:admin_course][:course_pdf].blank?
+
+
+      File.rename(Rails.root.join('public', 'files','courses',
+          pdf_name[0].to_s),Rails.root.join('public', 'files','courses',
+          course_id.to_s + ".pdf"))
+    end
+  end
+
+
 end
