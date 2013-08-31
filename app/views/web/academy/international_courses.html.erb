@@ -7,49 +7,12 @@
 	<h1 class="title leftPadding10 topPadding20">INTERNATIONAL COURSES</h1>
 
 	<div id="accordion">
-		<h3>ADVANCED COURSES</h3>
-		<div>
-			<p>
-				<%@international_courses.each {|international_course|%>
-
-				<h1> <%= international_course.title %> </h1>
-
-				<b>Start date:</b>
-				<%= international_course.start_date %>
-
-				<b>End date:</b>
-				<%= international_course.end_date %>
-
-				<br/>
-				<b>Timing:</b>
-				<%= international_course.timing %>
-				<br/>
-				<b>Venue:</b>
-				<%= international_course.venue %>
-				<br/>
-				<b>Description:</b>
-				<%= international_course.description %>
-				<br/>
-				<b>Fees:</b>
-				<%= international_course.fees %>
-				<br/>
-				<b>Discounts:</b>
-				<%= international_course.discounts %>
-				</p>
-				<br/>
-
-			<%}%>
-			</p>
-
-		</div>
-		<h3>MASTER COURSES</h3>
-		<div>
-			<p>
-
-			</p>
-
-		</div>
-
+		<%@international_courses.each {|international_course|%>
+			<h3><%=international_course[:title].upcase%></h3>
+			<div class="bodyContent rteContent">
+				<%= raw international_course[:description] %>
+			</div>
+		<%}%>
 	</div>
 </div>
 

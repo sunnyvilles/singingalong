@@ -122,17 +122,14 @@ class Web::AcademyController < ApplicationController
 	def courses
 	end
 	def international_courses
-		@international_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "international courses"])
+		@international_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "international"])
 
 	end
 	def customized_courses
-		@customized_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "customized courses"])
-
+		@customized_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "customized"])
 	end
-	def indian_courses
-		
-		@basic_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "basic courses"])
-
+	def indian_courses		
+		@indian_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "indian"])
 	end
 	def admissions
 		

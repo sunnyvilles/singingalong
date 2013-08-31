@@ -10,49 +10,12 @@
     Write to academy@theothersong.com for further information.
 	</div>
 	<div id="accordion">
-		<h3>INDIAN CUSTOMIZED COURSES</h3>
-		<div>
-			<p>
-				<%@customized_courses.each {|customized_course|%>
-
-				<h1> <%= customized_course.title %> </h1>
-
-				<b>Start date:</b>
-				<%= customized_course.start_date %>
-
-				<b>End date:</b>
-				<%= customized_course.end_date %>
-
-				<br/>
-				<b>Timing:</b>
-				<%= customized_course.timing %>
-				<br/>
-				<b>Venue:</b>
-				<%= customized_course.venue %>
-				<br/>
-				<b>Description:</b>
-				<%= customized_course.description %>
-				<br/>
-				<b>Fees:</b>
-				<%= customized_course.fees %>
-				<br/>
-				<b>Discounts:</b>
-				<%= customized_course.discounts %>
-				</p>
-				<br/>
-
-			<%}%>
-			</p>
-
-		</div>
-		<h3>MASTER COURSES</h3>
-		<div>
-			<p>
-
-			</p>
-
-		</div>
-
+		<%@customized_courses.each {|customized_course|%>
+			<h3><%= customized_course.title.upcase %></h3>
+			<div class="bodyContent rteContent">
+				<%= raw customized_course[:description] %>
+			</div>
+		<%}%>		
 	</div>
 
 </div>

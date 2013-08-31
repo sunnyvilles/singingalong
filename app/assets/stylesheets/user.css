@@ -102,8 +102,7 @@ sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
 
 .bodyContent{	
-	font-size: 12pt;
-	/*min-height: 350px;*/
+	font-size: 12pt;	
 	font-family: 'Merriweather';
 	font-weight: 300;
 	line-height: 1.5em;
@@ -111,12 +110,28 @@ sup { vertical-align: super; font-size: smaller; }
 	padding-right: 10px;
 }
 
-.subheader, .articleCount, .article-list .articleContentArea strong, .articleContent strong, .contentBlock .bodyContent strong{
+.subheader, .articleCount, .article-list .articleContentArea strong,
+.articleContent strong, .contentBlock .bodyContent strong{
 	font-family: 'Merriweather';
 	font-size: 10pt;
 	color: #333;
 	line-height: 1.4em;	
 	font-weight: bold;
+}
+.rteContent strong{
+	font-family: 'Merriweather' !important;
+	font-size: 10pt !important;
+	color: #333 !important;
+	line-height: 1.4em !important;
+	font-weight: bold !important;
+}
+
+.rteContent span, .rteContent p{
+	font-size: 12pt !important;
+	font-family: 'Merriweather' !important;
+	font-weight: 300 !important;
+	line-height: 1.5em !important;
+	color: #636363 !important;
 }
 
 .links{
@@ -1019,3 +1034,4 @@ li.selected ul{
 .general-info-contact{
 	padding: 10px;
 }
+

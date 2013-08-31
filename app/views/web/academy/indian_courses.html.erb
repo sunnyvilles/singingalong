@@ -10,84 +10,13 @@
 	<h2 class="title leftPadding10 topPadding20">INDIAN COURSES</h2>
 
 	<div id="accordion">
-		<h3 class="subheader">BASIC COURSES</h3>
-		<div>
-			
-				<%@basic_courses.each {|basic_course|%>
-				<h1> <%= basic_course.title %> </h1>
-				<div>
-					<b>Start date:</b>
-					<%= date_dmY basic_course.start_date %>
-				</div>
-				<div>
-					<b>End date:</b>
-					<%= date_dmY  basic_course.end_date %>
-				</div>
-				<div>
-					<b>Timing:</b>
-					<%= basic_course.timing.hour %>: 00
-				</div>
-				<br/>
-				<b>Venue:</b>
-				<%= basic_course.venue %>
-				<br/>
-				<b>Description:</b>
-				<%=raw basic_course.description %>
-				<br/>
-				<b>Fees:</b>
-				<%= basic_course.fees %>
-				<br/>
-				<b>Discounts:</b>
-				<%= basic_course.discounts %>
-				</p>
-				<br/>
+		<%@indian_courses.each {|course|%>
+			<h3 class="subheader"><%= course.title.upcase %></h3>
+			<div class="bodyContent rteContent">
+				<%= raw course[:description] %>
+				<a class="links floatRight" target="_blank" href="/files/courses/<%=course.id%>.pdf">Download PDF</a>
+			</div>
+		<%}%>
 
-			<%}%>
-			
-		</div>
-		<h3 class="subheader">ADVANCED COURSES</h3>
-		<div>
-			<p>
-
-			</p>
-		</div>
-		<h3 class="subheader">FULL TIME MASTERS COURSE</h3>
-		<div>
-			<p>
-
-			</p>
-
-		</div>
-		<h3 class="subheader">PART TIME MASTERS COURSE</h3>
-		<div>
-			<p>
-
-			</p>
-		</div>
 	</div>
 </div>
-<script>
-	$(function() {
-		$( "#accordion" ).accordion({
-			heightStyle: 'content',
-			collapsible: true
-		});
-	});
-</script>
-<style type="text/css">
-
-	#accordion a span.title {
-    float: left;
-    display: block;
-    margin-right: 10px;
-    margin-top: 5px;
-	}
-
-	#accordion a span.ui-icon {
-    position: static;   
-    height: 20px;
-    margin-top: 0px; 
-    margin-top: 3px;
-	}
-
-</style>
