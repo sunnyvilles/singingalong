@@ -38,7 +38,7 @@
 	.newsBlock .type.video{
 		background-color: #1b7bb7;
 	}
-	.newsBlock .type.gallery{
+	.newsBlock .type.article{
 		background-color: #559d15;
 	}
 
@@ -77,13 +77,18 @@
 			<a id="ui-carousel-prev" href="#" class="spriteIcon slideNavLeft slideControl"></a>
 			<a id="ui-carousel-next" href="#" class="spriteIcon slideNavRight slideControl"></a>
 			<ul>
-				<%newses.each { |news|%>
+				
+				<%@newses.each { |news|%>
 					<li  class="newsBlock">
 						<div>
-	<%#if news[:type]== "video"%>
-	<%#else%>
-							<img src="<%=news[:image]%>" alt="" height="194" width="290"></img>
-	<%#end%>
+	<%if news["type"]== "video"%>
+	<iframe height="194" width="290" src="<%=news[:youtubeurl]%>" frameborder="0" ></iframe>
+	<%else%>
+								<img src="/images/articles/<%=news[:id]%>-0.jpg" alt="" height="194" width="290"></img>
+
+
+							
+	<%end%>
 							<div style="font-weight: normal;" class="subheader type <%=news[:type]%>"><%=news[:type].upcase%></div>
 						</div>
 						<div class="bodyContent"><%=news[:title]%></div>

@@ -133,7 +133,21 @@ class Web::ClinicController < ApplicationController
 	
 	end
 	def about
+
+ 		@newses=Array.new
 		
+		vidn = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "video" ], :order => "created_at DESC", :limit => 2).reverse()
+		cstn = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "case study" ], :order => "created_at DESC", :limit => 2).reverse()
+		artn = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article" ], :order => "created_at DESC", :limit => 2).reverse()
+
+
+		@newses << vidn[0] unless vidn[0].nil?
+		@newses << cstn[0] unless cstn[0].nil?
+		@newses << artn[0] unless artn[0].nil?
+		@newses << vidn[1] unless vidn[1].nil?
+		@newses << cstn[1] unless cstn[1].nil?
+		@newses << artn[1] unless artn[1].nil?
+	
 	end
 
 	def aim

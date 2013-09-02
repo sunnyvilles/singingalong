@@ -1,0 +1,348 @@
+-- MySQL 2 PostgreSQL dump
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = off;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+ 
+--
+-- Name: associated_categories_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS associated_categories_id_seq CASCADE;
+ 
+CREATE SEQUENCE associated_categories_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('associated_categories_id_seq', 1, true);
+ 
+-- Table: associated_categories
+ 
+-- DROP TABLE associated_categories;
+DROP TABLE IF EXISTS "associated_categories" CASCADE;
+ 
+CREATE TABLE "associated_categories" (
+  "id" integer DEFAULT nextval('associated_categories_id_seq'::regclass) NOT NULL,
+  "parent_category_id" integer NOT NULL,
+  "child_category_id" integer NOT NULL,
+  "associated_products_count" integer DEFAULT 0 NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT associated_categories_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "UNIQUE_CAT_ASSOC" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_CAT_ASSOC" ON "associated_categories" ("parent_category_id", "child_category_id");
+DROP INDEX IF EXISTS "index_associated_categories_on_parent_category_id" CASCADE;
+CREATE INDEX "index_associated_categories_on_parent_category_id" ON "associated_categories" ("parent_category_id");
+DROP INDEX IF EXISTS "index_associated_categories_on_child_category_id" CASCADE;
+CREATE INDEX "index_associated_categories_on_child_category_id" ON "associated_categories" ("child_category_id");
+--
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS categories_id_seq CASCADE;
+ 
+CREATE SEQUENCE categories_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('categories_id_seq', 1, true);
+ 
+-- Table: categories
+ 
+-- DROP TABLE categories;
+DROP TABLE IF EXISTS "categories" CASCADE;
+ 
+CREATE TABLE "categories" (
+  "id" integer DEFAULT nextval('categories_id_seq'::regclass) NOT NULL,
+  "name" character varying(50) NOT NULL,
+  "associated_products_count" integer DEFAULT 0 NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT categories_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "index_categories_on_name" CASCADE;
+CREATE INDEX "index_categories_on_name" ON "categories" ("name");
+--
+-- Name: countries_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS countries_id_seq CASCADE;
+ 
+CREATE SEQUENCE countries_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('countries_id_seq', 1, true);
+ 
+-- Table: countries
+ 
+-- DROP TABLE countries;
+DROP TABLE IF EXISTS "countries" CASCADE;
+ 
+CREATE TABLE "countries" (
+  "id" integer DEFAULT nextval('countries_id_seq'::regclass) NOT NULL,
+  "name" character varying(50) NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT countries_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+--
+-- Name: product_categories_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS product_categories_id_seq CASCADE;
+ 
+CREATE SEQUENCE product_categories_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('product_categories_id_seq', 1, true);
+ 
+-- Table: product_categories
+ 
+-- DROP TABLE product_categories;
+DROP TABLE IF EXISTS "product_categories" CASCADE;
+ 
+CREATE TABLE "product_categories" (
+  "id" integer DEFAULT nextval('product_categories_id_seq'::regclass) NOT NULL,
+  "product_id" integer NOT NULL,
+  "category_id" integer NOT NULL,
+  "priority" integer DEFAULT 1 NOT NULL,
+  "discount_price" integer DEFAULT 0 NOT NULL,
+  "discount_percentage" integer DEFAULT 0 NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT product_categories_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "UNIQUE_INDEX" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_INDEX" ON "product_categories" ("product_id", "category_id");
+DROP INDEX IF EXISTS "index_product_categories_on_product_id" CASCADE;
+CREATE INDEX "index_product_categories_on_product_id" ON "product_categories" ("product_id");
+DROP INDEX IF EXISTS "index_product_categories_on_category_id" CASCADE;
+CREATE INDEX "index_product_categories_on_category_id" ON "product_categories" ("category_id");
+--
+-- Name: product_views_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS product_views_id_seq CASCADE;
+ 
+CREATE SEQUENCE product_views_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('product_views_id_seq', 1, true);
+ 
+-- Table: product_views
+ 
+-- DROP TABLE product_views;
+DROP TABLE IF EXISTS "product_views" CASCADE;
+ 
+CREATE TABLE "product_views" (
+  "id" integer DEFAULT nextval('product_views_id_seq'::regclass) NOT NULL,
+  "product_id" integer NOT NULL,
+  "ip_address" character varying(255),
+  "site_id" integer NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT product_views_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+--
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS products_id_seq CASCADE;
+ 
+CREATE SEQUENCE products_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('products_id_seq', 1, true);
+ 
+-- Table: products
+ 
+-- DROP TABLE products;
+DROP TABLE IF EXISTS "products" CASCADE;
+ 
+CREATE TABLE "products" (
+  "id" integer DEFAULT nextval('products_id_seq'::regclass) NOT NULL,
+  "name" character varying(200),
+  "url" character varying(200) NOT NULL,
+  "primary_image_url" character varying(200),
+  "image_url_1" character varying(200),
+  "image_url_2" character varying(200),
+  "image_url_3" character varying(200),
+  "brand" character varying(200),
+  "primary_image_width" integer,
+  "primary_image_height" integer,
+  "discount_price" integer,
+  "actual_price" integer,
+  "discount_percentage" integer DEFAULT 0 NOT NULL,
+  "priority" integer DEFAULT 1 NOT NULL,
+  "status" boolean DEFAULT false NOT NULL,
+  "views" integer,
+  "country_id" integer,
+  "site_id" integer,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT products_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "UNIQUE_URL" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_URL" ON "products" ("url");
+--
+-- Name: requested_invites_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS requested_invites_id_seq CASCADE;
+ 
+CREATE SEQUENCE requested_invites_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('requested_invites_id_seq', 1, true);
+ 
+-- Table: requested_invites
+ 
+-- DROP TABLE requested_invites;
+DROP TABLE IF EXISTS "requested_invites" CASCADE;
+ 
+CREATE TABLE "requested_invites" (
+  "id" integer DEFAULT nextval('requested_invites_id_seq'::regclass) NOT NULL,
+  "email" character varying(80) NOT NULL,
+  "ip_address" character varying(255) NOT NULL,
+  "city" character varying(150),
+  "state" character varying(150),
+  "country" character varying(50),
+  "zipcode" character varying(30),
+  "signedup_at" timestamp without time zone,
+  "total_reminders_sent" integer DEFAULT 0 NOT NULL,
+  "subscription_code" character varying(255) NOT NULL,
+  "invite_code" character varying(255) NOT NULL,
+  "requested_invites" integer DEFAULT 0 NOT NULL,
+  "subscribed_users" integer DEFAULT 0 NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT requested_invites_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "UNIQUE_EMAIL" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_EMAIL" ON "requested_invites" ("email");
+DROP INDEX IF EXISTS "UNIQUE_SUBSCRIPTION_CODE" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_SUBSCRIPTION_CODE" ON "requested_invites" ("subscription_code");
+DROP INDEX IF EXISTS "UNIQUE_INVITE_CODE" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_INVITE_CODE" ON "requested_invites" ("invite_code");
+-- Table: schema_migrations
+ 
+-- DROP TABLE schema_migrations;
+DROP TABLE IF EXISTS "schema_migrations" CASCADE;
+ 
+CREATE TABLE "schema_migrations" (
+  "version" character varying(255) NOT NULL
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "unique_schema_migrations" CASCADE;
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+--
+-- Name: sites_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS sites_id_seq CASCADE;
+ 
+CREATE SEQUENCE sites_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('sites_id_seq', 1, true);
+ 
+-- Table: sites
+ 
+-- DROP TABLE sites;
+DROP TABLE IF EXISTS "sites" CASCADE;
+ 
+CREATE TABLE "sites" (
+  "id" integer DEFAULT nextval('sites_id_seq'::regclass) NOT NULL,
+  "name" character varying(50) NOT NULL,
+  "site_url" character varying(50) NOT NULL,
+  "logo" character varying(250),
+  "country_id" integer DEFAULT 1 NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT sites_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public
+--
+ 
+DROP SEQUENCE IF EXISTS users_id_seq CASCADE;
+ 
+CREATE SEQUENCE users_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+    
+    
+SELECT pg_catalog.setval('users_id_seq', 1, true);
+ 
+-- Table: users
+ 
+-- DROP TABLE users;
+DROP TABLE IF EXISTS "users" CASCADE;
+ 
+CREATE TABLE "users" (
+  "id" integer DEFAULT nextval('users_id_seq'::regclass) NOT NULL,
+  "email" character varying(255),
+  "password" character varying(255),
+  "auth" character varying(255),
+  "fb_user_id" integer,
+  "twitter_id" integer,
+  "invite_code" character varying(255) NOT NULL,
+  "requested_invites" integer DEFAULT 0 NOT NULL,
+  "subscribed_users" integer DEFAULT 0 NOT NULL,
+  "created_at" timestamp without time zone NOT NULL,
+  "updated_at" timestamp without time zone NOT NULL,
+  CONSTRAINT users_pkey PRIMARY KEY("id")
+)
+WITHOUT OIDS;
+DROP INDEX IF EXISTS "UNIQUE_INVITE_CODE" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_INVITE_CODE" ON "users" ("invite_code");
+DROP INDEX IF EXISTS "UNIQUE_EMAIL" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_EMAIL" ON "users" ("email");
+DROP INDEX IF EXISTS "UNIQUE_AUTH" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_AUTH" ON "users" ("auth");
+DROP INDEX IF EXISTS "UNIQUE_FB_USER_ID" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_FB_USER_ID" ON "users" ("fb_user_id");
+DROP INDEX IF EXISTS "UNIQUE_TWITTER_ID" CASCADE;
+CREATE UNIQUE INDEX "UNIQUE_TWITTER_ID" ON "users" ("twitter_id");
