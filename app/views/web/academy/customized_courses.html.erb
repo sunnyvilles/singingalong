@@ -14,6 +14,7 @@
 			<h3><%= customized_course.title.upcase %></h3>
 			<div class="bodyContent rteContent">
 				<%= raw customized_course[:description] %>
+				<a class="links floatRight" target="_blank" href="/files/courses/<%=course.id%>.pdf">Download PDF</a>
 			</div>
 		<%}%>		
 	</div>
