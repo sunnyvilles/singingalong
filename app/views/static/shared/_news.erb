@@ -58,7 +58,7 @@
 	}
 	.slideNavRight{
 		left: -16px;
-		background-position: -416px -42px;		
+		background-position: -416px -42px;
 	}
 	.sliderCt{
 		position: relative;
@@ -81,21 +81,18 @@
 			<a id="ui-carousel-prev" href="#" class="spriteIcon slideNavLeft slideControl"></a>
 			<a id="ui-carousel-next" href="#" class="spriteIcon slideNavRight slideControl"></a>
 			<ul>
-				
+
 				<%@newses.each { |news|%>
 					<li  class="newsBlock">
 						<div>
-	<%if news["type"]== "video"%>
-	<iframe height="194" width="290" src="<%=news[:youtubeurl]%>" frameborder="0" ></iframe>
-	<%else%>
+							<%if news["type"]== "video"%>
+								<iframe height="194" width="290" src="<%=news[:youtubeurl]%>" frameborder="0" ></iframe>
+							<%else%>
 								<img src="/images/articles/<%=news[:id]%>-0.jpg" alt="" height="194" width="290"></img>
-
-
-							
-	<%end%>
+							<%end%>
 							<div style="font-weight: normal;" class="subheader type <%=news[:type]%>"><%=news[:type].upcase%></div>
 						</div>
-						<div class="bodyContent news_title"><%=news[:title]%></div>
+						<div class="bodyContent news_title"><%=news[:title][0...32]%></div>
 					</li>
 				<%}%>
 
