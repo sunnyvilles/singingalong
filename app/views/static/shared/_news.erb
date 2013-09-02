@@ -68,6 +68,10 @@
 	.caroufredsel_wrapper{
 		position: absolute !important;
 	}
+	.bodyContent.news_title {
+    width: 280px;
+    overflow:hidden;
+	}
 </style>
 
 <div class="newsCt">
@@ -91,7 +95,7 @@
 	<%end%>
 							<div style="font-weight: normal;" class="subheader type <%=news[:type]%>"><%=news[:type].upcase%></div>
 						</div>
-						<div class="bodyContent"><%=news[:title]%></div>
+						<div class="bodyContent news_title"><%=news[:title]%></div>
 					</li>
 				<%}%>
 
