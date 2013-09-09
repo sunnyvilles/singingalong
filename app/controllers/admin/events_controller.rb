@@ -99,7 +99,7 @@ class Admin::EventsController < ApplicationController
   private
   def handle_file_upload(params,file_names)
     count = 0
-   
+
 
     3.times do
 

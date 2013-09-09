@@ -25,7 +25,7 @@ td {
 			width: 100%;
 			height: 100%;	
 			table-layout:fixed;
-			  
+			position: relative;
 			box-sizing: border-box; /* Opera/IE 8+ */
 			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		    -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -61,8 +61,6 @@ td {
     border: 0;
     font-size: 100%;
     text-align:left;
-
-   
 }
 .tdText td:first-child{
 	width:60px;
@@ -77,11 +75,22 @@ td {
 
 .actions input {
 
-  position: absolute;
-  width:150px;
+position: absolute;
+width:150px;
 top:63px;
 height: 25px;
 margin-top: 0px;
+}
+
+.editIcon {
+position: absolute;
+top:0px;
+right:30px;
+}
+.crossIcon {
+position: absolute;
+top:0px;
+right:0px;
 }
 </style>
 <% col = 0 %>
@@ -92,13 +101,15 @@ margin-top: 0px;
 			<%if col%3 == 0%>
 				<tr>
 			<%end%>
-
 		<td>
 			<div class="tdContent">
 			<div class="doc_img"><img src="/images/doctors/<%=doctor.id%>.jpg" width="80"></img></div>
 			
 			<div class="tdText">
-				
+				<%= link_to '', [:admin, doctor], confirm: 'Are you sure?', method: :delete, class: "adminSprite crossIcon" %>
+		
+			
+			<%= link_to '', "/admin/#{@section}/doctors/#{doctor.id}/edit" , class: "adminSprite editIcon"  %> 
 				<table>
 		
 				<tr><td><b>Name:</b></td><td><%= doctor.name %></td></tr>
@@ -113,10 +124,8 @@ margin-top: 0px;
 				<tr><td colspan="2"><%=truncate(doctor.description,:length=>100) %></td></tr>
 				</table>
 
-					
-			<%= link_to 'Edit', "/admin/#{@section}/doctors/#{doctor.id}/edit" %>  
-			<%= link_to 'Delete', [:admin, doctor], confirm: 'Are you sure?', method: :delete %>
-			</div>
+
+			
 			</div>
 		</td>
 			
@@ -124,7 +133,7 @@ margin-top: 0px;
 			<%if col%3 == 0%>
 				</tr>
 			<%end%>
-		
+		 
 	<% end %>
 </table>
 
@@ -135,7 +144,6 @@ margin-top: 0px;
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".actions input").css({
-
 			left: (($(window).width()-980)/2 + (980-60-75)).toString() + "px"
 		}) ;
 		});
