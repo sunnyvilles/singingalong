@@ -1,6 +1,15 @@
 <%= render :partial => "/admin/shared/header" %>
 <%= render :partial => "/admin/shared/tabs" %>
 <div class="articleList">
+	 <div class="upperbar">
+		<h2 class="floatLeft">Events Dashboard</h2>
+		<div class="page floatRight">
+			<ul></ul>
+		</div>
+		<%= button_to 'New Event', "/admin/#{@section}/events/new" ,:class=>"btn btn_newArticle floatRight",:method => :get %>
+		<div style="clear:both"></div>
+
+	</div>
 	<table>
 		<tr>
 			<th>Name</th>
@@ -24,5 +33,3 @@
 </div>
 
 
-
-<%= link_to 'New Event', "/admin/#{@section}/events/new" %>
