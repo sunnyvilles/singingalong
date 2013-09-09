@@ -1,4 +1,8 @@
 <link rel="stylesheet" type="text/css" href="/styles/rs-caraousal/jquery.rs.carousel.css" media="all" />
+<%
+topText = scope == "clinic" ? "'the other song' Clinic" : "'the other song' Academy"
+topDetails = scope == "clinic" ? "Holistic patient care and total well being, through advanced homoepathic treatment" : "World class student-practioner education, training & research center"
+%>
 <style>
 	#slides{
 		margin: auto;
@@ -94,8 +98,8 @@
 		</div>
 		<div class="sliderTitle <%=scope%>">
 			<div class="textCt">
-				<div class="sliderTitle1">Essential Homeopathy</div>
-				<div class="sliderTitle2">A complete online discussion forum, mentoring and training program with Dr. Rajan Sankaran </div>
+				<div class="sliderTitle1"><%=topText%></div>
+				<div class="sliderTitle2"><%=topDetails%></div>
 			</div>
 		</div>
 	</div>
