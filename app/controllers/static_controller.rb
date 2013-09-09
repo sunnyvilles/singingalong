@@ -1,12 +1,10 @@
 class StaticController < ApplicationController
 	layout 'application'
-		
+	
 	
 	def contact_us
 		
 	end	
-		
-		
 	
 	
 	def latest_at_the_other_song
@@ -20,7 +18,7 @@ class StaticController < ApplicationController
     	#from which email : fill required fields in config/environment/development.rb or production.rb
     	#to which email : fill frequired information in app/model/message.rb file
     	#change template : app/views/mail_form/contact.erb
-
+    	
 		@msg = Message.new(:name=>params[:name],:email=>params[:email],:feedback=>params[:feedback])
 		
 		#if @msg.spam?   
@@ -34,7 +32,6 @@ class StaticController < ApplicationController
     	else
       		redirect_to request.referer, :notice => 'Feedback could not be submitted this time, please try again.'
     	end
-
 		
 	end
 end
