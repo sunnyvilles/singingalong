@@ -45,8 +45,12 @@
 	width: 980px;
 	margin: auto;
 }
+
+.admin-list{
+	
+}
 .adminCt a{
-	color: #000 !important;
+	/*color: #000 !important;*/
 }
 .articleList table {
 		width:100%;
@@ -72,6 +76,9 @@
 }
 .admin-tabs{
 	padding:10px 0;
+}
+.admin-tabs a{
+	color: #000;
 }
 .admin-tab{
 	display: inline-block;
@@ -138,4 +145,18 @@
 }
 .adminCt2{
 	position: relative;
+}
+.adminCt2 .actions{
+	position: absolute;
+	top: -52px;
+	right: 0;
+}
+.upperbar{
+	padding: 20px 0 10px 0;
+}
+
+.upperbar .btn_newArticle{
+	height: 32px;
+	width: 88px;
+	background: #ddd;
 }

@@ -1,8 +1,6 @@
 <style type="text/css">
 
 table td{
-
-	text-align:center;
 	vertical-align:center;
 }
 
@@ -15,11 +13,11 @@ table td{
 		<div class="page floatRight">
 			<ul></ul>
 		</div>
-		<%= button_to 'New '+ @type, "/admin/#{@section}/#{@original_type}/new",:class=>"btn btn_newArticle floatRight",:method => :get %>
+		<%= button_to 'Add '+ @type, "/admin/#{@section}/#{@original_type}/new",:class=>"btn btn_newArticle floatRight",:method => :get %>
 		<div style="clear:both"></div>
 
 	</div>
-	<table >
+	<table class="admin-list">
 		<tr>
 			<th>Date</th>
 			<th>Title</th>
@@ -32,12 +30,12 @@ table td{
 
 		<% @articles.each do |article| %>
 			<tr>
-				<td><%= article.created_at.strftime("%d-%m-%Y") %></td>
-				<td><%= link_to article.title, "/admin/#{@section}/#{@original_type}/#{article.id}/edit",:style=>"color:blue;" %></td>
-				<td><%= article.doctors.select('distinct name').collect { |p| p.name }.join(',') unless article.doctors.blank? %></td>
-				<td><%=article.tags.select('distinct title').collect { |p| p.title }.join(',')%></td>
-				<td><%= article.updated_at.strftime("%d-%m-%Y") %></td>
-				<td><a data-confirm="Are you sure?" data-method="delete" rel="nofollow" href=<%="/admin/#{@section}/articles/#{article.id}/"%>><span class="adminSprite crossIcon"></span></a></td>
+				<td class="admin-article-date"><%= article.created_at.strftime("%d/%m/%Y") %></td>
+				<td class="admin-article-name"><%= link_to article.title[0...40], "/admin/#{@section}/#{@original_type}/#{article.id}/edit",:style=>"color:blue;" %></td>
+				<td class="admin-article-by"><%= article.doctors.select('distinct name').collect { |p| p.name }.join(',') unless article.doctors.blank? %></td>
+				<td class="admin-article-tags"><%=article.tags.select('distinct title').collect { |p| p.title }.join(',')%></td>
+				<td class="admin-article-updatedAt"><%= article.updated_at.strftime("%d/%m/%Y") %></td>
+				<td class="admin-article-delete"><a data-confirm="Are you sure?" data-method="delete" rel="nofollow" href=<%="/admin/#{@section}/articles/#{article.id}/"%>><span class="adminSprite crossIcon"></span></a></td>
 
 			</tr>
 		<% end %>
