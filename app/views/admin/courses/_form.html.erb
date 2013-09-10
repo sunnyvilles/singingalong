@@ -31,7 +31,13 @@
       
       <td>
         <%= f.file_field :course_pdf %>
-        <a href="/files/courses/<%=@admin_course[:id]%>.pdf"><u>pdf file</u></a>
+    
+            <%pdf = "/files/courses/" + @admin_course[:id].to_s+".pdf"%>
+              
+            <%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
+             <a href="<%=pdf%>"><u>download existing pdf file</u></a>
+            <%end%>
+
       </td>
     </tr>
   <tr><td>

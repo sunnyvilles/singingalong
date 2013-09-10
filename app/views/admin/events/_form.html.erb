@@ -60,7 +60,15 @@
 				<td  class="first_col" rowspan="4">
 					<div class="image">
 						<div class="field">
-							<img src="/images/events/<%=@event[:id]%>-0.jpg"></img>
+
+						<%img1 = "/images/events/" + @event[:id].to_s+"-0.jpg"%>
+							
+						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
+  						<img src="<%=img1%>"></img>
+						<%else%>
+  						<img src="/images/no-image.jpg"></img>
+						<%end%>
+
 							<%= f.label :image_0, 'upload a picture' %><br />
 							<%= f.file_field :image_0 %>
 
@@ -100,7 +108,13 @@
 				<td  class="first_col" rowspan="4">
 					<div class="image">
 						<div class="field">
-							<img src="/images/events/<%=@event[:id]%>-1.jpg"></img>
+						<%img2 = "/images/events/" + @event[:id].to_s+"-1.jpg"%>
+							
+						<%if FileTest.exist?(Rails.root.to_s + "/public" + img2)%>
+  						<img src="<%=img2%>"></img>
+						<%else%>
+  						<img src="/images/no-image.jpg"></img>
+						<%end%>
 							<%= f.label :image_1, 'upload a picture' %><br />
 							<%= f.file_field :image_1 %>
 
@@ -145,7 +159,13 @@
 				<td  class="first_col" rowspan="2">
 					<div class="image">
 						<div class="field">
-							<img src="/images/events/<%=@event[:id]%>-2.jpg"></img>
+						<%img3 = "/images/events/" + @event[:id].to_s+"-2.jpg"%>
+							
+						<%if FileTest.exist?(Rails.root.to_s + "/public" + img3)%>
+  						<img src="<%=img3%>"></img>
+						<%else%>
+  						<img src="/images/no-image.jpg"></img>
+						<%end%>
 							<%= f.label :image_2, 'upload a picture' %><br />
 							<%= f.file_field :image_2 %>
 
