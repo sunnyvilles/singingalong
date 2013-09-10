@@ -66,19 +66,21 @@ class Admin::EventsController < ApplicationController
   def update
 
     file_names=[] 
-       
+  
     handle_file_upload(params,file_names)
 
     @event = Event.find(params[:id])
-
+ 
     respond_to do |format|
       if @event.update_attributes(params[:event])
+          
          handle_file_rename(@event.id,file_names)
-
+   
         format.html { redirect_to "/admin/clinic/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        
+        #format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -135,20 +137,18 @@ class Admin::EventsController < ApplicationController
     id_count = 0
    
     file_names.each { |file_name|
-      extension = File.extname(Rails.root.join('public', 'images','events',
-          file_name.to_s))
-
+    if file_name
+      
       File.rename(Rails.root.join('public', 'images','events',
           file_name.to_s),Rails.root.join('public', 'images','events',
-          event_id.to_s + "-" + id_count.to_s + extension))
-  
+          event_id.to_s + "-" + id_count.to_s + ".jpg"))
+    end
       id_count +=1                                                       
     }
 
   rescue => e
-    logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
+    logger.error( 'file uploaded but file renaming failed . ' + id_count.to_s + e.to_s )
     flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
-    render :action => 'edit'
 
 
   end

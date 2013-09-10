@@ -6,13 +6,18 @@ class StaticController < ApplicationController
 		
 	end	
 	
+	def file_delete
+
+		puts "zzzzzzzzzzzzzz" + params[:file].to_s
+		File.delete(Rails.root.join('public' + ("/"+params[:file].to_s + ".jpg")))
+		flash[:notice] = "Successfully destroyed post."
+		
+	end
 	
 	def latest_at_the_other_song
 		render ('static/latest_at_the_other_song/' + params[:pages])
 	end
 	
-
-
 	def submit_feedback
 	#settings
     	#from which email : fill required fields in config/environment/development.rb or production.rb

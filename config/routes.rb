@@ -17,6 +17,7 @@ TheOtherSongClinic::Application.routes.draw do
 			get '/case-studies' => 'articles#index'
 			get '/case-studies/new' => 'articles#new'
 			get '/case-studies/:id/edit' =>'articles#edit'
+		
 		end
 		scope '/clinic' do
 			resources :articles, :doctors, :events, :courses
@@ -26,6 +27,7 @@ TheOtherSongClinic::Application.routes.draw do
 			get '/case-studies' => 'articles#index'
 			get '/case-studies/new' => 'articles#new'
 			get '/case-studies/:id/edit' =>'articles#edit'
+
 		end
 		#match '/attempt-login' => 'access#attempt_login'
 		#match '/login' => 'access#login'
@@ -39,7 +41,7 @@ TheOtherSongClinic::Application.routes.draw do
 	match 'user/logout' => 'access#user_logout'
 
 	get '/admin' => 'admin/admin#show'
-
+	get '/file_delete/*file' => 'static#file_delete'
 
 	
   # The priority is based upon order of creation:

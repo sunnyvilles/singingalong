@@ -39,6 +39,12 @@
 		margin-top:10px;
 	}
 
+	.actions input{
+
+
+	}
+
+
 	<% if @original_type == "videos" %>
 
 		table .first_col {
@@ -55,14 +61,25 @@
 
 	<%end%>
 
+	.field {
+		position: relative;
+	}
+
+	.fileCross{
+		position: absolute;
+		right:0px;
+		top:0px;
+	}
+	.clearFloatBoth{
+		clear:both;
+	}
 </style>
 <link rel="stylesheet" type="text/css" href="/styles/jquery-ui.css"></link>
-<link rel="stylesheet" type="text/css" href="/styles/tinymce/content.min.css"></link>
-<link rel="stylesheet" type="text/css" href="/styles/tinymce/skin.min.css"></link>
-<script src="/scripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
 <script src="/scripts/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/scripts/tinymce.min.js"></script>
-<!--<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>-->
+
+<script src="/scripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script src="/scripts/tag-it.js"></script>
 <%= form_for([:admin, @article]) do |f| %>
 	<%= render :partial => "/admin/shared/header" %>
@@ -91,6 +108,9 @@
 							
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
   						<img src="<%=img1%>"></img>
+						
+						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
 						<%end%>
@@ -143,6 +163,8 @@
 							
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img2)%>
   						<img src="<%=img2%>"></img>
+  						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
 						<%end%>							
@@ -156,12 +178,15 @@
 							<%=f.text_field :caption_1%>
 						</div>
 					</div>
+					<div class="clearFloatBoth"></div>
 					<div class="image">
 						<div class="field">
-						<%img3 = "/images/articles/" + @article[:id].to_s+"-1.jpg"%>
+						<%img3 = "/images/articles/" + @article[:id].to_s+"-2.jpg"%>
 							
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img3)%>
   						<img src="<%=img3%>"></img>
+  						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
 						<%end%>
@@ -215,4 +240,8 @@
 		});
 	});
 
+
+var hide_image = function(el){
+$(el).prev().attr("src","/images/no-image.jpg")
+}
 </script>

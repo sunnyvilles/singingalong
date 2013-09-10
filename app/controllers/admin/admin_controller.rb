@@ -1,6 +1,8 @@
 class Admin::AdminController < ApplicationController
 	before_filter :confirm_logged_in, :except => [:login, :attempt_login]
 	layout "admin/application"
+	
+	
 	def show
 		
 

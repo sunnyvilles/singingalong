@@ -176,13 +176,12 @@ class Admin::ArticlesController < ApplicationController
 		id_count =0
    
     file_names.each { |file_name|
-			extension = File.extname(Rails.root.join('public', 'images','articles',
-          file_name.to_s))
+			if file_name
 
 			File.rename(Rails.root.join('public', 'images','articles',
           file_name.to_s),Rails.root.join('public', 'images','articles',
-          article_id.to_s + "-" + id_count.to_s + extension))
-  
+          article_id.to_s + "-" + id_count.to_s + ".jpg"))
+    end
       id_count +=1                                                       
     }
 

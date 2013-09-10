@@ -1,4 +1,39 @@
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+<style type="text/css">
+.adminCt2 {
+      padding: 10px;
+        border: 1px solid grey;
+        padding-top:30px;
+        margin-top: 10px;
+ }
+.actions input {
+
+  position: absolute;
+  width:60px;
+top:63px;
+height: 25px;
+margin-top: 0px;
+}
+
+.course_table {
+
+  width:100%;
+}
+
+.course_table td{
+
+
+padding:5px 30px 5px 5px;
+
+}
+[required]:before {
+     content: " *";
+ }
+ 
+ </style>
+
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <%= form_for(@admin_course) do |f| %>
 	<%= render :partial => "/admin/shared/header" %>
@@ -36,6 +71,7 @@
               
             <%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
              <a href="<%=pdf%>"><u>download existing pdf file</u></a>
+             <%= link_to "", "/file_delete" + pdf,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_pdf(this)' %>
             <%end%>
 
       </td>
@@ -74,39 +110,12 @@ $(".actions input").css({
 }) ;
 
 })
-
+var hide_pdf = function(el){
+$(el).prev().hide();
+$(el).hide();
+}
 </script>
- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
- <style type="text/css">
-.adminCt2 {
-      padding: 10px;
-        border: 1px solid grey;
-        padding-top:30px;
-        margin-top: 10px;
- }
-.actions input {
-
-  position: absolute;
-  width:60px;
-top:63px;
-height: 25px;
-margin-top: 0px;
-}
-
-.course_table {
-
-  width:100%;
-}
-
-.course_table td{
-
-
-padding:5px 30px 5px 5px;
-
-}
-[required]:before {
-     content: " *";
- }
- </style>
+ 
+ 
 
 <% end %>
