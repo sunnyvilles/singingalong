@@ -109,7 +109,7 @@
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
   						<img src="<%=img1%>"></img>
 						
-						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross" ,:onclick => 'hide_image(this)'%>
 
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
@@ -240,7 +240,9 @@
 		});
 	});
 
-
+$(".fileCross").bind('ajax:beforeSend', function(evt, xhr, settings) {
+  $(this).prev().attr("src","/images/no-image.jpg");
+})
 var hide_image = function(el){
 $(el).prev().attr("src","/images/no-image.jpg")
 }

@@ -156,7 +156,7 @@ class Admin::ArticlesController < ApplicationController
 						uploaded_io.original_filename), 'wb') do |file|
 					file.write(uploaded_io.read)
 				end
-				params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
+				#params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
      
 				file_names[count] = uploaded_io.original_filename
 			end
@@ -167,7 +167,6 @@ class Admin::ArticlesController < ApplicationController
 		logger.error( 'Upload failed. ' + e.to_s )
 		flash[:error] = 'Upload failed. Please try again.'
 		render :action => 'new'
-
   end
  
 
