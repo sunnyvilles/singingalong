@@ -84,13 +84,13 @@ margin-top: 0px;
 
 .editIcon {
 position: absolute;
-top:0px;
-right:30px;
+top:-18px;
+right:15px;
 }
 .crossIcon {
 position: absolute;
-top:0px;
-right:0px;
+top:-18px;
+right:-15px;
 }
 </style>
 <% col = 0 %>
@@ -115,7 +115,8 @@ right:0px;
 				<tr><td><b>Name:</b></td><td><%= doctor.name %></td></tr>
 				<tr><td><b>Title:</b></td><td><%= doctor.title %></td></tr>
 				<% unless doctor.urls.blank? %>
-				<tr><td><b>URL:</b></td><td><%= doctor.urls.first.title%></td></tr>
+				<tr><td><b>URL:</b></td><td> <a href="<%= doctor.urls.first.title%>"><%= doctor.urls.first.title%></a>
+					</td></tr>
 				
 				<%end%>
 				

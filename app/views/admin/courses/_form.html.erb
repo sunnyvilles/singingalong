@@ -8,14 +8,6 @@
         padding-top:30px;
         margin-top: 10px;
  }
-.actions input {
-
-  position: absolute;
-  width:60px;
-top:63px;
-height: 25px;
-margin-top: 0px;
-}
 
 .course_table {
 
@@ -23,7 +15,6 @@ margin-top: 0px;
 }
 
 .course_table td{
-
 
 padding:5px 30px 5px 5px;
 
@@ -103,13 +94,7 @@ changeYear : true
 
 });
 });
-$("document").ready(function(){
-$(".actions input").css({
 
-  left: (($(window).width()-980)/2 + (980-60)).toString() + "px"
-}) ;
-
-})
 var hide_pdf = function(el){
 $(el).prev().hide();
 $(el).hide();

@@ -41,7 +41,7 @@ TheOtherSongClinic::Application.routes.draw do
 	match 'user/logout' => 'access#user_logout'
 
 	get '/admin' => 'admin/admin#show'
-	get '/file_delete/*file' => 'static#file_delete'
+	match '/file_delete/*file' => 'static#file_delete'
 
 	
   # The priority is based upon order of creation:

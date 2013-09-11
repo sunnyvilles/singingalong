@@ -10,6 +10,7 @@ class Admin::ArticlesController < ApplicationController
       format.html # index.html.erb
       format.json { render :json=> @articles }
     end
+    
   end
 
   # GET /articles/new
@@ -39,8 +40,8 @@ class Admin::ArticlesController < ApplicationController
 
   # show
 	def show
-		@article = Article.find(params[:id])
 
+		@article = Article.find(params[:id])
     respond_to do |format|
       format.html 
       format.json { render json: @article }
@@ -74,8 +75,7 @@ class Admin::ArticlesController < ApplicationController
       if @article.save
 				params[:id] = @article[:id]
         associate_tag(params)
-        handle_file_rename(@article.id,file_names)		
-  
+        handle_file_rename(@article.id,file_names)
         format.html { redirect_to "/admin/#{@section}/#{params[:article][:origin_type]}/#{@article.id}/edit", :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
       else
@@ -83,8 +83,6 @@ class Admin::ArticlesController < ApplicationController
         format.json { render :json=> @article.errors, :status=> :unprocessable_entity }
       end #if else
     end #do
-  
-  
   end
 	def associate_tag(params)
 		@article = Article.find(params[:id])
@@ -150,8 +148,8 @@ class Admin::ArticlesController < ApplicationController
   def handle_file_upload(params,file_names)
     count = 0
 		3.times do
-			if params[:article]["file_caption_" + count.to_s]
-				uploaded_io = params[:article]["file_caption_" + count.to_s]
+			if params[:article]["image_" + count.to_s]
+				uploaded_io = params[:article]["image_" + count.to_s]
 				File.open(Rails.root.join('public', 'images','articles',
 						uploaded_io.original_filename), 'wb') do |file|
 					file.write(uploaded_io.read)
@@ -169,8 +167,6 @@ class Admin::ArticlesController < ApplicationController
 		render :action => 'new'
   end
  
-
-
 	def handle_file_rename(article_id,file_names)
 		id_count =0
    

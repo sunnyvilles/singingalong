@@ -2,7 +2,6 @@
 <style type="text/css">
 
 
-
 	.image img{
 		font-style:italic;
     	color:#c00;
@@ -17,11 +16,8 @@
 		margin-top: 10px;
 	}
 	.image {
-
 		padding-bottom: 10px;
 		border-bottom:1px dashed grey;
-		
-	
 	}
 
 	table .first_col {
@@ -39,10 +35,6 @@
 		margin-top:10px;
 	}
 
-	.actions input{
-
-
-	}
 
 
 	<% if @original_type == "videos" %>
@@ -60,6 +52,7 @@
 		}
 
 	<%end%>
+	
 
 	.field {
 		position: relative;
@@ -105,19 +98,19 @@
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
   						<img src="<%=img1%>"></img>
 						
-						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross" ,:onclick => 'hide_image(this)'%>
+						<%= link_to "", "/file_delete" + img1, :remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross" ,:onclick => 'hide_image(this)'%>
 
 						<%else%>
-  						<img src="/images/no-image.jpg"></img>
+  							<img src="/images/no-image.jpg"></img>
 						<%end%>
 							
-							<%= f.label :file_caption_0, 'upload a picture' %><br />
-							<%= f.file_field :file_caption_0 %>
+							<%= f.label :image_0, 'upload a picture' %><br />
+							<%= f.file_field :image_0 %>
 
 						</div>
 						<div class="field">
-							<%=f.label :caption_0, 'caption' %>
-							<%=f.text_field :caption_0%>
+							<%=f.label :file_caption_0, 'caption' %>
+							<%=f.text_field :file_caption_0%>
 						</div>
 					</div>
 
@@ -165,13 +158,13 @@
   						<img src="/images/no-image.jpg"></img>
 						<%end%>							
 
-						<%= f.label :file_caption_1, 'upload another picture' %><br />
-							<%= f.file_field :file_caption_1 %>
+						<%= f.label :image_1, 'upload another picture' %><br />
+							<%= f.file_field :image_1 %>
 
 						</div>
 						<div class="field">
-							<%=f.label :caption_1, 'caption' %>
-							<%=f.text_field :caption_1%>
+							<%=f.label :file_caption_1, 'caption' %>
+							<%=f.text_field :file_caption_1%>
 						</div>
 					</div>
 					<div class="clearFloatBoth"></div>
@@ -186,12 +179,12 @@
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
 						<%end%>
-							<%= f.label :file_caption_2, 'upload one more picture' %><br />
-							<%= f.file_field :file_caption_2 %>
+							<%= f.label :image_2, 'upload one more picture' %><br />
+							<%= f.file_field :image_2 %>
 						</div>
 						<div class="field">
-							<%=f.label :caption_2, 'caption' %>
-							<%=f.text_field :caption_2%>
+							<%=f.label :file_caption_2, 'caption' %>
+							<%=f.text_field :file_caption_2%>
 						</div>
 					</div>
 
