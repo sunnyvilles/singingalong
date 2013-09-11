@@ -337,11 +337,15 @@
 		});
 		
 		$('#loginForm').removeData('validator');
-		loginput[1].placeholder = "Password"
+		(loginput[1] && loginput[1].placeholder) ? loginput[1].placeholder = "Password" : "";
 		$('.signupError').text("<%= t "header.noAccount" %>");
-		loginput[0].value = "";
-		loginput[1].value = "";
-		loginput[3].value = "";
+		//shitty fix for a shitty problem
+		if(loginput[0] && loginput[1] && loginput[3]){
+			loginput[0].value = "";
+			loginput[1].value = "";
+			loginput[3].value = "";
+		}
+		
 		
 	});
 
