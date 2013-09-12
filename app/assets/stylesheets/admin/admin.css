@@ -119,6 +119,9 @@
 .articleList table tr td{
 	
 }
+.article_table .rightInputCt input{
+	width: 540px;
+}
 /*Admin Articles List End start*/
 
 /*Admin Article edit*/

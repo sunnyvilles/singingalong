@@ -63,6 +63,7 @@
 
 	.field {
 		position: relative;
+		padding-top: 20px;
 	}
 
 	.fileCross{
@@ -111,7 +112,7 @@
   						<img src="/images/no-image.jpg"></img>
 						<%end%>
 							
-							<%= f.label :file_caption_0, 'upload a picture' %><br />
+							<%#= f.label :file_caption_0, 'upload a picture' %><br />
 							<%= f.file_field :file_caption_0 %>
 
 						</div>
@@ -123,7 +124,7 @@
 
 				</td>
 				<td><%= f.label :title  ,(@type.capitalize + " Title:") %></td>
-				<td><%= f.text_field :title %></td>
+				<td class="rightInputCt"><%= f.text_field :title %></td>
 			</tr>
 			<tr class="admin-article-field">
 				<td><label>Subject / Category:</label></td>
@@ -149,7 +150,7 @@
 				<td><%= f.label :youtubeurl, "Youtube Video Url:" %>
 					<% if @original_type == "videos" %> <br/><br/> Description: <%end%>
 				</td>
-				<td><%= f.text_field :youtubeurl %></td>
+				<td class="rightInputCt"><%= f.text_field :youtubeurl %></td>
 			</tr>
 			<tr>
 				<td class="first_col">
