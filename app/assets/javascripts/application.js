@@ -10,10 +10,11 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require jquery.ui.accordion
+//= require jquery.ui.autocomplete
 //= require_tree .
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
