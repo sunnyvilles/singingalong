@@ -2,6 +2,9 @@ class Doctor < ActiveRecord::Base
   
 	has_and_belongs_to_many :articles
 	has_many :urls
+
+	# before_save :add_url_protocol
+
 	attr_accessible :name, :title, :description, :picture
 	attr_accessor :picture
 	scope :named, lambda {|the_name| where(:name => the_name)}
@@ -39,4 +42,10 @@ class Doctor < ActiveRecord::Base
 		}
 		return peopleHash
 	end
+
+	 def add_url_protocol
+    	if self.url && !(self.url[/^http:\/\//] || self.url[/^https:\/\//])
+      self.url = 'http://' + self.url
+    	end
+  	end
 end

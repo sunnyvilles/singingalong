@@ -38,7 +38,9 @@ class Admin::EventsController < ApplicationController
 
 
   def edit
+    
     @event = Event.find(params[:id])
+
   end
 
 
@@ -102,11 +104,7 @@ class Admin::EventsController < ApplicationController
   def handle_file_upload(params,file_names)
     count = 0
 
-
     3.times do
-
-
-
 
       if params[:event]["image_" + count.to_s]
       

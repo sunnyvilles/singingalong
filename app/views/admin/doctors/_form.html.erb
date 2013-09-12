@@ -65,8 +65,9 @@
 			<td><%= f.label :picture, 'upload a picture' %><br /></td>
 			<td>:</td>
 			<td>
+				<%= f.file_field :picture %><br />
 				<img src="/images/doctors/<%=@doctor[:id]%>.jpg" height="160" width="160"></img>
-				<%= f.file_field :picture %>
+				
 			</td>
 		</tr>
 	</table>

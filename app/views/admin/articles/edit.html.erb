@@ -1,17 +1,3 @@
 <%= render 'form' %>
 
 <%= link_to (@original_type + ' list'), "/admin/#{@section}/#{@original_type}" ,:style=>"color:red;"%>
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-	var x = "<%= @article.file_caption_0.to_s%>";
-	var y = "<%= @article.file_caption_1.to_s%>";
-	var z = "<%= @article.file_caption_2.to_s%>";
-
-	$('#article_caption_0').val(x);
-	$('#article_caption_1').val(y);
-	$('#article_caption_2').val(z);
-})
-
-</script>

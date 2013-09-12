@@ -3,7 +3,11 @@
 table td{
 	vertical-align:center;
 }
-
+<% if @original_type == "case-studies" %>
+	.upperbar .btn_newArticle{
+		width: 115px;
+	}
+<%end%>
 </style>
 <%= render :partial => "/admin/shared/header" %>
 <%= render :partial => "/admin/shared/tabs" %>
