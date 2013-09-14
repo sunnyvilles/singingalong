@@ -35,10 +35,10 @@ class Doctor < ActiveRecord::Base
 			"9" => [],
 		}
 		people.each{|person|
-			if(!peopleHash[person[:title]].present?)
+			if(person[:title].present? && !peopleHash[person[:title]].present?)
 				peopleHash[person[:title]] = []
-			end
-			peopleHash[person[:title]] << person
+				peopleHash[person[:title]] << person
+			end			
 		}
 		return peopleHash
 	end
