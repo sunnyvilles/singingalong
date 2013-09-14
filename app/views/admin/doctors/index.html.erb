@@ -96,6 +96,9 @@ right:-15px;
 <% col = 0 %>
 <%= render :partial => "/admin/shared/header" %>
 <%= render :partial => "/admin/shared/tabs" %>
+<div class="team-actions">
+	<a href="/admin/academy/doctors/new"><input type="button" value="Add New Employee"/></a>
+</div>
 <table class="outer_table">
   	<% @doctors.each do |doctor| %>
 			<%if col%3 == 0%>
@@ -137,11 +140,6 @@ right:-15px;
 		 
 	<% end %>
 </table>
-
-<br />
-<div class="actions">
-	<a href="/admin/academy/doctors/new"><input type="button" value="Add New Employee"/></a>
-</div>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".actions input").css({

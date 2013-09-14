@@ -138,14 +138,19 @@
 	height: 32px;
 	background: #ddd;
 }
+.team-actions{
+	position: relative;
+}
+.team-actions input{
+	width: 200px;
+	height: 32px;
+	background: #ddd;
+	position: absolute;
+	top: -43px;
+	right: 0;
+}
 /*Admin Article edit end*/
 
-.actions{
-	/*background: red;
-	position: absolute;
-	top: -53px;
-	right: 0;*/
-}
 .adminCt2{
 	position: relative;
 }
