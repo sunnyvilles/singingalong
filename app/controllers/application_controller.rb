@@ -31,6 +31,20 @@ class ApplicationController < ActionController::Base
 		return User.find(session[:user_id]).isAdmin
 	end
 
+
+	def confirm_admin
+		unless User.find(session[:user_id]).isAdmin
+			flash[:notice] = "not admin"
+      		redirect_to("/admin/login")
+      		return false # halts the before_filter
+      	else
+      		return true
+		end
+
+	end
+
+
+
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "please login"

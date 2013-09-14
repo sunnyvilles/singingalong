@@ -3,6 +3,8 @@ class Admin::CoursesController < ApplicationController
 	# GET /admin/courses
   # GET /admin/courses.json
   before_filter :confirm_logged_in
+  before_filter :confirm_admin
+  
   def index
     @admin_courses = Admin::Course.all
 
