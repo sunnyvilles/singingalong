@@ -3,6 +3,8 @@ class Admin::DoctorsController < ApplicationController
 	# GET /doctors
   # GET /doctors.json
 before_filter :confirm_logged_in
+before_filter :confirm_admin
+
   def index
     @doctors = Doctor.all
 

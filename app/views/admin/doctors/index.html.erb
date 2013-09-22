@@ -116,7 +116,7 @@ right:-15px;
 				<table>
 		
 				<tr><td><b>Name:</b></td><td><%= doctor.name %></td></tr>
-				<tr><td><b>Title:</b></td><td><%= doctor.title %></td></tr>
+				<tr><td><b>Title:</b></td><td><%= Doctor.titles[doctor.title] %></td></tr>
 				<% unless doctor.urls.blank? %>
 				<tr><td><b>URL:</b></td><td> <a href="<%= doctor.urls.first.title%>"><%= doctor.urls.first.title%></a>
 					</td></tr>

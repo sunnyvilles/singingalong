@@ -1,5 +1,6 @@
 class Admin::EventsController < ApplicationController
-	before_filter :confirm_logged_in#, :only_admin
+	before_filter :confirm_logged_in
+  before_filter :confirm_admin
 	layout "admin/application.html"
   def index
 		
