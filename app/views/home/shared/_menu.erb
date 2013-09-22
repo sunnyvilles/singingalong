@@ -1,27 +1,7 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700' rel='stylesheet' type='text/css'></link>
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,300,400italic' rel='stylesheet' type='text/css'></link>
 <script src="/scripts/jquery.validate.min.js"></script>
-<style>
-	/*@font-face {
-		font-family: MavenProBlack;
-		src: local(MavenProBlack), url('/fonts/MavenProBlack.otf') format('opentype');
-	}
-	@font-face {
-		font-family: MavenProBold;
-		src: local(MavenProBold), url('/fonts/MavenProBold.otf') format('opentype');
-	}
-	@font-face {
-		font-family: MavenProMedium;
-		src: local(MavenProMedium), url('/fonts/MavenProMedium.otf') format('opentype');
-	}
-	@font-face {
-		font-family: MavenProRegular;
-		src: local(MavenProRegular), url('/fonts/MavenProRegular.otf') format('opentype');
-	}
-	@font-face {
-		font-family: TisaProRegular;
-		src: local(TisaProRegular), url('/fonts/TisaProRegular.otf') format('opentype');
-	}*/
+<style>	
 	body{
 		font-family: 'Maven Pro';
 		margin: 0;
@@ -267,12 +247,14 @@
 <div class="header">
 	<div class="headerCt">
 		<a href="/"><span class="tosLogo floatLeft spriteIcon"></span></a>
-
-		<%if !["admin/admin"].include?( params[:controller] )%>
+		
+		
 			<ul class="floatRight menuItems">
-				<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
-				<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
-				<li>
+				<%if !["admin"].include?( params[:controller].split("/")[0] )%>
+					<li class="clinic item <%=params[:controller] == "web/clinic" ? "selected" : ""%>"><a href="/clinic"><%= t "header.clinic" %></a></li>
+					<li class="academy item <%=params[:controller] == "web/academy" ? "selected" : ""%>"><a href="/academy"><%= t "header.academy" %></a></li>
+				<%end%>
+				<li class="<%= (["admin"].include? params[:controller].split("/")[0]) ? "adminlogout" : ""%>">
 					<%if session[:user_id].present?%>
 						<div class="logoutBox">
 							<span class="loginText"><%= t "header.logout"%></span>
@@ -311,16 +293,15 @@
 							</div>
 						</div>
 							
-					<%end%>
-				
-
+					<%end%>				
 				</li>
-				<li>
-					<input type="text" class="search"></input>
-					<span class="spriteIcon searchIcon"></span>
-				</li>
-			</ul>
-		<%end%>
+				<%if !["admin"].include?( params[:controller].split("/")[0] )%>
+					<li>
+						<input type="text" class="search"></input>
+						<span class="spriteIcon searchIcon"></span>
+					</li>
+				<%end%>
+			</ul>		
 	</div>
 </div>
 

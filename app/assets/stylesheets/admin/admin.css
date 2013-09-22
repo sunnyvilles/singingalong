@@ -17,9 +17,9 @@
 .crossIcon{
 	height: 28px;
 	width: 28px;
-	background-position: -80px -89px;
+	background-position: -80px -89px;	
 	cursor: pointer;
-	margin: 6px;
+	margin: 0 6px;
 }
 .crossIcon:hover{
 	background-position: -80px -40px;
@@ -30,10 +30,22 @@
 	width: 28px;
 	background-position: -32px -89px;
 	cursor: pointer;
-	margin: 6px;
+	margin: 0 6px;
 }
 .editIcon:hover{
 	background-position: -32px -40px;
+}
+
+.deleteIcon{
+	height: 28px;
+	width: 28px;
+	background-position: -124px -89px;
+	cursor: pointer;
+	margin: 0 6px;
+}
+
+.deleteIcon:hover{
+	background-position: -124px -40px;
 }
 .dottebBottom{
 	border-bottom: 1px dotted #000;
@@ -109,16 +121,41 @@
 
 .articleList table tr th{
 	background-color: #e3e3e3;
+	text-align: left;
+	padding: 5px;
+	font-family: 'Merriweather';
+	font-size: 10pt;
+	color: #333;
+	line-height: 1.4em;
+	font-weight: bold;
 }
 .articleList table tr td{
 	background-color: #fff;
+	font-size: 12pt;
+	font-family: 'Merriweather';
+	font-weight: 300;
+	line-height: 1.5em;
+	color: #636363;
+	padding: 5px;
 }
+
+.admin-article-delete{
+	text-align: center;
+	padding: 0;
+	position: relative;	
+}
+
+.admin-article-delete a{
+	position: absolute;
+	left: 50%;
+	margin-left: -18px;
+	top: 2px;
+}
+
 .articleList table{
 	background-color: #ddd;
 }
-.articleList table tr td{
-	
-}
+
 .article_table .rightInputCt input{
 	width: 540px;
 }
@@ -133,10 +170,15 @@
 	width: 980px;
 	margin: auto;
 }
-.actions input{
-	width: 200px;	
+.actions input{	
 	height: 32px;
 	background: #ddd;
+	font-size: 12pt;
+	font-family: 'Merriweather';
+	font-weight: 300;
+	line-height: 1.5em;
+	color: #636363;
+	padding: 0 2px;
 }
 .team-actions{
 	position: relative;
@@ -154,6 +196,14 @@
 .adminCt2{
 	position: relative;
 }
+.adminCt2 label{
+	font-size: 12pt;
+	font-family: 'Merriweather';
+	font-weight: 300;
+	line-height: 1.5em;
+	color: #636363;
+	padding: 5px;
+}
 .adminCt2 .actions{
 	position: absolute;
 	top: -52px;
@@ -163,8 +213,19 @@
 	padding: 20px 0 10px 0;
 }
 
+.upperbar h2{
+	font-size: 25pt;
+	color: #333;
+	letter-spacing: 1px;	
+	font-family: 'Maven Pro';
+}
 .upperbar .btn_newArticle{
 	height: 32px;
 	width: 88px;
 	background: #ddd;
+}
+
+
+.headerCt .menuItems li.adminlogout{
+	top: 6px !important;
 }

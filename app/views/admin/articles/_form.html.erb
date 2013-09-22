@@ -94,7 +94,10 @@
 	<% end %>
 	<div class="adminCt2">
 		<div class="actions">
-			<%= f.submit "save"%>
+			<a data-confirm="Are you sure?" data-method="delete" rel="nofollow" href=<%="/admin/#{@section}/articles/#{@article[:id]}/"%> style="float:left;">
+				<span class="adminSprite deleteIcon"></span>
+			</a>
+			<%= f.submit "SAVE"%>
 		</div>
 		<table class="article_table">
 			<tr  class="admin-article-field">
