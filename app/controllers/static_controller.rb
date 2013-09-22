@@ -4,16 +4,16 @@ class StaticController < ApplicationController
 	
 	def contact_us
 		
-	end	
+	end
 	
 	def file_delete
-		
+	
 		ext = ".jpg"
 
 		if (request.format== "pdf")
 			ext = ".pdf"
 		end
-
+		
 		File.delete(Rails.root.join('public' + ("/"+params[:file].to_s + ext)))
 		flash[:notice] = "Successfully destroyed post."
 		
