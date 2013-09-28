@@ -2,105 +2,107 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
 <style type="text/css">
-.adminCt2 {
-      padding: 10px;
-        border: 1px solid grey;
-        padding-top:30px;
-        margin-top: 10px;
- }
+	.adminCt2 {
+		padding: 10px;
+		border: 1px solid grey;
+		padding-top:30px;
+		margin-top: 10px;
+	}
 
-.course_table {
+	.course_table {
 
-  width:100%;
-}
+		width:100%;
+	}
 
-.course_table td{
+	.course_table td{
 
-padding:5px 30px 5px 5px;
+		padding:5px 30px 5px 5px;
 
-}
-[required]:before {
-     content: " *";
- }
- 
- </style>
+	}
+	[required]:before {
+		content: " *";
+	}
+
+</style>
 
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <%= form_for(@admin_course) do |f| %>
 	<%= render :partial => "/admin/shared/header" %>
 	<%= render :partial => "/admin/shared/tabs" %>
 
-  <% if @admin_course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>
+	<% if @admin_course.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>
 
-      <ul>
-      <% @admin_course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="adminCt2">
-<table class="course_table">
-  <tr><td>
-    <%= f.label :course_type %></td><td>
-    <%= f.select :course_type ,["indian","international","customized"] %>
-  </td></tr>
-  <tr><td>
-    <%= f.label :title ,"Course Title" %></td><td>
-    <%= f.text_field :title%>
-    <br/>the character limit for this is 30
-  </td></tr>
-  <tr>
-      <td><%= f.label :course_pdf, 'Course PDF' %><br /></td>
-      
-      <td>
-        <%= f.file_field :course_pdf %>
-    
-            <%pdf = "/files/courses/" + @admin_course[:id].to_s+".pdf"%>
-              
-            <%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
-             <a href="<%=pdf%>"><u>download existing pdf file</u></a>
-             <%= link_to "", "/file_delete" + pdf,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_pdf(this)' %>
-            <%end%>
+			<ul>
+				<% @admin_course.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="adminCt2">
+		<table class="course_table">
+			<tr><td>
+					<%= f.label :course_type %></td><td>
+					<%= f.select :course_type ,["indian","international","customized"] %>
+				</td></tr>
+			<tr>
+				<td>
+					<%= f.label :title ,"Course Title" %></td><td>
+					<%= f.text_field :title%>
+					<br/>
+					<span class="textLimit">The character limit for this is 30</span>
+				</td></tr>
+			<tr>
+				<td><%= f.label :course_pdf, 'Course PDF' %><br /></td>
 
-      </td>
-    </tr>
-  <tr><td>
-    <%= f.label :description %></td><td>
-    <%= f.text_area :description,:cols => "80" %>
-  </td></tr>
-  
-  </table>
-  <div class="actions">
-    <%= f.submit "SAVE" , :class=> "course_submit"%>
-  </div>
-</div>
- 
-  <script>
-  tinymce.init({
-    selector:'textarea',
-    toolbar: " bold italic underline",
-    menubar : false
-  });
+				<td>
+					<%= f.file_field :course_pdf %>
 
-$(function() {
-$( ".datepicker" ).datepicker({
+					<%pdf = "/files/courses/" + @admin_course[:id].to_s+".pdf"%>
 
-dateFormat : "dd MM yy",
-changeMonth : true,
-changeYear : true
+					<%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
+						<a href="<%=pdf%>"><u>download existing pdf file</u></a>
+						<%= link_to "", "/file_delete" + pdf,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_pdf(this)' %>
+					<%end%>
 
-});
-});
+				</td>
+			</tr>
+			<tr><td>
+					<%= f.label :description %></td><td>
+					<%= f.text_area :description,:cols => "80" %>
+				</td></tr>
 
-var hide_pdf = function(el){
-$(el).prev().hide();
-$(el).hide();
-}
-</script>
- 
- 
+		</table>
+		<div class="actions">
+			<%= f.submit "SAVE" , :class=> "course_submit"%>
+		</div>
+	</div>
+
+	<script>
+		tinymce.init({
+			selector:'textarea',
+			toolbar: " bold italic underline",
+			menubar : false
+		});
+
+		$(function() {
+			$( ".datepicker" ).datepicker({
+
+				dateFormat : "dd MM yy",
+				changeMonth : true,
+				changeYear : true
+
+			});
+		});
+
+		var hide_pdf = function(el){
+			$(el).prev().hide();
+			$(el).hide();
+		}
+	</script>
+
+
 
 <% end %>

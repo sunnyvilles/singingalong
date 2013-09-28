@@ -155,6 +155,13 @@
 
 .article_table .rightInputCt input{
 	width: 540px;
+	height: 32px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.article_table{
+	
 }
 /*Admin Articles List End start*/
 
@@ -225,4 +232,43 @@
 
 .headerCt .menuItems li.adminlogout{
 	top: 6px !important;
+}
+
+
+td.admin-article-date, .admin-article-name, .admin-article-by, .admin-article-tags, .admin-article-updatedAt{
+	line-height: 32px !important;
+}
+
+.admin-article-delete{
+	text-align: center;
+}
+
+.docEditor tr{
+	line-height: 32px;
+}
+
+.docEditor tr textarea{
+	position: relative;
+	top: 10px;
+}
+
+.docEditor tr input[type=text]{
+	width: 600px;
+}
+
+.docEditor.actions  input, .docEditor.actions  a{
+	float: right;
+}
+.docEditor.actions  a{
+	margin-right: 20px;
+	position: relative;
+	top: 10px;
+}
+
+.course_table tr input[type=text]{
+	width: 765px;
+}
+
+.course_table tr .textLimit{
+	font-size: 10px;
 }

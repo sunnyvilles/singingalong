@@ -24,7 +24,7 @@
 			</ul>
 		</div>
 	<% end %>
-	<table>
+<table class="docEditor">
 		<tr>
 			<td><%= f.label :name %><br /></td>
 			<td>:</td>
@@ -77,8 +77,9 @@
 	<%= f.label :picture, 'upload a picture' %><br />
 	<%= f.file_field :picture %>
 	</div>-->
-	<div class="actions">
+	<div class="actions docEditor">
 		<%= f.submit "SAVE" %>
+		<%= link_to 'Back', "/admin/#{@section}/doctors" %>		
 	</div>
 <% end %>
 <style type="text/css">
