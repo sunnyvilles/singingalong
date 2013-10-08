@@ -22,6 +22,9 @@
 	[required]:before {
 		content: " *";
 	}
+	.cboState{
+		display: none;
+	}
 
 </style>
 
@@ -45,15 +48,26 @@
 		<table class="course_table">
 			<tr><td>
 					<%= f.label :course_type %></td><td>
-					<%= f.select :course_type ,["indian","international","customized"] %>
+					<%= f.select :course_type ,["indian","international","customized","university pg (short term)"] ,{}, { :class=>"course_select"}%>
 				</td></tr>
 			<tr>
+				
 				<td>
-					<%= f.label :title ,"Course Title" %></td><td>
+					
+					<%= f.label :title ,"Course Title" %></td>
+
+					<td>
+						<div class="txtState">
 					<%= f.text_field :title%>
 					<br/>
 					<span class="textLimit">The character limit for this is 30</span>
-				</td></tr>
+					</div>
+					<%= f.select :title ,["C.C.A.H (Certificate Course in Advanced Homoeopathy)","F.C.A.H (Fellowship Course in Advanced Homoeopathy)"] ,{}, { :class=>"cboState"}%>
+
+				</td>
+
+
+			</tr>
 			<tr>
 				<td><%= f.label :course_pdf, 'Course PDF' %><br /></td>
 
@@ -101,6 +115,22 @@
 			$(el).prev().hide();
 			$(el).hide();
 		}
+	if($('.course_select').val() == "university pg (short term)"){
+        $('.txtState').hide();
+        $('.cboState').show();
+    }
+
+	$('.course_select').change(function(){
+	if($('.course_select').val() != "university pg (short term)"){
+        $('.txtState').show();
+        $('.cboState').hide();
+    }
+    else
+    {
+        $('.txtState').hide();
+        $('.cboState').show();
+    }}
+);
 	</script>
 
 

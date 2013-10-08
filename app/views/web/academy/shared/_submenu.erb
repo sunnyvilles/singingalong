@@ -85,7 +85,7 @@
 
 
 
-	<li class="<%=["courses","indian_courses", "international_courses", "customized_courses"].include?(params[:action]) ? "selected" : "" %>">
+	<li class="<%=["courses","indian_courses", "international_courses", "customized_courses","university_courses"].include?(params[:action]) ? "selected" : "" %>">
 			<div class="left-border left-border-1 floatLeft"></div>
 			<div class="submenuItem">
 				<a href="/academy/indian_courses"><%= t "submenu.courses" %></a>
@@ -102,7 +102,11 @@
 					<li class="<%= params[:action] == "customized_courses" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/academy/customized_courses"><%= t "submenu.coursesSection.customized_courses" %></a>
-					</li>					
+					</li>	
+					<li class="<%= params[:action] == "university_courses" ? "selected" : ""%>">
+						<span class="subnavIcon"></span>
+						<a href="/academy/university_courses"><%= t "submenu.coursesSection.university_courses" %></a>
+					</li>				
 				</ul>
 			</div>
 		</li>

@@ -113,6 +113,7 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/academy/indian_courses' => 'web/academy#indian_courses'
 	get '/academy/international_courses' => 'web/academy#international_courses'
 	get '/academy/customized_courses' => 'web/academy#customized_courses'
+	get '/academy/university_courses' => 'web/academy#university_courses'
 
 	get '/academy/research' => 'web/academy#research'
 	get '/academy/satellite' => 'web/academy#satellite'
