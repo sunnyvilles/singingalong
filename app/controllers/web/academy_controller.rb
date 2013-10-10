@@ -4,7 +4,7 @@ class Web::AcademyController < ApplicationController
 		@all_tags = Tag.select("title")
 	end
 	def about_us
-
+		@sec = "ACADEMY"
 		@newses=Array.new
 		
 		vidn = Article.find(:all, :conditions => [ "source = ? and type = ?", "academy", "video" ], :order => "created_at DESC", :limit => 2).reverse()

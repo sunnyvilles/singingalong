@@ -133,7 +133,7 @@ class Web::ClinicController < ApplicationController
 	
 	end
 	def about
-
+		@sec = "CLINIC"
  		@newses=Array.new
 		
 		vidn = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "video" ], :order => "created_at DESC", :limit => 2).reverse()
