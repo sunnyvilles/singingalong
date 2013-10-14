@@ -971,13 +971,12 @@ li.selected ul{
 .submenuItem li.selected a{
 	color: #a51919;
 }
-.submenuItems li.selected{
-	background-color: #ededed;
-
+.submenuItems > li.selected{
+	background-color: #f67a00;
 	cursor: pointer;
 }
 .submenuItems li.selected div > a{
-	color: #000;
+	color: #fff;
 	font-weight: bold;
 }
 .left-border-1.left-border{

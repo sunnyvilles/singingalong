@@ -5,7 +5,7 @@
 <div class="header submenu">
 	<ul class="submenuItems">
 		<li class="<%=["about_us", "aim", "team", "association"].include?(params[:action]) ? "selected" : "" %>">
-			<div class="left-border left-border-1 floatLeft"></div>
+			<!--<div class="left-border left-border-1 floatLeft"></div>-->
 			<div class="submenuItem">
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
 				<div class="left-border floatLeft"></div>
@@ -26,7 +26,7 @@
 			</div>
 		</li>
 		<li class="<%=["our_approach", "learning_model","teaching_tools","facilities"].include?(params[:action]) ? "selected" : "" %>">
-			<div class="left-border left-border-1 floatLeft"></div>
+			<!--<div class="left-border left-border-1 floatLeft"></div>-->
 			<div class="submenuItem">
 				<a href="/<%=scope%>/our-approach/"><%= t "submenu.edge" %></a>
 				<div class="left-border floatLeft"></div>
@@ -52,7 +52,7 @@
 			</div>
 		</li>
 		<li class="<%=["articles", "article", "case_studies", "case_study", "videos", "video"].include?(params[:action]) ? "selected" : "" %>">
-			<div class="left-border left-border-1 floatLeft"></div>
+			<!--<div class="left-border left-border-1 floatLeft"></div>-->
 			<div class="submenuItem">
 				<a href="/academy/articles"><%= t "submenu.knowledgeCenter" %></a>
 				<div class="left-border floatLeft"></div>
@@ -77,7 +77,7 @@
 			</div>
 		</li>
 		<li class="<%=["admissions"].include?(params[:action]) ? "selected" : "" %>">
-			<div class="left-border left-border-1 floatLeft"></div>
+			<!--<div class="left-border left-border-1 floatLeft"></div>-->
 			<div class="submenuItem">
 				<a href="/<%=scope%>/admissions"><%= t "submenu.admission" %></a>
 			</div>
@@ -85,8 +85,8 @@
 
 
 
-	<li class="<%=["courses","indian_courses", "international_courses", "customized_courses","university_courses"].include?(params[:action]) ? "selected" : "" %>">
-			<div class="left-border left-border-1 floatLeft"></div>
+		<li class="<%=["courses","indian_courses", "international_courses", "customized_courses","university_courses"].include?(params[:action]) ? "selected" : "" %>">
+			<!--<div class="left-border left-border-1 floatLeft"></div>-->
 			<div class="submenuItem">
 				<a href="/academy/indian_courses"><%= t "submenu.courses" %></a>
 				<div class="left-border floatLeft"></div>
