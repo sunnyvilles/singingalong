@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-#gem 'mysql2'
-gem 'pg'
+gem 'mysql2'
+#gem 'pg'
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,6 +26,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'recaptcha', :require => 'recaptcha/rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -6,6 +6,7 @@
 		padding: 10px;
 	}
 </style>
+
 <%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
 <%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap contactUs">
@@ -71,9 +72,11 @@
 	<div class="contactFt">
 		<div class="bodyContent" style="text-align: center;">The Other Song</div>
 		<div class="bodyContent" style="text-align: center; font-size: 10pt;">International Academy of Advanced Homoeopathy is registered under Section 25C of Indian Company Act, a Non-Profit Organization.</div>
+		
 	</div>
 	<div class="clear"></div>
 </div>
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script>
 	function initialize() {
@@ -93,4 +96,5 @@
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
+	
 </script>
