@@ -61,7 +61,7 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/clinic/team' => 'web/clinic#team'
 	get '/clinic/associations' => 'web/clinic#association'
 	get '/clinic/associations/wish' => 'web/clinic#association_wish'
-	
+	get '/clinic/virtual-tour' => 'web/clinic#virtual_tour'
 	#knowledge center
 	get '/clinic/articles' => 'web/clinic#articles'
 	get '/clinic/articles/:article_id' => 'web/clinic#article'

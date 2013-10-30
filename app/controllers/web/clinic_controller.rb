@@ -161,6 +161,10 @@ class Web::ClinicController < ApplicationController
 	def association
 
 	end
+
+	def virtual_tour
+		
+	end
 	def association_wish
 		
 	end

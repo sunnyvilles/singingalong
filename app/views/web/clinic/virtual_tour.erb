@@ -1,0 +1,40 @@
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<div class="contentWrap">
+
+	<div class="padder">
+		<h2 class="title" style="padding-left: 10px"><%= t "submenu.aboutsection.virtualTour"%> </h2>
+		<div class="virtual-tour">
+			<div class="virtual-slide">
+				<img src="/images/clinic/slides-1.jpg" alt="" height="290" width="960"></img>
+				<span class="caption virtual-slide-caption subheader">Slide 1</span>
+			</div>
+			<div class="virtual-slide">
+				<img src="/images/clinic/slides-2.jpg" alt="" height="290" width="960"></img>
+				<span class="caption virtual-slide-caption subheader">Slide 2</span>
+			</div>
+			<div class="virtual-slide">
+				<img src="/images/clinic/slides-3.jpg" alt="" height="290" width="960"></img>
+				<span class="caption virtual-slide-caption subheader">Slide 3</span>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(".virtual-tour").slidesjs({
+		width: 940,
+		height: 290,
+		play: {
+			auto: true,
+			active: false,
+			effect: "slide",
+			interval: 3000
+		},
+		navigation:{
+			active: false
+		},
+		pagination: {
+			active: true
+		}
+	});
+</script>
