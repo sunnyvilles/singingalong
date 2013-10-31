@@ -42,6 +42,11 @@
 
 
 </style>
+<script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'white'
+ };
+ </script>
 <footer>
 	<div class="footerCt">
 		<div class="footerTop">
@@ -103,7 +108,21 @@
 								<textarea name="feedback" rows="5" cols="37" placeholder="<%= t "footer.feedback" %>"></textarea>
 							</td>
 						</tr>
-						
+						<tr>
+							<td>
+								 <script type="text/javascript"
+									 src="http://www.google.com/recaptcha/api/challenge?k=6LdkregSAAAAAGA-8OJ1-uBwC-LFXT6_4v7gzpFa">
+								</script>
+								<noscript>
+									 <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LdkregSAAAAAGA-8OJ1-uBwC-LFXT6_4v7gzpFa"
+											 height="300" width="500" frameborder="0"></iframe><br>
+									 <textarea name="recaptcha_challenge_field" rows="3" cols="60">
+									 </textarea>
+									 <input type="hidden" name="recaptcha_response_field"
+											 value="manual_challenge">
+								</noscript>
+							</td>
+						</tr>
 						<tr><td><input type="submit" class="spriteIcon feed_submit" value="<%= t "footer.send" %>"></input></td></tr>
 					</table>
 				</form>

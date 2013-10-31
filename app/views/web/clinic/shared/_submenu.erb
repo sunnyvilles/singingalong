@@ -1,6 +1,6 @@
 <div class="header submenu">
 	<ul class="submenuItems">
-		<li class="<%=["about", "aim", "team", "association", "association_wish"].include?(params[:action]) ? "selected" : "" %>">
+		<li class="<%=["about", "aim", "team", "association", "association_wish", "virtual_tour"].include?(params[:action]) ? "selected" : "" %>">
 			<!--<div class="left-border left-border-1 floatLeft"></div>-->
 			<div class="submenuItem">
 				<a href="/<%=scope%>/"><%= t "submenu.about" %></a>
@@ -18,6 +18,10 @@
 					<li class="<%= params[:action] == "association" ? "selected" : ""%>">
 						<span class="subnavIcon"></span>
 						<a href="/<%=scope%>/associations/"><%= t "submenu.aboutsection.association" %></a>
+					</li>
+					<li class="<%= params[:action] == "virtual_tour" ? "selected" : ""%>">
+						<span class="subnavIcon"></span>
+						<a href="/<%=scope%>/virtual-tour/"><%= t "submenu.aboutsection.virtualTour" %></a>
 					</li>
 				</ul>
 			</div>
