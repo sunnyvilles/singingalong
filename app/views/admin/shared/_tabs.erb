@@ -15,24 +15,31 @@
 				<span>Case Studies</span>
 			</a>
 		</li>
-		<% if @section === "clinic" %>
+		
 			<li class="admin-tab <%= params[:controller] == "admin/events" ? "selected" : "" %>">
 				<a href="/admin/<%=@section%>/events">
 					<span>Events</span>
 				</a>
 			</li>
-		<%else%>
+		
+		<% if @section === "academy" %>
 			<li class="admin-tab <%= params[:controller] == "admin/courses" ? "selected" : "" %>">
 				<a href="/admin/<%=@section%>/courses">
 					<span>Courses</span>
 				</a>
 			</li>
-		<%end%>
+			<%end%>
+		
 		<li class="admin-tab <%= params[:controller] == "admin/doctors" ? "selected" : "" %>">
 			<a href="/admin/<%=@section%>/doctors">
 				<span>Team</span>
 			</a>
 		</li>
+			<li class="admin-tab <%= params[:controller] == "admin/testimonials" ? "selected" : "" %>">
+				<a href="/admin/<%=@section%>/testimonials">
+					<span>Testimonials</span>
+				</a>
+			</li>
 	</ul>
 
 <%end%>

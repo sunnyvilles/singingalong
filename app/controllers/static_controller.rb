@@ -9,7 +9,7 @@ class StaticController < ApplicationController
 	def file_delete
 	
 		ext = ".jpg"
-
+		
 		if (request.format== "pdf")
 			ext = ".pdf"
 		end

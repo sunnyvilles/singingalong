@@ -10,7 +10,7 @@ TheOtherSongClinic::Application.routes.draw do
 	resource :users
 	namespace :admin do
 		scope '/academy' do
-			resources :articles,:doctors, :events, :courses
+			resources :articles, :doctors, :events, :courses, :testimonials
 			get '/videos' => 'articles#index'
 			get '/videos/new' => 'articles#new'
 			get '/videos/:id/edit' =>'articles#edit'
@@ -20,7 +20,7 @@ TheOtherSongClinic::Application.routes.draw do
 		
 		end
 		scope '/clinic' do
-			resources :articles, :doctors, :events, :courses
+			resources :articles, :doctors, :events, :courses, :testimonials
 			get '/videos' => 'articles#index'
 			get '/videos/new' => 'articles#new'
 			get '/videos/:id/edit' =>'articles#edit'

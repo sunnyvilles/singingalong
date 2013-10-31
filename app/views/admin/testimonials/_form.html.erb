@@ -1,0 +1,51 @@
+
+<%= form_for(["admin",@testimonial]) do |f| %>
+	<%= render :partial => "/admin/shared/header" %>
+	<%= render :partial => "/admin/shared/tabs" %>
+	<% if @testimonial.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
+
+			<ul>
+				<% @testimonial.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+
+			</ul>
+		</div>
+	<% end %>
+<table class="testimonialEditor">
+		
+		<tr>
+			<td><%= f.label :title %><br /></td>
+			<td>:</td>
+			<td><%= f.text_field :title %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :testimonial_video %><br /></td>
+			<td>:</td>
+			<td><%= f.text_field :testimonial_video %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :testimonial_by,"Testimonial By" %><br /></td>
+			<td>:</td>
+			<td><%= f.text_field :testimonial_by %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :description %><br /></td>
+			<td>:</td>
+			<td><%= f.text_area :description ,:row=>"20",:class=>"testimonial_text" %></td>
+		</tr>
+
+	</table>
+	<div class="actions testimonialEditor">
+		<%= f.submit "SAVE" %>
+		
+	</div>
+<% end %>
+<style type="text/css">
+	.testimonial_text {
+		width: 600px;
+
+	}
+</style>
