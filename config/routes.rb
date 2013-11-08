@@ -98,10 +98,10 @@ TheOtherSongClinic::Application.routes.draw do
 	
 	get '/academy/articles' => 'web/academy#articles'
 	get '/academy/articles/:article_id' => 'web/academy#article'
-
+	
 	get '/academy/case-studies' => 'web/academy#case_studies'
 	get '/academy/case-studies/:article_id' => 'web/academy#case_study'
-
+	
 	get '/academy/videos' => 'web/academy#videos'
 	get '/academy/videos/:article_id' => 'web/academy#video'
 	
@@ -111,7 +111,10 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/academy/teaching-tools' => 'web/academy#teaching_tools'
 	get '/academy/facilities' => 'web/academy#facilities'
 	get '/academy/testimonials' => 'web/academy#testimonials'
-
+	
+	get '/academy/events' => 'web/academy#events'
+	get '/academy/events/:event_id' => 'web/academy#event'
+	
 	#courses
 	get '/academy/courses' => 'web/academy#courses'
 	get '/academy/indian_courses' => 'web/academy#indian_courses'

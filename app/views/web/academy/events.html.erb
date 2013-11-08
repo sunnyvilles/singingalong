@@ -27,19 +27,19 @@
 </style>
 <%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
 
-<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "clinic"} %>
-<%= render :partial => "/web/clinic/shared/submenu", :locals => {:scope => "clinic"} %>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
+<%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
 <div class="contentWrap article-list">
 	<div class="padder">
 		<h2 class="title"><%= t "submenu.events"%> </h2>		
 		<div>
 			<div class="topHeader">
 				<%if page_no !=1%>
-					<a href="/clinic/events?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
+					<a href="/academy/events?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
 				<%end%>
 				<span class="articleCount subheader">Events Found: <%=@total_events%></span>
 				<%if @total_events_remain > 10%>
-					<a href="/clinic/events?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
+					<a href="/academy/events?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 				<%end%>
 			</div>
 			<div class="articlesList">
@@ -55,7 +55,7 @@
 							<div class="bodyContent"><%=raw event[:description][0...240]%>...</div>
 							<div class="tools">
 								<span class="sharingTool"></span>
-								<a class="links floatRight" href="/clinic/events/<%=event[:id]%>">Read More</a>
+								<a class="links floatRight" href="/academy/events/<%=event[:id]%>">Read More</a>
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -64,11 +64,11 @@
 			</div>
 			<div class="bottomBar">
 				<%if page_no !=1%>
-					<a href="/clinic/events?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
+					<a href="/academy/events?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
 				<%end%>
 				<span class="articleCount">Events Found: <%=@total_events.size%></span>
 				<%if @total_events_remain > 10%>
-					<a href="/clinic/events?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
+					<a href="/<%=@section%>/articles?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 				<%end%>
 			</div>
 		</div>

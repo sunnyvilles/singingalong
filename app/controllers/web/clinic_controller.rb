@@ -222,8 +222,8 @@ class Web::ClinicController < ApplicationController
 		#@total_articles_remain = @total_articles.size - start_value
 
 		#deprecated code follows
-		@events = Event.find(:all,:order => 'day DESC', :offset => start_value, :limit => per_page)
-		@total_events = Event.find(:all, :conditions => []).size
+		@events = Event.find(:all, :conditions => ["source = ?","clinic"],:order => 'day DESC', :offset => start_value, :limit => per_page)
+		@total_events = Event.find(:all, :conditions => ["source =?","clinic"]).size
 		@total_events_remain = @total_events - start_value
 	end
 	def event

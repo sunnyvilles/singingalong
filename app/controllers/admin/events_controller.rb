@@ -4,7 +4,10 @@ class Admin::EventsController < ApplicationController
 	layout "admin/application.html"
   def index
 		
-    @events = Event.find(:all, :order => "id DESC")
+    @events = Event.find(:all, :conditions => [ "source = ?", @section], :order => "id DESC")
+
+    #Event.find(:all, :order => "id DESC")
+
     respond_to do |format|
       format.html 
       format.json { render json: @events }
@@ -52,11 +55,12 @@ class Admin::EventsController < ApplicationController
     handle_file_upload(params,file_names)
 
     @event = Event.new(params[:event])
+    @event.source = @section
 
     respond_to do |format|
       if @event.save
          handle_file_rename(@event.id,file_names)
-        format.html { redirect_to "/admin/clinic/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
+        format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -79,7 +83,7 @@ class Admin::EventsController < ApplicationController
           
          handle_file_rename(@event.id,file_names)
    
-        format.html { redirect_to "/admin/clinic/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
+        format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         

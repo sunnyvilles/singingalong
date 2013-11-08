@@ -1,0 +1,94 @@
+<style>
+	.submenu{
+		margin-bottom: 0;
+	}
+	.article-list .padder{
+		padding: 20px 10px;
+	}
+	.articleSharingTools{
+		position: relative;
+		bottom: 8px;
+	}
+	.articleImageSlide{
+		margin: 0 10px 10px 0;
+		height: 178px;
+		width: 282px;
+		overflow: hidden;
+	}
+	.articleImageSlide{
+		position: relative;
+	}
+
+	.submenuItem ul{
+		border-right: 1px solid #ddd;
+		left: 0 !important;
+	}
+</style>
+<%= render :partial => "/static/shared/home_image_slide", :locals => {:scope => "academy"} %>
+<%= render :partial => "/web/academy/shared/submenu", :locals => {:scope => "academy"} %>
+<div class="contentWrap article">
+
+	<div class="padder">
+		<h2 class="title" style="border-bottom: 1px solid #333;"><%= t "submenu.events"%> </h2>
+		<div style="position: relative; top: 12px;">
+			<h3 class="subheader" style="margin-bottom: 10px;"><%=@event[:title].upcase%></h3>
+			<div class="subheader" style="margin-bottom: 10px;"><%=@event[:day].strftime('%B %d, %Y') unless @event[:day].blank? %></div>
+			<div class="articleSharingTools floatRight" style="position: absolute;top: -8px;right: 0;height: 32px;">
+				<a href="mailto:" target="_blank"><span class="spriteIcon smlIcon mail"></span></a>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=<%=URI::escape(request.original_url)%>"  target="blank"><span class="spriteIcon smlIcon facebook"></span></a>
+				<a target="_blank" href="https://twitter.com/intent/tweet?url=<%=URI::escape(request.original_url)%>&text=<%=@event[:title]%>"><span class="spriteIcon smlIcon twitter"></span></a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			</div>
+
+			<div class="articleContentArea bodyContent">
+				<%if(@event[:caption_0].present?)%>
+				<div class="floatLeft articleImageSlide">
+					<%if(@event[:caption_0].present?)%>
+					<div>
+						<img src="/images/events/<%=@event[:id]%>-0.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@event[:caption_0]%></span>
+					</div>
+					<%end%>
+					<%if(@event[:caption_1].present?)%>
+					<div>
+						<img src="/images/events/<%=@event[:id]%>-1.jpg" alt="" height="178" width="282"></img>
+						<span class="caption"><%=@event[:caption_1]%></span>
+					</div>
+					<%end%>
+
+					<%if(@event[:caption_2].present?)%>
+						<div>
+							<img src="/images/events/<%=@event[:id]%>-2.jpg" alt="" height="178" width="282"></img>
+							<span class="caption"><%=@event[:caption_2]%></span>
+						</div>
+					<%end%>
+				</div>
+				<%end%>
+				<div><%=raw @event[:other_description]%></div>
+				<div><%=raw @event[:description]%></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<script>
+	<%if(@event[:caption_1].present?)%>
+	$(".articleImageSlide").slidesjs({
+		width: 278,
+		height: 178,
+		play: {
+			active: false,
+			effect: "slide",
+			interval: 5000
+		},
+		navigation:{
+			active: false
+		},
+		pagination: {
+			active: true
+		}
+	});
+	<%end%>
+
+
+</script>
