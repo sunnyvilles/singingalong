@@ -30,7 +30,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.new
     @event.testimonial_videos.build
     @event.workshop_videos.build
-    @event.testimonials.build
+    #@event.testimonials.build
     respond_to do |format|
       format.html 
       format.json { render json: @event }

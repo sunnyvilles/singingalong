@@ -55,6 +55,7 @@ TheOtherSongClinic::Application.routes.draw do
 
 	# Static pages
 	get '/clinic' => 'web/clinic#about'
+
 	#do we need this one?
 	get '/clinic/about-us' => 'static#clinic_about'
 	get '/clinic/aim' => 'web/clinic#aim'
@@ -62,6 +63,7 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/clinic/associations' => 'web/clinic#association'
 	get '/clinic/associations/wish' => 'web/clinic#association_wish'
 	get '/clinic/virtual-tour' => 'web/clinic#virtual_tour'
+
 	#knowledge center
 	get '/clinic/articles' => 'web/clinic#articles'
 	get '/clinic/articles/:article_id' => 'web/clinic#article'
@@ -84,6 +86,7 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/clinic/events' => 'web/clinic#events'
 	get '/clinic/events/:event_id' => 'web/clinic#event'
 	get '/clinic/contact-us' => 'web/clinic#contact'
+
 	#Clinic routes end
 
 	#Academy routes start
@@ -107,7 +110,8 @@ TheOtherSongClinic::Application.routes.draw do
 	get '/academy/learning-model' => 'web/academy#learning_model'
 	get '/academy/teaching-tools' => 'web/academy#teaching_tools'
 	get '/academy/facilities' => 'web/academy#facilities'
-	
+	get '/academy/testimonials' => 'web/academy#testimonials'
+
 	#courses
 	get '/academy/courses' => 'web/academy#courses'
 	get '/academy/indian_courses' => 'web/academy#indian_courses'
@@ -121,10 +125,10 @@ TheOtherSongClinic::Application.routes.draw do
 
 	get '/academy/contact-us' => 'web/academy#contact'
 	#get '/events' => 'static#events'
-  #get '/events/:pages' => 'static#events'
+  	#get '/events/:pages' => 'static#events'
 
-  #get '/general-information' => 'static#general_information'
-  #get '/general-information/:pages' => 'static#general_information'
+  	#get '/general-information' => 'static#general_information'
+  	#get '/general-information/:pages' => 'static#general_information'
 
   get '/social-sharing/:article_id' => 'web/clinic#social_sharing'
 

@@ -6,7 +6,7 @@ before_filter :confirm_logged_in
 before_filter :confirm_admin
 
   def index
-    @testimonials = Testimonial.all
+    @testimonials = Testimonial.where("source = ?", @section)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,6 +37,7 @@ before_filter :confirm_admin
 
   # GET /testimonials/1/edit
   def edit
+    
     @testimonial = Testimonial.find(params[:id])
 
   end
@@ -46,11 +47,11 @@ before_filter :confirm_admin
   def create
 
     @testimonial = Testimonial.new(params[:testimonial])
+    @testimonial.source = @section
 
     respond_to do |format|
       if @testimonial.save
-       
-        format.html { redirect_to  edit_admin_testimonial_path(@testimonial), notice: 'Testimonial was successfully created.' }
+        format.html { redirect_to  "/admin/#{@section}/testimonials/#{@testimonial.id}/edit", notice: 'Testimonial was successfully created.' }
         format.json { render json: @testimonial, status: :created, location: @testimonial }
       else
         format.html { render action: "new" }
@@ -70,7 +71,7 @@ before_filter :confirm_admin
     respond_to do |format|
       if @testimonial.update_attributes(params[:testimonial])
 
-        format.html { redirect_to edit_admin_testimonial_path(@testimonial), notice: 'Testimonial was successfully updated.' }
+        format.html { redirect_to "/admin/#{@section}/testimonials/#{@testimonial.id}/edit", notice: 'Testimonial was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -87,7 +88,7 @@ before_filter :confirm_admin
     @testimonial.destroy
 
     respond_to do |format|
-      format.html { redirect_to [:admin, @testimonial] }
+      format.html { redirect_to "/admin/#{@section}/testimonials" }
       format.json { head :no_content }
     end
   end

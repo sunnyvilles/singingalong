@@ -170,6 +170,13 @@ class Web::AcademyController < ApplicationController
 	def research
 
 	end
+
+	def testimonials
+
+		@testimonials = Testimonial.where(:source=>"academy")
+
+
+	end
 end
 
 

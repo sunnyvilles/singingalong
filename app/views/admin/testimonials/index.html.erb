@@ -1,3 +1,11 @@
+<style type="text/css">
+.upperbar .btn_newArticle{
+
+	width: 120px;
+}
+
+</style>
+
 <%= render :partial => "/admin/shared/header" %>
 <%= render :partial => "/admin/shared/tabs" %>
 <div class="articleList">
@@ -6,23 +14,25 @@
 		<div class="page floatRight">
 			<ul></ul>
 		</div>
-		<%= button_to 'New Testimonial', new_admin_testimonial_path,:class=>"btn btn_newArticle floatRight",:method => :get %>
+
+		<%= button_to 'New Testimonial', "/admin/#{@section}/testimonials/new",:class=>"btn btn_newArticle floatRight",:method => :get %>
 		<div style="clear:both"></div>
 
 	</div>
 	<table>
 		<tr>
 			<th>Testimonial By</th>
-			<th>Title</th>		
+			<th>Title</th>
+			<th>Date</th>		
 			<th></th>			
 		</tr>
 
 		<% @testimonials.each do |admin_testimonial| %>
 			<tr>
 				<td class="admin-article-by"><%= admin_testimonial.testimonial_by %></td>
-				<td class="admin-article-by"><a href="/admin/academy/testimonials/<%=admin_testimonial[:id]%>/edit"><%= admin_testimonial.title %></a></td>
-				
-				<td class="admin-article-delete"><a href="/admin/academy/testimonials/<%=admin_testimonial[:id]%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="adminSprite crossIcon"></span></a></td>
+				<td class="admin-article-by"><a href="/admin/<%=@section%>/testimonials/<%=admin_testimonial[:id]%>/edit"><%= admin_testimonial.title %></a></td>
+				<td class="admin-article-date"><%= admin_testimonial.created_at.strftime("%d/%m/%Y") %></td>
+				<td class="admin-article-delete"><a href="/admin/<%=@section%>/testimonials/<%=admin_testimonial[:id]%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="adminSprite crossIcon"></span></a></td>
 			</tr>
 		<% end %>
 	</table>

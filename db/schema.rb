@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131026041600) do
+ActiveRecord::Schema.define(:version => 20131108091055) do
 
   create_table "admin_courses", :force => true do |t|
     t.string   "course_type"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20131026041600) do
     t.string   "testimonial_video"
     t.string   "testimonial_by"
     t.text     "description"
+    t.string   "source"
   end
 
   create_table "urls", :force => true do |t|

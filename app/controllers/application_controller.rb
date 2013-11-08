@@ -4,11 +4,9 @@ class ApplicationController < ActionController::Base
 	before_filter :section
 	protect_from_forgery
 
-	
-
   protected
 
-  def section
+  	def section
 		@section = params[:section].present? ?  params[:section] : request.fullpath.split("/")[2]
 		@original_type = request.fullpath.split("/")[3]
 		unless @original_type.blank?

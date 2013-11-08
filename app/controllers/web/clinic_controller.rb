@@ -202,6 +202,9 @@ class Web::ClinicController < ApplicationController
 	end
 	def testimonials
 
+		@testimonials = Testimonial.where(:source=>"clinic")
+
+
 	end
 
 	def events
