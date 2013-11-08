@@ -66,7 +66,7 @@
 				<%if page_no !=1%>
 					<a href="/clinic/events?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
 				<%end%>
-				<span class="articleCount">Events Found: <%=@total_events.size%></span>
+				<span class="articleCount">Events Found: <%=@total_events%></span>
 				<%if @total_events_remain > 10%>
 					<a href="/clinic/events?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 				<%end%>
