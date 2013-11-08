@@ -1,5 +1,5 @@
 class Admin::DoctorsController < ApplicationController
-  layout "admin/application"rialrails 
+  layout "admin/application"
 	# GET /doctors
   # GET /doctors.json
 before_filter :confirm_logged_in
