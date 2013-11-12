@@ -74,6 +74,11 @@
 	.clearFloatBoth{
 		clear:both;
 	}
+	.paid{
+
+		height:40px;
+		
+	}
 </style>
 <link rel="stylesheet" type="text/css" href="/styles/jquery-ui.css"></link>
 
@@ -99,6 +104,15 @@
 			</a>
 			<%= f.submit "SAVE"%>
 		</div>
+			<div class="paid">
+	
+				<div class="floatRight">
+				
+	    			<%= f.radio_button :is_paid, true %> Paid  			
+			    	<%= f.radio_button :is_paid, false, :checked => true  %> Free	
+			    </div>	
+
+			</div>
 		<table class="article_table">
 			<tr  class="admin-article-field">
 				<td class="first_col" rowspan="4">
@@ -206,10 +220,12 @@
 				</td>
 			</tr>
 
+
 		</table>
 
 		<%-# image files are being uploaded as image_0 etc , caption texts are going as file_caption_0 etc -%>
 	</div>
+
 <% end %>
 
 <script type="text/javascript">
@@ -244,4 +260,9 @@
 var hide_image = function(el){
 $(el).prev().attr("src","/images/no-image.jpg")
 }
+
+
+
+
+
 </script>

@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<script>
-			$("input[type=radio]").click(function(){
+			$(".admin-secondHeader input[type=radio]").click(function(){
 				var section = $(this).val();
 				if(section === "clinic" || section === "academy"){
 					window.location = "/admin/" + section + "/articles";

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131108120147) do
+ActiveRecord::Schema.define(:version => 20131112100250) do
 
   create_table "admin_courses", :force => true do |t|
     t.string   "course_type"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20131108120147) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "source"
     t.string   "type"
     t.string   "file_caption_0"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20131108120147) do
     t.string   "youtubeurl"
     t.integer  "sharecount",     :default => 0
     t.integer  "viewcount",      :default => 0
+    t.boolean  "is_paid",        :default => false
   end
 
   create_table "articles_doctors", :id => false, :force => true do |t|

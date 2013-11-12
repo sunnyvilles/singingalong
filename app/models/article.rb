@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   
 has_and_belongs_to_many :doctors
 has_and_belongs_to_many :tags
-attr_accessible :content, :title,:source,:type,:file_caption_0,:file_caption_1,:file_caption_2,:image_0,:image_1,:image_2,:youtubeurl,:doctors_attributes,:origin_type
+attr_accessible :content, :title,:source,:type,:file_caption_0,:file_caption_1,:file_caption_2,:image_0,:image_1,:image_2,:youtubeurl,:doctors_attributes,:origin_type,:is_paid
 attr_accessor :image_0,:image_1,:image_2,:origin_type
 accepts_nested_attributes_for :doctors, :reject_if => lambda { |a| a[:name].blank? }
 	#to search articles using name , title , content

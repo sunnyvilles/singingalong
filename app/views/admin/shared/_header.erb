@@ -1,15 +1,15 @@
 <div class="admin-secondHeader">
 	<span>
-		<input type="radio" name="section" <%= @section != "academy" and @section != "clinic" ? "checked" : "" %>/>
+		<input  type="radio" name="section" <%= @section != "academy" and @section != "clinic" ? "checked" : "" %>/>
 		<label>None</label>
 	</span>
 	<span>
-		<input type="radio" name="section" <%= @section == "academy" ? "checked" : "" %> value="academy"/>
+		<input  type="radio" name="section" <%= @section == "academy" ? "checked" : "" %> value="academy"/>
 		<label>Academy</label>
 	</span>
 
 	<span>
-		<input type="radio" name="section"  <%= @section == "clinic" ? "checked" : "" %> value="clinic"/>
+		<input  type="radio" name="section"  <%= @section == "clinic" ? "checked" : "" %> value="clinic"/>
 		<label>Clinic</label>
 	</span>
 </div>
