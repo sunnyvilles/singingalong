@@ -1,7 +1,7 @@
 <style>
 	.sharingTool{
 		background-image: url("/images/share-icon.jpg");
-	}	
+	}
 	.submenuItem ul{
 		border-right: 1px solid #ddd;
 		left: 0 !important;
@@ -11,7 +11,7 @@
 		border-top: 1px solid #666;
 		padding-top: 14px;
 		height: 20px;
-	}	
+	}
 </style>
 <%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
 
@@ -32,12 +32,12 @@
 					<a href="/clinic/articles?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 				<%end%>
 			</div>
-			<div class="articlesList">				
+			<div class="articlesList">
 				<%@articles.each { |article|%>
 
 					<%img_url = article[:file_caption_0].present? ? "/images/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>
 					<div class="article">
-						
+
 						<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>
 						<div class="floatRight contentBlock">
 							<h3 class="subheader floatLeft"><%=article[:title]%></h3>
@@ -46,7 +46,12 @@
 							<div class="bodyContent"><%=raw article[:content][0...180]%>...</div>
 							<div class="tools">
 								<span class="sharingTool"></span>
-								<a class="links floatRight" href="/clinic/articles/<%=article[:id]%>">Read More</a>
+								
+								<%if article[:is_paid] and !session[:user_id].present?%>
+									<a class="links floatRight" href="javascript:void(0);" onclick="openLoginBox();">Read More</a>
+								<%else%>
+									<a class="links floatRight" href="/clinic/articles/<%=article[:id]%>">Read More</a>
+								<%end%>
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -67,3 +72,12 @@
 		<div class="clear"></div>
 	</div>
 </div>
+<script>
+	function openLoginBox(){
+		alert('Please Sign in to read this article');
+		 $("html, body").animate({ scrollTop: 0 }, "slow", function(){
+			 $(".loginBox").trigger('click');
+		 });
+	}
+	
+</script>

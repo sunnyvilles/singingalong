@@ -18,7 +18,8 @@ class Doctor < ActiveRecord::Base
 			"6" => "Accreditation and Resources",
 			"7" => "Publication",
 			"8" => "Marketing and PR (Clinic)",
-			"9" => "Visiting"
+			"9" => "Visiting",
+			"10" => "General Manager (Administration)"
 		}
 	end
 	def self.get_people
@@ -33,6 +34,7 @@ class Doctor < ActiveRecord::Base
 			"7" => [],
 			"8" => [],
 			"9" => [],
+			"10" => []
 		}
 		people.each{|person|
 			if(person[:title].present? && !peopleHash[person[:title]].present?)

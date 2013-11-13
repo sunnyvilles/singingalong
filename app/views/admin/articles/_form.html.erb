@@ -233,9 +233,13 @@
 	tinymce.init({
 		selector:'textarea',
 		toolbar: " bold italic underline",
-		menubar : false
+		menubar : false,
+		plugins : "paste",
+		paste_preprocess : function(pl, o) {
+			o.content = o.content.replace(/<[^>]+>/g,"");
+		}
 	});
-
+	
 
 	$(document).ready(function() {
 		/*$(".actions input").css({

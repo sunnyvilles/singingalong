@@ -7,7 +7,8 @@
 	["Accreditation and Resources", 6],
 	["Publication", 7],
 	["Marketing and PR (Clinic)", 8],
-	["Visiting", 9]]
+	["Visiting", 9],
+	["General Manager (Administration)", 10]]
 %>
 <%= form_for([:admin, @doctor]) do |f| %>
 	<%= render :partial => "/admin/shared/header" %>
@@ -24,6 +25,10 @@
 			</ul>
 		</div>
 	<% end %>
+<div class="actions docEditor">
+		<%= f.submit "SAVE" %>
+		<%#= link_to 'Back', "/admin/#{@section}/doctors" %>
+	</div>
 <table class="docEditor">
 		<tr>
 			<td><%= f.label :name %><br /></td>
@@ -77,10 +82,7 @@
 	<%= f.label :picture, 'upload a picture' %><br />
 	<%= f.file_field :picture %>
 	</div>-->
-	<div class="actions docEditor">
-		<%= f.submit "SAVE" %>
-		<%= link_to 'Back', "/admin/#{@section}/doctors" %>		
-	</div>
+	
 <% end %>
 <style type="text/css">
 	.doc_text {

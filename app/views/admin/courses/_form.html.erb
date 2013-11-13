@@ -46,7 +46,7 @@
 		<table class="course_table">
 			<tr><td>
 					<%= f.label :course_type %></td><td>
-					<%= f.select :course_type ,["indian","international","customized","university pg (short term)"] %>
+					<%= f.select :course_type ,["indian","international","customized","University Courses"] %>
 				</td></tr>
 			<tr>
 				
@@ -96,7 +96,11 @@
 		tinymce.init({
 			selector:'textarea',
 			toolbar: " bold italic underline",
-			menubar : false
+			menubar : false,
+			plugins : "paste",
+			paste_preprocess : function(pl, o) {
+				o.content = o.content.replace(/<[^>]+>/g,"");
+			}
 		});
 
 		$(function() {
