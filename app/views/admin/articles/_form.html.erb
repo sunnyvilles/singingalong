@@ -76,7 +76,7 @@
 	}
 	.paid{
 
-		height:40px;
+		height:50px;
 		
 	}
 </style>
@@ -107,9 +107,9 @@
 			<div class="paid">
 	
 				<div class="floatRight">
-				
-	    			<%= f.radio_button :is_paid, true %> Paid  			
-			    	<%= f.radio_button :is_paid, false, :checked => true  %> Free	
+					
+	    			<%= f.check_box :is_paid %>  			
+				<%= f.label :is_paid,"Requires Signing in to read "%>
 			    </div>	
 
 			</div>
@@ -159,7 +159,7 @@
 						<%= render "doctor_fields", :f => g %>
 
 					<% end %>
-					<p><%= link_to_add_fields "Add doc", f, :doctors %></p>
+					<p><%= link_to_add_fields "Add doctors", f, :doctors %></p>
 				</td>
 			</tr>
 

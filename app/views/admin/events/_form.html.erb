@@ -22,11 +22,8 @@
 			height: 100%;
 		}
 		.adminCt2 {
-			padding: 10px;
-			border: 1px solid grey;
-			padding-top:30px;
+		
 			margin-top: 10px;
-
 
 		}
 		.image {
@@ -59,11 +56,26 @@
 		right:-15px;
 		top:-10px;
 	}
+		.publish{
+
+		height:50px;
+		
+	}
 	</style>
 	<div class="adminCt2">
 		<div class="actions">
 			<%= f.submit "SAVE"%>
 		</div>
+	</div>
+			<div class="publish">
+	
+				<div class="floatRight">
+					
+	    		<%= f.check_box :publish %>  			
+				<%= f.label :publish,"Publish this Event on #{@section} Landing page"%>
+			    </div>	
+
+			</div>
 		<table class="events_table">
 			<tr>
 				<td  class="first_col" rowspan="4">

@@ -19,6 +19,20 @@ class Web::AcademyController < ApplicationController
 		@newses << cstn[1] unless cstn[1].nil?
 		@newses << artn[1] unless artn[1].nil?
 
+
+		@landing_events = Event.find(:all, :conditions => ["source = ? and publish = ?","academy",true],:order => 'day DESC', :limit => 4)
+		if @landing_events.size < 4 
+			evs = Event.find(:all, :conditions => ["source = ?","academy"],:order => 'day DESC', :limit => (8- @landing_events.size))
+			unless evs.nil?
+			evs.each do |ev|
+				unless @landing_events.size >= 4 || @landing_events.include?(ev)
+						@landing_events << ev 
+					
+				end
+			end
+		end
+		end
+
 		render 'web/academy/about' and return
 	end
 
@@ -103,7 +117,6 @@ class Web::AcademyController < ApplicationController
 
 	def about
 
-			puts "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
 
 			

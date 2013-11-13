@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112100250) do
+ActiveRecord::Schema.define(:version => 20131112184757) do
 
   create_table "admin_courses", :force => true do |t|
     t.string   "course_type"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20131112100250) do
     t.string  "caption_1"
     t.string  "caption_2"
     t.string  "source"
+    t.boolean "publish",           :default => false
   end
 
   create_table "tags", :force => true do |t|

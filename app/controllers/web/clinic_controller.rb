@@ -147,6 +147,24 @@ class Web::ClinicController < ApplicationController
 		@newses << vidn[1] unless vidn[1].nil?
 		@newses << cstn[1] unless cstn[1].nil?
 		@newses << artn[1] unless artn[1].nil?
+
+
+
+
+
+		@landing_events = Event.find(:all, :conditions => ["source = ? and publish = ?","clinic",true],:order => 'day DESC', :limit => 4)
+		if @landing_events.size < 4 
+			evs = Event.find(:all, :conditions => ["source = ?","clinic"],:order => 'day DESC', :limit => (8- @landing_events.size))
+			unless evs.nil?
+			evs.each do |ev|
+				unless @landing_events.size >= 4 || @landing_events.include?(ev)
+						@landing_events << ev 
+					
+				end
+			end
+		end
+		end
+		
 	
 	end
 
