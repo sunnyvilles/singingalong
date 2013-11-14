@@ -143,6 +143,20 @@ sup { vertical-align: super; font-size: smaller; }
 .links:hover{
 	color: #a51919 !important;
 }
+
+.button{	
+	color: #fff !important;
+	font-size: 14px;
+	display: inline-block;
+	background-image: url("/images/sprite.png") !important;
+	background-position: -244px -10px !important;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 5px;
+}
+.button:hover{
+	color: #eee !important;
+}
 .leftPadding10{
 	padding-left: 10px;
 }
@@ -470,6 +484,7 @@ footer{
 	padding-top: 20px;
 	width: 100%;
 	background-image: url("/images/footer.png");
+	background-size: cover;
 }
 .floatLeft{
 	float: left;

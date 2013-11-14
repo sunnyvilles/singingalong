@@ -167,7 +167,7 @@ class Web::AcademyController < ApplicationController
 		@indian_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "indian"])
 	end
 	def university_courses		
-		@university_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "university pg (short term)"])
+		@university_courses = Admin::Course.find(:all, :conditions => [ "course_type = ?", "University Courses"])
 	end
 	def admissions
 		

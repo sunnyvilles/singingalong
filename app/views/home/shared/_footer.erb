@@ -101,15 +101,7 @@
 			<div class="rightSection">
 				<h3><%= t "footer.givefeedback" %></h3>
 				<form action="/submit-feedback" method="POST">
-					<table>
-							<tr>
-							<td>
-								<select name="category">
-									<option value="clinic">Clinic</option>
-									<option value="academy">Academy</option>
-								</select>
-							</td>
-						</tr>
+					<table>						
 						<tr>
 							<td>
 								<input type="text" name="name" size="50" placeholder="<%= t "footer.name" %>"></input>
@@ -120,7 +112,14 @@
 								<input type="email" name="email" size="50" placeholder="<%= t "footer.email" %>"></input>
 							</td>
 						</tr>
-					
+						<tr>
+							<td>
+								<select name="category">
+									<option value="clinic">Clinic Related Inquiry</option>
+									<option value="academy">Academy Related Inquiry</option>
+								</select>
+							</td>
+						</tr>
 
 						<tr>
 							<td>
