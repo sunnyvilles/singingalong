@@ -39,6 +39,10 @@
 	.rightSection input[type="submit"]{
 		font-size: 11px;
 	}
+	.rightSection select{
+
+		margin-bottom: 8px;
+	}
 
 
 </style>
@@ -102,14 +106,7 @@
 				<h3><%= t "footer.givefeedback" %></h3>
 				<form action="/submit-feedback" method="POST">
 					<table>
-							<tr>
-							<td>
-								<select name="category">
-									<option value="clinic">Clinic</option>
-									<option value="academy">Academy</option>
-								</select>
-							</td>
-						</tr>
+							
 						<tr>
 							<td>
 								<input type="text" name="name" size="50" placeholder="<%= t "footer.name" %>"></input>
@@ -120,7 +117,15 @@
 								<input type="email" name="email" size="50" placeholder="<%= t "footer.email" %>"></input>
 							</td>
 						</tr>
-					
+						<tr>
+							<td>
+								<select name="mail_to">
+									<option value="clinic@theothersong.com">Clinic</option>
+									<option value="academy@theothersong.com">Academy</option>
+									<option value="info@theothersong.com">General</option>
+								</select>
+							</td>
+						</tr>
 
 						<tr>
 							<td>
