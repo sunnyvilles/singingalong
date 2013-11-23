@@ -3,12 +3,17 @@
 	["Sr. Resident Doctors", 2],
 	["Resident Doctors", 3],
 	["Curriculum", 4],
-	["Marketing and PR (Academy)", 5],
-	["Accreditation and Resources", 6],
-	["Publication", 7],
-	["Marketing and PR (Clinic)", 8],
-	["Visiting", 9],
-	["General Manager (Administration)", 10]]
+	["General Manager (Operations)", 5],
+	["Assistant general manager (Administration)", 6],
+	["Academic & Support team", 7],
+	["Accreditation and Resources", 8],
+	["Publication", 9],
+	["Clinical & Support team", 10],
+	["Visiting", 11],
+	["General Manager (Administration)", 12],
+	["PR clinic & Events Co-ordinator", 13],
+	["International Support Team", 14]
+	]
 %>
 <%= form_for([:admin, @doctor]) do |f| %>
 	<%= render :partial => "/admin/shared/header" %>
@@ -75,6 +80,7 @@
 				
 			</td>
 		</tr>
+		
 	</table>
 
 	<!--<div class="field">
@@ -91,6 +97,9 @@
 	}
 </style>
 <script>
+
+
+
 	$("#addUrl").click(function(){
 		$('.urls').after('<tr>' +
 			'<td></td>' +

@@ -14,7 +14,7 @@ class StaticController < ApplicationController
 		end
 		
 		File.delete(Rails.root.join('public' + ("/"+params[:file].to_s + ext)))
-		flash[:notice] = "Successfully destroyed post."
+		flash[:notice] = "Successfully deleted the file."
 		
 	end
 	
