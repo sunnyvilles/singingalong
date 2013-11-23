@@ -9,7 +9,7 @@ class Doctor < ActiveRecord::Base
 	attr_accessor :picture
 	scope :named, lambda {|the_name| where(:name => the_name)}
 	def self.titles
-		{
+		{			
 			"1" => "Consultancy/ Faculty",
 			"2" => "Sr. Resident Doctors",
 			"3" => "Resident Doctors",

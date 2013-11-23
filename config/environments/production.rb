@@ -65,5 +65,12 @@ TheOtherSongClinic::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-
+	config.s3Defaults = {
+		:storage => :s3,
+		:s3_credentials => {
+			:bucket => "tos-files",
+			:access_key_id => "AKIAJOF3F7AW2OJJYGFA",
+			:secret_access_key => "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"
+		}
+	}
 end

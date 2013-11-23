@@ -2,8 +2,8 @@ class Admin::DoctorsController < ApplicationController
   layout "admin/application"
 	# GET /doctors
   # GET /doctors.json
-before_filter :confirm_logged_in
-before_filter :confirm_admin
+	before_filter :confirm_logged_in
+	before_filter :confirm_admin
 
   def index
     @doctors = Doctor.all
@@ -100,13 +100,26 @@ before_filter :confirm_admin
   end
 	private
   def handle_picture_upload(params,pic_name)
+		
 		unless params[:doctor]["picture"].nil? || params[:doctor]["picture"].blank?
 			uploaded_io = params[:doctor][:picture]
 			pic_name[0] = uploaded_io.original_filename
-
-			File.open(Rails.root.join('public', 'images','doctors',
-					uploaded_io.original_filename), 'wb') do |file|
-				file.write(uploaded_io.read)
+			if Rails.env != "development"
+				AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
+				AWS::S3::Base.establish_connection!(:access_key_id => Rails.configuration.s3Defaults[:s3_credentials][:access_key_id],
+					:secret_access_key => Rails.configuration.s3Defaults[:s3_credentials][:secret_access_key])
+				AWS::S3::S3Object.store(params[:id] + ".jpg",
+					uploaded_io,
+					Rails.configuration.s3Defaults[:s3_credentials][:bucket] + "/team-images",
+					:access => :public_read,
+					"Cache-Control" => "no-cache, max-age=100000,  :expires => \"Thu, 25 Jun 2020 20:00:00 GMT\"")
+				puts("File created on S3 : ==== ")
+			else
+			
+				File.open(Rails.root.join('public', 'images','doctors',
+						uploaded_io.original_filename), 'wb') do |file|
+					file.write(uploaded_io.read)
+				end
 			end
 		end
 

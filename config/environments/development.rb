@@ -34,7 +34,14 @@ TheOtherSongClinic::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
+	config.s3Defaults = {
+		:storage => :s3,
+		:s3_credentials => {
+			:bucket => "tos-files",
+			:access_key_id => "AKIAJOF3F7AW2OJJYGFA",
+			:secret_access_key => "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"
+		}
+	}
 
 
 end

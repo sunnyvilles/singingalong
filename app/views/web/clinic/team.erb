@@ -95,10 +95,10 @@
 			<div>
 				<%@people[title[0]].each{|person|%>
 					<div class="floatLeft team-member">
-						<img src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
+						<img src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
 						<div class="name bodyContent"><%=person[:name]%></div>
 						<div class="hidden lbContent bodyContent">
-							<img class="floatLeft marginRight10" src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
+							<img class="floatLeft marginRight10" src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
 							<div style="min-height: 40px;" class="bodyContent">
 								<h2 class="subheader"><%=person[:name]%></h2>
 								<%=person[:description]%>
