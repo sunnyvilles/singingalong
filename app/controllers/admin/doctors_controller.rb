@@ -52,7 +52,7 @@ class Admin::DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-				handle_picture_rename(params,@doctor.id,pic_name)
+				#handle_picture_rename(params,@doctor.id,pic_name)
 				save_url(@doctor, params)
         format.html { redirect_to  edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully created.' }
         format.json { render json: @doctor, status: :created, location: @doctor }
@@ -76,7 +76,7 @@ class Admin::DoctorsController < ApplicationController
 		save_url(@doctor, params)
     respond_to do |format|
       if @doctor.update_attributes(params[:doctor])
-				handle_picture_rename(params,@doctor.id,file_name)
+				#handle_picture_rename(params,@doctor.id,file_name)
 
         format.html { redirect_to edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully updated.' }
         format.json { head :no_content }
@@ -129,8 +129,6 @@ class Admin::DoctorsController < ApplicationController
   def handle_picture_rename(params,doctor_id,pic_name)
 
     unless params[:doctor][:picture].nil? || params[:doctor][:picture].blank?
-
-
       File.rename(Rails.root.join('public', 'images','doctors',
           pic_name[0].to_s),Rails.root.join('public', 'images','doctors',
           doctor_id.to_s + ".jpg"))
