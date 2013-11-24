@@ -51,12 +51,12 @@
 			position: relative;
 			padding-top: 10px;
 		}
-	.fileCross{
+	.imgCross{
 		position: absolute;
 		right:-15px;
 		top:-10px;
 	}
-		.publish{
+	.publish{
 
 		height:50px;
 		
@@ -87,7 +87,7 @@
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
   						<img src="<%=img1%>"></img>
 
-  						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+  						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
@@ -136,7 +136,7 @@
 							
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img2)%>
   						<img src="<%=img2%>"></img>
-  						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+  						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
@@ -189,7 +189,7 @@
 							
 						<%if FileTest.exist?(Rails.root.to_s + "/public" + img3)%>
   						<img src="<%=img3%>"></img>
-  						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+  						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
 						<%else%>
   						<img src="/images/no-image.jpg"></img>
@@ -213,10 +213,38 @@
 				</td>
 			</tr>
 		
+			<tr>
+				<td><%= f.label :event_pdf, 'Event PDF' %><br /></td>
+
+				<td>
+					<%= f.file_field :event_pdf %>
+
+					<%pdf = "/files/events/" + @event[:id].to_s+".pdf"%>
+
+					<%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
+					<br/>
+						<a href="<%=pdf%>"><u>download existing pdf file</u></a>
+						<%= link_to "", "/file_delete" + pdf,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_pdf(this)' %>
+					<%end%>
+
+				</td>
+			</tr>
 
 		</table>		
 	</div>
 	<script>
+
+
+
+	tinymce.init({
+		selector:'textarea',
+		toolbar: " bold italic underline",
+		menubar : false,
+		plugins : "paste",
+		paste_preprocess : function(pl, o) {
+			o.content = o.content.replace(/<[^>]+>/g,"");
+		}
+	});
 
 
 		$(function() {
@@ -238,6 +266,11 @@
 		})
 		var hide_image = function(el){
 			$(el).prev().attr("src","/images/no-image.jpg")
+		}
+
+		var hide_pdf = function(el){
+			$(el).prev().hide();
+			$(el).hide();
 		}
 	</script>
 	

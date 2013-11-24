@@ -51,7 +51,9 @@ class Admin::EventsController < ApplicationController
   def create
 
     file_names = []
+    pdf_name =[]
 
+    handle_pdf_upload(params,pdf_name)
     handle_file_upload(params,file_names)
 
     @event = Event.new(params[:event])
@@ -60,6 +62,7 @@ class Admin::EventsController < ApplicationController
     respond_to do |format|
       if @event.save
          handle_file_rename(@event.id,file_names)
+         handle_pdf_rename(params,@event.id,pdf_name)
         format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
@@ -73,7 +76,9 @@ class Admin::EventsController < ApplicationController
   def update
 
     file_names=[] 
-  
+    pdf_name =[]
+
+    handle_pdf_upload(params,pdf_name)
     handle_file_upload(params,file_names)
 
     @event = Event.find(params[:id])
@@ -82,7 +87,8 @@ class Admin::EventsController < ApplicationController
       if @event.update_attributes(params[:event])
           
          handle_file_rename(@event.id,file_names)
-   
+         handle_pdf_rename(params,@event.id,pdf_name)
+
         format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -155,6 +161,33 @@ class Admin::EventsController < ApplicationController
 
 
   end
+
+
+  def handle_pdf_upload(params,pdf_name)
+    unless params[:event]["event_pdf"].nil? || params[:event]["event_pdf"].blank?
+      uploaded_io = params[:event][:event_pdf]
+      pdf_name[0] = uploaded_io.original_filename
+
+      File.open(Rails.root.join('public', 'files','events',
+          uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+    end
+
+
+  end
+
+  def handle_pdf_rename(params,event_id,pdf_name)
+
+    unless params[:event][:event_pdf].nil? || params[:event][:event_pdf].blank?
+
+
+      File.rename(Rails.root.join('public', 'files','events',
+          pdf_name[0].to_s),Rails.root.join('public', 'files','events',
+          event_id.to_s + ".pdf"))
+    end
+  end
+
 
 
 
