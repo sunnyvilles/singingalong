@@ -79,7 +79,7 @@ class Admin::DoctorsController < ApplicationController
     respond_to do |format|
       if @doctor.update_attributes(params[:doctor])
 				#handle_picture_rename(params,@doctor.id,file_name)
-
+				
         format.html { redirect_to edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully updated.' }
         format.json { head :no_content }
       else

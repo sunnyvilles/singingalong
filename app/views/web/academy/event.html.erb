@@ -44,20 +44,23 @@
 				<div class="floatLeft articleImageSlide">
 					<%if(@event[:caption_0].present?)%>
 					<div>
-						<img src="/images/events/<%=@event[:id]%>-0.jpg" alt="" height="178" width="282"></img>
+						<%img_1_url = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-0.jpg"%>
+						<img src="<%=img_1_url%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@event[:caption_0]%></span>
 					</div>
 					<%end%>
 					<%if(@event[:caption_1].present?)%>
 					<div>
-						<img src="/images/events/<%=@event[:id]%>-1.jpg" alt="" height="178" width="282"></img>
+						<%img_2_url = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-1.jpg"%>
+						<img src="<%=img_2_url%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@event[:caption_1]%></span>
 					</div>
 					<%end%>
 
 					<%if(@event[:caption_2].present?)%>
 						<div>
-							<img src="/images/events/<%=@event[:id]%>-2.jpg" alt="" height="178" width="282"></img>
+							<%img_2_url = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-1.jpg"%>
+							<img src="<%=img_2_url%>" alt="" height="178" width="282"></img>
 							<span class="caption"><%=@event[:caption_2]%></span>
 						</div>
 					<%end%>
