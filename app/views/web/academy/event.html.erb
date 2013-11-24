@@ -68,6 +68,16 @@
 				<%end%>
 				<div><%=raw @event[:other_description]%></div>
 				<div><%=raw @event[:description]%></div>
+				<div class="clear"></div>
+				<div>
+					<%@event.workshop_videos.each{ |video|%>
+						<div class="videoCt">
+							<div class="video floatLeft">
+								<iframe width="282" height="180" src="<%=video[:title]%>" frameborder="0" ></iframe>
+							</div>
+						</div>
+					<% } %>
+				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
