@@ -46,8 +46,6 @@ class Admin::DoctorsController < ApplicationController
   def create
     pic_name =[]
 
-    
-
     @doctor = Doctor.new(params[:doctor])
 		
     respond_to do |format|
@@ -69,7 +67,6 @@ class Admin::DoctorsController < ApplicationController
   # PUT /doctors/1.json
   
   def update
-
 
 		file_name =[]
 		handle_picture_upload(params,file_name)

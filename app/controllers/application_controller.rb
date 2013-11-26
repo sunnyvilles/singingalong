@@ -6,6 +6,25 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  	def upload_file_amazon(file_name,file,folder_name)
+
+
+  		AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
+				AWS::S3::Base.establish_connection!(:access_key_id => Rails.configuration.s3Defaults[:s3_credentials][:access_key_id],
+					:secret_access_key => Rails.configuration.s3Defaults[:s3_credentials][:secret_access_key])
+
+				AWS::S3::S3Object.store(file_name,
+					file,
+					Rails.configuration.s3Defaults[:s3_credentials][:bucket]  + "/" + Rails.env + "/" + folder_name,
+					:access => :public_read,
+					"Cache-Control" => "no-cache, max-age=100000,  :expires => \"Thu, 25 Jun 2020 20:00:00 GMT\"")
+				puts("File created on S3 : ==== ")
+
+
+
+  	end
+
+
   	def section
 		@section = params[:section].present? ?  params[:section] : request.fullpath.split("/")[2]
 		@original_type = request.fullpath.split("/")[3]

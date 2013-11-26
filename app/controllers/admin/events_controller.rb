@@ -88,7 +88,7 @@ class Admin::EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
           
-         handle_file_rename(@event.id,file_names)
+         #handle_file_rename(@event.id,file_names)
          handle_pdf_rename(params,@event.id,pdf_name)
 
         format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
@@ -122,17 +122,19 @@ class Admin::EventsController < ApplicationController
       if params[:event]["image_" + count.to_s]
       
         uploaded_io = params[:event]["image_" + count.to_s]
+      
+        upload_file_amazon(params[:id].to_s + "-" + count.to_s + ".jpg",uploaded_io,"events")
 
-				AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
-				AWS::S3::Base.establish_connection!(:access_key_id => Rails.configuration.s3Defaults[:s3_credentials][:access_key_id],
-					:secret_access_key => Rails.configuration.s3Defaults[:s3_credentials][:secret_access_key])
+				# AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
+				# AWS::S3::Base.establish_connection!(:access_key_id => Rails.configuration.s3Defaults[:s3_credentials][:access_key_id],
+				# 	:secret_access_key => Rails.configuration.s3Defaults[:s3_credentials][:secret_access_key])
 
-				AWS::S3::S3Object.store(params[:id].to_s + "-" + count.to_s + ".jpg",
-					uploaded_io,
-					Rails.configuration.s3Defaults[:s3_credentials][:bucket]  + "/" + Rails.env + "/events",
-					:access => :public_read,
-					"Cache-Control" => "no-cache, max-age=100000,  :expires => \"Thu, 25 Jun 2020 20:00:00 GMT\"")
-				puts("File created on S3 : ==== ")
+				# AWS::S3::S3Object.store(params[:id].to_s + "-" + count.to_s + ".jpg",
+				# 	uploaded_io,
+				# 	Rails.configuration.s3Defaults[:s3_credentials][:bucket]  + "/" + Rails.env + "/events",
+				# 	:access => :public_read,
+				# 	"Cache-Control" => "no-cache, max-age=100000,  :expires => \"Thu, 25 Jun 2020 20:00:00 GMT\"")
+				# puts("File created on S3 : ==== ")
 #        File.open(Rails.root.join('public', 'images','events',
 #            uploaded_io.original_filename), 'wb') do |file|
 #
