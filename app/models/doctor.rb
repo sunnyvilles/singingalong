@@ -8,18 +8,37 @@ class Doctor < ActiveRecord::Base
 	attr_accessible :name, :title, :description, :picture
 	attr_accessor :picture
 	scope :named, lambda {|the_name| where(:name => the_name)}
+	@titles = [["",0],["Consultancy/ Faculty", 1],
+	["Sr. Resident Doctors", 2],
+	["Resident Doctors", 3],
+	["Curriculum", 4],
+	["General Manager (Operations)", 5],
+	["Assistant general manager (Administration)", 6],
+	["Academic & Support team", 7],
+	["Accreditation and Resources", 8],
+	["Publication", 9],
+	["Clinical & Support team", 10],
+	["Visiting", 11],
+	["General Manager (Administration)", 12],
+	["PR clinic & Events Co-ordinator", 13],
+	["International Support Team", 14]
+	]
 	def self.titles
 		{			
 			"1" => "Consultancy/ Faculty",
 			"2" => "Sr. Resident Doctors",
 			"3" => "Resident Doctors",
 			"4" => "Curriculum",
-			"5" => "Marketing and PR (Academy)",
-			"6" => "Accreditation and Resources",
-			"7" => "Publication",
-			"8" => "Marketing and PR (Clinic)",
-			"9" => "Visiting",
-			"10" => "General Manager (Administration)"
+			"5" => "General Manager (Operations)",			
+			"6" => "Assistant general manager (Administration)",
+			"7" => "Academic & Support team",
+			"8" => "Accreditation and Resources",
+			"9" => "Publication",
+			"10" => "Clinical & Support team",
+			"11" => "Visiting",
+			"12" => "General Manager (Administration)",
+			"13" => "PR clinic & Events Co-ordinator",
+			"14" => "International Support Team"
 		}
 	end
 	def self.get_people
@@ -34,13 +53,17 @@ class Doctor < ActiveRecord::Base
 			"7" => [],
 			"8" => [],
 			"9" => [],
-			"10" => []
+			"10" => [],
+			"11" => [],
+			"12" => [],
+			"13" => [],
+			"14" => [],
 		}
 		people.each{|person|
 			if(person[:title].present? && !peopleHash[person[:title]].present?)
-				peopleHash[person[:title]] = []
-				peopleHash[person[:title]] << person
-			end			
+				peopleHash[person[:title]] = []				
+			end
+			peopleHash[person[:title]] << person
 		}
 		return peopleHash
 	end

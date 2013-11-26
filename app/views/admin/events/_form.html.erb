@@ -18,11 +18,11 @@
 
 		.image img{
 
-			width: 100%;
-			height: 100%;
+			/*width: 100%;
+			height: 100%;*/
 		}
 		.adminCt2 {
-		
+
 			margin-top: 10px;
 
 		}
@@ -51,200 +51,189 @@
 			position: relative;
 			padding-top: 10px;
 		}
-	.imgCross{
-		position: absolute;
-		right:-15px;
-		top:-10px;
-	}
-	.publish{
+		.imgCross{
+			position: absolute;
+			right:-15px;
+			top:-10px;
+		}
+		.publish{
 
-		height:50px;
-		
-	}
+			height:50px;
+
+		}
 	</style>
 	<div class="adminCt2">
 		<div class="actions">
 			<%= f.submit "SAVE"%>
 		</div>
 	</div>
-			<div class="publish">
-	
-				<div class="floatRight">
-					
-	    		<%= f.check_box :publish %>  			
-				<%= f.label :publish,"Publish this Event on #{@section} Landing page"%>
-			    </div>	
+	<div class="publish">
 
-			</div>
-		<table class="events_table">
-			<tr>
-				<td  class="first_col" rowspan="4">
-					<div class="image">
-						<div class="field">
+		<div class="floatRight">
 
-						<%img1 = "/images/events/" + @event[:id].to_s+"-0.jpg"%>
-							
-						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
-  						<img src="<%=img1%>"></img>
+			<%= f.check_box :publish %>
+			<%= f.label :publish,"Publish this Event on #{@section} Landing page"%>
+		</div>
 
-  						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
+	</div>
+	<table class="events_table">
+		<tr>
+			<td  class="first_col" rowspan="4">
+				<div class="image">
+					<div class="field">
 
-						<%else%>
-  						<img src="/images/no-image.jpg"></img>
-						<%end%>
-
-							<%#= f.label :image_0, 'upload a picture' %><br />
-							<%= f.file_field :image_0 %>
-
-						</div>
-						<div class="field">
-							<%=f.label :caption_0, 'caption' %>
-							<%=f.text_field :caption_0%>
-						</div>
-				</td>
-				<td> <%= f.label :title %><br /></td>
-				<td> <%= f.text_field :title %></td>
-			</tr>
+						<%img1 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-0.jpg"%>
 
 
-			<tr>
-				<td><%= f.label :day , 'Start Date'%></td>
-				<td><%= f.text_field :day, :class => "datepicker", :value => date_dmY(@event.day)%></td>
-			</tr>
+						<img height ="238" width="238" src="<%=img1%>"></img>
 
-			<tr>
-				<td><%= f.label :end_date , 'End Date'%></td>
-				<%if @event.end_date.present?%>
-					<td><%= f.text_field :end_date, :class => "datepicker", :value => date_dmY(@event.end_date)%></td>
-				<%else%>
-					<td><%= f.text_field :end_date, :class => "datepicker", :value => ""%></td>
-				<%end%>
-			</tr>
+						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
 
-			<tr><td><%= f.label :other_description ,'Offer Description'%></td>
-				<td><%= f.text_area :other_description %></td>
-			</tr>
+						<br />
+						<%= f.file_field :image_0 %>
 
-
-			<tr>
-
-				<td  class="first_col" rowspan="4">
-					<div class="image">
-						<div class="field">
-						<%img2 = "/images/events/" + @event[:id].to_s+"-1.jpg"%>
-							
-						<%if FileTest.exist?(Rails.root.to_s + "/public" + img2)%>
-  						<img src="<%=img2%>"></img>
-  						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
-
-						<%else%>
-  						<img src="/images/no-image.jpg"></img>
-						<%end%>
-							<%#= f.label :image_1, 'upload a picture' %><br />
-							<%= f.file_field :image_1 %>
-
-						</div>
-						<div class="field">
-							<%=f.label :caption_1, 'caption' %>
-							<%=f.text_field :caption_1%>
-						</div>
-				</td>
-
-				<td><%= f.label :event_type %></td>
-				<td><%= f.select :event_type ,["workshops","seminars","visits","lectures"] %></td>
-
-
-
-			</tr>
-			<tr>
-				<td><%= f.label :fees %></td>
-				<td><%= f.text_field :fees %></td>
-			</tr>
-			<tr>
-				<td><label>Workshop Videos</label></td>
-				<td>
-
-					<%= f.fields_for :workshop_videos do |g| %>
-						<%= render "workshop_video_fields", :f => g %>
-					<% end %>
-					<p><%= link_to_add_fields "Add Workshop Video", f, :workshop_videos %></p>
-
-				</td>
-			</tr>
-
-			<tr>
-				<td><%= f.label :description %></td>
-				<td><%= f.text_area :description %></td>
-
-			</tr>
-
-
-			<tr>
-
-				<td  class="first_col" rowspan="2">
-					<div class="image">
-						<div class="field">
-						<%img3 = "/images/events/" + @event[:id].to_s+"-2.jpg"%>
-							
-						<%if FileTest.exist?(Rails.root.to_s + "/public" + img3)%>
-  						<img src="<%=img3%>"></img>
-  						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
-
-						<%else%>
-  						<img src="/images/no-image.jpg"></img>
-						<%end%>
-							<%= f.label :image_2, 'upload a picture' %><br />
-							<%= f.file_field :image_2 %>
-
-						</div>
-						<div class="field">
-							<%=f.label :caption_2, 'caption' %>
-							<%=f.text_field :caption_2%>
-						</div>
 					</div>
-				</td>
-				<td><label>Testimonial Videos</label></td>
-				<td>
-					<%= f.fields_for :testimonial_videos do |e| %>
-						<%= render "testimonial_video_fields", :f => e %>
-					<% end %>
-					<p><%= link_to_add_fields "Add Testimonial Video", f, :testimonial_videos %></p>
-				</td>
-			</tr>
-		
-			<tr>
-				<td><%= f.label :event_pdf, 'Event PDF' %><br /></td>
+					<div class="field">
+						<%=f.label :caption_0, 'caption' %>
+						<%=f.text_field :caption_0%>
+					</div>
+			</td>
+			<td> <%= f.label :title %><br /></td>
+			<td> <%= f.text_field :title %></td>
+		</tr>
 
-				<td>
-					<%= f.file_field :event_pdf %>
 
-					<%pdf = "/files/events/" + @event[:id].to_s+".pdf"%>
+		<tr>
+			<td><%= f.label :day , 'Start Date'%></td>
+			<td><%= f.text_field :day, :class => "datepicker", :value => date_dmY(@event.day)%></td>
+		</tr>
 
-					<%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
+		<tr>
+			<td><%= f.label :end_date , 'End Date'%></td>
+			<%if @event.end_date.present?%>
+				<td><%= f.text_field :end_date, :class => "datepicker", :value => date_dmY(@event.end_date)%></td>
+			<%else%>
+				<td><%= f.text_field :end_date, :class => "datepicker", :value => ""%></td>
+			<%end%>
+		</tr>
+
+
+		<tr><td><%= f.label :other_description ,'Offer Description'%></td>
+			<td><%= f.text_area :other_description %></td>
+		</tr>
+
+
+		<tr>
+
+			<td  class="first_col" rowspan="4">
+				<div class="image">
+					<div class="field">
+						<%img2 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-1.jpg"%>
+						<img height ="238" width="238" src="<%=img2%>"></img>
+						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
+
+
+						<br />
+						<%= f.file_field :image_1 %>
+
+					</div>
+					<div class="field">
+						<%=f.label :caption_1, 'caption' %>
+						<%=f.text_field :caption_1%>
+					</div>
+			</td>
+
+			<td><%= f.label :event_type %></td>
+			<td><%= f.select :event_type ,["workshops","seminars","visits","lectures"] %></td>
+
+
+
+		</tr>
+		<tr>
+			<td><%= f.label :fees %></td>
+			<td><%= f.text_field :fees %></td>
+		</tr>
+		<tr>
+			<td><label>Workshop Videos</label></td>
+			<td>
+
+				<%= f.fields_for :workshop_videos do |g| %>
+					<%= render "workshop_video_fields", :f => g %>
+				<% end %>
+				<p><%= link_to_add_fields "Add Workshop Video", f, :workshop_videos %></p>
+
+			</td>
+		</tr>
+
+		<tr>
+			<td><%= f.label :description %></td>
+			<td><%= f.text_area :description %></td>
+
+		</tr>
+
+
+		<tr>
+
+			<td  class="first_col" rowspan="2">
+				<div class="image">
+					<div class="field">
+						<%img3 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-2.jpg"%>
+
+
+						<img height ="238" width="238" src="<%=img3%>"></img>
+						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
+						<%= f.label :image_2, 'upload a picture' %><br />
+						<%= f.file_field :image_2 %>
+
+					</div>
+					<div class="field">
+						<%=f.label :caption_2, 'caption' %>
+						<%=f.text_field :caption_2%>
+					</div>
+				</div>
+			</td>
+			<td><label>Testimonial Videos</label></td>
+			<td>
+				<%= f.fields_for :testimonial_videos do |e| %>
+					<%= render "testimonial_video_fields", :f => e %>
+				<% end %>
+				<p><%= link_to_add_fields "Add Testimonial Video", f, :testimonial_videos %></p>
+			</td>
+		</tr>
+
+		<tr>
+			<td><%= f.label :event_pdf, 'Event PDF' %><br /></td>
+
+			<td>
+				<%= f.file_field :event_pdf %>
+
+				<%pdf = "/files/events/" + @event[:id].to_s+".pdf"%>
+
+				<%if FileTest.exist?(Rails.root.to_s + "/public" + pdf)%>
 					<br/>
-						<a href="<%=pdf%>"><u>download existing pdf file</u></a>
-						<%= link_to "", "/file_delete" + pdf,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_pdf(this)' %>
-					<%end%>
+					<a href="<%=pdf%>"><u>download existing pdf file</u></a>
+					<%= link_to "", "/file_delete" + pdf,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_pdf(this)' %>
+				<%end%>
 
-				</td>
-			</tr>
+			</td>
+		</tr>
 
-		</table>		
+	</table>
 	</div>
 	<script>
 
 
 
-	tinymce.init({
-		selector:'textarea',
-		toolbar: " bold italic underline",
-		menubar : false,
-		plugins : "paste",
-		paste_preprocess : function(pl, o) {
-			o.content = o.content.replace(/<[^>]+>/g,"");
-		}
-	});
+		tinymce.init({
+			selector:'textarea',
+			toolbar: " bold italic underline",
+			menubar : false,
+			plugins : "paste",
+			paste_preprocess : function(pl, o) {
+				o.content = o.content.replace(/<[^>]+>/g,"");
+			}
+		});
 
 
 		$(function() {
@@ -273,5 +262,5 @@
 			$(el).hide();
 		}
 	</script>
-	
+
 <% end %>

@@ -106,7 +106,7 @@ right:-15px;
 			<%end%>
 		<td>
 			<div class="tdContent">
-			<div class="doc_img"><img src="/images/doctors/<%=doctor.id%>.jpg" width="80"></img></div>
+			<div class="doc_img"><img src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=doctor.id%>.jpg" width="80"></img></div>
 			
 			<div class="tdText">
 				<%= link_to '', [:admin, doctor], confirm: 'Are you sure?', method: :delete, class: "adminSprite crossIcon" %>

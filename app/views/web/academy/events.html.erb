@@ -44,7 +44,8 @@
 			</div>
 			<div class="articlesList">
 				<%@events.each { |event|%>					
-					<%img_url = event[:caption_0].present? ? "/images/events/#{event[:id]}-0.jpg" : "/images/articles/default.jpg"%>
+					<%img_url = event[:caption_0].present? ? "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + event[:id].to_s + "-0.jpg" : "/images/articles/default.jpg"%>
+					
 					<div class="article">
 
 						<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>
@@ -54,7 +55,7 @@
 							<div class="clear"></div>
 							<div class="bodyContent"><%=raw event[:description][0...240]%>...</div>
 							<div class="tools">
-								<span class="sharingTool"></span>
+								<!--<span class="sharingTool"></span>-->
 								<a class="links floatRight" href="/academy/events/<%=event[:id]%>">Read More</a>
 							</div>
 						</div>

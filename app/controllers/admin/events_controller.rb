@@ -53,18 +53,20 @@ class Admin::EventsController < ApplicationController
     file_names = []
     pdf_name =[]
 
-    handle_pdf_upload(params,pdf_name)
-    handle_file_upload(params,file_names)
-
+    
     @event = Event.new(params[:event])
     @event.source = @section
 
     respond_to do |format|
       if @event.save
-         handle_file_rename(@event.id,file_names)
+				 handle_pdf_upload(params,pdf_name)
+				 params[:id] = @event[:id]
+				 handle_file_upload(params,file_names)
+				 
+         #handle_file_rename(@event.id,file_names)
          handle_pdf_rename(params,@event.id,pdf_name)
-        format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
+         format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
+         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -121,13 +123,23 @@ class Admin::EventsController < ApplicationController
       
         uploaded_io = params[:event]["image_" + count.to_s]
 
-        File.open(Rails.root.join('public', 'images','events',
-            uploaded_io.original_filename), 'wb') do |file|
+				AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
+				AWS::S3::Base.establish_connection!(:access_key_id => Rails.configuration.s3Defaults[:s3_credentials][:access_key_id],
+					:secret_access_key => Rails.configuration.s3Defaults[:s3_credentials][:secret_access_key])
 
-          file.write(uploaded_io.read)
-          
-        end
-        file_names[count] = uploaded_io.original_filename
+				AWS::S3::S3Object.store(params[:id].to_s + "-" + count.to_s + ".jpg",
+					uploaded_io,
+					Rails.configuration.s3Defaults[:s3_credentials][:bucket]  + "/" + Rails.env + "/events",
+					:access => :public_read,
+					"Cache-Control" => "no-cache, max-age=100000,  :expires => \"Thu, 25 Jun 2020 20:00:00 GMT\"")
+				puts("File created on S3 : ==== ")
+#        File.open(Rails.root.join('public', 'images','events',
+#            uploaded_io.original_filename), 'wb') do |file|
+#
+#          file.write(uploaded_io.read)
+#
+#        end
+#        file_names[count] = uploaded_io.original_filename
       end
      
       count +=1

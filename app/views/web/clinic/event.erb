@@ -41,30 +41,43 @@
 
 			<div class="articleContentArea bodyContent">
 				<%if(@event[:caption_0].present?)%>
-				<div class="floatLeft articleImageSlide">
-					<%if(@event[:caption_0].present?)%>
-					<div>
-						<img src="/images/events/<%=@event[:id]%>-0.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@event[:caption_0]%></span>
-					</div>
-					<%end%>
-					<%if(@event[:caption_1].present?)%>
-					<div>
-						<img src="/images/events/<%=@event[:id]%>-1.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@event[:caption_1]%></span>
-					</div>
-					<%end%>
+					<div class="floatLeft articleImageSlide">
+						<%if(@event[:caption_0].present?)%>
+							<div>
+								<%img_1_url = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-0.jpg"%>
+								<img src="<%=img_1_url%>" alt="<%=@event[:caption_0]%>" height="178" width="282"></img>
+								<span class="caption"><%=@event[:caption_0]%></span>
+							</div>
+						<%end%>
+						<%if(@event[:caption_1].present?)%>
+							<div>
+								<%img_2_url = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-1.jpg"%>
+								<img src="<%=img_2_url%>" alt="" height="178" width="282"></img>
+								<span class="caption"><%=@event[:caption_1]%></span>
+							</div>
+						<%end%>
 
-					<%if(@event[:caption_2].present?)%>
-						<div>
-							<img src="/images/events/<%=@event[:id]%>-2.jpg" alt="" height="178" width="282"></img>
-							<span class="caption"><%=@event[:caption_2]%></span>
-						</div>
-					<%end%>
-				</div>
+						<%if(@event[:caption_2].present?)%>
+							<div>
+								<%img_3_url = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env  + "/events/" + @event[:id].to_s + "-2.jpg"%>
+								<img src="<%=img_3_url%>" alt="" height="178" width="282"></img>
+								<span class="caption"><%=@event[:caption_2]%></span>
+							</div>
+						<%end%>
+					</div>
 				<%end%>
 				<div><%=raw @event[:other_description]%></div>
 				<div><%=raw @event[:description]%></div>
+				<div class="clear"></div>
+				<div>
+					<%@event.workshop_videos.each{ |video|%>
+						<div class="videoCt">
+							<div class="video floatLeft">
+								<iframe width="282" height="180" src="<%=video[:title]%>" frameborder="0" ></iframe>
+							</div>
+						</div>
+					<% } %>
+				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -72,23 +85,23 @@
 </div>
 
 <script>
-	<%if(@event[:caption_1].present?)%>
-	$(".articleImageSlide").slidesjs({
-		width: 278,
-		height: 178,
-		play: {
-			active: false,
-			effect: "slide",
-			interval: 5000
-		},
-		navigation:{
-			active: false
-		},
-		pagination: {
-			active: true
-		}
-	});
-	<%end%>
+<%if(@event[:caption_1].present?)%>
+		$(".articleImageSlide").slidesjs({
+			width: 278,
+			height: 178,
+			play: {
+				active: false,
+				effect: "slide",
+				interval: 5000
+			},
+			navigation:{
+				active: false
+			},
+			pagination: {
+				active: true
+			}
+		});
+<%end%>
 
 
 </script>

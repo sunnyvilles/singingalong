@@ -46,13 +46,15 @@ class Admin::DoctorsController < ApplicationController
   def create
     pic_name =[]
 
-    handle_picture_upload(params,pic_name)
+    
 
     @doctor = Doctor.new(params[:doctor])
-
+		
     respond_to do |format|
       if @doctor.save
-				handle_picture_rename(params,@doctor.id,pic_name)
+				#handle_picture_rename(params,@doctor.id,pic_name)
+				params[:id] =  @doctor[:id]
+				handle_picture_upload(params,pic_name)
 				save_url(@doctor, params)
         format.html { redirect_to  edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully created.' }
         format.json { render json: @doctor, status: :created, location: @doctor }
@@ -76,8 +78,8 @@ class Admin::DoctorsController < ApplicationController
 		save_url(@doctor, params)
     respond_to do |format|
       if @doctor.update_attributes(params[:doctor])
-				handle_picture_rename(params,@doctor.id,file_name)
-
+				#handle_picture_rename(params,@doctor.id,file_name)
+				
         format.html { redirect_to edit_admin_doctor_path(@doctor), notice: 'Doctor was successfully updated.' }
         format.json { head :no_content }
       else
@@ -108,14 +110,14 @@ class Admin::DoctorsController < ApplicationController
 				AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
 				AWS::S3::Base.establish_connection!(:access_key_id => Rails.configuration.s3Defaults[:s3_credentials][:access_key_id],
 					:secret_access_key => Rails.configuration.s3Defaults[:s3_credentials][:secret_access_key])
-				AWS::S3::S3Object.store(params[:id] + ".jpg",
+				AWS::S3::S3Object.store(params[:id].to_s + ".jpg",
 					uploaded_io,
-					Rails.configuration.s3Defaults[:s3_credentials][:bucket] + "/team-images",
+					Rails.configuration.s3Defaults[:s3_credentials][:bucket]  + "/team-images",
 					:access => :public_read,
 					"Cache-Control" => "no-cache, max-age=100000,  :expires => \"Thu, 25 Jun 2020 20:00:00 GMT\"")
 				puts("File created on S3 : ==== ")
 			else
-			
+
 				File.open(Rails.root.join('public', 'images','doctors',
 						uploaded_io.original_filename), 'wb') do |file|
 					file.write(uploaded_io.read)
@@ -129,8 +131,6 @@ class Admin::DoctorsController < ApplicationController
   def handle_picture_rename(params,doctor_id,pic_name)
 
     unless params[:doctor][:picture].nil? || params[:doctor][:picture].blank?
-
-
       File.rename(Rails.root.join('public', 'images','doctors',
           pic_name[0].to_s),Rails.root.join('public', 'images','doctors',
           doctor_id.to_s + ".jpg"))
