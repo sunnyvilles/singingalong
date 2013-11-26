@@ -877,19 +877,19 @@ footer h3{
 	line-height: 28px;
 }
 
-.currency-table th{
+.bank-table th{
 	background: #fbface;
 	border-right: 1px solid #666;
 	border-bottom: 1px solid #666;
 	padding: 10px 0;	
 }
-.currency-table td{
+.bank-table td{
 	background: #fcfce0;
 	border-right: 1px solid #666;
 	text-align: center;
 	padding: 10px 0;
 }
-.currency-table{
+.bank-table{
 	width: 100%;
 	border-collapse:collapse;
 	border: 1px solid #666;
