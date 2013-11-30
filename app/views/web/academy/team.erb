@@ -18,8 +18,8 @@
 		</p>
 		The other song is a learning environment that combines real-world learning and academic theory with commitment to excellence from students, faculty, staff and administration.
 		<div class="team-first-list">
-			<div class="floatLeft team-member">
-				<img src="/images/doctors/rajan.jpg" alt="" height="178" width="208"></img>
+			<div class="floatLeft team-member">				
+				<img src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
 				<div class="name bodyContent">Dr. Rajan Sankaran</div>
 				<div class="team-title bodyContent">Head</div>
 				<div class="hidden lbContent bodyContent">
@@ -94,8 +94,8 @@
 		<h3 class="secondryTitle"><%=Doctor.titles[title[0]].upcase%></h3>
 			<div>
 				<%@people[title[0]].each{|person|%>
-					<div class="floatLeft team-member">
-						<img src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
+					<div class="floatLeft team-member">						
+						<img src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
 						<div class="name bodyContent"><%=person[:name]%></div>
 						<div class="hidden lbContent bodyContent">
 							<img class="floatLeft marginRight10" src="/images/doctors/<%=person[:id]%>.jpg" alt="" height="178" width="208"></img>
