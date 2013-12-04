@@ -66,7 +66,7 @@ class Doctor < ActiveRecord::Base
 			
 			if person[:title].to_s == "0" or person[:title].to_s == "General Manager (Administration)"				
 			else
-				if peopleHash[person[:title]].present?
+				if peopleHash[person[:title]] != nil
 					peopleHash[person[:title]] << person
 				end
 			end			
