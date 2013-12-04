@@ -91,7 +91,7 @@
 	</div>
 	<div id="accordion" class="team">
 		<%@people.each{|title|%>
-		<h3 class="secondryTitle"><%=Doctor.titles[title[0]].upcase%></h3>
+		<h3 class="secondryTitle"><%=Doctor.titles[title[0]].present? ? Doctor.titles[title[0]].upcase : title[0]%></h3>
 			<div>
 				<%@people[title[0]].each{|person|%>
 					<div class="floatLeft team-member">						

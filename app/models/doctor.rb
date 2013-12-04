@@ -19,7 +19,7 @@ class Doctor < ActiveRecord::Base
 	["Publication", 9],
 	["Clinical & Support team", 10],
 	["Visiting", 11],
-	["General Manager (Administration)", 12],
+	#["General Manager (Administration)", 12],
 	["PR clinic & Events Co-ordinator", 13],
 	["International Support Team", 14]
 	]
@@ -36,13 +36,14 @@ class Doctor < ActiveRecord::Base
 			"9" => "Publication",
 			"10" => "Clinical & Support team",
 			"11" => "Visiting",
-			"12" => "General Manager (Administration)",
+			#"12" => "General Manager (Administration)",
 			"13" => "PR clinic & Events Co-ordinator",
 			"14" => "International Support Team"
 		}
 	end
 	def self.get_people
-		people = Doctor.all
+		people = Doctor.where('title != ?', 0)
+		
 		peopleHash = {
 			"1" => [],
 			"2" => [],
@@ -54,8 +55,7 @@ class Doctor < ActiveRecord::Base
 			"8" => [],
 			"9" => [],
 			"10" => [],
-			"11" => [],
-			"12" => [],
+			"11" => [],			
 			"13" => [],
 			"14" => [],
 		}
