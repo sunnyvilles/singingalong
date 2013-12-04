@@ -91,6 +91,7 @@
 	</div>
 	<div id="accordion" class="team">
 		<%@people.each{|title|%>
+		<% if(@people[title[0]].length != 0) %>
 		<h3 class="secondryTitle"><%=Doctor.titles[title[0]].upcase%></h3>
 			<div>
 				<%@people[title[0]].each{|person|%>
@@ -115,6 +116,7 @@
 				<%}%>
 
 			</div>
+		<%end%>
 		<%}%>
 	</div>
 	<div class="clear" style="height: 0;">&nbsp;</div>

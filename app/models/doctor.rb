@@ -19,7 +19,7 @@ class Doctor < ActiveRecord::Base
 	["Publication", 9],
 	["Clinical & Support team", 10],
 	["Visiting", 11],
-	["General Manager (Administration)", 12],
+	#["General Manager (Administration)", 12],
 	["PR clinic & Events Co-ordinator", 13],
 	["International Support Team", 14]
 	]
@@ -36,7 +36,7 @@ class Doctor < ActiveRecord::Base
 			"9" => "Publication",
 			"10" => "Clinical & Support team",
 			"11" => "Visiting",
-			"12" => "General Manager (Administration)",
+			#"12" => "General Manager (Administration)",
 			"13" => "PR clinic & Events Co-ordinator",
 			"14" => "International Support Team"
 		}
@@ -55,16 +55,22 @@ class Doctor < ActiveRecord::Base
 			"9" => [],
 			"10" => [],
 			"11" => [],
-			"12" => [],
+			#"12" => [],
 			"13" => [],
 			"14" => [],
 		}
 		people.each{|person|
-			if(person[:title].present? && !peopleHash[person[:title]].present?)
+			if(person[:title].to_s != "0" and person[:title].present? && !peopleHash[person[:title]].present?)
 				peopleHash[person[:title]] = []				
 			end
-			peopleHash[person[:title]] << person
-		}
+			
+			if person[:title].to_s == "0" or person[:title].to_s == "General Manager (Administration)"				
+			else
+				if peopleHash[person[:title]] != nil
+					peopleHash[person[:title]] << person
+				end
+			end			
+		}		
 		return peopleHash
 	end
 
