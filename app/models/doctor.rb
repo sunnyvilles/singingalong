@@ -42,8 +42,7 @@ class Doctor < ActiveRecord::Base
 		}
 	end
 	def self.get_people
-		people = Doctor.where('title != ?', 0)
-		
+		people = Doctor.all
 		peopleHash = {
 			"1" => [],
 			"2" => [],
@@ -55,16 +54,21 @@ class Doctor < ActiveRecord::Base
 			"8" => [],
 			"9" => [],
 			"10" => [],
-			"11" => [],			
+			"11" => [],
+			#"12" => [],
 			"13" => [],
 			"14" => [],
 		}
 		people.each{|person|
-			if(person[:title].present? && !peopleHash[person[:title]].present?)
+			if(person[:title].to_s != "0" and person[:title].present? && !peopleHash[person[:title]].present?)
 				peopleHash[person[:title]] = []				
 			end
-			peopleHash[person[:title]] << person
-		}
+			
+			if person[:title].to_s == "0" or person[:title].to_s == "General Manager (Administration)"				
+			else
+				peopleHash[person[:title]] << person
+			end			
+		}		
 		return peopleHash
 	end
 
