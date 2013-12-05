@@ -106,7 +106,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    #delete_files_amazon(params[:id],folder_name)
+    #delete_files_amazon(params[:id],"events")
     respond_to do |format|
       format.html { redirect_to admin_events_url }
       format.json { head :no_content }
