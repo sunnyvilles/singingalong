@@ -76,7 +76,7 @@ class Admin::ArticlesController < ApplicationController
       if @article.save
 				params[:id] = @article[:id]
         associate_tag(params)
-        handle_file_rename(@article.id,file_names)
+        #handle_file_rename(@article.id,file_names)
         format.html { redirect_to "/admin/#{@section}/#{params[:article][:origin_type]}/#{@article.id}/edit", :notice=> 'Article was successfully created.' }
         format.json { render :json=> @article, :status=> :created, :location=> @article }
       else
@@ -123,7 +123,7 @@ class Admin::ArticlesController < ApplicationController
 		associate_tag(params)
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        handle_file_rename(@article.id,file_names)
+        #handle_file_rename(@article.id,file_names)
         format.html { redirect_to "/admin/#{@section}/#{params[:article][:origin_type]}/#{@article.id}/edit", :notice=> 'Article was successfully updated.' }
         format.json { head :no_content }
       else
@@ -138,6 +138,8 @@ class Admin::ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy		
+
+    #delete_files_amazon(params[:id],"articles")
     respond_to do |format|
       format.html { redirect_to "/admin/#{@section}/articles" }
       format.json { head :no_content }
@@ -151,13 +153,15 @@ class Admin::ArticlesController < ApplicationController
 		3.times do
 			if params[:article]["image_" + count.to_s]
 				uploaded_io = params[:article]["image_" + count.to_s]
-				File.open(Rails.root.join('public', 'images','articles',
-						uploaded_io.original_filename), 'wb') do |file|
-					file.write(uploaded_io.read)
-				end
-				#params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
+
+         upload_file_amazon(params[:id].to_s + "-" + count.to_s + ".jpg",uploaded_io,"articles")
+				# File.open(Rails.root.join('public', 'images','articles',
+				# 		uploaded_io.original_filename), 'wb') do |file|
+				# 	file.write(uploaded_io.read)
+				# end
+				# ##params[:article]["file_caption_" + count.to_s] = params[:article]["caption_" + count.to_s]
      
-				file_names[count] = uploaded_io.original_filename
+				# file_names[count] = uploaded_io.original_filename
 			end
 			count +=1
 		end
@@ -168,26 +172,26 @@ class Admin::ArticlesController < ApplicationController
 		render :action => 'new'
   end
  
-	def handle_file_rename(article_id,file_names)
-		id_count =0
+	# def handle_file_rename(article_id,file_names)
+	# 	id_count =0
    
-    file_names.each { |file_name|
-			if file_name
+ #    file_names.each { |file_name|
+	# 		if file_name
 
-			File.rename(Rails.root.join('public', 'images','articles',
-          file_name.to_s),Rails.root.join('public', 'images','articles',
-          article_id.to_s + "-" + id_count.to_s + ".jpg"))
-    end
-      id_count +=1                                                       
-    }
+	# 		File.rename(Rails.root.join('public', 'images','articles',
+ #          file_name.to_s),Rails.root.join('public', 'images','articles',
+ #          article_id.to_s + "-" + id_count.to_s + ".jpg"))
+ #    end
+ #      id_count +=1                                                       
+ #    }
 
-	rescue => e
-		logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
-		flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
-		render :action => 'edit'
+	# rescue => e
+	# 	logger.error( 'file uploaded but file renaming failed . ' + e.to_s )
+	# 	flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
+	# 	render :action => 'edit'
 
 
-	end
+	# end
 
   
 

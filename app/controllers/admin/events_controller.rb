@@ -64,7 +64,7 @@ class Admin::EventsController < ApplicationController
 				 handle_file_upload(params,file_names)
 				 
          #handle_file_rename(@event.id,file_names)
-         handle_pdf_rename(params,@event.id,pdf_name)
+         #handle_pdf_rename(params,@event.id,pdf_name)
          format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
          format.json { render json: @event, status: :created, location: @event }
       else
@@ -89,7 +89,7 @@ class Admin::EventsController < ApplicationController
       if @event.update_attributes(params[:event])
           
          #handle_file_rename(@event.id,file_names)
-         handle_pdf_rename(params,@event.id,pdf_name)
+         #handle_pdf_rename(params,@event.id,pdf_name)
 
         format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully updated.' }
         format.json { head :no_content }
@@ -106,6 +106,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
+    #delete_files_amazon(params[:id],"events")
     respond_to do |format|
       format.html { redirect_to admin_events_url }
       format.json { head :no_content }
@@ -156,51 +157,55 @@ class Admin::EventsController < ApplicationController
  
 
 
-  def handle_file_rename(event_id,file_names)
-    id_count = 0
+  # def handle_file_rename(event_id,file_names)
+  #   id_count = 0
    
-    file_names.each { |file_name|
-    if file_name
+  #   file_names.each { |file_name|
+  #   if file_name
       
-      File.rename(Rails.root.join('public', 'images','events',
-          file_name.to_s),Rails.root.join('public', 'images','events',
-          event_id.to_s + "-" + id_count.to_s + ".jpg"))
-    end
-      id_count +=1                                                       
-    }
+  #     File.rename(Rails.root.join('public', 'images','events',
+  #         file_name.to_s),Rails.root.join('public', 'images','events',
+  #         event_id.to_s + "-" + id_count.to_s + ".jpg"))
+  #   end
+  #     id_count +=1                                                       
+  #   }
 
-  rescue => e
-    logger.error( 'file uploaded but file renaming failed . ' + id_count.to_s + e.to_s )
-    flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
+  # rescue => e
+  #   logger.error( 'file uploaded but file renaming failed . ' + id_count.to_s + e.to_s )
+  #   flash[:error] = 'file uploaded but file renaming failed on server. Please try again.'
 
 
-  end
+  # end
 
 
   def handle_pdf_upload(params,pdf_name)
     unless params[:event]["event_pdf"].nil? || params[:event]["event_pdf"].blank?
       uploaded_io = params[:event][:event_pdf]
-      pdf_name[0] = uploaded_io.original_filename
 
-      File.open(Rails.root.join('public', 'files','events',
-          uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
+      upload_file_amazon(params[:id].to_s + ".pdf",uploaded_io,"events/files")
+
+      # pdf_name[0] = uploaded_io.original_filename
+
+      # File.open(Rails.root.join('public', 'files','events',
+      #     uploaded_io.original_filename), 'wb') do |file|
+      #   file.write(uploaded_io.read)
+      # end
+
     end
 
 
   end
 
-  def handle_pdf_rename(params,event_id,pdf_name)
+  # def handle_pdf_rename(params,event_id,pdf_name)
 
-    unless params[:event][:event_pdf].nil? || params[:event][:event_pdf].blank?
+  #   unless params[:event][:event_pdf].nil? || params[:event][:event_pdf].blank?
 
 
-      File.rename(Rails.root.join('public', 'files','events',
-          pdf_name[0].to_s),Rails.root.join('public', 'files','events',
-          event_id.to_s + ".pdf"))
-    end
-  end
+  #     File.rename(Rails.root.join('public', 'files','events',
+  #         pdf_name[0].to_s),Rails.root.join('public', 'files','events',
+  #         event_id.to_s + ".pdf"))
+  #   end
+  # end
 
 
 

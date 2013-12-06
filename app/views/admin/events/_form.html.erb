@@ -82,13 +82,18 @@
 				<div class="image">
 					<div class="field">
 
+
+
 						<%img1 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-0.jpg"%>
 
-
+						<%if AWS::S3::S3Object.exists? @event[:id].to_s + "-0.jpg", "events"%>
 						<img height ="238" width="238" src="<%=img1%>"></img>
 
 						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
+						<%else%>
+  						<img src="/images/no-image.jpg"></img>
+						<%end%>
 
 						<br />
 						<%= f.file_field :image_0 %>
@@ -130,9 +135,14 @@
 				<div class="image">
 					<div class="field">
 						<%img2 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-1.jpg"%>
+
+						<%if AWS::S3::S3Object.exists? @event[:id].to_s + "-1.jpg", "events"%>
 						<img height ="238" width="238" src="<%=img2%>"></img>
 						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
+						<%else%>
+  						<img src="/images/no-image.jpg"></img>
+						<%end%>
 
 						<br />
 						<%= f.file_field :image_1 %>
@@ -180,9 +190,15 @@
 					<div class="field">
 						<%img3 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-2.jpg"%>
 
-
+						<%if AWS::S3::S3Object.exists? @event[:id].to_s + "-2.jpg", "events"%>
 						<img height ="238" width="238" src="<%=img3%>"></img>
 						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
+						slslslslsl
+						<%else%>
+						xlxlxlxlxl
+  						<img src="/images/no-image.jpg"></img>
+						<%end%>
+
 						<%= f.label :image_2, 'upload a picture' %><br />
 						<%= f.file_field :image_2 %>
 

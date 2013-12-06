@@ -118,17 +118,12 @@
 				<td class="first_col" rowspan="4">
 					<div class="image">
 						<div class="field">
-					<%img1 = "/images/articles/" + @article[:id].to_s+"-0.jpg"%>
+					<%img1  = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/articles/" + @article[:id].to_s+"-0.jpg"%>
 							
-						<%if FileTest.exist?(Rails.root.to_s + "/public" + img1)%>
-  						<img src="<%=img1%>"></img>
-						
+						  										
 						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
 
-						<%else%>
-  						<img src="/images/no-image.jpg"></img>
-						<%end%>
-							
+											
 							<%#= f.label :image_0, 'upload a picture' %><br />
 							<%= f.file_field :image_0 %>
 
@@ -173,15 +168,13 @@
 				<td class="first_col">
 					<div class="image floatLeft bottomTopMargin10">
 						<div class="field">
-						<%img2 = "/images/articles/" + @article[:id].to_s+"-1.jpg"%>
+						<%img2  = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/articles/" + @article[:id].to_s+"-1.jpg"%>
 							
-						<%if FileTest.exist?(Rails.root.to_s + "/public" + img2)%>
+						
   						<img src="<%=img2%>"></img>
   						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
 
-						<%else%>
-  						<img src="/images/no-image.jpg"></img>
-						<%end%>							
+													
 
 						<%= f.label :image_1, 'upload another picture' %><br />
 							<%= f.file_field :image_1 %>
@@ -195,15 +188,13 @@
 					<div class="clearFloatBoth"></div>
 					<div class="image">
 						<div class="field">
-						<%img3 = "/images/articles/" + @article[:id].to_s+"-2.jpg"%>
+						<%img3 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/articles/" + @article[:id].to_s+ "-2.jpg"%>
 							
-						<%if FileTest.exist?(Rails.root.to_s + "/public" + img3)%>
+						
   						<img src="<%=img3%>"></img>
   						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
 
-						<%else%>
-  						<img src="/images/no-image.jpg"></img>
-						<%end%>
+						
 							<%= f.label :image_2, 'upload one more picture' %><br />
 							<%= f.file_field :image_2 %>
 						</div>

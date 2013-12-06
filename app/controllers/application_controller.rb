@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
 
   	end
 
+  	def delete_files_amazon(the_id,folder_name) #delete complete data from an event or article or team corresponding to an id
+
+  	end
+
 
   	def section
 		@section = params[:section].present? ?  params[:section] : request.fullpath.split("/")[2]
