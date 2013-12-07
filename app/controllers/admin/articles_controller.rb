@@ -64,7 +64,7 @@ class Admin::ArticlesController < ApplicationController
 
 		file_names = []
 
-		handle_file_upload(params,file_names)
+		
 
 		@article = Article.new(params[:article])
     @article.type = @type
@@ -75,6 +75,7 @@ class Admin::ArticlesController < ApplicationController
 		respond_to do |format|
       if @article.save
 				params[:id] = @article[:id]
+				handle_file_upload(params,file_names)
         associate_tag(params)
         #handle_file_rename(@article.id,file_names)
         format.html { redirect_to "/admin/#{@section}/#{params[:article][:origin_type]}/#{@article.id}/edit", :notice=> 'Article was successfully created.' }

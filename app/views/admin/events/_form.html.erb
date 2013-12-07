@@ -86,13 +86,13 @@
 
 						<%img1 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env +  "/events/" + @event[:id].to_s + "-0.jpg"%>
 
-						<%if AWS::S3::S3Object.exists? @event[:id].to_s + "-0.jpg", "events"%>
+						<%if @event[:caption_0].present?%>
 						<img height ="238" width="238" src="<%=img1%>"></img>
 
 						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
 						<%else%>
-  						<img src="/images/no-image.jpg"></img>
+  						<img src="/images/no-image.jpg" height ="238" width="238"></img>
 						<%end%>
 
 						<br />
@@ -136,12 +136,12 @@
 					<div class="field">
 						<%img2 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-1.jpg"%>
 
-						<%if AWS::S3::S3Object.exists? @event[:id].to_s + "-1.jpg", "events"%>
+						<%if @event[:caption_1].present?%>
 						<img height ="238" width="238" src="<%=img2%>"></img>
 						<%= link_to "", "/file_delete" + img2,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 
 						<%else%>
-  						<img src="/images/no-image.jpg"></img>
+  						<img src="/images/no-image.jpg" height ="238" width="238"></img>
 						<%end%>
 
 						<br />
@@ -190,13 +190,12 @@
 					<div class="field">
 						<%img3 = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/events/" + @event[:id].to_s + "-2.jpg"%>
 
-						<%if AWS::S3::S3Object.exists? @event[:id].to_s + "-2.jpg", "events"%>
+						<%if @event[:caption_2].present?%>
 						<img height ="238" width="238" src="<%=img3%>"></img>
 						<%= link_to "", "/file_delete" + img3,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross imgCross",:onclick => 'hide_image(this)' %>
 						slslslslsl
-						<%else%>
-						xlxlxlxlxl
-  						<img src="/images/no-image.jpg"></img>
+						<%else%>						
+  						<img src="/images/no-image.jpg" height ="238" width="238"></img>
 						<%end%>
 
 						<%= f.label :image_2, 'upload a picture' %><br />

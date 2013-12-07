@@ -52,9 +52,8 @@
 							<h3 class="subheader floatLeft"><%=event[:title]%></h3>
 							<span class="subheader floatRight"><%=event[:day].strftime('%B %d, %Y') unless event[:day].blank?%></span>
 							<div class="clear"></div>
-							<div class="bodyContent"><%=raw event[:description][0...240]%>...</div>
+							<div class="bodyContent"><%=raw event[:other_description][0...240]%>...</div>
 							<div class="tools">
-								<!--<span class="sharingTool"></span>-->
 								<a class="links floatRight" href="/clinic/events/<%=event[:id]%>">Read More</a>
 							</div>
 						</div>

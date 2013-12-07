@@ -40,7 +40,8 @@ TheOtherSongClinic::Application.configure do
 			:bucket => "tos-files",
 			:access_key_id => "AKIAJOF3F7AW2OJJYGFA",
 			:secret_access_key => "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"
-		}
+		},
+		:path => "//s3-ap-southeast-1.amazonaws.com/tos-files/"
 	}
 
 

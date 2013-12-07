@@ -30,11 +30,11 @@
 		<div class="floatLeft articlesRightPanel">
 			<div class="topHeader">
 				<%if page_no !=1%>
-					<a href="/clinic/case-studies?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
+					<a href="/clinic/videos?page=<%=page_no.to_i-1%>"><span class="floatLeft spriteIcon pagination">&laquo; Previous</span></a>
 				<%end%>
 				<span class="articleCount">Articles Found: <%=@total_videos.size%></span>
 				<%if @total_videos_remain > 10%>
-					<a href="/clinic/case-studies?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
+					<a href="/clinic/videos?page=<%=page_no.to_i+1%>"><span class="floatRight spriteIcon pagination next">Next &raquo;</span></a>
 				<%end%>
 			</div>
 			<div class="articlesList">

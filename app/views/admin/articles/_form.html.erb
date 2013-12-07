@@ -118,10 +118,10 @@
 				<td class="first_col" rowspan="4">
 					<div class="image">
 						<div class="field">
-					<%img1  = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/articles/" + @article[:id].to_s+"-0.jpg"%>
+							<%img1  = "//s3-ap-southeast-1.amazonaws.com/tos-files/" + Rails.env + "/articles/" + @article[:id].to_s+"-0.jpg"%>
 							
-						  										
-						<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
+						  <img src="<%=img1%>"></img>
+							<%= link_to "", "/file_delete" + img1,:remote => true, :confirm => 'Are you sure?', :class=>"adminSprite crossIcon fileCross",:onclick => 'hide_image(this)' %>
 
 											
 							<%#= f.label :image_0, 'upload a picture' %><br />
