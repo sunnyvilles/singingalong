@@ -43,36 +43,34 @@
 				<div class="floatLeft articleImageSlide">
 					<%if(@article[:file_caption_0].present?)%>
 					<div>
-						<img src="/images/articles/<%=@article[:id]%>-0.jpg" alt="" height="178" width="282"></img>
+						<%img_ur1l = Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{@article[:id]}-0.jpg"%>
+						<img src="<%=img_ur1l%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@article[:file_caption_0]%></span>
 					</div>
 					<%end%>
 					<%if(@article[:file_caption_1].present?)%>
 					<div>
-						<img src="/images/articles/<%=@article[:id]%>-1.jpg" alt="" height="178" width="282"></img>
+						<%img_ur12 = Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{@article[:id]}-1.jpg"%>
+						<img src="<%=img_ur12%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@article[:file_caption_1]%></span>
 					</div>
 					<%end%>
 					<%if(@article[:file_caption_2].present?)%>
 					<div>
-						<img src="/images/articles/<%=@article[:id]%>-2.jpg" alt="" height="178" width="282"></img>
+						<%img_ur13 = Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{@article[:id]}-2.jpg"%>
+						<img src="<%=img_ur13%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@article[:file_caption_2]%></span>
 					</div>
 					<%end%>
 				</div>
 				<%end%>
 				<%=raw @article[:content]%>
+				<div class="clear"></div>
 				<%if @article[:youtubeurl].present?%>
 					<div class="videoCt">
 						<div class="video floatLeft">
-						<iframe width="282" height="180" src="<%=@article[:youtubeurl]%>" frameborder="0" ></iframe>
-						</div>
-						<div class="floatLeft videoContent">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-							nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-							volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-							ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-						</div>
+							<iframe width="282" height="180" src="<%=@article[:youtubeurl]%>" frameborder="0" ></iframe>
+						</div>						
 					</div>
 				<%end%>
 			</div>
