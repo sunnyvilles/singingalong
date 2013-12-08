@@ -65,11 +65,15 @@ class Admin::EventsController < ApplicationController
 				 
          #handle_file_rename(@event.id,file_names)
          #handle_pdf_rename(params,@event.id,pdf_name)
+
          format.html { redirect_to "/admin/#{@section}/events/#{@event.id}/edit", notice: 'Event was successfully created.' }
          format.json { render json: @event, status: :created, location: @event }
+
       else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+
+         format.html { render action: "new" }
+         format.json { render json: @event.errors, status: :unprocessable_entity }
+         
       end
     end
   end
