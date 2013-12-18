@@ -1,7 +1,4 @@
 <style>
-	.sharingTool{
-		background-image: url("/images/share-icon.jpg");
-	}
 	.submenuItem ul{
 		border-right: 1px solid #ddd;
 		left: 0 !important;
@@ -35,7 +32,7 @@
 			<div class="articlesList">
 				<%@articles.each { |article|%>
 
-					<%img_url = article[:file_caption_0].present? ? "/images/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>
+					<%img_url = article[:file_caption_0].present? ? Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{article[:id]}-0.jpg" : "/images/articles/default.jpg"%>					
 					<div class="article">
 
 						<img src="<%=img_url%>" height="140" width="200" class="floatLeft" alt=""/>

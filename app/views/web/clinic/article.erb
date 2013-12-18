@@ -42,20 +42,23 @@
 				<%if(@article[:file_caption_0].present?)%>
 				<div class="floatLeft articleImageSlide">
 					<%if(@article[:file_caption_0].present?)%>
-					<div>
-						<img src="/images/articles/<%=@article[:id]%>-0.jpg" alt="" height="178" width="282"></img>
-						<span class="caption"><%=@article[:file_caption_0]%></span>
-					</div>
+						<div>
+							<%img_ur1l = Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{@article[:id]}-0.jpg"%>
+							<img src="<%=img_ur1l%>" alt="" height="178" width="282"></img>
+							<span class="caption"><%=@article[:file_caption_0]%></span>
+						</div>
 					<%end%>
 					<%if(@article[:file_caption_1].present?)%>
 					<div>
-						<img src="/images/articles/<%=@article[:id]%>-1.jpg" alt="" height="178" width="282"></img>
+						<%img_ur12 = Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{@article[:id]}-1.jpg"%>
+						<img src="<%=img_ur12%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@article[:file_caption_1]%></span>
 					</div>
 					<%end%>
 					<%if(@article[:file_caption_2].present?)%>
 					<div>
-						<img src="/images/articles/<%=@article[:id]%>-2.jpg" alt="" height="178" width="282"></img>
+						<%img_ur13 = Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{@article[:id]}-2.jpg"%>
+						<img src="<%=img_ur13%>" alt="" height="178" width="282"></img>
 						<span class="caption"><%=@article[:file_caption_2]%></span>
 					</div>
 					<%end%>
