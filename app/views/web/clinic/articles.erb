@@ -45,8 +45,6 @@
 							<div class="clear"></div>
 							<div class="bodyContent"><%=raw article[:content][0...180]%>...</div>
 							<div class="tools">
-								<span class="sharingTool"></span>
-								
 								<%if article[:is_paid] and !session[:user_id].present?%>
 									<a class="links floatRight" href="javascript:void(0);" onclick="openLoginBox();">Read More</a>
 								<%else%>

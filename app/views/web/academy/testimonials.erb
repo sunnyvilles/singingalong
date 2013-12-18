@@ -9,7 +9,7 @@
 					<div class="floatLeft testimonialVideoCt"><iframe width="200" height="140" src="<%=testimonial.testimonial_video%>" frameborder="0" ></iframe></div>
 					<div class="floatRight contentBlock" style="width: 720px;">
 						<h3 class="subheader floatLeft">Testimonial By <%=testimonial.testimonial_by%></h3>
-						<span class="links floatRight"><%=testimonial.created_at.strftime("%d %b %Y")%></span>
+						<!--<span class="links floatRight"><%=testimonial.created_at.strftime("%d %b %Y")%></span>-->
 						<div class="clear"></div>
 						<div class="bodyContent "><%=truncate(testimonial.description,:length=>300)%></div>
 					</div>
