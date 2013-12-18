@@ -29,6 +29,7 @@ class Admin::DoctorsController < ApplicationController
   # GET /doctors/new.json
   def new
     @doctor = Doctor.new
+   
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @doctor }

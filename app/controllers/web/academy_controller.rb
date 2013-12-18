@@ -127,10 +127,10 @@ class Web::AcademyController < ApplicationController
 
 	def aim
 
-	end
 
 	def team
 		@people = Doctor.get_people
+		@management_people = Doctor.find(:all, :conditions => [ "title = ?", "Management" ])
 	end
 
 	def association
@@ -190,6 +190,7 @@ class Web::AcademyController < ApplicationController
 
 
 	end
+
 	def events
 		per_page = 10
   	page = params[:page].to_i == 0 ? 1 : params[:page].to_i
@@ -209,12 +210,15 @@ class Web::AcademyController < ApplicationController
 		@total_events = Event.find(:all, :conditions => ["source = ?","academy"]).size
 		@total_events_remain = @total_events - start_value
 	end
+
+
 	def event
 		@event = Event.find(params[:event_id])
 		if request.xhr?			
 			render :layout => false and return
 		end
 	end
+end
 
 end
 

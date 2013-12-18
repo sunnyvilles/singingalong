@@ -1,115 +1,116 @@
 <%
-@titles = [["",0],["Consultancy/ Faculty", 1],
-	["Sr. Resident Doctors", 2],
-	["Resident Doctors", 3],
-	["Curriculum", 4],
-	["General Manager (Operations)", 5],
-	["Assistant general manager (Administration)", 6],
-	["Academic & Support team", 7],
-	["Accreditation and Resources", 8],
-	["Publication", 9],
-	["Clinical & Support team", 10],
-	["Visiting", 11],
-	["General Manager (Administration)", 12],
-	["PR clinic & Events Co-ordinator", 13],
-	["International Support Team", 14]
-	]
+@titles = [["",0],["Consultant / Faculty", 1],
+        ["Sr. Resident Doctors", 2],
+        ["Resident Doctors", 3],
+        ["Curriculum", 4],
+        ["General Manager (Operations)", 5],
+        ["Assistant general manager (Administration)", 6],
+        ["Academic & Support team", 7],
+        ["Accreditation and Resources", 8],
+        ["Publication", 9],
+        ["Clinical & Support team", 10],
+        ["VISITING FACULTY / VISITING CONSULTANT", 11],
+        ["General Manager (Administration)", 12],
+        ["PR clinic & Events Co-ordinator", 13],
+        ["International Support Team", 14],
+        ["Management",15]
+        ]
 %>
 <%= form_for([:admin, @doctor]) do |f| %>
-	<%= render :partial => "/admin/shared/header" %>
-	<%= render :partial => "/admin/shared/tabs" %>
-	<% if @doctor.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+        <%= render :partial => "/admin/shared/header" %>
+        <%= render :partial => "/admin/shared/tabs" %>
+        <% if @doctor.errors.any? %>
+                <div id="error_explanation">
+                        <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
 
-			<ul>
-				<% @doctor.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
+                        <ul>
+                                <% @doctor.errors.full_messages.each do |msg| %>
+                                        <li><%= msg %></li>
+                                <% end %>
 
-			</ul>
-		</div>
-	<% end %>
+                        </ul>
+                </div>
+        <% end %>
 <div class="actions docEditor">
-		<%= f.submit "SAVE" %>
-		<%#= link_to 'Back', "/admin/#{@section}/doctors" %>
-	</div>
+                <%= f.submit "SAVE" %>
+                <%#= link_to 'Back', "/admin/#{@section}/doctors" %>
+        </div>
 <table class="docEditor">
-		<tr>
-			<td><%= f.label :name %><br /></td>
-			<td>:</td>
-			<td><%= f.text_field :name %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :title %><br /></td>
-			<td>:</td>
-			<td><%= f.select :title, @titles %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :description %><br /></td>
-			<td>:</td>
-			<td><%= f.text_area :description ,:row=>"20",:class=>"doc_text" %></td>
-		</tr>
+                <tr>
+                        <td><%= f.label :name %><br /></td>
+                        <td>:</td>
+                        <td><%= f.text_field :name %></td>
+                </tr>
+                <tr>
+                        <td><%= f.label :title %><br /></td>
+                        <td>:</td>
+                        <td><%= f.select :title, @titles %></td>
+                </tr>
+                <tr>
+                        <td><%= f.label :description %><br /></td>
+                        <td>:</td>
+                        <td><%= f.text_area :description ,:row=>"20",:class=>"doc_text" %></td>
+                </tr>
 
-		<tr class="urls">
-			<td>URLs</td>
-			<td>:</td>
-			<td>
-				<input type="text" name="doctor_urls[]"></input>
-				<input id="addUrl" type="button" value="add url"></input>
-			</td>
-		</tr>
-		<%if @doctor.urls.size != 0%>
-			<%@doctor.urls.each{|url|%>
-				<tr class="url">
-					<td></td>
-					<td>:</td>
-					<td>
-						<input type="text" name="doctor_urls[]" value="<%=url[:title]%>"></input>
-						<input type="button" value="remove url" class="removeUrl"></input><br />
-					</td>
-				</tr>
-			<%}%>
-		<%end%>
-		<tr>
-			<td><%= f.label :picture, 'upload a picture' %><br /></td>
-			<td>:</td>
-			<td>
-				<%= f.file_field :picture %><br />
-				<img src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=@doctor[:id]%>.jpg" height="160" width="160"></img>
-				
-			</td>
-		</tr>
-		
-	</table>
+                <tr class="urls">
+                        <td>URLs</td>
+                        <td>:</td>
+                        <td>
+                                <input type="text" name="doctor_urls[]"></input>
+                                <input id="addUrl" type="button" value="add url"></input>
+                        </td>
+                </tr>
+                <%if @doctor.urls.size != 0%>
+                        <%@doctor.urls.each{|url|%>
+                                <tr class="url">
+                                        <td></td>
+                                        <td>:</td>
+                                        <td>
+                                                <input type="text" name="doctor_urls[]" value="<%=url[:title]%>"></input>
+                                                <input type="button" value="remove url" class="removeUrl"></input><br />
+                                        </td>
+                                </tr>
+                        <%}%>
+                <%end%>
+                <tr>
+                        <td><%= f.label :picture, 'upload a picture' %><br /></td>
+                        <td>:</td>
+                        <td>
+                                <%= f.file_field :picture %><br />
+                                <img src="//s3-ap-southeast-1.amazonaws.com/tos-files/team-images/<%=@doctor[:id]%>.jpg" height="160" width="160"></img>
+                                
+                        </td>
+                </tr>
+                
+        </table>
 
-	<!--<div class="field">
-	<img src="/images/doctors/<%=@doctor[:id]%>.jpg" height="160" width="160"></img>
-	<%= f.label :picture, 'upload a picture' %><br />
-	<%= f.file_field :picture %>
-	</div>-->
-	
+        <!--<div class="field">
+        <img src="/images/doctors/<%=@doctor[:id]%>.jpg" height="160" width="160"></img>
+        <%= f.label :picture, 'upload a picture' %><br />
+        <%= f.file_field :picture %>
+        </div>-->
+        
 <% end %>
 <style type="text/css">
-	.doc_text {
-		width: 600px;
+        .doc_text {
+                width: 600px;
 
-	}
+        }
 </style>
 <script>
 
 
 
-	$("#addUrl").click(function(){
-		$('.urls').after('<tr>' +
-			'<td></td>' +
-			'<td>:</td>' +
-			'<td>' +
-			'<input type="text" name="doctor_urls[]"></input>' +
-			'</td>' +
-			'</tr>');
-	});
-	$(".removeUrl").click(function(){
-		$(this).parent().parent().remove();
-	});
+        $("#addUrl").click(function(){
+                $('.urls').after('<tr>' +
+                        '<td></td>' +
+                        '<td>:</td>' +
+                        '<td>' +
+                        '<input type="text" name="doctor_urls[]"></input>' +
+                        '</td>' +
+                        '</tr>');
+        });
+        $(".removeUrl").click(function(){
+                $(this).parent().parent().remove();
+        });
 </script>
