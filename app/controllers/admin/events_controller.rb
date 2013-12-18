@@ -4,7 +4,7 @@ class Admin::EventsController < ApplicationController
 	layout "admin/application.html"
   def index
 		
-    @events = Event.find(:all, :conditions => [ "source = ?", @section], :order => "id DESC")
+    @events = Event.find(:all, :conditions => [ "source = ?", @section], :order => "day DESC")
 
     #Event.find(:all, :order => "id DESC")
 
