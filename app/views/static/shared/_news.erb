@@ -83,7 +83,10 @@
 			<ul>
 
 				<%@newses.each { |news|%>
-					<% news_link = "/#{news[:source]}/#{news[:type]}/#{news[:id]}" %>									
+
+					<%
+					type = news[:type] == "case study" ? "case-studie" : news[:type]
+					news_link = "/#{news[:source]}/#{type}s/#{news[:id]}" %>
 					<li  class="newsBlock">
 						<div>
 							<%if news["type"]== "video"%>
