@@ -83,6 +83,7 @@
 			<ul>
 
 				<%@newses.each { |news|%>
+					<% news_link = "/#{news[:source]}/#{news[:type]}/#{news[:id]}" %>									
 					<li  class="newsBlock">
 						<div>
 							<%if news["type"]== "video"%>
@@ -93,7 +94,7 @@
 							<%end%>
 							<div style="font-weight: normal;" class="subheader type <%=news[:type]%>"><%=news[:type].upcase%></div>
 						</div>
-						<div class="bodyContent news_title"><%=news[:title][0...32]%></div>
+						<a href="<%=news_link%>"><div class="bodyContent news_title"><%=news[:title][0...28]%></div></a>
 					</li>
 				<%}%>
 
