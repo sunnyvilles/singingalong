@@ -126,11 +126,12 @@ class Web::AcademyController < ApplicationController
 	end
 
 	def aim
+		
+	end
 
 
 	def team
-		@people = Doctor.get_people
-		@management_people = Doctor.find(:all, :conditions => [ "title = ?", "Management" ])
+		@people = Doctor.get_people		
 	end
 
 	def association
@@ -218,8 +219,6 @@ class Web::AcademyController < ApplicationController
 			render :layout => false and return
 		end
 	end
-end
-
 end
 
 
