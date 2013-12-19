@@ -90,7 +90,7 @@
 								<iframe height="194" width="290" src="<%=news[:youtubeurl]%>" frameborder="0" ></iframe>
 							<%else%>
 								<%img_url = news[:file_caption_0].present? ? Rails.configuration.s3Defaults[:path] + Rails.env + "/articles/#{news[:id]}-0.jpg" : "/images/articles/default.jpg"%>
-								<img src="<%=img_url%>" alt="" height="194" width="290"></img>
+								<a href="<%=news_link%>"><img src="<%=img_url%>" alt="" height="194" width="290"></img></a>
 							<%end%>
 							<div style="font-weight: normal;" class="subheader type <%=news[:type]%>"><%=news[:type].upcase%></div>
 						</div>
