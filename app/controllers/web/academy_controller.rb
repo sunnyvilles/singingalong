@@ -6,11 +6,11 @@ class Web::AcademyController < ApplicationController
 
 
 		if params[:action] == "case_studies"
-			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "case study" ])
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "academy", "case study" ])
 		elsif params[:action] == "videos"
-			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "video" ])
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "academy", "video" ])
 		else
-			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article"])
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "academy", "article"])
 		end
 
 		@arts.each do |art|
