@@ -1,7 +1,25 @@
 class Web::AcademyController < ApplicationController	
 	before_filter :collect_tags
 	def collect_tags
-		@all_tags = Tag.select("title")
+		@all_tags = []#Tag.select("title")
+
+
+
+		if params[:action] == "case_studies"
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "case study" ])
+		elsif params[:action] == "videos"
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "video" ])
+		else
+			@arts = Article.find(:all, :conditions => [ "source = ? and type = ?", "clinic", "article"])
+		end
+
+		@arts.each do |art|
+			art.tags.each do |tag|
+				unless @all_tags.include? tag
+					@all_tags << tag
+				end
+			end
+		end
 	end
 	def about_us
 		@sec = "ACADEMY"
