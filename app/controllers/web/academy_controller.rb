@@ -20,9 +20,9 @@ class Web::AcademyController < ApplicationController
 		@newses << artn[1] unless artn[1].nil?
 
 
-		@landing_events = Event.find(:all, :conditions => ["source = ? and publish = ?","academy",true],:order => 'day DESC', :limit => 4)
+		@landing_events = Event.find(:all, :conditions => ["source = ? and publish = ?","academy",true],:order => 'day ASC', :limit => 4)
 		if @landing_events.size < 4 
-			evs = Event.find(:all, :conditions => ["source = ?","academy"],:order => 'day DESC', :limit => (8- @landing_events.size))
+			evs = Event.find(:all, :conditions => ["source = ?","academy"],:order => 'day ASC', :limit => (8- @landing_events.size))
 			unless evs.nil?
 			evs.each do |ev|
 				unless @landing_events.size >= 4 || @landing_events.include?(ev)
