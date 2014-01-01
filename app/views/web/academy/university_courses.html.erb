@@ -13,7 +13,7 @@
 			<h3 class="subheader"><%= course.title.upcase %></h3>
 			<div class="bodyContent rteContent">
 				<%= raw course[:description] %>
-				<a class="links floatRight button" target="_blank" href="<%=Rails.configuration.s3Defaults[:path]%>tos-files/production/courses/<%=course.id%>.pdf">Download </a>
+				<a class="links floatRight button" target="_blank" href="<%=Rails.configuration.s3Defaults[:path]%>production/courses/<%=course.id%>.pdf">Download </a>
 			</div>
 		<%}%>
 	</div>
