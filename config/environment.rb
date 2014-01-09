@@ -8,7 +8,8 @@ ActionMailer::Base.smtp_settings = {
 	:user_name=>             'webadmin@theothersong.com',
 	:password=>               'Vital123$',
   :authentication=>       'plain',
-  :enable_starttls_auto=> true
+  :enable_starttls_auto=> true,
+	:openssl_verify_mode => 'none'
 }
 # Initialize the rails application
 TheOtherSongClinic::Application.initialize!
