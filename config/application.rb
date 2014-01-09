@@ -57,18 +57,18 @@ module TheOtherSongClinic
     config.assets.version = '1.0'
 
     
-		#MAIL SETTINGS
+#MAIL SETTINGS
 
-/*		config.action_mailer.raise_delivery_errors = true
-		config.action_mailer.perform_deliveries = true
-		config.action_mailer.delivery_method = :smtp
-		config.action_mailer.smtp_settings = {
-			address:              'smtpauth.theothersong.com',
-			port:                 587,
-			domain:               'theothersong.com',
-			user_name:             'webadmin@theothersong.com',
-			password:               'Vital123$',
-			authentication:       'plain',
-			enable_starttls_auto: true  }*/
+#config.action_mailer.raise_delivery_errors = true
+#config.action_mailer.perform_deliveries = true
+#  config.action_mailer.delivery_method = :smtp
+#config.action_mailer.smtp_settings = {
+#  address:              'smtpauth.theothersong.com',
+#  port:                 587,
+# domain:               'theothersong.com',
+# user_name:             'webadmin@theothersong.com',
+# password:               'Vital123$',
+#  authentication:       'plain',
+#  enable_starttls_auto: true  }
   end
 end
