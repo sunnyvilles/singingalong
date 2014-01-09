@@ -21,9 +21,7 @@
 	.article-list .contentBlock{
 		width: 740px;
 	}
-	.article-list .contentBlock .bodyContent{
-		height: 78px;
-	}
+	
 </style>
 <%page_no = params[:page].to_i == 0 ? 1 : params[:page].to_i%>
 
@@ -53,7 +51,7 @@
 							<h3 class="subheader floatLeft"><%=event[:title]%></h3>
 							<span class="subheader floatRight"><%=event[:day].strftime('%B %d, %Y') unless event[:day].blank?%></span>
 							<div class="clear"></div>
-							<div class="bodyContent"><%=raw event[:other_description][0...240]%>...</div>
+							<div class="bodyContent"><%=raw event[:other_description]%></div>
 							<div class="tools">
 								<!--<span class="sharingTool"></span>-->
 								<a class="links floatRight" href="/academy/events/<%=event[:id]%>">Read More</a>
