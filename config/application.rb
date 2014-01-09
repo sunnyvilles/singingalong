@@ -59,7 +59,7 @@ module TheOtherSongClinic
     
 		#MAIL SETTINGS
 
-		config.action_mailer.raise_delivery_errors = true
+/*		config.action_mailer.raise_delivery_errors = true
 		config.action_mailer.perform_deliveries = true
 		config.action_mailer.delivery_method = :smtp
 		config.action_mailer.smtp_settings = {
@@ -69,6 +69,6 @@ module TheOtherSongClinic
 			user_name:             'webadmin@theothersong.com',
 			password:               'Vital123$',
 			authentication:       'plain',
-			enable_starttls_auto: true  }
+			enable_starttls_auto: true  }*/
   end
 end
