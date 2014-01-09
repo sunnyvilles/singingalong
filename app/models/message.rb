@@ -6,8 +6,9 @@ class Message < MailForm::Base
   attribute :mail_to,  :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   def headers
     {
-      :subject => "inquiry mail",
-      :to => %("#{mail_to}"),
+      :subject => "Inquiry mail",
+      :to => mail_to,
+			#:to => %("#{mail_to}"),
       :from => %("#{name}" <#{email}>)
     }
   end
