@@ -13,7 +13,7 @@ class StaticController < ApplicationController
 			ext = ".pdf"
 		end
 		
-		File.delete(Rails.root.join('public' + ("/"+params[:file].to_s + ext)))
+		File.delete(Rails.root.join('public' + ("/" + params[:file].to_s + ext)))
 		flash[:notice] = "Successfully deleted the file."
 		
 	end
