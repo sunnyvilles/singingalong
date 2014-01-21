@@ -50,7 +50,12 @@
 							<div class="clear"></div>
 							<div class="articleContent bodyContent"><%=raw article[:content]%></div>
 							<div class="tools">
-								<a class="floatRight links" href="/clinic/videos/<%=article[:id]%>">Read More</a>
+								<%if article[:is_paid] and !session[:user_id].present?%>
+									<a class="links floatRight" href="javascript:void(0);" onclick="openLoginBox();">Read More</a>
+								<%else%>
+									<a class="links floatRight" href="/clinic/articles/<%=article[:id]%>">Read More</a>
+								<%end%>
+								<!--<a class="floatRight links" href="/clinic/videos/<%=article[:id]%>">Read More</a>-->
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -71,3 +76,13 @@
 		<div class="clear"></div>
 	</div>
 </div>
+
+<script>
+	function openLoginBox(){
+		alert('Please Sign in to watch this video');
+		 $("html, body").animate({ scrollTop: 0 }, "slow", function(){
+			 $(".loginBox").trigger('click');
+		 });
+	}
+
+</script>
