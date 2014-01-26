@@ -106,6 +106,7 @@
 			</div>
 			<div class="rightSection">
 				<h3><%= t "footer.givefeedback" %></h3>
+				<h3 id='successText' style='color:#dd0017'>&nbsp;</h3>
 				<form action="/submit-feedback" method="POST" id="feedback-form">
 					<%= csrf_meta_tag %>
 					<table>
@@ -126,7 +127,7 @@
 									<option value="clinic@theothersong.com">Clinic</option>
 									<option value="academy@theothersong.com">Academy</option>
 									<option value="info@theothersong.com">General</option>
-									<option value="abhimanyusaxena@gmail.com">Test</option>
+									<option value="abhimanyusaxena@gmail.com">Site Issue</option>
 								</select>
 							</td>
 						</tr>
@@ -182,12 +183,19 @@
 		
   });
 	$("#feedback-form").on('submit', function(){
+		$('#feedback-form input[type="submit"]').attr('disabled','disabled');
+		$('#feedback-form input[type="submit"]').after("&nbsp;<img id='loader' src='/images/loader.gif' />")
 		$.ajax({
 			url: $(this).attr('action'),
 			type: 'POST',
 			data: $(this).serialize(),
 			success: function(){
-				
+				$('#feedback-form input[type="submit"]').removeAttr('disabled');
+				$(".rightSection h3#successText").html("Inquiry Submitted");
+				$("#loader").remove();
+				setTimeout(function(){
+					$("#successText").fadeOut(1000);
+				},5000);
 			},
 			error: function(){
 				
