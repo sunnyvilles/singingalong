@@ -35,7 +35,7 @@ class StaticController < ApplicationController
 
 		#end
 
-		FeedbackMailer.feedback_mail(params).deliver
+		#FeedbackMailer.feedback_mail(params).deliver
 		if @msg.valid? && @msg.deliver
 				#redirect_to request.referer, :notice => 'Feedback submitted.'
 				render :json => {:success => true}
@@ -46,7 +46,6 @@ class StaticController < ApplicationController
 					:msg => @msg.to_json
 				}
 		end
-		#FeedbackMailer.feedback_mail(params).deliver
 		
 	end
 end
