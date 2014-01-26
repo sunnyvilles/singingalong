@@ -106,7 +106,8 @@
 			</div>
 			<div class="rightSection">
 				<h3><%= t "footer.givefeedback" %></h3>
-				<form action="/submit-feedback" method="POST">
+				<form action="/submit-feedback" method="POST" id="feedback-form">
+					<%= csrf_meta_tag %>
 					<table>
 
 						<tr>
@@ -137,7 +138,7 @@
 						</tr>
 						<tr>
 							<td>
-								 <script type="text/javascript"
+								 <!--<script type="text/javascript"
 									 src="http://www.google.com/recaptcha/api/challenge?k=6LdkregSAAAAAGA-8OJ1-uBwC-LFXT6_4v7gzpFa">
 								</script>
 								<noscript>
@@ -147,10 +148,14 @@
 									 </textarea>
 									 <input type="hidden" name="recaptcha_response_field"
 											 value="manual_challenge">
-								</noscript>
+								</noscript>-->
 							</td>
 						</tr>
-						<tr><td><input type="submit" class="spriteIcon feed_submit" value="<%= t "footer.send" %>"></input></td></tr>
+						<tr>
+							<td>
+								<input type="submit" class="spriteIcon feed_submit" value="<%= t "footer.send" %>"></input>
+							</td>
+						</tr>
 					</table>
 				</form>
 			</div>
@@ -174,8 +179,23 @@
 				});
 			}
 		});
+		
   });
-
+	$("#feedback-form").on('submit', function(){
+		$.ajax({
+			url: $(this).attr('action'),
+			type: 'POST',
+			data: $(this).serialize(),
+			success: function(){
+				
+			},
+			error: function(){
+				
+			}
+		});
+		return false;
+	});
+	
   //<tr>
 //							<td>
 //								<%#= raw recaptcha_tags%>
