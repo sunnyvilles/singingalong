@@ -46,7 +46,7 @@ class StaticController < ApplicationController
 					:msg => @msg.to_json
 				}
 		end
-		FeedbackMailer.feedback_mail(params).deliver
+		#FeedbackMailer.feedback_mail(params).deliver
 		
 	end
 end
