@@ -191,7 +191,7 @@
 			data: $(this).serialize(),
 			success: function(){
 				$('#feedback-form input[type="submit"]').removeAttr('disabled');
-				$(".rightSection h3#successText").html("Inquiry Submitted");
+				$(".rightSection h3#successText").html("Inquiry Submitted").fadeIn();
 				$("#loader").remove();
 				setTimeout(function(){
 					$("#successText").fadeOut(1000);
