@@ -194,7 +194,7 @@
 				$(".rightSection h3#successText").html("Inquiry Submitted").fadeIn();
 				$("#loader").remove();
 				setTimeout(function(){
-					$("#successText").fadeOut(1000);
+					$("#successText").fadeOut(1000, function(){$(this).show()}).html('&nbsp;');
 				},5000);
 			},
 			error: function(){
